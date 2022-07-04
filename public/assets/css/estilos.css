@@ -1,6 +1,6 @@
 body {
     background: #ffffff;
-    background-image:url(./assets/img/Recurso-8VTEK-RECURSOS.png) ;
+
     color: rgba(0, 0, 0, 0.87);
     font-family: Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
@@ -75,11 +75,10 @@ height: 40px;
 
 
 
+
 }
 .logo{
     background-image: url("/public/assets/img/Recurso\ 47VTEK\ RECURSOS.png");
-
-    background-image: url(/public/assets/img/Recurso\ 47VTEK\ RECURSOS.png);
     height: 162px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -87,7 +86,35 @@ height: 40px;
     margin-left: 811px;
 }
 
+.logov{
+    background-image: url("/public/assets/img/Recurso\ 88VTEK\ RECURSOS.png");
+    height: 100px;
+    background-repeat: no-repeat;
+    margin-left: 40px;
+    margin-top: 20px;
 
+
+}
+
+#sidebar-container{
+    min-height: 100vh;
+    background-color: #111b54 ;
+    position:absolute;
+    right: 0;
+}
+#sidebar-container .logov{
+    padding: .875rem 1.25rem;
+}
+#sidebar-container .menu{
+    width: 18rem;
+    
+
+
+}
+.menuopciones{
+    margin-left: 100px
+
+}
 
 
 
@@ -107,3 +134,5 @@ height: 40px;
         border-top: 16px solid #ffa100;
     }
 }
+
+ 
