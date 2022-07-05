@@ -88,17 +88,19 @@ height: 40px;
 
 .logov{
     background-image: url("/public/assets/img/Recurso\ 88VTEK\ RECURSOS.png");
-    height: 100px;
+    height: 45px;
     background-repeat: no-repeat;
-    margin-left: 40px;
-    margin-top: 20px;
+    margin-left: 111px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-size: contain;
 
 
 }
 
 #sidebar-container{
     min-height: 100vh;
-    background-color: #111b54 ;
+    background-color: #ffffff ;
     position:absolute;
     right: 0;
 }
@@ -112,7 +114,8 @@ height: 40px;
 
 }
 .menuopciones{
-    margin-left: 100px
+    margin-left: 200px
+    
 
 }
 
