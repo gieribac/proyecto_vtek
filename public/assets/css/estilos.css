@@ -20,7 +20,7 @@ font-weight: bold;
 
 }
 .btningresar1{
-    background-image: url('/public/assets/img/Recurso\ 36VTEK\ RECURSOS.png') !important;
+    background-image: url('../img/Recurso\ 36VTEK\ RECURSOS.png') !important;
     background-size: 100% 100%;
     width: 202px;
     height: 81px;
@@ -55,7 +55,7 @@ height: 40px;
 
 }
 .fondo1{
-    background-image: url('/public/assets/img/fondo1.png');
+    background-image: url('../img/fondo1.png');
     height: 624px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -65,7 +65,7 @@ height: 40px;
 
 }
 .fondo2{
-    background-image: url("/public/assets/img/Recurso\ 21VTEK\ RECURSOS.png");
+    background-image: url("../img/Recurso\ 21VTEK\ RECURSOS.png");
     height: 477px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -78,7 +78,7 @@ height: 40px;
 
 }
 .logo{
-    background-image: url("/public/assets/img/Recurso\ 47VTEK\ RECURSOS.png");
+    background-image: url("../img/Recurso\ 47VTEK\ RECURSOS.png");
     height: 162px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -87,7 +87,7 @@ height: 40px;
 }
 
 .logov{
-    background-image: url("/public/assets/img/Recurso\ 88VTEK\ RECURSOS.png");
+    background-image: url("../img/Recurso\ 88VTEK\ RECURSOS.png");
     height: 45px;
     background-repeat: no-repeat;
     margin-left: 111px;
@@ -117,6 +117,22 @@ height: 40px;
     margin-left: 200px
     
 
+}
+.infopagina{
+    background-image: url(../img/Recurso\ 38VTEK\ RECURSOS.png);
+    height: 124px;
+    width: 411px;
+    background-repeat: no-repeat;
+    margin-left: 71px;
+    background-size: contain;
+
+
+
+
+}
+.prueba{
+
+    background-color: #ffa100;
 }
 
 

@@ -1,5 +1,5 @@
 .mas-azul{
-    background-image: url("/public/assets/imgx1/Recurso\ 12VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 12VTEK\ RECURSOS.png");
     height: 20px;
     width: 20px;
     background-repeat: no-repeat;
@@ -15,7 +15,7 @@
 
 }
 .mas-blanco{
-    background-image: url("/public/assets/imgx1/Recurso\ 3VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 3VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 
 }
 .estrella-blanco{
-    background-image: url("/public/assets/imgx1/Recurso\ 2VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 2VTEK\ RECURSOS.png");
 
     height: 28px;
     width: 28px;
@@ -36,7 +36,7 @@
 
 }
 .estrella-color{
-    background-image: url("/public/assets/imgx1/Recurso\ 55VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 55VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -45,7 +45,7 @@
 
 }
 .estrella-azul{
-    background-image: url("/public/assets/imgx1/Recurso\ 13VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 13VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@
 
 }
 .persona-azul{
-    background-image: url("/public/assets/imgx1/Recurso\ 14VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 14VTEK\ RECURSOS.png");
     height: 20px;
     width: 20px;
     background-repeat: no-repeat;
@@ -71,7 +71,7 @@
 
 }
 .persona-blanco{
-    background-image: url("/public/assets/imgx1/Recurso\ 16VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 16VTEK\ RECURSOS.png");
      height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@
 
 }
 .persona-color{
-    background-image: url("/public/assets/imgx1/Recurso\ 13VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 13VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -90,7 +90,7 @@
 
 }
 .check-azul{
-    background-image: url("/public/assets/imgx1/Recurso\ 10VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 10VTEK\ RECURSOS.png");
     height: 20px;
     width: 20px;
     background-size: contain;
@@ -103,7 +103,7 @@
 
 }
 .check-blanco{
-    background-image: url("/public/assets/imgx1/Recurso\ 1VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 1VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -112,7 +112,7 @@
 
 }
 .check-color{
-    background-image: url("/public/assets/imgx1/Recurso\ 30VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 30VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -120,7 +120,7 @@
     background-position: center;
 }
 .soporte-azul{
-    background-image: url("/public/assets/imgx1/Recurso\ 19VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 19VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -129,7 +129,7 @@
 
 }
 .soporte-blanco{
-    background-image: url("/public/assets/imgx1/Recurso\ 25VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 25VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -138,7 +138,7 @@
 
 }
 .on-azul{
-    background-image: url("/public/assets/imgx1/Recurso\ 15VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 15VTEK\ RECURSOS.png");
     height: 20px;
     width: 20px;
     background-repeat: no-repeat;
@@ -152,7 +152,7 @@
 
 }
 .on-blanco{
-    background-image: url("/public/assets/imgx1/Recurso\ 17VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 17VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -161,7 +161,7 @@
 
 }
 .bola-blanco{
-    background-image: url("/public/assets/imgx1/Recurso\ 18VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 18VTEK\ RECURSOS.png");
     height: 39px;
     width: 40px;
     background-repeat: no-repeat;
@@ -171,7 +171,7 @@
 
 }
 .p-azul-login{
-    background-image: url("/public/assets/imgx1/Recurso\ 22VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 22VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -180,7 +180,7 @@
 
 }
 .c-azul-login{
-    background-image: url("/public/assets/imgx1/Recurso\ 23VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 23VTEK\ RECURSOS.png");
     height: 28px;
     width: 28px;
     background-repeat: no-repeat;
@@ -189,12 +189,12 @@
 
 }
 .logovtek{
-    background-image: url("/public/assets/img/Recurso\ 47VTEK\ RECURSOS.png");
+    background-image: url("../img/Recurso\ 47VTEK\ RECURSOS.png");
     width: 40px;
     height: 40px;
 }
 .casa-azul{
-    background-image: url("/public/assets/imgx1/Recurso\ 35VTEK\ RECURSOS.png");
+    background-image: url("../imgx1/Recurso\ 35VTEK\ RECURSOS.png");
     height: 20px;
     width: 20px;
     background-repeat: no-repeat;
