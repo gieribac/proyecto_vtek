@@ -1,5 +1,5 @@
 import {storage} from './firebase.js';
-import {uploadBytes,getDownloadURL, ref } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-storage.js"
+import {uploadBytes,getDownloadURL, ref } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js"
 export const uploadImage = async (file) => {
     const storageRef = ref(storage, file.name);
     return await uploadBytes(storageRef, file);
