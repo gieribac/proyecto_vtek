@@ -125,8 +125,17 @@ height: 40px;
     background-repeat: no-repeat;
     margin-left: 71px;
     background-size: contain;
+    position: relative;
 
 
+
+
+}
+.letrainfo{
+    color: #ffffff;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 142px;
 
 
 }
@@ -134,13 +143,89 @@ height: 40px;
 
     background-color: #ffa100;
 }
+.inputsdivi{
+    width: 300px;
+    margin-right: 10px;
+    
+
+
+}
+
+.margenusu{
+    margin-left: 200px;
+
+}
+.dropdown1{
+    border-radius: 50px;
+    width: 300px;
+    margin-right: 10px;
+}
+.dropdown2{
+    position: absolute;
+    right: 60px;
+    border-radius: 50px;
+    width: 200px;
+
+}
+.naranjasinb{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png);
+    height: 96px;
+    width: 197px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 239px;
+    margin-top: -33px;
 
 
 
 
 
+}
+.btnguardar{
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 229px;
+    height: 81px;
+    border: none;
+    margin-left: 408px;
+    background-repeat: no-repeat;
+    margin-top: -45px;
 
 
+}
+.letrabtng{
+    color: white!important;
+    text-align: center;
+    font-weight: bold;
+
+    
+
+}
+.letracargo{
+    color: white!important;
+    text-align: center;
+    font-weight: bold;
+    position: absolute;
+    margin-top: 22px;
+    margin-left: 71px;
+
+}
+.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-top-right-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+
+
+
+
+
+}
+.container{
+    background-color: aqua;
+    width: 50px;
+    height: 60PX;
+
+
+}
 
 @media (max-width: 600px) {
     body,
