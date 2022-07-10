@@ -1,9 +1,10 @@
 import './style.css';
 import {savePost, loadPosts} from './models/post.js';
 import {uploadImage,getImageURL } from './storage.js';
-import {GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import {GoogleAuthProvider, signInWithPopup} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
+
 import {auth} from './firebase.js';
-import { connectStorageEmulator } from 'firebase/storage';
+
 
 const postForm = document.getElementById('postForm');
 window.addEventListener('DOMContentLoaded', async()=> {

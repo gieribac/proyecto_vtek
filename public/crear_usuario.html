@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Crear Usuarios</title>
-
-    <!-- CSS only -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/estilos.css">
     <link rel="stylesheet" href="assets/css/iconos.css">
@@ -25,45 +24,80 @@
 
 
         <div class="d-flex align-items-stretch flex-column">
-          <div id="menu"></div>
 
 
-            <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+
+            <div id="sidebar-container">
+                <div class="logov">
+
+                </div>
+                <div class="menu ">
+                    <a href="#" class="d-block text-light p-3 mr menuopciones ">
+                        <div class="bola-blanco">
+                            <div class="check-azul"></div>
+                        </div>
+                    </a>
+                    <a href="#" class="d-block text-light p-3 menuopciones">
+                        <div class="bola-blanco">
+                            <div class="persona-azul"></div>
+                        </div>
+                    </a>
+                    <a href="#" class="d-block text-light p-3 menuopciones">
+                        <div class="bola-blanco">
+                            <div class="mas-azul"></div>
+                        </div>
+                    </a>
+                    <a href="#" class="d-block text-light p-3 menuopciones">
+                        <div class="bola-blanco">
+                            <div class="casa-azul"></div>
+                        </div>
+                    </a>
+                    <a href="#" class="d-block text-light p-3 menuopciones">
+                        <div class="bola-blanco">
+                            <div class="on-azul"></div>
+                        </div>
+                    </a>
+
+
+                </div>
+
+
+            </div>
+            <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 prueba">
 
                 <div class="infopagina">
-                  <h4 class="letrainfo">crear usuario</h4>
-                  
 
                 </div>
             </div>
-            <div class="cols-lg-4  col--6 col-xs-12   margenusu">
+            <div class="cols-lg-4  col-sm-6 col-xs-12  prueba margenusu">
 
 
                 <div class="input-group p-3">
                     <div class="inputsdivi">
-                        <input type="text" class="form-control inputsr" placeholder="Nombre de responsable " aria-label="usuario" id="nombreF"></div>
-                    <div class="inputsdivi"> <input type="text" class="form-control inputsr" placeholder="Correo" aria-label="usuario" id="correoF"></div>
+                        <input type="text" class="form-control inputsr" placeholder="Nombre de responsable " aria-label="usuario"></div>
+                    <div class="inputsdivi"> <input type="text" class="form-control inputsr" placeholder="Correo" aria-label="usuario" id="correo"></div>
                 </div>
                 <div class="input-group p-3">
                     <div class="inputsdivi">
-                        <input type="text" class="form-control inputsr" placeholder="nombre de usuario" aria-label="usuario" id="usuarioF"></div>
+                        <input type="text" class="form-control inputsr" placeholder="nombre de usuario" aria-label="usuario" id="nombre"></div>
                     <div class="inputsdivi">
-                        <input type="text" class="form-control inputsr" placeholder="Numero de contacto" aria-label="usuario" id="numeroF"></div>
+                        <input type="text" class="form-control inputsr" placeholder="Numero de contacto" aria-label="usuario" id="numero"></div>
                 </div>
                 <div class=" input-group p-3 ">
-                  <div >
+                    <div class="dropdown show ">
+                        <a class="btn btn-secondary dropdown-toggle dropdown1 " href="# " role="button " id="dropdownMenuLink" data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
+                      Tipo de identificacion
+                    </a>
 
-                    <select class="form-select dropdown1" aria-label="Default select example" id="tipoIDF">
-                      <option selected>Tipo de identificacion</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-
-                  </div>
+                        <div class="dropdown-menu " aria-labelledby="dropdownMenuLink ">
+                            <a class="dropdown-item " href="# ">Action</a>
+                            <a class="dropdown-item " href="# ">Another action</a>
+                            <a class="dropdown-item " href="# ">Something else here</a>
+                        </div>
+                    </div>
                     <div class="inputsdivi ">
 
-                        <div class=" "> <input type="text " class="form-control inputsr " id="identificacionF" placeholder="Identificacion " aria-label="usuario "></div>
+                        <div class=" "> <input type="text " class="form-control inputsr " id="identificacion" placeholder="Identificacion " aria-label="usuario "></div>
                     </div>
 
 
@@ -71,38 +105,33 @@
                 </div>
                 <div class="input-group p-3 ">
                     <div class="inputsdivi ">
-                        <input type="text " class="form-control inputsr " id="contrasenaF" placeholder="Contraseña " aria-label="usuario "></div>
-                    <div class="inputsdivi "> <input type="text " id="reccontrasenaF" class="form-control inputsr " placeholder="rectificar contraseña " aria-label="usuario "></div>
+                        <input type="text " class="form-control inputsr " id="contrasena" placeholder="Contraseña " aria-label="usuario "></div>
+                    <div class="inputsdivi "> <input type="text " class="form-control inputsr " placeholder="rectificar contraseña " aria-label="usuario "></div>
                 </div>
 
 
 
 
                 <div class="dropdown show p-3 ">
-                  <div >
+                    <a class="btn btn-secondary dropdown-toggle dropdown2 " href="# " role="button " id="dropdownMenuLink " data-toggle="dropdown " aria-haspopup="true " aria-expanded="false ">
+          Dropdown link
+        </a>
 
-                    <select class="form-select dropdown2" aria-label="Default select example" id="cargocliF">
-                      <option selected>seleccionar</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-
-                  </div>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuLink ">
+                        <a class="dropdown-item " href="# ">Action</a>
+                        <a class="dropdown-item " href="# ">Another action</a>
+                        <a class="dropdown-item " href="# ">Something else here</a>
+                    </div>
                 </div>
                 <div class="naranjasinb ">
-
-                    <h6 class="letracargo">cargo</h6>
-
-
-                  
+                    <h6 class="letracargo "> Cargo</h6>
 
                 </div>
                 <div>
 
 
 
-                    <button type="button " class="btn btnguardar " id="saveF"> <h6 class="letrabtng "> Guardar</h6></button>
+                    <button type="button " class="btn btnguardar " onclick="createUserWithEmailAndPassword()"> <h6 class="letrabtng "> Guardar</h6></button>
 
 
                 </div>
@@ -113,10 +142,13 @@
 
             </div>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js " integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2 " crossorigin="anonymous "></script>
-            <script src="1codejs/main.js"></script>
-            <script src="1codejs/menu.js"></script>
 
+
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js " integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2 " crossorigin="anonymous "></script>
+            <script src="/1codejs/main.js"></script>
 
 
 </body>
