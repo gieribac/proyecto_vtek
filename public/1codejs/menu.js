@@ -5,7 +5,7 @@ div_para_menu.innerHTML += `
 <div class="logov">
 
 </div>
-<div class="menu prueba ">
+<div class="menu">
     <a href="#" class="d-block text-light p-3 mr menuopciones ">
         <div class="bola-blanco">
             <div class="check-azul"></div>
@@ -31,7 +31,9 @@ div_para_menu.innerHTML += `
             <div class="on-azul"></div>
         </div>
     </a>
-    <div class="si_no desaparece" id= "si_no"></div>
+    <div class="si_no desaparece" id= "si_no">
+    
+    <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
   
 
 
@@ -45,6 +47,7 @@ div_para_menu.innerHTML += `
 document.set
 var on = document.getElementById('on'), 
     cerrar = document.getElementById('si_no'), 
+    off= document.getElementById('off'),
     contador=0;
     
 
@@ -61,6 +64,8 @@ var on = document.getElementById('on'),
 
 
     }
+    off.addEventListener('click',aparece,true)
+
 
 
 
