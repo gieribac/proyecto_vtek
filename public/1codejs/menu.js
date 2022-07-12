@@ -11,12 +11,12 @@ div_para_menu.innerHTML += `
             <div class="check-azul"></div>
         </div>
     </a>
-    <a href="#" class="d-block text-light p-3 menuopciones">
+    <a href="clientes.html" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="persona-azul"></div>
         </div>
     </a>
-    <a href="#" class="d-block text-light p-3 menuopciones">
+    <a href="crear_usuario.html" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="mas-azul"></div>
         </div>
