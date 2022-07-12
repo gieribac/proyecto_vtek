@@ -5,7 +5,7 @@ div_para_menu.innerHTML += `
 <div class="logov">
 
 </div>
-<div class="menu ">
+<div class="menu prueba ">
     <a href="#" class="d-block text-light p-3 mr menuopciones ">
         <div class="bola-blanco">
             <div class="check-azul"></div>
@@ -26,11 +26,14 @@ div_para_menu.innerHTML += `
             <div class="casa-azul"></div>
         </div>
     </a>
-    <a href="#" class="d-block text-light p-3 menuopciones">
+    <a href="#" id="on" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="on-azul"></div>
         </div>
     </a>
+    <div class="si_no desaparece" id= "si_no"></div>
+  
+
 
 
 </div>
@@ -40,3 +43,26 @@ div_para_menu.innerHTML += `
 
 `;
 document.set
+var on = document.getElementById('on'), 
+    cerrar = document.getElementById('si_no'), 
+    contador=0;
+    
+
+    function aparece(){
+        if (contador==0) {
+            cerrar.classList.remove('desaparece')
+            contador=1;
+
+            
+        } else {cerrar.classList.add('desaparece')
+        contador=0;
+            
+        }
+
+
+    }
+
+
+
+
+    on.addEventListener('click',aparece,true)
