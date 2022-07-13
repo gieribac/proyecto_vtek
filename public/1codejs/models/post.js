@@ -83,7 +83,7 @@ export const readUser = async () => {
     if (docSnap.exists()) {
     console.log("Document data:", docSnap.data());    
     rol  = docSnap.data().Cargo;
-    console.log(rol)
+    return rol;
     } else {
     // doc.data() will be undefined in this case
     console.log("No such document!");

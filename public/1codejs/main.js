@@ -12,7 +12,7 @@ window.addEventListener('hashchange',()=>{console.log(window.location.hash)})
         const result = signInWithEmailAndPassword(auth, document.getElementById('correo').value, document.getElementById('contrasena').value)
             .then((userCredential) => {
                 const user = userCredential.user;
-                readUser();
+                readUser().then(data => console.log(data));
                 //devolver rol;
             })
             .catch((error) => {
@@ -22,7 +22,7 @@ window.addEventListener('hashchange',()=>{console.log(window.location.hash)})
 
 
     //si rol == comercial hacer innerhtml correspondiente
-    
+
 // const user_ = auth.currentUser;
 // if (user_) {
 //     console.log("autenticado");
