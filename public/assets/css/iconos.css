@@ -312,3 +312,14 @@
 .desaparece{
     visibility: hidden !important;
 }
+.persona-color2{
+    background-image: url(../img/Recurso\ 31VTEK\ RECURSOS.png);
+    height: 121px;
+    width: 135px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    background-position: center;
+    margin-left: 50px;
+    margin-top: 66px;
+}

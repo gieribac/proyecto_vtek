@@ -195,6 +195,18 @@ height: 40px;
 
 
 }
+.btnguardar2{
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 229px;
+    height: 81px;
+    border: none;
+    margin-left: 408px;
+    background-repeat: no-repeat;
+
+
+
+}
 .letrabtng{
     color: white!important;
     text-align: center;
@@ -263,6 +275,24 @@ margin-right: 60px;
     margin-top: 25px;
     margin-left: 48px;
     cursor: pointer;
+}
+
+.infousuario {
+    background-image: url(../img/Recurso\ 38VTEK\ RECURSOS.png);
+    height: 234px;
+    width: 677px;
+    background-repeat: no-repeat;
+    margin-left: 71px;
+    background-size: contain;
+    position: relative;
+}
+.letrausuario {
+    color: #ffffff;
+    position: absolute;
+    font-weight: bold;
+    margin-top: 104px;
+    margin-left: 233px;
+    float: left;
 }
 @media (max-width: 600px) {
     body,
