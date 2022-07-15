@@ -68,21 +68,12 @@ export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero,
 //         });
 // }
 
-
-const user_ = auth.currentUser;
-if (user_) {
-console.log("autenticado");
-console.log(user_);
-}else {
-    console.log("no autenticado");
-}
-
 export const readUser = async () => {
     const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));
     let rol;
     if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());    
-    rol  = docSnap.data().Cargo;
+    //console.log("Document data:", docSnap.data());    
+    rol  = docSnap.data();
     return rol;
     } else {
     // doc.data() will be undefined in this case
