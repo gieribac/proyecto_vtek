@@ -116,13 +116,15 @@
     background-position: center;
 
 }
-.check-color{
-    background-image: url("../imgx1/Recurso\ 30VTEK\ RECURSOS.png");
-    height: 28px;
-    width: 28px;
+.check-color-c{
+    background-image: url(../imgx1/Recurso\ 30VTEK\ RECURSOS.png);
+    height: 51px;
+    width: 204px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    position: absolute;
+    margin-top: 30px;
 }
 .soporte-azul{
     background-image: url("../imgx1/Recurso\ 19VTEK\ RECURSOS.png");
@@ -284,8 +286,9 @@
 }
 .recuadro{
     background-color: white;
-    border-radius: 50px;
+    border-radius: 25px;
     float: left;
+    position:relative;
 
 
 }
@@ -322,4 +325,39 @@
     background-position: center;
     margin-left: 50px;
     margin-top: 66px;
+}
+.letra_IDC{   
+    margin-top: 107px;
+    margin-bottom: 10px;
+
+}
+.letra_IDR{   
+
+   margin-left: 30px;
+   margin-right: 30px;
+   margin-bottom: 30px;
+
+}
+.centrarH{
+    display: flex;
+    justify-content: center;
+}
+.descargarC {
+    background-image: url(../img/Recurso\ 34VTEK\ RECURSOS.png);
+    height: 100px;
+    width: 93px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+}
+.letra_descarga{
+    margin-top: 40px;
+    margin-right: 30px;
+    margin-left: 90px;
+    margin-bottom: 40px;
+}
+.moverH{
+
+    margin-left: 60px;
 }
