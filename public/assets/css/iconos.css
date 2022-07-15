@@ -1,14 +1,14 @@
 .mas-azul{
     background-image: url("../imgx1/Recurso\ 12VTEK\ RECURSOS.png");
-    height: 20px;
+    height: 25px;
     width: 20px;
     background-repeat: no-repeat;
     background-size: contain;
     
     background-position: center;
     position: absolute;
-    left: 10px;
-    top: 10px;
+    left: 13px;
+    top: 17px;
 
 
 
@@ -46,17 +46,21 @@
 }
 .estrella-azul{
     background-image: url("../imgx1/Recurso\ 13VTEK\ RECURSOS.png");
-    height: 28px;
-    width: 28px;
+    height: 25px;
+    width: 20px;
     background-repeat: no-repeat;
 
     background-size: contain;
+
     background-position: center;
+    position: absolute;
+    left: 13px;
+    top: 17px;
 
 }
 .persona-azul{
     background-image: url("../imgx1/Recurso\ 14VTEK\ RECURSOS.png");
-    height: 20px;
+    height: 25px;
     width: 20px;
     background-repeat: no-repeat;
     background-size: contain;
@@ -64,8 +68,8 @@
     background-size: contain;
     background-position: center;
     position: absolute;
-    left: 9px;
-    top: 10px;
+    left: 12px;
+    top: 17px;
 
     
 
@@ -80,26 +84,27 @@
 
 }
 .persona-color{
-    background-image: url("../imgx1/Recurso\ 13VTEK\ RECURSOS.png");
-    height: 28px;
-    width: 28px;
+    background-image: url(../imgx1/Recurso\ 31VTEK\ RECURSOS.png);
+    height: 121px;
+    width: 31px;
     background-repeat: no-repeat;
     background-size: contain;
-    
+    float: left;
     background-position: center;
+    margin-left: 47px;
 
 }
 .check-azul{
     background-image: url("../imgx1/Recurso\ 10VTEK\ RECURSOS.png");
-    height: 20px;
+    height: 25px;
     width: 20px;
     background-size: contain;
     background-repeat: no-repeat;
     
     background-position: center;
     position: absolute;
-    left: 9px;
-    top: 10px;
+    left: 12px;
+    top: 17px;
 
 }
 .check-blanco{
@@ -111,13 +116,15 @@
     background-position: center;
 
 }
-.check-color{
-    background-image: url("../imgx1/Recurso\ 30VTEK\ RECURSOS.png");
-    height: 28px;
-    width: 28px;
+.check-color-c{
+    background-image: url(../imgx1/Recurso\ 30VTEK\ RECURSOS.png);
+    height: 51px;
+    width: 204px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    position: absolute;
+    margin-top: 30px;
 }
 .soporte-azul{
     background-image: url("../imgx1/Recurso\ 19VTEK\ RECURSOS.png");
@@ -139,15 +146,15 @@
 }
 .on-azul{
     background-image: url("../imgx1/Recurso\ 15VTEK\ RECURSOS.png");
-    height: 20px;
+    height: 25px;
     width: 20px;
     background-repeat: no-repeat;
     background-size: contain;
     
     background-position: center;
     position: absolute;
-    left: 10px;
-    top: 10px;
+    left: 13px;
+    top: 17px;
 
 
 }
@@ -160,10 +167,40 @@
     background-position: center;
 
 }
+
+.audifonos-azul{
+    background-image: url("../imgx1/Recurso\ 11VTEK\ RECURSOS.png");
+    height: 25px;
+    width: 20px;
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    background-position: center;
+    position: absolute;
+    left: 13px;
+    top: 17px;
+
+}
+.campana-azul{
+    background-image: url("../imgx1/Recurso\ 53VTEK\ RECURSOS.png");
+    height: 25px;
+    width: 20px;
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    background-position: center;
+    position: absolute;
+    left: 13px;
+    top: 17px;
+
+}
+
 .bola-blanco{
     background-image: url("../imgx1/Recurso\ 18VTEK\ RECURSOS.png");
-    height: 39px;
-    width: 40px;
+    height: 58px;
+    width: 46px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -195,15 +232,132 @@
 }
 .casa-azul{
     background-image: url("../imgx1/Recurso\ 35VTEK\ RECURSOS.png");
-    height: 20px;
+    height: 25px;
     width: 20px;
     background-repeat: no-repeat;
     background-size: contain;
     
     background-position: center;
     position: absolute;
-    left: 10px;
-    top: 8px;
+    left: 13px;
+    top: 15px;
 
 
+}
+.columnas-clasi{
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 260px;
+    height: 81px;
+    border: none;
+
+    background-repeat: no-repeat;
+
+}
+.columnas-clasi2{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 229px;
+    height: 81px;
+    border: none;
+   
+
+    background-repeat: no-repeat;
+}
+.alinear{
+    float: left;
+    margin-left: 85px;
+    margin-right: -122px;
+
+}
+.i-azul{
+    background-image: url(../img/Recurso\ 39VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 100%;
+    height: 400px;
+    background-repeat: no-repeat;
+
+
+}
+.container2{
+    height: 50%;
+
+
+}
+.recuadro{
+    background-color: white;
+    border-radius: 25px;
+    float: left;
+    position:relative;
+
+
+}
+.centrarF{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.si_no{
+    background-image: url(../imgx1/Recurso\ 43VTEK\ RECURSOS.png);
+    height: 66px;
+    width: 135px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-left: 16px;
+    margin-top: -79px;
+    margin-bottom: 20px;
+    
+}
+.desaparece{
+    visibility: hidden !important;
+}
+.persona-color2{
+    background-image: url(../img/Recurso\ 31VTEK\ RECURSOS.png);
+    height: 121px;
+    width: 135px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    background-position: center;
+    margin-left: 50px;
+    margin-top: 66px;
+}
+.letra_IDC{   
+    margin-top: 107px;
+    margin-bottom: 10px;
+
+}
+.letra_IDR{   
+
+   margin-left: 30px;
+   margin-right: 30px;
+   margin-bottom: 30px;
+
+}
+.centrarH{
+    display: flex;
+    justify-content: center;
+}
+.descargarC {
+    background-image: url(../img/Recurso\ 34VTEK\ RECURSOS.png);
+    height: 100px;
+    width: 93px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+}
+.letra_descarga{
+    margin-top: 40px;
+    margin-right: 30px;
+    margin-left: 90px;
+    margin-bottom: 40px;
+}
+.moverH{
+
+    margin-left: 60px;
 }

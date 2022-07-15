@@ -114,7 +114,7 @@ height: 40px;
 
 }
 .menuopciones{
-    margin-left: 200px
+    margin-left: 139px
     
 
 }
@@ -127,6 +127,16 @@ height: 40px;
     background-size: contain;
 
 
+
+
+}
+.letrainfo{
+    color: #ffffff;
+    position: absolute;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-left: 142px;
+    float: left;
 
 
 }
@@ -153,7 +163,7 @@ height: 40px;
 }
 .dropdown2{
     position: absolute;
-    right: 60px;
+    right: 540px;
     border-radius: 50px;
     width: 200px;
 
@@ -184,6 +194,18 @@ height: 40px;
 
 
 }
+.btnguardar2{
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 229px;
+    height: 81px;
+    border: none;
+    margin-left: 408px;
+    background-repeat: no-repeat;
+
+
+
+}
 .letrabtng{
     color: white!important;
     text-align: center;
@@ -198,12 +220,89 @@ height: 40px;
     font-weight: bold;
 
 }
+<<<<<<< HEAD
+=======
+.letra-columna{
+    color: white!important;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 30px;
+
+
+}
+.input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+    border-top-right-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+
+>>>>>>> 75b2a84dabf9753b2d1c17ead434d92d524ed272
 
 
 
 
 
 
+<<<<<<< HEAD
+=======
+}
+.margenr{
+margin-right: 60px;
+}
+.margenr1{
+    margin-right: 80px;
+}
+.margenr2{
+    margin-left: 20px;
+}
+
+.sombra{
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.37);
+}
+.saliendo{
+    color: white!important;
+    font-weight: bold;
+    float: left;
+    margin-top: 25px;
+    margin-left: 26px;
+}
+.nosalir{
+    color: white!important;
+    font-weight: bold;
+    float: left;
+    margin-top: 25px;
+    margin-left: 48px;
+    cursor: pointer;
+}
+
+.infousuario {
+    background-image: url(../img/Recurso\ 38VTEK\ RECURSOS.png);
+    height: 234px;
+    width: 677px;
+    background-repeat: no-repeat;
+    margin-left: 71px;
+    background-size: contain;
+    position: relative;
+}
+.letrausuario {
+    color: #ffffff;
+    position: absolute;
+    font-weight: bold;
+    margin-top: 104px;
+    margin-left: 233px;
+    float: left;
+}
+.btncontactarC{
+    background-image: url('../img/Recurso\ 36VTEK\ RECURSOS.png') !important;
+    background-size: 100% 100%;
+    width: 202px;
+    height: 81px;
+    border: none;
+    position: flex;
+    justify-content: right;
+
+
+
+}
+>>>>>>> 75b2a84dabf9753b2d1c17ead434d92d524ed272
 
 @media (max-width: 600px) {
     body,
