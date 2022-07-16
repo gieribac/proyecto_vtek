@@ -19,11 +19,11 @@ import {newUser} from './models/post.js';
 
 // el campo recontraseñaF debe activarse si se cumple la expresion regular
 
-if (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(contrasenaF) &&  contrasenaF===recontrasenaF) {
-    saveF.addEventListener('click', () => {
-        newUser(correoF, contrasenaF, nombreF, usuarioF, numeroF, identificacionF, tipoIDF,  cargocliF, saveF);
-      });
-}
+// if (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(contrasenaF) &&  contrasenaF===recontrasenaF) {
+//     saveF.addEventListener('click', () => {
+//         newUser(correoF, contrasenaF, nombreF, usuarioF, numeroF, identificacionF, tipoIDF,  cargocliF, saveF);
+//       });
+// }
 
 //mensaje para el usuario si aplica: la verificaciòn de contraseña no coincide
 //dejar desactivado el voton guardar (ponerlo opaco o de otro color hasta que coi)
