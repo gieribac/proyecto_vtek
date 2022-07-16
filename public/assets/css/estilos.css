@@ -294,19 +294,6 @@ margin-right: 60px;
     margin-left: 233px;
     float: left;
 }
-.btncontactarC{
-    background-image: url('../img/Recurso\ 36VTEK\ RECURSOS.png') !important;
-    background-size: 100% 100%;
-    width: 202px;
-    height: 81px;
-    border: none;
-    position: flex;
-    justify-content: right;
-
-
-
-}
-
 @media (max-width: 600px) {
     body,
     #message {
