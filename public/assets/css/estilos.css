@@ -220,8 +220,6 @@ height: 40px;
     font-weight: bold;
 
 }
-<<<<<<< HEAD
-=======
 .letra-columna{
     color: white!important;
     text-align: center;
@@ -234,15 +232,12 @@ height: 40px;
     border-top-right-radius: 50px !important;
     border-bottom-right-radius: 50px !important;
 
->>>>>>> 75b2a84dabf9753b2d1c17ead434d92d524ed272
 
 
 
 
 
 
-<<<<<<< HEAD
-=======
 }
 .margenr{
 margin-right: 60px;
@@ -302,7 +297,6 @@ margin-right: 60px;
 
 
 }
->>>>>>> 75b2a84dabf9753b2d1c17ead434d92d524ed272
 
 @media (max-width: 600px) {
     body,

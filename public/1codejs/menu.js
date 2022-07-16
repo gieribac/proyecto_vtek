@@ -1,4 +1,4 @@
-var div_para_menu = document.getElementById('menu')
+var div_para_menu = document.querySelector('.menu')
 div_para_menu.innerHTML += ` 
 
 <div id="sidebar-container">
@@ -43,7 +43,7 @@ div_para_menu.innerHTML += `
 
 </div>
 
-`;document.set
+`;
 
 
 

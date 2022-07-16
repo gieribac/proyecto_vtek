@@ -78,5 +78,3 @@ export const validarFormCrearUsu = (nombreResp,correo, nombreUsu, numeroContacto
     const valident = /^\d{7,10}$/.test(ident);// 7 a 10 digitos
     return valcorreo && valclave;
 }
-usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-	nombre: /^[a-zA-ZÀ-ÿ\s]{3,40}$/, // Letras y espacios, pueden llevar tildes.
