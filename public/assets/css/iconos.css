@@ -361,3 +361,21 @@
 
     margin-left: 60px;
 }
+.azul-ofertas {
+    background-image: url(../img/Recurso\ 34VTEK\ RECURSOS.png);
+    height: 67px;
+    width: 78px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+}
+.listo_formalizar {
+    background-image: url(../img/Recurso\ 33VTEK\ RECURSOS.png);
+    height: 67px;
+    width: 78px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+}
