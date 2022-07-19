@@ -1,7 +1,0 @@
-tecnicoCoordinador : `<div>Técnico Coordinador</div>`,
-directorTecnico : `<div>Director Técnico</div>`,
-experto : `<div>Experto</div>`,
-administrador : `<div>Nombre del administrador</div>`,
-cliente : `<div>Cliente</div>`,
-servicioalCliente : `<div>Servicio al cliente</div>`,
-comercial : `<div>Comercial</div>`,

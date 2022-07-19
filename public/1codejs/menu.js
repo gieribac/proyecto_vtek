@@ -1,4 +1,5 @@
-var div_para_menu = document.querySelector('.menu')
+console.log('menu.js')
+var div_para_menu = document.getElementById('menu')
 div_para_menu.innerHTML += ` 
 
 <div id="sidebar-container">
@@ -10,7 +11,7 @@ div_para_menu.innerHTML += `
         <div class="bola-blanco">
             <div class="check-azul"></div>
         </div>
-    </a>
+    </a>·menu
     <a href="clientes.html" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="persona-azul"></div>
@@ -43,7 +44,7 @@ div_para_menu.innerHTML += `
 
 </div>
 
-`;
+`;document.set
 
 
 

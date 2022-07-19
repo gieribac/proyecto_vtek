@@ -72,7 +72,7 @@ export const readUser = async () => {
     const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));
     let rol;
     if (docSnap.exists()) {
-    //console.log("Document data:", docSnap.data());    
+    console.log("Document data:", docSnap.data());    
     rol  = docSnap.data();
     return rol;
     } else {

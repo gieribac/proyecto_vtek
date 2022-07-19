@@ -30,11 +30,11 @@ import {newUser} from './models/post.js';
 //hablar lo de validaciones de los demas campos
 //https://www.youtube.com/watch?v=s3pC93LgP18&t=1297s
 
-newUser('iba@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','comercial'); 
-newUser('luffy@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','scliente');
-newUser('ace@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','cliente');
-newUser('sabo@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','admin');
-newUser('zoro@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','experto');
-newUser('nami@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','dtecnico');
-newUser('sanji@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','tcoordinador');
+// newUser('iba@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','comercial'); 
+// newUser('luffy@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','scliente');
+// newUser('ace@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','cliente');
+// newUser('sabo@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','admin');
+// newUser('zoro@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','experto');
+// newUser('nami@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','dtecnico');
+// newUser('sanji@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','tcoordinador');
 //setDocument();
