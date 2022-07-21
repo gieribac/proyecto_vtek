@@ -1,4 +1,5 @@
-var div_para_menu = document.getElementById('menu')
+     const observermenu = new MutationObserver(()=>{
+        var div_para_menu = document.getElementById('menu')
 div_para_menu.innerHTML += ` 
 
 <div id="sidebar-container">
@@ -44,6 +45,13 @@ div_para_menu.innerHTML += `
 </div>
 
 `;document.set
+
+        
+     })
+
+        const parent = document.getElementById('root');
+        observermenu.observe(parent,{childList:true, subtree:true})
+
 
 
 
@@ -318,29 +326,30 @@ div_para_menu.innerHTML += `
 
 
 
-var on = document.getElementById('on'), 
-    cerrar = document.getElementById('si_no'), 
-    off= document.getElementById('off'),
-    contador=0;
+// var on = document.getElementById('on'), 
+//     cerrar = document.getElementById('si_no'), 
+//     off= document.getElementById('off'),
+//     contador=0;
     
 
-    function aparece(){
-        if (contador==0) {
-            cerrar.classList.remove('desaparece')
-            contador=1;
+//     function aparece(){
+//         if (contador==0) {
+//             cerrar.classList.remove('desaparece')
+//             contador=1;
 
             
-        } else {cerrar.classList.add('desaparece')
-        contador=0;
+//         } else {cerrar.classList.add('desaparece')
+//         contador=0;
             
-        }
+//         }
 
 
-    }
-    off.addEventListener('click',aparece,true)
+//     }
+//     off.addEventListener('click',aparece,true)
 
 
 
 
 
-    on.addEventListener('click',aparece,true)
+//     on.addEventListener('click',aparece,true)
+
