@@ -250,6 +250,7 @@
     width: 260px;
     height: 81px;
     border: none;
+    float: left;
 
     background-repeat: no-repeat;
 
@@ -260,8 +261,30 @@
     width: 229px;
     height: 81px;
     border: none;
-   
+   float: left;
+   margin-right: -25px;
 
+    background-repeat: no-repeat;
+}
+.columnas-clasi3{
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 234px;
+    height: 81px;
+    border: none;
+    float: left;
+
+    background-repeat: no-repeat;
+
+}
+.columnas-clasi4{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    float: left;
+    margin-right: -30px;
     background-repeat: no-repeat;
 }
 .alinear{
@@ -360,4 +383,22 @@
 .moverH{
 
     margin-left: 60px;
+}
+.azul-ofertas {
+    background-image: url(../img/Recurso\ 34VTEK\ RECURSOS.png);
+    height: 67px;
+    width: 78px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+}
+.listo_formalizar {
+    background-image: url(../img/Recurso\ 33VTEK\ RECURSOS.png);
+    height: 67px;
+    width: 78px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
 }
