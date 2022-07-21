@@ -24,12 +24,12 @@
             <div class="mas-azul"></div>
         </div>
     </a>
-    <a href="home_admin.html" class="d-block text-light p-3 menuopciones">
+    <a href="#/admin" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="casa-azul"></div>
         </div>
     </a>
-    <a href="#" id="on" class="d-block text-light p-3 menuopciones">
+    <a href="" id="on" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="on-azul"></div>
         </div>
