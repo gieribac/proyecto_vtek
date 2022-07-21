@@ -1,17 +1,11 @@
 import {signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
 import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
-<<<<<<< HEAD
-import {validarlogin} from './main.js'
-
-
-=======
 import {validarlogin} from './main.js';
 // import "./menu.js";
 
 
 
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
 // var hash_ = null;
 //     window.onload = () => {
 //         window.location.hash = '/';

@@ -22,13 +22,6 @@ const
     tcoordinador_default = `<div>Técnico Coordinador</div>`,
     dtecnico_default = `<div>Director Técnico</div>`,
     experto_default = `<div>Experto</div>`,
-<<<<<<< HEAD
-    admin_default = `<div>Nombre del administrador</div>`,
-    cliente_default = `<div>Cliente</div>`,
-    scliente_default = `<div>Servicio al cliente</div>`,
-    comercial_default   = `<div>Comercial</div>`,
-    admin_infooffer = '',
-=======
     admin_default =`<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
@@ -109,7 +102,6 @@ const
             </div>
       </div>
       </div>`,
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
     admin_infooffers = '',
     admin_infoclients = ` <div>
     <div class="d-flex align-items-stretch flex-column">
@@ -144,11 +136,6 @@ const
           </div>
         </div>
         </div>`,
-<<<<<<< HEAD
-    admin_createuser = '',
-    logout = `<button id="SignOff">cerrar sesion</button>`, 
-    cliente_offer = '',
-=======
     admin_createuser = ` <div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
 
@@ -366,7 +353,6 @@ const
 
 
       </div>`,
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
     comercial_infoclientes = '',
     comercial_infocerts = '', 
     comercial_infooffers = '',
@@ -381,9 +367,6 @@ const
     experto_createeval = '',
     experto_paleval = '',
     experto_infocliente = '',
-<<<<<<< HEAD
-    scliente_infooffers = '',
-=======
     scliente_infooffers = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
 
@@ -467,7 +450,6 @@ const
 
 
       </div>`,
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
     scliente_infooffer = '',
     scliente_certcliente = '',
     scliente_usuariocliente = '',

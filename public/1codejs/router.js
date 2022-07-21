@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
 import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
 import {index,
@@ -15,10 +11,6 @@ import {index,
     tcoordinador_default, tcoordinador_createasignacion, tcoordinador_asignacion
 } from "./pages.js";
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
 window.addEventListener('hashchange',()=>{ //se escucha que el hash ha cambiado
 
     if (auth.currentUser) { //se serciora que el usuario este autenticado
