@@ -266,6 +266,27 @@
 
     background-repeat: no-repeat;
 }
+.columnas-clasi3{
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 234px;
+    height: 81px;
+    border: none;
+    float: left;
+
+    background-repeat: no-repeat;
+
+}
+.columnas-clasi4{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    float: left;
+    margin-right: -30px;
+    background-repeat: no-repeat;
+}
 .alinear{
     float: left;
     margin-left: 85px;

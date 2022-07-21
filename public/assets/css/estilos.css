@@ -309,6 +309,81 @@ margin-right: 60px;
 .margenrecuadro{ margin-left: 20px;}
 
 
+
+
+
+
+
+main{
+    max-width: 800px;
+    width: 90%;
+    margin: auto;  
+    padding: 40px;
+
+
+}
+
+.formulario__input-error{
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+
+}
+.formulario__input-error-activo{
+    display: block;
+}
+.formulario__validacion-estado{
+    position: relative;
+    bottom: 15 px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+    left: 259px;
+    margin: 10px;
+
+
+
+}
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.imputs_tamano{
+    position: absolute;
+    width: 300px;
+}
+.formulario__grupo-input{
+    position: relative;
+
+}
+.formulario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+
+
+.formulario__grupo-correcto .formulario__validacion-estado{
+color: #1ed12d;
+opacity: 1;
+}
+.formulario__grupo-incorrecto .formulario__validacion-estado{
+    color: #bb2929;
+    opacity: 1;
+    }
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 600px) {
     body,
     #message {

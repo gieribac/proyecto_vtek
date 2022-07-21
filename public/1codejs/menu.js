@@ -1,23 +1,25 @@
-     const observermenu = new MutationObserver(()=>{
+     
+     const observermenu = new MutationObserver(()=>{ 
+
         var div_para_menu = document.getElementById('menu')
-div_para_menu.innerHTML += ` 
+        setTimeout(()=>{div_para_menu.innerHTML += ` 
 
 <div id="sidebar-container">
 <div class="logov">
 
 </div>
 <div class="menu">
-    <a href="#" class="d-block text-light p-3 mr menuopciones ">
+    <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones ">
         <div class="bola-blanco">
             <div class="check-azul"></div>
         </div>
     </a>
-    <a href="clientes.html" class="d-block text-light p-3 menuopciones">
+    <a href="#/admin/infoclients" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="persona-azul"></div>
         </div>
     </a>
-    <a href="crear_usuario.html" class="d-block text-light p-3 menuopciones">
+    <a href="#/admin/createuser" class="d-block text-light p-3 menuopciones">
         <div class="bola-blanco">
             <div class="mas-azul"></div>
         </div>
@@ -44,7 +46,38 @@ div_para_menu.innerHTML += `
 
 </div>
 
-`;document.set
+`;document.set}, 1000);
+
+        
+        
+
+
+var on = document.getElementById('on'), 
+cerrar = document.getElementById('si_no'), 
+off= document.getElementById('off'),
+contador=0;
+
+
+function aparece(){
+    if (contador==0) {
+        cerrar.classList.remove('desaparece')
+        contador=1;
+
+       
+    } else {cerrar.classList.add('desaparece')
+    contador=0;
+       
+    }
+
+
+}
+off.addEventListener('click',aparece,true)
+
+
+
+
+
+on.addEventListener('click',aparece,true)
 
         
      })
@@ -326,30 +359,5 @@ div_para_menu.innerHTML += `
 
 
 
-// var on = document.getElementById('on'), 
-//     cerrar = document.getElementById('si_no'), 
-//     off= document.getElementById('off'),
-//     contador=0;
-    
 
-//     function aparece(){
-//         if (contador==0) {
-//             cerrar.classList.remove('desaparece')
-//             contador=1;
-
-            
-//         } else {cerrar.classList.add('desaparece')
-//         contador=0;
-            
-//         }
-
-
-//     }
-//     off.addEventListener('click',aparece,true)
-
-
-
-
-
-//     on.addEventListener('click',aparece,true)
 

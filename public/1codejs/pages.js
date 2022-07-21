@@ -22,7 +22,7 @@ const
     tcoordinador_default = `<div>Técnico Coordinador</div>`,
     dtecnico_default = `<div>Director Técnico</div>`,
     experto_default = `<div>Experto</div>`,
-    admin_default = `<div class="d-flex align-items-stretch flex-column">
+    admin_default =`<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
           <div class="infousuario ">
@@ -77,14 +77,14 @@ const
       </div>
       <div class="col-lg-9 ">
         <div> </div>
-        <div class="columnas-clasi2 alinear_ofertas"><h6 class="letra-columna">oferta</h6></div>
-        <div class="columnas-clasi2 alinear_ofertas2"><h6 class="letra-columna">cliente</h6></div>
-        <div class="columnas-clasi2 alinear_ofertas2"><h6 class="letra-columna">Producto</h6></div>
-        <div class="columnas-clasi2 alinear_ofertas2"><h6 class="letra-columna">Estado</h6></div>         
-          <div class="columnas-clasi alinear_ofertas2"><h6 class="letra-columna">Formalizar</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas"><h6 class="letra-columna">oferta</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">cliente</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Producto</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Estado</h6></div>         
+          <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Formalizar</h6></div>
       </div>
-      <div class="col-lg-10 prueba " style="margin-top: 20px;">
-          <div class="recuadro margenr1 margenofertas sombra" id="cliente">
+      <div class="col-lg-10 " style="margin-top: 20px;">
+          <div class="recuadro margenr1 margenofertas sombra" style="margin-left:40px;" id="cliente">
             <div class="p-3" ><h6 >oferta # 3</h6></div>
           </div>
           <div class="recuadro margenr sombra" id="legal">
