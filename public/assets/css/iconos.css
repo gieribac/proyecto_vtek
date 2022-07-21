@@ -250,6 +250,7 @@
     width: 260px;
     height: 81px;
     border: none;
+    float: left;
 
     background-repeat: no-repeat;
 
@@ -260,7 +261,8 @@
     width: 229px;
     height: 81px;
     border: none;
-   
+   float: left;
+   margin-right: -25px;
 
     background-repeat: no-repeat;
 }

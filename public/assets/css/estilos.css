@@ -306,6 +306,8 @@ margin-right: 60px;
 
 
 }
+.margenrecuadro{ margin-left: 20px;}
+
 
 @media (max-width: 600px) {
     body,
