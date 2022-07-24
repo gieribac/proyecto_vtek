@@ -117,7 +117,7 @@
 
 }
 .check-color-c{
-    background-image: url(../imgx1/Recurso\ 30VTEK\ RECURSOS.png);
+    background-image: url("../imgx1/Recurso\ 30VTEK\ RECURSOS.png");
     height: 51px;
     width: 204px;
     background-repeat: no-repeat;
@@ -125,6 +125,16 @@
     background-position: center;
     position: absolute;
     margin-top: 30px;
+}
+.check-color-p{
+    background-image: url("../imgx1/Recurso\ 30VTEK\ RECURSOS.png");
+    height: 121px;
+    width: 31px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    background-position: center;
+    margin-left: 47px;
 }
 .soporte-azul{
     background-image: url("../imgx1/Recurso\ 19VTEK\ RECURSOS.png");

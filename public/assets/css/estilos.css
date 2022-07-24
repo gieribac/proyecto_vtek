@@ -241,6 +241,7 @@ height: 40px;
 
 
 }
+
 .container{
     background-color: aqua;
     width: 50px;
@@ -374,6 +375,37 @@ opacity: 1;
     color: #bb2929;
     opacity: 1;
     }
+    
+.puntero{
+    cursor: pointer;
+
+
+}
+
+.input-group_main {
+    position: relative !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    width: 70% !important;
+}
+.info_de_oferta{
+    font-size: 20px;
+    margin-top: 24px;
+    margin-bottom: 1px;
+    font-weight: bold;
+    margin-left: 97px;
+}
+.temano_recuadro{
+    height: 312px;
+    width: 136px;
+}
+.infocliente_oferta_admin{
+    margin-left: 20px;
+    margin-top:  19px
+
+}
+
 
 
 
