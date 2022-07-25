@@ -16,4 +16,30 @@
 
 // Carpeta con nombres de los hash: https://drive.google.com/drive/folders/1e5g3utMe6ANpONDFbETXJPwiiEut05a8?usp=sharing
 
-// 4. duda: por que aparece voton guardar si es para solo ver oferta (no se edita): https://drive.google.com/file/d/1VRql0B0BOp97yNIhT1jSc4oKX6dl5-De/view?usp=sharing
+// 4. duda: por que aparece boton guardar si es para solo ver oferta (no se edita): https://drive.google.com/file/d/1VRql0B0BOp97yNIhT1jSc4oKX6dl5-De/view?usp=sharing
+//https://drive.google.com/drive/folders/1RyAdslHA_3HYSboxM_RCacao0jeI4d6X (recorrer, hay varios)
+//lo mismo aca //https://drive.google.com/drive/folders/1Kiz8V7iZ1jFb2g2bCYPW32AyH_HPb4BO
+// https://drive.google.com/drive/folders/1496yc-PCtYvGHULq5PFCrfsvjBqRvbuY
+
+
+// este carga https://drive.google.com/drive/folders/1496yc-PCtYvGHULq5PFCrfsvjBqRvbuY
+// despues de dar click a guardar en este?: https://drive.google.com/drive/folders/1496yc-PCtYvGHULq5PFCrfsvjBqRvbuY
+
+
+//cuales con las opciones a escoger en tipo de identificacion
+//aqui cuantos clientes deben versen en el caso de que sean muchos como se manejaria? https://drive.google.com/drive/folders/1RyAdslHA_3HYSboxM_RCacao0jeI4d6X
+//se va a manejar estado activado/desactivado para el voton guardar hasta que el formulario este listo¿
+//estas se maquetan? y en que parte irian https://drive.google.com/drive/folders/1RyAdslHA_3HYSboxM_RCacao0jeI4d6X
+//se supone que en la pagina que esta mostrando deberia cambiar el color del icono y mostrar ese letrerito? o se activaran con hover
+
+//https://drive.google.com/drive/folders/1Kiz8V7iZ1jFb2g2bCYPW32AyH_HPb4BO
+
+// http://127.0.0.1:5500/public/index.html#/admin/createuser
+https://github.com/programadornovato/firebase/commit/000f220fa5d2b43bd78725f9fc5158d7a6ee8b35
+
+pendiente que se pueda habilitar o desahabilitar el boton de enviar hasta que este el formulario lleno 
+pendiente ajustar la forma de dar error en el login 
+pendiente terminar envio de formulario crear_usuario
+pendiente que se pueda enviar con Enter 
+cambiar lo de la linea 19 y 20 de index.js cuando se haga deploy
+

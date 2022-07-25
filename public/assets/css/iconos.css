@@ -409,6 +409,31 @@
     width: 78px;
     background-repeat: no-repeat;
     background-size: contain;
-    background-position: center;
+    float: left;
     position: absolute;
+    left: 0;
+    top: -9px;
+}
+.pendiente_formalizar{
+    background-image: url(../img/Recurso\ 34VTEK\ RECURSOS.png);
+    height: 67px;
+    width: 78px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    position: absolute;
+    left: 0;
+    top: -9px;
+
+}
+.formarlizar_letra{
+    position: absolute;
+    right: 10px;
+}
+.formarlizar_letraL{
+    position: absolute;
+    right: 51px;
+}
+.recuadro_formalizar{
+    position: inherit;
 }

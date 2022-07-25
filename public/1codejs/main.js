@@ -1,14 +1,28 @@
-import {signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+import {signInWithEmailAndPassword,onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
 import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
 const user_ = auth.currentUser;
 
-    if (user_) {
-      console.log("autenticado");
-      console.log(user_);
-    }else {
-        console.log("no autenticado");
-    }
+// signOut(auth).then(() => {
+//     if (user_) {
+//         console.log("autenticado");
+//         console.log(user_);
+//       }else {
+//           console.log("no autenticado");
+//       }
+// }).catch((error) => {
+//     console.log(error.messaje);
+// });
+    
+
+    // if (window.hash===''){
+    //     signOut(auth).then(() => {
+    //         console.log('desautenticado');
+    //     }).catch((error) => {
+    //         console.log(error.messaje);
+    //     });
+
+    // }
 
 // window.addEventListener('hashchange',()=>{console.log(window.location.hash)})
 
