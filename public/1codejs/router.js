@@ -1,3 +1,4 @@
+import {signOut} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"
 import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
 import {index,
@@ -12,7 +13,6 @@ import {index,
 } from "./pages.js";
 
 window.addEventListener('hashchange',()=>{ //se escucha que el hash ha cambiado
-
     if (auth.currentUser) { //se serciora que el usuario este autenticado
         const inner = (hashp,chtml) => {//se serciora que cada rol este accediendo a sus paginas correspondientes solamente
             readUser().then(data => {   
@@ -25,7 +25,14 @@ window.addEventListener('hashchange',()=>{ //se escucha que el hash ha cambiado
         }
   
         const page = (h) => {
-            if (h==''){() => document.getElementById('root').innerHTML = index;}
+            if (h==''){() => 
+                signOut(auth).then(() => {
+                    console.log('desautenticado');
+                    document.getElementById('root').innerHTML = index;
+                }).catch((error) => {
+                    console.log(error.messaje);
+                });
+                    }
             else if (h=='#/admin'){inner('admin',admin_default);}
             else if (h=='#/admin/createuser'){inner('admin',admin_createuser);}
             else if (h=='#/admin/infooffer'){inner('admin',admin_infooffer)}

@@ -1,15 +1,15 @@
 import {newUser} from './models/post.js';
 
-// const correoF = document.getElementById('correoF').value;
-// const nombreF = document.getElementById('nombreF').value;
-// const usuarioF = document.getElementById('usuarioF'.value);
-// const numeroF = document.getElementById('numeroF').value;
-// const tipoIDF = document.getElementById('tipoIDF').value;
-// const identificacionF = document.getElementById('identificacionF').value;
-// const contrasenaF = document.getElementById('contrasenaF').value;
-// const recontrasenaF = document.getElementById('recontrasenaF').value;
-// const cargocliF = document.getElementById('cargocliF').value;
-// const saveF = document.getElementById('saveF');
+const correoF = document.getElementById('correoF').value;
+const nombreF = document.getElementById('nombreF').value;
+const usuarioF = document.getElementById('usuarioF'.value);
+const numeroF = document.getElementById('numeroF').value;
+const tipoIDF = document.getElementById('tipoIDF').value;
+const identificacionF = document.getElementById('identificacionF').value;
+const contrasenaF = document.getElementById('contrasenaF').value;
+const recontrasenaF = document.getElementById('recontrasenaF').value;
+const cargocliF = document.getElementById('cargocliF').value;
+const saveF = document.getElementById('saveF');
 
 //mensaje para usuario al pararse en el campo contraseña: 
 //La contraseña debe tener 6 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
@@ -37,4 +37,5 @@ import {newUser} from './models/post.js';
 // newUser('zoro@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','experto');
 // newUser('nami@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','dtecnico');
 // newUser('sanji@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','tcoordinador');
+newUser('correo','clave','nombre','usuario','numero','documento','tipo ident','cargo');
 //setDocument();

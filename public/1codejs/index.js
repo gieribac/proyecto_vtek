@@ -5,7 +5,6 @@ import {validarlogin} from './main.js';
 // import "./menu.js";
 
 
-
 // var hash_ = null;
 //     window.onload = () => {
 //         window.location.hash = '/';
@@ -17,8 +16,8 @@ import {validarlogin} from './main.js';
         document.getElementById('login').addEventListener('click', () => {
             const correo = document.getElementById('correo').value;
             const clave = document.getElementById('contrasena').value;
-            if (validarlogin(correo, clave)) {            
-                const result = signInWithEmailAndPassword(auth, correo, clave)
+            if (validarlogin(correo, clave) ) {            
+                const result = signInWithEmailAndPassword(auth,correo,clave)
                 .then((userCredential) => {
                     const user = userCredential.user;
                     readUser().then(data => {

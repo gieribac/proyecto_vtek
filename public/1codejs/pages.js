@@ -138,137 +138,94 @@ const
         </div>`,
     admin_createuser = ` <div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
-
-
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-
-          <div class="infopagina">
-            <h4 class="letrainfo">crear usuario</h4>
-            
-
-          </div>
-      </div>
-      <div class="cols-lg-4  col--6 col-xs-12   margenusu">
-
-
-          <div class="input-group p-3">
-              <div class="inputsdivi" id="nombre">
-                  <input type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de responsable " aria-label="usuario" id="nombreF">
-                <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-                
-
-                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-
-
-
-              <div class="inputsdivi  "> <input type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Correo" aria-label="usuario" id="correoF">
-                <i class="formulario__validacion-estado fas fa-times-circle"></i>
-              </div>
-
-              <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-          </div>
-          <div class="input-group p-3">
-              <div class="inputsdivi ">
-                  <input type="text" class="form-control inputsr sombra imputs_tamano " placeholder="nombre de usuario" aria-label="usuario" id="usuarioF">
-                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-
-                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-              <div class="inputsdivi ">
-                  <input type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Numero de contacto" aria-label="usuario" id="numeroF">
-                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-
-                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-          </div>
-          <div class=" input-group p-3 " style="margin-bottom: -30px;">
-            <div >
-
-              <select class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDF">
-                <option selected>Tipo de identificacion</option>
-                <option value="1">Tarjeta de identidad</option>
-                <option value="2">cedula</option>
-                <option value="3">cedula de extranjeria </option>
-              </select>
-
-              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+            <div class="infopagina">
+              <h4 class="letrainfo">crear usuario</h4>          
             </div>
-
-            <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-              <div class="inputsdivi  ">
-
-                  <div> <input type="text " class="form-control inputsr sombra  imputs_tamano " id="identificacionF" placeholder="Identificacion " aria-label="usuario ">                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+        </div>
+        <form id="formcreateuser">
+        <fieldset>
+        <div class="cols-lg-4  col--6 col-xs-12   margenusu">
+        
+            <div class="input-group p-3">
+                <div class="inputsdivi" id="nombre">
+                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de responsable " aria-label="usuario" id="nombreF">
+                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                  </div>              
+                  <p class="nombreFme formulario__input-error">Admite letras, espacios y tildes. Máximo 50 caracteres </p>
+                <div class="inputsdivi  "> <input required="" type="Email" class="form-control inputsr sombra imputs_tamano"  placeholder="Correo" aria-label="usuario" id="correoF">
+                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="correoFme formulario__input-error">Escriba un correo válido</p>
+            </div>
+            <div class="input-group p-3">
+                <div class="inputsdivi ">
+                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="nombre de usuario" aria-label="usuario" id="usuarioF">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
                   </div>
-
-                  <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-              </div>
-
-
-
-          </div>
-          <div class="input-group p-3 ">
-              <div class="inputsdivi  ">
-                  <input type="text " class="form-control inputsr sombra imputs_tamano " id="contrasenaF" placeholder="Contraseña " aria-label="usuario ">
-                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-
-                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-              <div class="inputsdivi  "> <input type="text " id="reccontrasenaF" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">
+                  <p class="usuarioFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
+                <div class="inputsdivi ">
+                    <input required="" type="tel" class="form-control inputsr sombra imputs_tamano " placeholder="Numero de contacto" aria-label="usuario" id="numeroF">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                  </div>
+                  <p class="numeroFme formulario__input-error">El número de contacto debe tener de 7 a 14 dígitos</p>
+            </div>
+            <div class=" input-group p-3 " style="margin-bottom: -30px;">
+              <div>
+                <select required="" class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDF">
+                  <option selected>Seleccionar Opción</option>
+                  <option value="1">Tarjeta de Identidad</option>
+                  <option value="2">Cédula</option>
+                  <option value="3">Cédula de Extranjeria </option>
+                </select>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
               </div>
-
-              <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
-          </div>
-
-
-
-
-          <div class="dropdown show p-3 ">
-            <div >
-
-              <select class="form-select dropdown2 sombra " aria-label="Default select example" id="cargocliF">
-                <option selected>seleccionar</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-
+              <p class="tipoIDFme formulario__input-error">Seleccione tipo de Identificación</p>
+                <div class="inputsdivi">
+                    <div> <input required="" type="number" class="form-control inputsr sombra  imputs_tamano " id="identificacionF" placeholder="Identificacion " aria-label="usuario ">                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                      <p class="identificacionFme formulario__input-error">De 6 a 10 dígitos</p>
+                      </div>
+                </div>
+            <div class="input-group p-3 ">
+                <div class="inputsdivi  ">
+                    <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="contrasenaF" placeholder="Contraseña " aria-label="usuario ">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                  </div>
+                  <p class="contrasenaFme formulario__input-error">La contraseña debe tener 6 caracteres y como mínimo un dígito, una letra minúscula y una mayúscula</p>
+                <div class="inputsdivi  "> <input required="" type="password" id="recontrasenaF" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">
+                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="recontrasenaFme formulario__input-error">Repita la contraseña</p>
             </div>
-          </div>
-
-
-          <div class="formulario__mensaje" id="formulario__mensaje">
-            <p><i class="formulario"></i></p>
-          </div>
-
-
-          
-
-
-          <div class="naranjasinb ">
-
-              <h6 class="letracargo">cargo</h6>
-
-
-            
-
-          </div>
-
-          <div>
-
-
-
-              <button type="button " class="btn btnguardar " id="saveF"> <h6 class="letrabtng "> Guardar</h6></button>
-
-
-          </div>
-
-
-
-
-
-      </div>`,
+            <div class="dropdown show p-3 ">
+              <div >
+                <select class="form-select dropdown2 sombra " aria-label="Default select example" id="cargocliF">
+                  <option selected>Seleccionar Opción</option>
+                  <option value="admin">Administrador</option>
+                  <option value="cliente">Cliente</option>
+                  <option value="comercial">Comercial</option>
+                  <option value="dtecnico">Director Técnico</option>
+                  <option value="experto">Experto</option>
+                  <option value="scliente">Servicio al Cliente</option>
+                  <option value="tcoordinador">Técnico Coordinador</option>
+                </select>
+                <i class="formulario__validacion-estado fas fa-times-circle"></i>
+              </div>
+                <p class="cargocliFme formulario__input-error">Seleccione el Cargo</p>
+            </div>
+            <div class="formulario__mensaje" id="formulario__mensaje">
+            <i class="formulario"></i>
+            </div>
+                <div class="naranjasinb">
+                <h6 class="letracargo">cargo</h6> </div>
+            <div>
+              <div class="avisopSave"></div>
+                <button type="submit" class="btn btnguardar " id="saveF"> <h6 class="letrabtng ">Guardar</h6></button>
+            </div>
+        </fieldset>
+      </form>
+    </div>`,
     logout = `<button id="SignOff">cerrar sesion</button>`, 
     cliente_offer = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>

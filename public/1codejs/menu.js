@@ -1,100 +1,58 @@
-<<<<<<< HEAD
-console.log('menu.js')
-var div_para_menu = document.getElementById('menu')
-div_para_menu.innerHTML += ` 
-=======
-     
-     const observermenu = new MutationObserver(()=>{ 
+const observermenu = new MutationObserver(()=>{ 
+    if (document.getElementById('menu').childElementCount < 1){
+        setTimeout(()=>{
+            document.getElementById('menu').innerHTML += ` 
+                <div id="sidebar-container">
+                    <div class="logov">
 
-        var div_para_menu = document.getElementById('menu')
-        setTimeout(()=>{div_para_menu.innerHTML += ` 
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
-
-<div id="sidebar-container">
-<div class="logov">
-
-</div>
-<div class="menu">
-    <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones ">
-        <div class="bola-blanco">
-            <div class="check-azul"></div>
-        </div>
-<<<<<<< HEAD
-    </a>·menu
-    <a href="clientes.html" class="d-block text-light p-3 menuopciones">
-=======
-    </a>
-    <a href="#/admin/infoclients" class="d-block text-light p-3 menuopciones">
->>>>>>> 3b51270829a437e2c82ee3730b47c4c7676e73e1
-        <div class="bola-blanco">
-            <div class="persona-azul"></div>
-        </div>
-    </a>
-    <a href="#/admin/createuser" class="d-block text-light p-3 menuopciones">
-        <div class="bola-blanco">
-            <div class="mas-azul"></div>
-        </div>
-    </a>
-    <a href="#/admin" class="d-block text-light p-3 menuopciones">
-        <div class="bola-blanco">
-            <div class="casa-azul"></div>
-        </div>
-    </a>
-    <a href="" id="on" class="d-block text-light p-3 menuopciones">
-        <div class="bola-blanco">
-            <div class="on-azul"></div>
-        </div>
-    </a>
-    <div class="si_no desaparece" id= "si_no">
-    
-    <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-  
-
-
-
-</div>
-
-
-</div>
-
-`;document.set}, 1000);
-
-        
-        
-
-
-var on = document.getElementById('on'), 
-cerrar = document.getElementById('si_no'), 
-off= document.getElementById('off'),
-contador=0;
-
-
-function aparece(){
-    if (contador==0) {
-        cerrar.classList.remove('desaparece')
-        contador=1;
-
-       
-    } else {cerrar.classList.add('desaparece')
-    contador=0;
-       
+                    </div>
+                    <div class="menu">
+                        <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones ">
+                            <div class="bola-blanco">
+                                <div class="check-azul"></div>
+                            </div>
+                        </a>
+                        <a href="#/admin/infoclients" class="d-block text-light p-3 menuopciones">
+                            <div class="bola-blanco">
+                                <div class="persona-azul"></div>
+                            </div>
+                        </a>
+                        <a href="#/admin/createuser" class="d-block text-light p-3 menuopciones">
+                            <div class="bola-blanco">
+                                <div class="mas-azul"></div>
+                            </div>
+                        </a>
+                        <a href="#/admin" class="d-block text-light p-3 menuopciones">
+                            <div class="bola-blanco">
+                                <div class="casa-azul"></div>
+                            </div>
+                        </a>
+                        <a id="on" class="d-block text-light p-3 menuopciones">
+                            <div class="bola-blanco">
+                                <div class="on-azul"></div>
+                            </div>
+                        </a>
+                        <div class="si_no desaparece" id= "si_no">
+                        
+                        <a href="" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+                    </div>
+                </div>`;
+            }, 1);
     }
-
-
-}
-off.addEventListener('click',aparece,true)
-
-
-
-
-
-on.addEventListener('click',aparece,true)
-
-        
-     })
-
-        const parent = document.getElementById('root');
-        observermenu.observe(parent,{childList:true, subtree:true})
+    var contador=false;
+    const d = document;
+    const cerrar = d.getElementById('si_no'),
+    on = d.getElementById('on'),
+    off = d.getElementById('off')
+    function aparece(){
+        contador ? cerrar.classList.remove('desaparece') : cerrar.classList.add('desaparece');
+        contador = !contador;
+    }
+    off.addEventListener('click',aparece,true)
+    on.addEventListener('click',aparece,true)
+})
+const parent = document.getElementById('root');
+observermenu.observe(parent,{childList:true, subtree:true})
 
 
 
