@@ -7,27 +7,52 @@ const observermenu = new MutationObserver(()=>{
 
                     </div>
                     <div class="menu">
-                        <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
+
+
+                      <a  id="comercial" href="#/comercial/createcliente" class="d-block text-light p-3 menuopciones">
+                        <div class="bola-blanco">
+                        <div class="mas-azul"></div>
+                        </div>
+                        </a>
+
+                    <a id="comercial" href="#/comercial/createfactorie" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                    <div class="estrella-azul"></div>
+                    </div>
+                    </a>
+
+
+
+
+                        <a id="admin" href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
                             <div class="bola-blanco">
                                 <div class="check-azul"></div>
                             </div>
                         </a>
-                        <a href="#/admin/infoclients" class="d-block text-light p-3 menuopciones ">
+                        <a id="admin"href="#/admin/infoclients" class="d-block text-light p-3 menuopciones ">
                             <div  href="#/admin/infoclients" class="bola-blanco">
                                 <div class="persona-azul"></div>
                             </div>
                         </a>
-                        <a href="#/admin/createuser" class="d-block text-light p-3 menuopciones ">
+                        <a  id="admin" href="#/admin/createuser" class="d-block text-light p-3 menuopciones ">
                             <div class="bola-blanco">
                                 <div class="mas-azul"></div>
                             </div>
                         </a>
-                        <a href="#/admin" class="d-block text-light p-3 menuopciones ">
+
+                        <a id="comercial" href="#" class="d-block text-light p-3 menuopciones">
+                        <div class="bola-blanco">
+                        <div class="audifonos-azul"></div>
+                        </div>
+                        </a>
+
+
+                        <a  id="admin" href="#/admin" class="d-block text-light p-3 menuopciones ">
                             <div class="bola-blanco">
                                 <div class="casa-azul"></div>
                             </div>
                         </a>
-                        <a id="on" class="d-block text-light p-3 menuopciones">
+                        <a  id="admin" id="on" class="d-block text-light p-3 menuopciones">
                             <div class="bola-blanco puntero">
                                 <div class="on-azul"></div>
                             </div>
