@@ -7,28 +7,28 @@ const observermenu = new MutationObserver(()=>{
 
                     </div>
                     <div class="menu">
-                        <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones ">
+                        <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
                             <div class="bola-blanco">
                                 <div class="check-azul"></div>
                             </div>
                         </a>
-                        <a href="#/admin/infoclients" class="d-block text-light p-3 menuopciones">
-                            <div class="bola-blanco">
+                        <a href="#/admin/infoclients" class="d-block text-light p-3 menuopciones ">
+                            <div  href="#/admin/infoclients" class="bola-blanco">
                                 <div class="persona-azul"></div>
                             </div>
                         </a>
-                        <a href="#/admin/createuser" class="d-block text-light p-3 menuopciones">
+                        <a href="#/admin/createuser" class="d-block text-light p-3 menuopciones ">
                             <div class="bola-blanco">
                                 <div class="mas-azul"></div>
                             </div>
                         </a>
-                        <a href="#/admin" class="d-block text-light p-3 menuopciones">
+                        <a href="#/admin" class="d-block text-light p-3 menuopciones ">
                             <div class="bola-blanco">
                                 <div class="casa-azul"></div>
                             </div>
                         </a>
                         <a id="on" class="d-block text-light p-3 menuopciones">
-                            <div class="bola-blanco">
+                            <div class="bola-blanco puntero">
                                 <div class="on-azul"></div>
                             </div>
                         </a>
@@ -53,9 +53,6 @@ const observermenu = new MutationObserver(()=>{
 })
 const parent = document.getElementById('root');
 observermenu.observe(parent,{childList:true, subtree:true})
-
-
-
 
 //     var div_para_menu = document.getElementById('menucliente')
 // div_para_menu.innerHTML += ` 

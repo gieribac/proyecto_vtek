@@ -30,26 +30,26 @@ const
               <h4 class="letrausuario">Nombre usuario</h4>
           </div>
       </div>
-      <div class="cols-lg-4  col--6 col-xs-12   margenusu">
-          <div class="input-group p-3">
+      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
+          <div class="input-group input-group_main p-3">
               <div class="inputsdivi">
                   <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
               <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
           </div>
-          <div class="input-group p-3">
+          <div class="input-group  input-group_main p-3">
               <div class="inputsdivi">
                   <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
               <div class="inputsdivi">
                   <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
           </div>
-          <div class="input-group p-3">
+          <div class="input-group input-group_main p-3">
               <div class="inputsdivi">
                   <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
               <div class="inputsdivi">
                   <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
           </div>
 
-          <div class="input-group p-3 ">
+          <div class="input-group input-group_main p-3 ">
               <div class="inputsdivi ">
                   <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
               <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
@@ -71,8 +71,9 @@ const
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
           <div class="infopagina">
-            <div class="persona-color"></div>
-            <h4 class="letrainfo">Clientes</h4>
+          <div class="check-color-p"></div>
+
+          <h4 class="letrainfo">ofertas</h4>
           </div>
       </div>
       <div class="col-lg-9 ">
@@ -84,25 +85,88 @@ const
           <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Formalizar</h6></div>
       </div>
       <div class="col-lg-10 " style="margin-top: 20px;">
-          <div class="recuadro margenr1 margenofertas sombra" style="margin-left:40px;" id="cliente">
+          <div class="recuadro margenr1 margenofertas sombra  temano_recuadro" style="margin-left:40px;" id="cliente">
             <div class="p-3" ><h6 >oferta # 3</h6></div>
           </div>
-          <div class="recuadro margenr sombra" id="legal">
+          <div class="recuadro margenr sombra temano_recuadro" id="legal">
             <div class="p-3" ><h6 > cliente0 # 3</h6></div>
           </div>
-          <div class="recuadro margenr sombra" id="nit">
+          <div class="recuadro margenr sombra temano_recuadro" id="nit">
             <div class="p-3" ><h6 >8305556512</h6></div>
           </div>
-          <div class="recuadro margenr sombra" id="ncontacto">
+          <div class="recuadro margenr sombra temano_recuadro" id="ncontacto">
             <div class="p-3" ><h6 >8305556512</h6></div>
           </div>
-          <div class="recuadro margenr sombra" id="ncontacto">
-              <div class="p-3" ><h6 ><div class="pendiente_formalizar"> pendiente</div> </h6></div>
-              <div class="p-3" ><h6 ><div class="listo_formalizar"> listo</div></h6></div>
+          <div class="recuadro margenr sombra temano_recuadro" id="ncontacto">
+              <div class="p-3 recuadro_formalizar" ><div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >pendiente</h6> </div>
+              <div class="p-3 recuadro_formalizar" ><div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">listo</h6></div>
             </div>
       </div>
       </div>`,
-    admin_infooffers = '',
+    admin_infooffers = `<div class="d-flex align-items-stretch flex-column">
+    <div id="menu"></div>
+
+    
+      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+          <div class="infopagina">
+            <div class="check-color-p"></div>
+
+            <h4 class="letrainfo">ofertas</h4>
+            
+
+          </div>
+      </div>
+      <div class="col-lg-9 ">
+
+          <h6 class="info_de_oferta p-3">Información oferta</h6>
+
+
+
+      </div>
+      <div class="col-lg-9 " style="margin-top: 20px;">
+         <div class="i-azul centrarF"> 
+          
+         
+
+
+          <div class="recuadro margenr1 sombra temano_recuadro" id="cliente">
+
+              <div  class="infocliente_oferta_admin">
+            <div ><a href=""> <h6> Cliente #1</h6></a></div>
+
+            
+          </div>
+
+
+          </div>
+          <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
+              
+            <div class="p-3" id="Nombre_compania"><h6 > Nombre de compañia</h6></div>
+            <div class="p-3" id="info_compania"><h6 > Et quia repellat aut quasi eveniet nam tempore tempore a ducimus Quis. Cum explicabo rerum vel voluptas veritatis et veniam dolore 33 possimus modi et veritatis velit ut quia neque. Qui officiis odio aut commodi perferendis ut enim neque aut accusantium neque qui sint quas. Ut earum numquam aut iste necessitatibus vel dolorem repellendus et internos Quis ut consectetur quae.</h6></div>
+            
+
+
+          </div>
+
+        
+
+
+
+
+        </div>
+        
+
+
+      </div>
+      
+
+
+
+
+
+      </div>
+      ` ,
     admin_infoclients = ` <div>
     <div class="d-flex align-items-stretch flex-column">
       <div id="menu"></div>
@@ -121,16 +185,16 @@ const
         </div>
         <div class="col-lg-9 " style="margin-top: 20px;">
            <div class="i-azul centrarF "> 
-            <div class="recuadro margenr1 sombra" id="cliente">
+            <div class="recuadro margenr1 sombra temano_recuadro" id="cliente">
               <div class="p-3" ><h6 >cliente</h6></div>
                         </div>
-            <div class="recuadro margenr sombra" id="legal">
+            <div class="recuadro margenr sombra temano_recuadro" id="legal">
               <div class="p-3" ><h6 > rep.LEGAL # 3</h6></div>         
             </div>
-            <div class="recuadro margenr sombra" id="nit">
+            <div class="recuadro margenr sombra temano_recuadro" id="nit">
               <div class="p-3" ><h6 >8305556512</h6></div>            
             </div>
-            <div class="recuadro margenr2 sombra" id="ncontacto">
+            <div class="recuadro margenr2 sombra temano_recuadro" id="ncontacto">
               <div class="p-3" ><h6 >8305556512</h6></div>            
             </div>
           </div>
@@ -147,7 +211,7 @@ const
         <fieldset>
         <div class="cols-lg-4  col--6 col-xs-12   margenusu">
         
-            <div class="input-group p-3">
+            <div class="input-group input-group_main p-3">
                 <div class="inputsdivi" id="nombre">
                     <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de responsable " aria-label="usuario" id="nombreF">
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -158,7 +222,7 @@ const
                 </div>
                 <p class="correoFme formulario__input-error">Escriba un correo válido</p>
             </div>
-            <div class="input-group p-3">
+            <div class="input-group input-group_main p-3">
                 <div class="inputsdivi ">
                     <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="nombre de usuario" aria-label="usuario" id="usuarioF">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -170,7 +234,7 @@ const
                   </div>
                   <p class="numeroFme formulario__input-error">El número de contacto debe tener de 7 a 14 dígitos</p>
             </div>
-            <div class=" input-group p-3 " style="margin-bottom: -30px;">
+            <div class=" input-group input-group_main p-3 " style="margin-bottom: -30px;">
               <div>
                 <select required="" class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDF">
                   <option selected>Seleccionar Opción</option>
@@ -187,7 +251,7 @@ const
                       <p class="identificacionFme formulario__input-error">De 6 a 10 dígitos</p>
                       </div>
                 </div>
-            <div class="input-group p-3 ">
+            <div class="input-group input-group_main p-3 ">
                 <div class="inputsdivi  ">
                     <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="contrasenaF" placeholder="Contraseña " aria-label="usuario ">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -198,7 +262,7 @@ const
                 </div>
                 <p class="recontrasenaFme formulario__input-error">Repita la contraseña</p>
             </div>
-            <div class="dropdown show p-3 ">
+            <div class="dropdown show  p-3 ">
               <div >
                 <select class="form-select dropdown2 sombra " aria-label="Default select example" id="cargocliF">
                   <option selected>Seleccionar Opción</option>
@@ -310,7 +374,39 @@ const
 
 
       </div>`,
-    comercial_infoclientes = '',
+    comercial_infoclientes = ` <div>
+    <div class="d-flex align-items-stretch flex-column">
+      <div id="menu"></div>
+        <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="infopagina">
+              <div class="persona-color"></div>
+              <h4 class="letrainfo">Clientes</h4>
+            </div>
+        </div>
+        <div class="col-lg-9 ">
+          <div> </div>
+          <div class="columnas-clasi2 alinear"><h6 class="letra-columna">Nombre compañia</h6></div>
+          <div class="columnas-clasi2 alinear"><h6 class="letra-columna">Representante legal</h6></div>
+          <div class="columnas-clasi2 alinear"><h6 class="letra-columna">NIT</h6></div>
+            <div class="columnas-clasi alinear"><h6 class="letra-columna">Número de contacto</h6></div>
+        </div>
+        <div class="col-lg-9 " style="margin-top: 20px;">
+           <div class="i-azul centrarF "> 
+            <div class="recuadro margenr1 sombra" id="cliente">
+              <div class="p-3" ><h6 >cliente</h6></div>
+                        </div>
+            <div class="recuadro margenr sombra" id="legal">
+              <div class="p-3" ><h6 > rep.LEGAL # 3</h6></div>         
+            </div>
+            <div class="recuadro margenr sombra" id="nit">
+              <div class="p-3" ><h6 >8305556512</h6></div>            
+            </div>
+            <div class="recuadro margenr2 sombra" id="ncontacto">
+              <div class="p-3" ><h6 >8305556512</h6></div>            
+            </div>
+          </div>
+        </div>
+        </div>`,
     comercial_infocerts = '', 
     comercial_infooffers = '',
     comercial_editcliente = '',

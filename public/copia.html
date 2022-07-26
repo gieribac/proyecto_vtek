@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Crear Usuarios</title>
+
+
+
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link rel="stylesheet" href="assets/css/iconos.css">
+    <link rel="stylesheet" href="assets/css/validaciones.css">
+
+    <style media="screen">
+
+    </style>
+</head>
+
+<body>
+
+    <div id="menu"></div>
+
+
+    <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+
+        <div class="infopagina">
+          <h4 class="letrainfo">crear usuario</h4>
+          
+
+        </div> </div> 
+
+
+    <main>
+        <form action="" class="" id="formulario">
+
+            <!-- nombre -->
+            <div class="formulario__grupo" id="grupo__nombre">
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" placeholder="Nombre de responsable " aria-label="usuario" id="nombreF">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
+                
+
+            </div>
+
+            <!-- correo -->
+
+            <!-- nombre usuario -->
+            <div class="formulario__grupo" id="grupo__usuario">
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" placeholder="nombre de usuario" aria-label="usuario" id="usuarioF">
+
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
+
+            </div>
+
+            <!-- numero -->
+            <div class="formulario__grupo" id="grupo__numero">
+                <div class="formulario__grupo-input">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" placeholder="Numero de contacto" aria-label="usuario" id="numeroF">
+
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
+
+            </div>
+
+            <!-- tipo id -->
+            <div class="formulario__grupo" id="grupo__tipoid">
+                <div class="formulario__grupo-input">
+                    
+                    <select class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDF">
+                        <option selected>Tipo de identificacion</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
+
+            </div>
+            <!-- id -->
+            <div class="formulario__grupo" id="grupo__id">
+                <div class="formulario__grupo-input">
+                    <input type="text " class="form-control inputsr sombra  imputs_tamano" id="identificacionF" placeholder="Identificacion " aria-label="usuario ">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
+
+            </div>
+            <!-- contraseña -->
+            <div class="formulario__grupo" id="grupo__contrasena">
+                <div class="formulario__grupo-input">
+                    <input type="text " class="form-control inputsr sombra imputs_tamano" id="contrasenaF" placeholder="Contraseña " aria-label="usuario ">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
+
+            </div>
+            <!-- rectificar contraseña -->
+            <div class="formulario__grupo" id="grupo__reccontrasena">
+                <div class="formulario__grupo-input">
+                    <input type="text " id="reccontrasenaF" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">
+                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                </div>
+                <p class="formulario__input-error"> el usuario tiene que ser de 4 a...</p>
+
+            </div>
+
+
+
+
+            <div class="dropdown show p-3 ">
+                <div >
+    
+                  <select class="form-select dropdown2 sombra" aria-label="Default select example" id="cargocliF">
+                    <option selected>seleccionar</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+    
+                </div>
+              </div>
+    
+    
+
+
+
+        </form>
+
+
+          
+
+
+
+
+
+        
+       
+
+
+
+    </div>
+    <div>
+        <div class="naranjasinb ">
+
+            <h6 class="letracargo">cargo</h6>
+    
+    
+          
+    
+        </div>
+    
+        <div>
+    
+    
+    
+            <button type="button " class="btn btnguardar " id="saveF"> <h6 class="letrabtng "> Guardar</h6></button>
+    
+    
+        </div>
+    
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js " integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2 " crossorigin="anonymous "></script>
+            <script type="module" src="1codejs/main.js"></script>
+            <script src="./1codejs/menu.js"></script>
+            <script src="https://kit.fontawesome.com/5060f102e7.js" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

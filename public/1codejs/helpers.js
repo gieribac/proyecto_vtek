@@ -35,11 +35,11 @@
 //https://drive.google.com/drive/folders/1Kiz8V7iZ1jFb2g2bCYPW32AyH_HPb4BO
 
 // http://127.0.0.1:5500/public/index.html#/admin/createuser
-https://github.com/programadornovato/firebase/commit/000f220fa5d2b43bd78725f9fc5158d7a6ee8b35
+// https://github.com/programadornovato/firebase/commit/000f220fa5d2b43bd78725f9fc5158d7a6ee8b35
 
-pendiente que se pueda habilitar o desahabilitar el boton de enviar hasta que este el formulario lleno 
-pendiente ajustar la forma de dar error en el login 
-pendiente terminar envio de formulario crear_usuario
-pendiente que se pueda enviar con Enter 
-cambiar lo de la linea 19 y 20 de index.js cuando se haga deploy
+// pendiente que se pueda habilitar o desahabilitar el boton de enviar hasta que este el formulario lleno 
+// pendiente ajustar la forma de dar error en el login 
+// pendiente terminar envio de formulario crear_usuario
+// pendiente que se pueda enviar con Enter 
+// cambiar lo de la linea 19 y 20 de index.js cuando se haga deploy
 

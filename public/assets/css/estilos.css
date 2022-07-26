@@ -236,14 +236,23 @@ height: 40px;
 
 
 
+<<<<<<< HEAD
+=======
+}
+
+.container{
+    background-color: aqua;
+    width: 50px;
+    height: 60PX;
+>>>>>>> 9faa7ad9ac32dd64382df72b2ec705612876349a
 
 
 }
 .margenr{
-margin-right: 60px;
+margin-right: 41px;
 }
 .margenr1{
-    margin-right: 80px;
+    margin-right: 33px;
 }
 .margenr2{
     margin-left: 20px;
@@ -365,6 +374,37 @@ opacity: 1;
     color: #bb2929;
     opacity: 1;
     }
+    
+.puntero{
+    cursor: pointer;
+
+
+}
+
+.input-group_main {
+    position: relative !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    width: 70% !important;
+}
+.info_de_oferta{
+    font-size: 20px;
+    margin-top: 24px;
+    margin-bottom: 1px;
+    font-weight: bold;
+    margin-left: 97px;
+}
+.temano_recuadro{
+    height: 312px;
+    width: 136px;
+}
+.infocliente_oferta_admin{
+    margin-left: 20px;
+    margin-top:  19px
+
+}
+
 
 
 
