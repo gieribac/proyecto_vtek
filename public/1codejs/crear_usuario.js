@@ -127,50 +127,16 @@ const observer = new MutationObserver(()=>{
     d.getElementById('saveF').addEventListener('click', () => {
         console.log("se ha llenado todo correctamente");
         console.log(info[0].value, info[6].value, info[1].value, info[2].value, info[3].value, info[5].value, info[4].value, info[8].value)
-        // newUser('prueb@gmail.com','1234aA',      'Jose J',        'jj',         '3208331195',   '1045789000',  '2',         'tcoordinador');
         newUser(info[0].value, info[6].value, info[1].value, info[2].value, info[3].value, info[5].value, info[4].value, 'comercial').then(()=>{}).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorMessage);
             d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
         });
-        // newUser('correo',     'clave',        'nombre',      'usuario',     'numero',      'documento',   'tipo ident',    'cargo');
-            // n@gmail.com         1234aA          neptune         neptune         3122203369      1048000         2       comercialKC
-        // info.push(d.getElementById('correoF'));0
-        // info.push(d.getElementById('nombreF'));1
-        // info.push(d.getElementById('usuarioF'));2
-        // info.push(d.getElementById('numeroF'));3
-        // info.push(d.getElementById('tipoIDF'));4
-        // info.push(d.getElementById('identificacionF'));5
-        // info.push(d.getElementById('contrasenaF'));6
-        // info.push(d.getElementById('recontrasenaF'));7
-        // info.push(d.getElementById('cargocliF'));8
-
-        d.getElementById('formcreateuser').reset();
+                d.getElementById('formcreateuser').reset();
         d.getElementById('saveF').disabled = true;
     }); 
 })
 
 const parent = document.getElementById('root');
 observer.observe(parent,{childList:true})
-//mensaje para usuario al pararse en el campo contraseña: 
-//La contraseña debe tener 6 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula.
-// Puede tener otros símbolos.
-
-// si /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(contrasenaF)
-
-// el campo recontraseñaF debe activarse si se cumple la expresion regular
-
-//mensaje para el usuario si aplica: la verificaciòn de contraseña no coincide
-//dejar desactivado el voton guardar (ponerlo opaco o de otro color hasta que coi)
-//hablar lo de validaciones de los demas campos
-//https://www.youtube.com/watch?v=s3pC93LgP18&t=1297s
-
-// newUser('iba@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','comercial'); 
-// newUser('luffy@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','scliente');
-// newUser('ace@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','cliente');
-// newUser('sabo@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','admin');
-// newUser('zoro@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','experto');
-// newUser('nami@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','dtecnico');
-// newUser('sanji@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','tcoordinador');
-//setd();
