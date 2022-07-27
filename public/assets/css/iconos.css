@@ -44,6 +44,18 @@
     background-position: center;
 
 }
+.estrella-color-info{
+    background-image: url(../img/Recurso\ 55VTEK\ RECURSOS.png);
+    height: 121px;
+    width: 31px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    background-position: center;
+    margin-left: 47px;
+
+}
+
 .estrella-azul{
     background-image: url("../imgx1/Recurso\ 13VTEK\ RECURSOS.png");
     height: 25px;

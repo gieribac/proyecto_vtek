@@ -405,6 +405,20 @@ opacity: 1;
     margin-top:  19px
 
 }
+.btnsave{
+    position: absolute;
+    margin-top: 0px;
+}
+.btnsave2{
+    position: absolute;
+    margin-top: 75px;
+
+}
+.inputFirma{
+    height: 110px !important;
+    border-radius: 25px !important;
+
+}
 
 
 
