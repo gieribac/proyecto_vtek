@@ -1,20 +1,10 @@
 //archivo encargado de ejecutar publicaciones a firestore
 
 import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
-import {collection, addDoc, getDocs, doc,setDoc, getDoc} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
+import {collection, addDoc, getDocs, increment, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
+from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
 
-
-// export const savePost = async(post) => {
-//     return await addDoc(collection(db, "posts"), post);
-// }
-
-// export const loadPosts = async() => {
-//     const querySnapshot = await getDocs(collection(db, "users"));
-//     const posts = querySnapshot.docs.map(doc => doc.data().tipo);
-//     return posts;
-// }
-//para crear un usuario
 export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero, identificacion, tipoidentififcacion, cargo)=> {
     await createUserWithEmailAndPassword(auth, correo, clave)
         .then((userCredential) => {
@@ -32,21 +22,101 @@ export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero,
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            alert(errorMessage)
         });
 }
-
-// export const setDocument = () => {
-//     setDoc(doc(db, "users", 'dQy5S12Va6Rz8k5dCBs4'), {                
-//         Responsable: 'Elton John',
-//         Email: 'correo@hotmail.com',
-//         Uuario: 'elpajarito',
-//         numeroTel: '1098765201',
-//         NoIdentificacion: '1098765201',
-//         TipoIdentificacion: 'TI',
-//         Cargo: 'abogado'
-//     });
+// export const newClient = async() => {
+//     await setDoc(doc(db, "clients", '1000000'), datos);
 // }
 
+export const saveClient = async() => {
+    await addDoc(collection(db, "clients"), datos);
+}
+
+// const docRef = await addDoc(collection(db, "cities"), {
+//     name: "Tokyo",
+//     country: "Japan"
+//   });
+//   console.log("Document written with ID: ", docRef.id);
+
+export const queryInc = async() => {
+    const clientRef = collection(db, "clients");
+    const q = query(clientRef, where('inc', '==', true));
+    const querySnapshot = await getDocs(q);
+    console.log("aaa")
+    querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+    
+    return doc.data()});
+}
+
+export const paginacion = () => {
+db.collection('users').onSnapshot((s)=>{console.log(s)});}
+
+
+
+// Query the first page of docs
+
+export const querySnap = async() => {
+
+    const first = query(collection(db, "users"), orderBy("NoIdentificacion"), limit(15));
+    const documentSnapshots = await getDocs(first);
+    
+ 
+    const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
+    documentSnapshots.forEach((doc) => {
+        console.log(doc.id, " => ", doc.data())
+
+    })
+}
+
+export const queryNext = () => {
+const next = query(collection(db, "users"),
+        orderBy("NoIdentificacion"),
+        startAfter(lastVisible),
+        limit(15));
+}
+
+//llamadas//
+// saveClient();
+// queryInc().then((d)=>{console.log(d);
+//     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
+// });;
+
+// querySnap().then((d)=>{
+//     // console.log(d._document.data.value.mapValue.fields.Cargo)
+//     // console.log(d.data())
+//     }
+// )
+//  next_() 
+
+// readCli().then((d)=>{console.log(d);
+//     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
+// });
+/////////////////
+// const querySnap = async() => {
+//     const first = query(collection(db, "clients"), orderBy("cargo"), limit(25));
+//     const documentSnapshots = await getDocs(first);
+//     documentSnapshots.forEach((d) => {console.log(d)})
+//     // Get the last visible document
+//     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
+//     console.log("last", lastVisible);
+
+// querySnap().then(()=>{});
+// 1. se encesita id automatico o se deja la cedula?
+// 2. se va a manejar contador, pero dice que la bd deja crear 1 por segundo. es necesario usar contador distribuido para aplicaciones de mas traficio. que hacer?
+
+// export const savePost = async(post) => {
+//     return await addDoc(collection(db, "posts"), post);
+// }
+
+// export const loadPosts = async() => {
+//     const querySnapshot = await getDocs(collection(db, "users"));
+//     const posts = querySnapshot.docs.map(doc => doc.data().tipo);
+//     return posts;
+// }
+//para crear un usuario
 
 // export const newUser = (correo, clave)=> {
 //     createUserWithEmailAndPassword(auth, correo, clave)
@@ -70,6 +140,18 @@ export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero,
 
 export const readUser = async () => {
     const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));
+    let rol;
+    if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data());    
+    rol  = docSnap.data();
+    return rol;
+    } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+    }
+}
+export const readCli = async () => {
+    const docSnap = await getDoc(doc(db, "clients", '0'));
     let rol;
     if (docSnap.exists()) {
     console.log("Document data:", docSnap.data());    
