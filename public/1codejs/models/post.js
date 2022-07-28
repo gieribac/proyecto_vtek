@@ -59,26 +59,45 @@ db.collection('users').onSnapshot((s)=>{console.log(s)});}
 // Query the first page of docs
 
 export const querySnap = async() => {
-
-    const first = query(collection(db, "users"), orderBy("NoIdentificacion"), limit(15));
+try {
+    const first = query(collection(db, "clients"), orderBy("No_Identificacion","asc"), limit(3));
     const documentSnapshots = await getDocs(first);
     
- 
-    const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
-    documentSnapshots.forEach((doc) => {
-        console.log(doc.id, " => ", doc.data())
+    
+    return documentSnapshots
 
-    })
+
+    } catch (e){
+        return{error:e.message} 
+
+    }
 }
 
-export const queryNext = () => {
-const next = query(collection(db, "users"),
-        orderBy("NoIdentificacion"),
-        startAfter(lastVisible),
-        limit(15));
+export const queryNext = async(lastVisible) => {
+
+    const next = query(collection(db, "clients"),
+            orderBy("No_Identificacion","asc"),
+            startAfter(lastVisible),
+            limit(3));
+    const docs_ = await getDocs(next);
+    
+    return docs_;
+            
 }
 
-//llamadas//
+export const queryNextnt = async(lastVisible) => {
+
+    const next = query(collection(db, "clients"),
+            orderBy("No_Identificacion","desc"),
+            startAfter(lastVisible),
+            limit(3));
+    const docs_ = await getDocs(next);
+    
+    return docs_;
+            
+}
+
+////llamadas//
 // saveClient();
 // queryInc().then((d)=>{console.log(d);
 //     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
@@ -95,6 +114,7 @@ const next = query(collection(db, "users"),
 //     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
 // });
 /////////////////
+
 // const querySnap = async() => {
 //     const first = query(collection(db, "clients"), orderBy("cargo"), limit(25));
 //     const documentSnapshots = await getDocs(first);

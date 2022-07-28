@@ -39,7 +39,6 @@ const observer = new MutationObserver(()=>{
             d.querySelector('.correoFme').classList.remove('formulario__input-error');
             d.getElementById('saveF').disabled = true;
         }
-        
     }
     const validator1 = () => {
         fenable();
