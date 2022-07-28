@@ -408,7 +408,105 @@ const
         </div>
         </div>`,
     comercial_infocerts = '', 
-    comercial_infooffers = '',
+    comercial_infooffers = `<div class="d-flex align-items-stretch flex-column">
+    <div id="menu"></div>
+
+    
+      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+          <div class="infopagina">
+            <div class="check-color-p"></div>
+
+            <h4 class="letrainfo">Ofertas</h4>
+            
+
+          </div>
+      </div>
+      <div class="col-lg-9 ">
+
+          <h6 class="info_de_oferta p-3">Información Oferta</h6>
+
+          
+
+
+
+      </div>
+      <div class="col-lg-9 " style="margin-top: 20px;">
+         <div class="i-azul centrarF"> 
+          
+         
+
+
+          <div class="recuadro margenr1 sombra temano_recuadro" id="cliente">
+
+              <div  class="infocliente_oferta_admin">
+            <div ><a href=""> <h6> oferta #1</h6></a></div>
+
+            
+          </div>
+
+
+          </div>
+          <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
+              <div style="margin-left: 60px; margin-top: 20px;">
+
+              <div class="input-group p-2 ">
+                  <div class="inputsdivi " style="width: 200px;" >
+                      <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
+                  <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
+              </div>
+              <div class="input-group p-2  ">
+                  <div class="inputsdivi" style="width: 200px;" >
+                      <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
+                  <div class="inputsdivi" style="width: 200px;">
+                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
+              </div>
+              <div class="input-group p-2 ">
+                  <div class="inputsdivi" style="width: 200px;" >
+                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
+                  <div class="inputsdivi" style="width: 200px;">
+                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
+              </div>
+
+              <div class="input-group p-2  ">
+                  <div class="inputsdivi " style="width: 200px;" >
+                      <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
+                  <div class="inputsdivi " style="width: 200px;" > <input type="text " id="NumeroClientesU" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
+              </div>
+
+          </div>
+
+        </div>
+              
+
+
+
+            
+
+            
+
+            
+
+
+          </div>
+
+        
+
+
+
+
+        </div>
+        
+
+
+      </div>
+      
+
+
+
+
+
+      </div>`,
     comercial_editcliente = '',
     comercial_createcliente = `
     <div class="d-flex align-items-stretch flex-column">
