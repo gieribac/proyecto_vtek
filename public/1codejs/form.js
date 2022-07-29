@@ -37,5 +37,5 @@ const saveF = document.getElementById('saveF');
 // newUser('zoro@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','experto');
 // newUser('nami@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','dtecnico');
 // newUser('sanji@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','tcoordinador');
-newUser('correo','clave','nombre','usuario','numero','documento','tipo ident','cargo');
+// newUser('correo','clave','nombre','usuario','numero','documento','tipo','cargo');
 //setDocument();

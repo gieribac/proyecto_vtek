@@ -419,6 +419,19 @@ opacity: 1;
     border-radius: 25px !important;
 
 }
+.btn_degrade{
+    background-image:linear-gradient(to right, orange, #e61919) !important ;
+
+}
+.btn_pasar{
+    --bs-btn-color: #fff;
+    border-radius: 50px;
+    position: absolute;
+    margin-left: 40px;
+}
+.margenes{
+    margin-top: 30px;
+}
 
 
 

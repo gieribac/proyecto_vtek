@@ -360,6 +360,10 @@
 .desaparece{
     visibility: hidden !important;
 }
+.deaparece2{
+
+    display: none !important;
+}
 .persona-color2{
     background-image: url(../img/Recurso\ 31VTEK\ RECURSOS.png);
     height: 121px;

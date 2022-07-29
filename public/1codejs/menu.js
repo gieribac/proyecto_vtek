@@ -9,13 +9,13 @@ const observermenu = new MutationObserver(()=>{
                     <div class="menu">
 
 
-                      <a  id="comercial" href="#/comercial/createcliente" class="d-block text-light p-3 menuopciones">
+                      <a  id="comercial" href="#/comercial/createcliente" class="d-block text-light p-3 menuopciones deaparece2">
                         <div class="bola-blanco">
                         <div class="mas-azul"></div>
                         </div>
                         </a>
 
-                    <a id="comercial" href="#/comercial/createfactorie" class="d-block text-light p-3 menuopciones">
+                    <a id="comercial" href="#/comercial/createfactorie" class="d-block text-light p-3 menuopciones deaparece2">
                     <div class="bola-blanco">
                     <div class="estrella-azul"></div>
                     </div>
@@ -40,7 +40,7 @@ const observermenu = new MutationObserver(()=>{
                             </div>
                         </a>
 
-                        <a id="comercial" href="#" class="d-block text-light p-3 menuopciones">
+                        <a id="comercial" href="#" class="d-block text-light p-3 menuopciones deaparece2">
                         <div class="bola-blanco">
                         <div class="audifonos-azul"></div>
                         </div>

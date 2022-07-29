@@ -2,7 +2,8 @@ import {signInWithEmailAndPassword,onAuthStateChanged} from "https://www.gstatic
 import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
 import {validarlogin} from './main.js';
-// import "./menu.js";
+import "./menu.js";
+
 
 
 // var hash_ = null;
