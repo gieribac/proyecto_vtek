@@ -1,61 +1,47 @@
-import {signInWithEmailAndPassword,onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
-import {readUser} from "./models/post.js";
+import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+import {page} from "./router.js";
 import {auth} from './firebase.js';
-const user_ = auth.currentUser;
+import {loguearse}  from "./index.js";
+import {index} from "./pages.js";
+import{readUser} from "./models/post.js"
 
-// signOut(auth).then(() => {
-//     if (user_) {
-//         console.log("autenticado");
-//         console.log(user_);
-//       }else {
-//           console.log("no autenticado");
-//       }
-// }).catch((error) => {
-//     console.log(error.messaje);
-// });
+window.addEventListener('DOMContentLoaded',(e)=> {
     
+    // onAuthStateChanged(auth, (user) => {
+    //     console.log(user    )
+        // Boolean(user) ? console.log(`usuario: ${user.data()}`) : {};
+        // readUser().then(data => {
+        //     const rol = data.Cargo;
+        //     console.log(`${rol}`)
+        // })
+        // if (user) {
+        //     page(location.hash);
+        // } else { 
+            window.history.pushState({}, document.title, window.location.pathname);
+            document.getElementById('root').innerHTML = index; 
+            loguearse();
 
-    // if (window.hash===''){
-    //     signOut(auth).then(() => {
-    //         console.log('desautenticado');
-    //     }).catch((error) => {
-    //         console.log(error.messaje);
-    //     });
+            
+            // try {
 
-    // }
+            //     Boolean(localStorage.getItem('em')) ? page(location.hash) : ()=>{
+            //         window.history.pushState({}, document.title, window.location.pathname);
+            //         document.getElementById('root').innerHTML = index; 
+            //         loguearse();
+            //     };
+                      
+            // }
+            // catch(e){
+            //     console.log(e)
+            //     window.history.pushState({}, document.title, window.location.pathname);
+            //     document.getElementById('root').innerHTML = index; 
+            //     loguearse();
 
-// window.addEventListener('hashchange',()=>{console.log(window.location.hash)})
-
-
-
-// window.addEventListener('hashchange',()=>{console.log(window.location.hash)})
-    //si rol == comercial hacer innerhtml correspondiente
-
-// const user_ = auth.currentUser;
-// if (user_) {
-//     console.log("autenticado");
-//     readUser();
-// }else {
-//     console.log("no autenticado");
-// }
-
-  // para deslogueo
-//   signOut(auth).then(() => {
-  
-//   }).catch((error) => {
-//       console.log(error.messaje);
-//   })
-
-// document.getElementById('SignOff').addEventListener('click', () => {
-// signOut(auth).then(() => {
-// }).catch((error) => {
-// console.log(error.messaje);
-// })
-// })
-
-
-
-
+            // }
+        // } 
+            
+    //   });
+});
     //validar formulario de login
 export const validarlogin = (correo, clave) => {
     const valcorreo = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(correo);

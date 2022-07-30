@@ -1,5 +1,5 @@
 const observermenu = new MutationObserver(()=>{ 
-    if (document.getElementById('menu').childElementCount < 1){
+    if (Boolean(document.getElementById('menu')) && document.getElementById('menu').childElementCount < 1){
         setTimeout(()=>{
             document.getElementById('menu').innerHTML += ` 
                 <div id="sidebar-container">
@@ -34,25 +34,29 @@ const observermenu = new MutationObserver(()=>{
                         </a>
                         <div class="si_no desaparece" id= "si_no">
                         
-                        <a href="" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+                        <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">No</h6> </a></div>
+                        </div>
                     </div>
-                </div>`;
-            }, 1);
+                </div>`;                
+        
+            var contador = true;
+            const d = document;
+            const cerrar = d.getElementById('si_no'),
+            on = d.getElementById('on'),
+            off = d.getElementById('off');
+            function aparece(){
+                contador ? cerrar.classList.remove('desaparece') : cerrar.classList.add('desaparece');
+                contador = !contador;
+            }
+            off.addEventListener('click',aparece,true);
+            on.addEventListener('click',aparece,true);
+   
+        }, 1);
     }
-    var contador=false;
-    const d = document;
-    const cerrar = d.getElementById('si_no'),
-    on = d.getElementById('on'),
-    off = d.getElementById('off')
-    function aparece(){
-        contador ? cerrar.classList.remove('desaparece') : cerrar.classList.add('desaparece');
-        contador = !contador;
-    }
-    off.addEventListener('click',aparece,true)
-    on.addEventListener('click',aparece,true)
+    
 })
 const parent = document.getElementById('root');
-observermenu.observe(parent,{childList:true, subtree:true})
+observermenu.observe(parent,{childList:true})
 
 //     var div_para_menu = document.getElementById('menucliente')
 // div_para_menu.innerHTML += ` 

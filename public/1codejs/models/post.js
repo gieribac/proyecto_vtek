@@ -1,29 +1,54 @@
-//archivo encargado de ejecutar publicaciones a firestore
-
-import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
+//archivo encargado de ejecutar publicaciones o peticiones a firestore
+import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
 import {collection, addDoc, getDocs, increment, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
 
 export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero, identificacion, tipoidentififcacion, cargo)=> {
+try {
     await createUserWithEmailAndPassword(auth, correo, clave)
-        .then((userCredential) => {
+        .then(async(userCredential) => {
             const user = userCredential.user;
-            setDoc(doc(db, "users", user.uid), {                
+            await setDoc(doc(db, "users", user.uid), {                
                 Responsable: nombreResposable,
                 Email: correo,
-                Uuario: nombreUsu,
+                Usuario: nombreUsu,
                 numeroTel: numero,
                 NoIdentificacion: identificacion,
                 TipoIdentificacion: tipoidentififcacion,
                 Cargo: cargo
             });
-        })
-        .catch((error) => {
+            signOut(auth).then(() => {
+                const correo = localStorage.getItem("em");
+                const clave = localStorage.getItem("k");                
+                signInWithEmailAndPassword(auth,correo,clave)
+                .then((userCredential) => {                     
+                    
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                    throw error;
+                })
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                    throw error;
+                })
+        }).catch ((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
-        });
+            console.log(errorCode)
+            console.log(errorMessage)
+            throw error;
+        })
+} catch (e){
+    throw e;
+
+}
 }
 // export const newClient = async() => {
 //     await setDoc(doc(db, "clients", '1000000'), datos);
@@ -97,6 +122,32 @@ export const queryNextnt = async(lastVisible) => {
             
 }
 
+export const readUser = async () => {
+    const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));
+    let rol;
+    if (docSnap.exists()) {
+    console.log("Document data:", docSnap.data().Cargo);    
+    rol  = docSnap.data();
+    return rol;
+    } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+    }
+}
+export const readCli = async () => {
+    const docSnap = await getDoc(doc(db, "clients", '0'));
+    let rol;
+    if (docSnap.exists()) {
+    // console.log("Document data:", docSnap.data());    
+    rol  = docSnap.data();
+    return rol;
+    } else {
+    // doc.data() will be undefined in this case
+    console.log("No such document!");
+    }
+}
+
+
 ////llamadas//
 // saveClient();
 // queryInc().then((d)=>{console.log(d);
@@ -157,28 +208,3 @@ export const queryNextnt = async(lastVisible) => {
 //             const errorMessage = error.message;
 //         });
 // }
-
-export const readUser = async () => {
-    const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));
-    let rol;
-    if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());    
-    rol  = docSnap.data();
-    return rol;
-    } else {
-    // doc.data() will be undefined in this case
-    console.log("No such document!");
-    }
-}
-export const readCli = async () => {
-    const docSnap = await getDoc(doc(db, "clients", '0'));
-    let rol;
-    if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());    
-    rol  = docSnap.data();
-    return rol;
-    } else {
-    // doc.data() will be undefined in this case
-    console.log("No such document!");
-    }
-}

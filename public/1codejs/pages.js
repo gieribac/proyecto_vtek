@@ -13,7 +13,7 @@ const
             <input type="text" id="contrasena" class="form-control inputsr" placeholder="contraseñas" aria-label="contraseña" aria-describedby="basic-addon1" style="margin-bottom: 7px">
             <div class="botones">
                 <div>
-                    <button id="login" type="button" class="btn btningresar1"> <h6 class="letrabtn">ingresar</h6></button>
+                    <button id="login" type="button" class="btn btningresar1"> <h6 class="letrabtn">Ingresar</h6></button>
                 </div>
             </div>
         </div>
@@ -248,7 +248,7 @@ const
                 <div class="inputsdivi">
                     <div> <input required="" type="number" class="form-control inputsr sombra  imputs_tamano " id="identificacionF" placeholder="Identificacion " aria-label="usuario ">                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
-                      <p class="identificacionFme formulario__input-error">De 6 a 10 dígitos</p>
+                      <p class="identificacionFme formulario__input-error">De 6 a 11 dígitos</p>
                       </div>
                 </div>
             <div class="input-group input-group_main p-3 ">
@@ -285,7 +285,7 @@ const
                 <h6 class="letracargo">cargo</h6> </div>
             <div>
               <div class="avisopSave"></div>
-                <button type="submit" class="btn btnguardar " id="saveF"> <h6 class="letrabtng ">Guardar</h6></button>
+                <button class="btn btnguardar " id="saveF"> <h6 class="letrabtng ">Guardar</h6></button>
             </div>
         </fieldset>
       </form>

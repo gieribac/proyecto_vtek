@@ -1,6 +1,7 @@
-import {signOut} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"
+import {signOut, getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"
 import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
+import {loguearse} from './index.js';
 import {index,
     admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser, logout, 
     cliente_default, cliente_offer, 
@@ -11,79 +12,94 @@ import {index,
     scliente_default, scliente_infooffers, scliente_infooffer, scliente_certcliente, scliente_usuariocliente, scliente_infoclientes,
     tcoordinador_default, tcoordinador_createasignacion, tcoordinador_asignacion
 } from "./pages.js";
-
+const cerrarSession = () => {
+           
+    signOut(auth).then(() => {
+        localStorage.removeItem("em");
+        localStorage.removeItem("k");
+        localStorage.removeItem("u"); 
+        localStorage.removeItem("rol");  
+        window.location="";  
+        
+    }).catch((error) => {
+        console.log(error.messaje);
+    });
+}
+// cerrarSession();
 window.addEventListener('hashchange',()=>{ //se escucha que el hash ha cambiado
-    if (auth.currentUser) { //se serciora que el usuario este autenticado
-        const inner = (hashp,chtml) => {//se serciora que cada rol este accediendo a sus paginas correspondientes solamente
-            readUser().then(data => {   
-                if (hashp===data.Cargo){
-                    document.getElementById('root').innerHTML = chtml;
-                } else {
-                    document.getElementById('root').textContent = 'no tiene permiso para su rol';
-                }
-            })
-        }
-  
-        const page = (h) => {
-            if (h==''){() => 
-                signOut(auth).then(() => {
-                    console.log('desautenticado');
-                    document.getElementById('root').innerHTML = index;
-                }).catch((error) => {
-                    console.log(error.messaje);
-                });
-                    }
-            else if (h=='#/admin'){inner('admin',admin_default);}
-            else if (h=='#/admin/createuser'){inner('admin',admin_createuser);}
-            else if (h=='#/admin/infooffer'){inner('admin',admin_infooffer)}
-            else if (h=='#/admin/infooffer'){inner('admin',admin_infooffers);}
-            else if (h=='#/admin/infooffers'){inner('admin',admin_infooffers);}
-            else if (h=='#/admin/infoclients'){inner('admin',admin_infoclients);}
-            else if (h=='#/admin/logout'){inner('admin',logout);}
-            else if (h=='#/cliente'){inner('cliente',cliente_default);}
-            else if (h=='#/cliente/offer'){inner('cliente',cliente_offer);}
-            else if (h=='#/cliente/logout'){inner('cliente',logout);}
-            else if (h=='#/comercial'){inner('comercial',comercial_default);}
-            else if (h=='#/comercial/infoclientes'){inner('comercial',comercial_infoclientes);}
-            else if (h=='#/comercial/inforcerts'){inner('comercial',comercial_infocerts);}
-            else if (h=='#/comercial/infooffers'){inner('comercial',comercial_infooffers);}
-            else if (h=='#/comercial/editcliente'){inner('comercial',comercial_editcliente);}
-            else if (h=='#/comercial/createcliente'){inner('comercial',comercial_createcliente);}
-            else if (h=='#/comercial/createfactorie'){inner('comercial',comercial_createfactorie);}
-            else if (h=='#/comercial/infoofer'){inner('comercial',comercial_infoofer);}
-            else if (h=='#/comercial/logout'){inner('comercial',logout);}
-            else if (h=='#/dtecnico'){inner('dtecnico',dtecnico_default);}
-            else if (h=='#/dtecnico/planeval'){inner('dtecnico',dtecnico_planeval);}
-            else if (h=='#/dtecnico/infoclient'){inner('dtecnico',dtecnico_infoclient);}
-            else if (h=='#/dtecnico/infoprocesos'){inner('dtecnico',dtecnico_infoprocesos);}
-            else if (h=='#/dtecnico/logout'){inner('dtecnico',logout);}
-            else if (h=='#/experto'){inner('experto',experto_default);}
-            else if (h=='#/experto/createoffer'){inner('experto',experto_createoffer);}
-            else if (h=='#/experto/createeval'){inner('experto',experto_createeval);}
-            else if (h=='#/experto/paleval'){inner('experto',experto_paleval);}
-            else if (h=='#/experto/infocliente'){inner('experto',experto_infocliente);}
-            else if (h=='#/experto/logout'){inner('experto',logout);}
-            else if (h=='#/scliente'){inner('scliente',scliente_default);}
-            else if (h=='#/scliente/infooffers'){inner('scliente',scliente_infooffers);}
-            else if (h=='#/scliente/infooffer'){inner('scliente',scliente_infooffer);}
-            else if (h=='#/scliente/certcliente'){inner('scliente',scliente_certcliente);}
-            else if (h=='#/scliente/usuariocliente'){inner('scliente',scliente_usuariocliente);}
-            else if (h=='#/scliente/infoclientes'){inner('scliente',scliente_infoclientes);}
-            else if (h=='#/scliente/logout'){inner('scliente',logout);}
-            else if (h=='#/tcoordinador'){inner('tcoordinador',tcoordinador_default);}
-            else if (h=='#/tcoordinador/createasignacion'){inner('tcoordinador',tcoordinador_createasignacion);}
-            else if (h=='#/tcoordinador/asignacion'){inner('tcoordinador',tcoordinador_asignacion);}
-            else if (h=='#/tcoordinador/logout'){inner('tcoordinador',logout);}
-            else { () => document.getElementById('root').textContent = 'notFound';}
-        }
-        page(window.location.hash);    
-    } else {
-        console.log("no autenticado");
-    }
-    
+// onAuthStateChanged(auth, (user) => {
+//     console.log(`user uid ${user.uid}`)
+//   if (user.uid==localStorage.getItem("u")) {
+//       console.log("autenticado")
+//       console.log(window.location.hash)
+//        page(window.location.hash)
+
+//   } else {
+//       console.log('no logueado ._.')
+//   } 
+page(window.location.hash)
 })
+// });
+export const page = (h) => {
 
+    const inner = (hashp,chtml) => {//se serciora que cada rol este accediendo a sus paginas correspondientes solamente
+        // try {localStorare.getItem("em");}
+        // readUser().then(data => {   
+            console.log(`hashp: ${hashp}`)
+            console.log(`cargo: ${localStorage.getItem("rol")}`)
+            if (hashp==localStorage.getItem("rol")){
+                document.getElementById('root').innerHTML = chtml;
+            } else {
+                document.getElementById('root').textContent = 'no tiene permiso para su rol';
+            }
+        // })
+    }
 
+    if (h=='#/admin'){inner('admin',admin_default)}
+    else if (h=='#/admin/createuser'){inner('admin',admin_createuser)}
+    else if (h=='#/admin/infooffer'){inner('admin',admin_infooffer)}
+    else if (h=='#/admin/infooffer'){inner('admin',admin_infooffers)}
+    else if (h=='#/admin/infooffers'){inner('admin',admin_infooffers)}
+    else if (h=='#/admin/infoclients'){inner('admin',admin_infoclients)}
+    else if (h=='#/admin/logout'){inner('admin',logout)}
+    else if (h=='#/cliente'){inner('cliente',cliente_default)}
+    else if (h=='#/cliente/offer'){inner('cliente',cliente_offer)}
+    else if (h=='#/cliente/logout'){inner('cliente',logout)}
+    else if (h=='#/comercial'){inner('comercial',comercial_default)}
+    else if (h=='#/comercial/infoclientes'){inner('comercial',comercial_infoclientes)}
+    else if (h=='#/comercial/inforcerts'){inner('comercial',comercial_infocerts)}
+    else if (h=='#/comercial/infooffers'){inner('comercial',comercial_infooffers)}
+    else if (h=='#/comercial/editcliente'){inner('comercial',comercial_editcliente)}
+    else if (h=='#/comercial/createcliente'){inner('comercial',comercial_createcliente)}
+    else if (h=='#/comercial/createfactorie'){inner('comercial',comercial_createfactorie)}
+    else if (h=='#/comercial/infoofer'){inner('comercial',comercial_infoofer)}
+    else if (h=='#/comercial/logout'){inner('comercial',logout)}
+    else if (h=='#/dtecnico'){inner('dtecnico',dtecnico_default)}
+    else if (h=='#/dtecnico/planeval'){inner('dtecnico',dtecnico_planeval)}
+    else if (h=='#/dtecnico/infoclient'){inner('dtecnico',dtecnico_infoclient)}
+    else if (h=='#/dtecnico/infoprocesos'){inner('dtecnico',dtecnico_infoprocesos)}
+    else if (h=='#/dtecnico/logout'){inner('dtecnico',logout)}
+    else if (h=='#/experto'){inner('experto',experto_default)}
+    else if (h=='#/experto/createoffer'){inner('experto',experto_createoffer)}
+    else if (h=='#/experto/createeval'){inner('experto',experto_createeval)}
+    else if (h=='#/experto/paleval'){inner('experto',experto_paleval)}
+    else if (h=='#/experto/infocliente'){inner('experto',experto_infocliente)}
+    else if (h=='#/experto/logout'){inner('experto',logout)}
+    else if (h=='#/scliente'){inner('scliente',scliente_default)}
+    else if (h=='#/scliente/infooffers'){inner('scliente',scliente_infooffers)}
+    else if (h=='#/scliente/infooffer'){inner('scliente',scliente_infooffer)}
+    else if (h=='#/scliente/certcliente'){inner('scliente',scliente_certcliente)}
+    else if (h=='#/scliente/usuariocliente'){inner('scliente',scliente_usuariocliente)}
+    else if (h=='#/scliente/infoclientes'){inner('scliente',scliente_infoclientes)}
+    else if (h=='#/scliente/logout'){inner('scliente',logout)}
+    else if (h=='#/tcoordinador'){inner('tcoordinador',tcoordinador_default)}
+    else if (h=='#/tcoordinador/createasignacion'){inner('tcoordinador',tcoordinador_createasignacion)}
+    else if (h=='#/tcoordinador/asignacion'){inner('tcoordinador',tcoordinador_asignacion)}
+    else if (h=='#/tcoordinador/logout'){inner('tcoordinador',logout)}
+    else if (h==''){() => windows.location = ''}
+    else if (h=='#cs'){cerrarSession()}
+    else { () => document.getElementById('root').textContent = 'notFound'}
+}
 
 
 
