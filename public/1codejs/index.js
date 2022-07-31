@@ -3,6 +3,8 @@ import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
 import {validarlogin} from './main.js';
 import "./menu.js";
+import "https://kit.fontawesome.com/5060f102e7.js"
+import './admin_infoclients.js';
 
 
 

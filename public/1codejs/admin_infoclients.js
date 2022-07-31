@@ -1,5 +1,5 @@
 import {querySnap, queryNext,queryNextnt} from './models/post.js';
-
+const observerdatos = new MutationObserver(()=>{ 
 const clienteA = document.getElementById('clienteA');
 const legalA = document.getElementById('legalA');
 const nitA = document.getElementById('nitA');
@@ -42,7 +42,11 @@ const cargarDocs = (ds) => {
     if(ds.length > 0){
 
     const ultimo = ds[ds.length-1];
-    const primer = ds[0]; 
+    const primer = ds[0];
+    clienteA.innerHTML = ``;
+    legalA.innerHTML = ``;
+    nitA.innerHTML = ``;
+    ncontactoA.innerHTML = ``; 
         ds.forEach(d => {
             clienteA.innerHTML += `
 
@@ -66,5 +70,7 @@ const cargarDocs = (ds) => {
     return {primer,ultimo}
     }
 }
-
+})
+const parent = document.getElementById('root');
+observerdatos.observe(parent,{childList:true, subtree:true})
 
