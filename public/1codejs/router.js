@@ -58,7 +58,6 @@ export const page = (h) => {
     if (h=='#/admin'){inner('admin',admin_default)}
     else if (h=='#/admin/createuser'){inner('admin',admin_createuser)}
     else if (h=='#/admin/infooffer'){inner('admin',admin_infooffer)}
-    else if (h=='#/admin/infooffer'){inner('admin',admin_infooffers)}
     else if (h=='#/admin/infooffers'){inner('admin',admin_infooffers)}
     else if (h=='#/admin/infoclients'){inner('admin',admin_infoclients)}
     else if (h=='#/admin/logout'){inner('admin',logout)}

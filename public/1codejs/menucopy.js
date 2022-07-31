@@ -1,10 +1,10 @@
 const observermenu = new MutationObserver(()=>{ 
     if (Boolean(document.getElementById('menu')) && document.getElementById('menu').childElementCount < 1){
-        const menus = {
-            admin:  ` 
+        setTimeout(()=>{
+            document.getElementById('menu').innerHTML = ` 
             <div id="sidebar-container">
                 <div class="logov">
-        
+
                 </div>
                 <div class="menu">
                     <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
@@ -37,38 +37,8 @@ const observermenu = new MutationObserver(()=>{
                     <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">No</h6> </a></div>
                     </div>
                 </div>
-            </div>`,
-            cliente: `...`,
-            comercial: `...`,
-            dtecnico: `...`,
-            experto: `...`,
-            scliente: `...`,
-            tcoordinador: `...`
-        }
+            </div>`;                
         
-        setTimeout(()=>{
-            ( () => {
-                const rol = localStorage.getItem("rol");
-                console.log(rol)
-                const d = document.getElementById('menu');
-                if (rol=='admin'){
-                    d.innerHTML = menus.admin;
-                } else if (rol=='cliente'){
-                    d.innerHTML = menus.cliente;
-                }  else if (rol=='comercial'){
-                    d.innerHTML = menus.comercial;
-                }  else if (rol=='dtecnico'){
-                    d.innerHTML = menus.dtecnico;
-                }  else if (rol=='experto'){
-                    d.innerHTML = menus.experto;
-                }  else if (rol=='scliente'){
-                    d.innerHTML = menus.scliente;
-                }  else if (rol=='tcoordinador'){
-                    d.innerHTML = menus.tcoordinador;
-                }  
-            } ) ();
-
-
             var contador = true;
             const d = document;
             const cerrar = d.getElementById('si_no'),
@@ -87,6 +57,29 @@ const observermenu = new MutationObserver(()=>{
 })
 const parent = document.getElementById('root');
 observermenu.observe(parent,{childList:true})
+
+
+
+// const vinculosM = {
+//     vinculo1: document.querySelectorAll('.menu > a')[0],
+//     vinculo2: document.querySelectorAll('.menu > a')[1],
+//     vinculo3: document.querySelectorAll('.menu > a')[2],
+//     vinculo4: document.querySelectorAll('.menu > a')[3]
+// }
+
+// const vinculosMenu = () => {
+//     const rol = localStorage.getItem("rol");
+//     if (rol=='admin'){
+//         vinculosM.vinculo1.href = "#/admin/infooffer";
+//         vinculosM.vinculo2.href = "#/admin/infoclients";
+//         vinculosM.vinculo3.href = "#/admin/createuser";
+//         vinculosM.vinculo2.href = "#/admin";
+//     } else if (rol=='cliente'){
+//         vinculosM.vinculo1.href = "#/cliente/offer";
+//         vinculosM.vinculo2.href = "#/cliente";
+//     } . . .
+// }
+
 
 
 //     var div_para_menu = document.getElementById('menucliente')

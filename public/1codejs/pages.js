@@ -407,19 +407,19 @@ const
           </div>
         </div>
         </div>`,
-    comercial_infocerts = '', 
-    comercial_infooffers = '',
-    comercial_editcliente = '',
-    comercial_createcliente = '',
-    comercial_createfactorie = '',
-    comercial_infoofer = '',
-    dtecnico_planeval = '',
-    dtecnico_infoclient = '',
-    dtecnico_infoprocesos = '',
-    experto_createoffer = '',
-    experto_createeval = '',
-    experto_paleval = '',
-    experto_infocliente = '',
+    comercial_infocerts = `<div>comercial_infocerts</div>`, 
+    comercial_infooffers = `</div>comercial_infooffers</div>`,
+    comercial_editcliente = `</div>comercial_editcliente</div>`,
+    comercial_createcliente = `</div>comercial_createcliente</div>`,
+    comercial_createfactorie = `</div>comercial_createfactorie</div>`,
+    comercial_infoofer = `</div>comercial_infoofer</div>`,
+    dtecnico_planeval = `</div>dtecnico_planeval</div>`,
+    dtecnico_infoclient = `</div>dtecnico_infoclient</div>`,
+    dtecnico_infoprocesos = `</div>dtecnico_infoprocesos</div>`,
+    experto_createoffer = `</div>experto_createoffer</div>`,
+    experto_createeval = `</div>experto_createeval</div>`,
+    experto_paleval = `</div>experto_paleval</div>`,
+    experto_infocliente = `</div>experto_infocliente</div>`,
     scliente_infooffers = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
 
@@ -503,12 +503,12 @@ const
 
 
       </div>`,
-    scliente_infooffer = '',
-    scliente_certcliente = '',
-    scliente_usuariocliente = '',
-    scliente_infoclientes = '',
-    tcoordinador_createasignacion = '',
-    tcoordinador_asignacion = '';
+      scliente_infooffer = `</div>scliente_infooffer</div>`,
+      scliente_certcliente = `</div>scliente_certcliente</div>`,
+      scliente_usuariocliente = `</div>scliente_usuariocliente</div>`,
+      scliente_infoclientes = `</div>scliente_infoclientes</div>`,
+      tcoordinador_createasignacion = `</div>tcoordinador_createasignacion</div>`,
+      tcoordinador_asignacion = `</div>tcoordinador_asignacion</div>`;
 
 export {index,
     admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser, logout, 
