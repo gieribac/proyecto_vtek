@@ -1,6 +1,10 @@
 import {querySnap, queryNext,queryNextnt} from './models/post.js';
+const observerdatos = new MutationObserver(()=>{ 
+const clienteA = document.getElementById('clienteA');
+const legalA = document.getElementById('legalA');
+const nitA = document.getElementById('nitA');
+const ncontactoA = document.getElementById('ncontactoA');
 
-const tabla = document.getElementById('tabla');
 const btnSiguiente = document.getElementById('botonSiguiente');
 const btnAnterior = document.getElementById('botonAnterior');
 
@@ -38,26 +42,35 @@ const cargarDocs = (ds) => {
     if(ds.length > 0){
 
     const ultimo = ds[ds.length-1];
-    const primer = ds[0]; 
-    tabla.innerHTML = `<tr>
-        <th>Nombre Compañia</th>
-        <th>Representante Legal</th>
-        <th>NIT</th>
-        <th>Número de Contacto</th>
-        </tr>`;
+    const primer = ds[0];
+    clienteA.innerHTML = ``;
+    legalA.innerHTML = ``;
+    nitA.innerHTML = ``;
+    ncontactoA.innerHTML = ``; 
         ds.forEach(d => {
-            tabla.innerHTML += `
-                <tr>
-                <td>${d.data().Nombre_Compania}</td>
-                <td>${d.data().Representante_Legal}</td>
-                <td>${d.data().Nit}</td>
-                <td>${d.data().Numero_Contacto}</td>
-                </tr> 
+            clienteA.innerHTML += `
+
+            <h6 >${d.data().Nombre_Compania}</h6>
             `;
+            legalA.innerHTML += `
+
+            <h6 >${d.data().Representante_Legal}</h6>
+            `;
+            nitA.innerHTML += `
+
+            <h6 >${d.data().Nit}</h6>
+            `;
+            ncontactoA.innerHTML += `
+
+            <h6 >${d.data().Numero_Contacto}</h6>
+            `;
+            
         });
     
     return {primer,ultimo}
     }
 }
-
+})
+const parent = document.getElementById('root');
+observerdatos.observe(parent,{childList:true, subtree:true})
 

@@ -44,6 +44,18 @@
     background-position: center;
 
 }
+.estrella-color-info{
+    background-image: url(../img/Recurso\ 55VTEK\ RECURSOS.png);
+    height: 121px;
+    width: 31px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    background-position: center;
+    margin-left: 47px;
+
+}
+
 .estrella-azul{
     background-image: url("../imgx1/Recurso\ 13VTEK\ RECURSOS.png");
     height: 25px;
@@ -345,8 +357,24 @@
     margin-bottom: 20px;
     
 }
+.si_no_comercial{
+    background-image: url(../imgx1/Recurso\ 43VTEK\ RECURSOS.png);
+    height: 66px;
+    width: 135px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-left: 16px;
+    margin-top: -72px;
+
+}
 .desaparece{
     visibility: hidden !important;
+}
+.deaparece2{
+
+    display: none !important;
 }
 .persona-color2{
     background-image: url(../img/Recurso\ 31VTEK\ RECURSOS.png);

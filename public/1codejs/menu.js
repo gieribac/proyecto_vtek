@@ -2,7 +2,12 @@ const observermenu = new MutationObserver(()=>{
     if (Boolean(document.getElementById('menu')) && document.getElementById('menu').childElementCount < 1){
         const menus = {
             admin:  `<div id="sidebar-container">
+<<<<<<< HEAD
                 <div class="logov">        
+=======
+                <div class="logov">
+        
+>>>>>>> 11bf706b94d3eabbb0339c9732492bf18e487a35
                 </div>
                 <div class="menu">
                     <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
@@ -36,12 +41,234 @@ const observermenu = new MutationObserver(()=>{
                     </div>
                 </div>
             </div>`,
-            cliente: `...`,
-            comercial: `...`,
-            dtecnico: `...`,
-            experto: `...`,
-            scliente: `...`,
-            tcoordinador: `...`
+            cliente: `<div id="sidebar-container">
+            <div class="logov"></div>
+            <div class="menu">
+                <a href="#/cliente/offer" class="d-block text-light p-3 mr menuopciones ">
+                    <div class="bola-blanco">
+                        <div class="check-azul"></div>
+                    </div>
+                </a>
+                <a href="#/cliente" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="casa-azul"></div>
+                    </div>
+                </a>
+                <a href="#" id="on" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="on-azul"></div>
+                    </div>
+                </a>
+                <div class="si_no desaparece" id= "si_no">
+                
+                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+              
+            
+            
+            
+            </div>
+            
+            
+            </div>`,
+            comercial: `<div id="sidebar-container">
+            <div class="logov">
+            
+            </div>
+            <div class="menu">
+                <a href="#/comercial/createcliente" class="d-block text-light p-2 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="mas-azul"></div>
+                    </div>
+                </a>
+            
+                    <a href="#/comercial/createfactorie" class="d-block text-light p-2 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="estrella-azul"></div>
+                    </div>
+                </a>
+            
+            
+                <a href="#/comercial/infooffers" class="d-block text-light p-2 mr menuopciones ">
+                    <div class="bola-blanco">
+                        <div class="check-azul"></div>
+                    </div>
+                </a>
+                <a href="#/comercial/infoclientes" class="d-block text-light p-2 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="persona-azul"></div>
+                    </div>
+                </a>
+            
+            
+            
+                    <a href="#/comercial" class="d-block text-light p-2 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="audifonos-azul"></div>
+                    </div>
+                </a>
+            
+            
+                <a href="#" id="on" class="d-block text-light p-2 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="on-azul"></div>
+                    </div>
+                </a>
+                <div class="si_no_comercial desaparece" id= "si_no">
+                
+                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+              
+            
+            
+            
+            </div>
+            
+            
+            </div>`,
+            dtecnico: `<div id="sidebar-container">
+            <div class="logov">
+            
+            </div>
+            <div class="menu">
+            
+                <a href="#" class="d-block text-light p-3 mr menuopciones ">
+                    <div class="bola-blanco">
+                        <div class="campana-azul"></div>
+                    </div>
+                </a>
+                <a href="#" class="d-block text-light p-3 mr menuopciones ">
+                    <div class="bola-blanco">
+                        <div class="check-azul"></div>
+                    </div>
+                </a>
+            
+                <a href="#" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="casa-azul"></div>
+                    </div>
+                </a>
+                <a href="#" id="on" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="on-azul"></div>
+                    </div>
+                </a>
+                <div class="si_no desaparece" id= "si_no">
+                
+                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+              
+            
+            
+            
+            </div>
+            
+            
+            </div>`,
+            experto: `<div id="sidebar-container">
+            <div class="logov">
+            
+            </div>
+            <div class="menu">
+            
+                <a href="#" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="mas-azul"></div>
+                    </div>
+                </a>
+            
+                <a href="#/experto/infocliente" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="persona-azul"></div>
+                    </div>
+                </a>
+                <a href="#/experto" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="casa-azul"></div>
+                    </div>
+                </a>
+                <a href="#" id="on" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="on-azul"></div>
+                    </div>
+                </a>
+                <div class="si_no desaparece" id= "si_no">
+                
+                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+              
+            
+            
+            
+            </div>
+            
+            
+            </div>`,
+            scliente: `<div id="sidebar-container">
+            <div class="logov">
+            
+            </div>
+            <div class="menu">
+                 <a href="#/scliente/infooffers" class="d-block text-light p-3 mr menuopciones ">
+                <div class="bola-blanco">
+                <div class="check-azul"></div>
+                </div>
+                </a>
+                <a href="#/scliente/infoclientes" class="d-block text-light p-3 menuopciones">
+                <div class="bola-blanco">
+                    <div class="persona-azul"></div>
+                </div>
+                </a>
+                <a href="#/scliente" class="d-block text-light p-3 menuopciones">
+                <div class="bola-blanco">
+                    <div class="casa-azul"></div>
+                </div>
+                </a>
+
+                <a href="#" id="on" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="on-azul"></div>
+                    </div>
+                </a>
+                <div class="si_no desaparece" id= "si_no">
+                
+                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+              
+            
+            
+            
+            </div>
+            
+            
+            </div>`,
+            tcoordinador:`<div id="sidebar-container">
+            <div class="logov">
+            
+            </div>
+            <div class="menu">
+                <a href="#" class="d-block text-light p-3 mr menuopciones ">
+                    <div class="bola-blanco">
+                        <div class="check-azul"></div>
+                    </div>
+                </a>
+            
+                <a href="#/tcoordinador" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="audifonos-azul"></div>
+                    </div>
+                </a>
+                <a href="#" id="on" class="d-block text-light p-3 menuopciones">
+                    <div class="bola-blanco">
+                        <div class="on-azul"></div>
+                    </div>
+                </a>
+                <div class="si_no desaparece" id= "si_no">
+                
+                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
+              
+            
+            
+            
+            </div>
+            
+            
+            </div>`
         }
         
         setTimeout(()=>{
@@ -85,278 +312,3 @@ const observermenu = new MutationObserver(()=>{
 })
 const parent = document.getElementById('root');
 observermenu.observe(parent,{childList:true})
-
-
-//     var div_para_menu = document.getElementById('menucliente')
-// div_para_menu.innerHTML += ` 
-
-// <div id="sidebar-container">
-// <div class="logov">
-
-// </div>
-// <div class="menu">
-//     <a href="#" class="d-block text-light p-3 mr menuopciones ">
-//         <div class="bola-blanco">
-//             <div class="check-azul"></div>
-//         </div>
-//     </a>
-
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="casa-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" id="on" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="on-azul"></div>
-//         </div>
-//     </a>
-//     <div class="si_no desaparece" id= "si_no">
-    
-//     <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-  
-
-
-
-// </div>
-
-
-// </div>
-
-// `;
-// document.set
-
-// var div_para_menu = document.getElementById('menudirector')
-// div_para_menu.innerHTML += ` 
-
-// <div id="sidebar-container">
-// <div class="logov">
-
-// </div>
-// <div class="menu">
-
-//     <a href="#" class="d-block text-light p-3 mr menuopciones ">
-//         <div class="bola-blanco">
-//             <div class="campana-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" class="d-block text-light p-3 mr menuopciones ">
-//         <div class="bola-blanco">
-//             <div class="check-azul"></div>
-//         </div>
-//     </a>
-
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="casa-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" id="on" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="on-azul"></div>
-//         </div>
-//     </a>
-//     <div class="si_no desaparece" id= "si_no">
-    
-//     <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-  
-
-
-
-// </div>
-
-
-// </div>
-
-// `;
-// document.set
-
-// var div_para_menu = document.getElementById('menuexperto')
-// div_para_menu.innerHTML += ` 
-
-// <div id="sidebar-container">
-// <div class="logov">
-
-// </div>
-// <div class="menu">
-
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="mas-azul"></div>
-//         </div>
-//     </a>
-
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="persona-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="casa-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" id="on" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="on-azul"></div>
-//         </div>
-//     </a>
-//     <div class="si_no desaparece" id= "si_no">
-    
-//     <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-  
-
-
-
-// </div>
-
-
-// </div>
-
-// `;
-// document.set
-
-// var div_para_menu = document.getElementById('menuservicio')
-// div_para_menu.innerHTML += ` 
-
-// <div id="sidebar-container">
-// <div class="logov">
-
-// </div>
-// <div class="menu">
-//     <a href="#" class="d-block text-light p-3 mr menuopciones ">
-//         <div class="bola-blanco">
-//             <div class="check-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="persona-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="casa-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" id="on" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="on-azul"></div>
-//         </div>
-//     </a>
-//     <div class="si_no desaparece" id= "si_no">
-    
-//     <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-  
-
-
-
-// </div>
-
-
-// </div>
-
-// `;
-// document.set
-
-// var div_para_menu_tecnico = document.getElementById('menutecnico');
-// div_para_menu_tecnico.innerHTML += ` 
-
-// <div id="sidebar-container">
-// <div class="logov">
-
-// </div>
-// <div class="menu">
-//     <a href="crear_usuario.html" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="mas-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="audifonos-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" id="on" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="on-azul"></div>
-//         </div>
-//     </a>
-//     <div class="si_no desaparece" id= "si_no">
-    
-//     <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-  
-
-
-
-// </div>
-
-
-// </div>
-
-// `;document.set
-
-// var div_para_menu = document.getElementById('menucomercial')
-// div_para_menu.innerHTML += ` 
-
-// <div id="sidebar-container">
-// <div class="logov">
-
-// </div>
-// <div class="menu">
-//     <a href="crear_usuario.html" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="mas-azul"></div>
-//         </div>
-//     </a>
-
-//         <a href="crear_usuario.html" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="estrella-azul"></div>
-//         </div>
-//     </a>
-
-
-//     <a href="#" class="d-block text-light p-3 mr menuopciones ">
-//         <div class="bola-blanco">
-//             <div class="check-azul"></div>
-//         </div>
-//     </a>
-//     <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="persona-azul"></div>
-//         </div>
-//     </a>
-
-
-
-//         <a href="#" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="audifonos-azul"></div>
-//         </div>
-//     </a>
-
-
-//     <a href="#" id="on" class="d-block text-light p-3 menuopciones">
-//         <div class="bola-blanco">
-//             <div class="on-azul"></div>
-//         </div>
-//     </a>
-//     <div class="si_no desaparece" id= "si_no">
-    
-//     <a href="index.html" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-  
-
-
-
-// </div>
-
-
-// </div>
-
-// `;document.set
-
-
-
-
-
