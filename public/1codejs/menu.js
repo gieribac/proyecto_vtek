@@ -2,12 +2,8 @@ const observermenu = new MutationObserver(()=>{
     if (Boolean(document.getElementById('menu')) && document.getElementById('menu').childElementCount < 1){
         const menus = {
             admin:  `<div id="sidebar-container">
-<<<<<<< HEAD
-                <div class="logov">        
-=======
                 <div class="logov">
         
->>>>>>> 11bf706b94d3eabbb0339c9732492bf18e487a35
                 </div>
                 <div class="menu">
                     <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
@@ -62,17 +58,10 @@ const observermenu = new MutationObserver(()=>{
                 <div class="si_no desaparece" id= "si_no">
                 
                 <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-              
-            
-            
-            
-            </div>
-            
-            
+            </div> 
             </div>`,
             comercial: `<div id="sidebar-container">
-            <div class="logov">
-            
+            <div class="logov">            
             </div>
             <div class="menu">
                 <a href="#/comercial/createcliente" class="d-block text-light p-2 menuopciones">
@@ -85,9 +74,7 @@ const observermenu = new MutationObserver(()=>{
                     <div class="bola-blanco">
                         <div class="estrella-azul"></div>
                     </div>
-                </a>
-            
-            
+                </a>          
                 <a href="#/comercial/infooffers" class="d-block text-light p-2 mr menuopciones ">
                     <div class="bola-blanco">
                         <div class="check-azul"></div>
@@ -98,16 +85,11 @@ const observermenu = new MutationObserver(()=>{
                         <div class="persona-azul"></div>
                     </div>
                 </a>
-            
-            
-            
                     <a href="#/comercial" class="d-block text-light p-2 menuopciones">
                     <div class="bola-blanco">
                         <div class="audifonos-azul"></div>
                     </div>
-                </a>
-            
-            
+                </a>           
                 <a href="#" id="on" class="d-block text-light p-2 menuopciones">
                     <div class="bola-blanco">
                         <div class="on-azul"></div>
@@ -116,20 +98,12 @@ const observermenu = new MutationObserver(()=>{
                 <div class="si_no_comercial desaparece" id= "si_no">
                 
                 <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-              
-            
-            
-            
-            </div>
-            
-            
-            </div>`,
+                </div>
+                </div>`,
             dtecnico: `<div id="sidebar-container">
             <div class="logov">
-            
             </div>
-            <div class="menu">
-            
+            <div class="menu">            
                 <a href="#" class="d-block text-light p-3 mr menuopciones ">
                     <div class="bola-blanco">
                         <div class="campana-azul"></div>
@@ -151,29 +125,19 @@ const observermenu = new MutationObserver(()=>{
                         <div class="on-azul"></div>
                     </div>
                 </a>
-                <div class="si_no desaparece" id= "si_no">
-                
+                <div class="si_no desaparece" id= "si_no">                
                 <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-              
-            
-            
-            
-            </div>
-            
-            
-            </div>`,
+                </div>
+                </div>`,
             experto: `<div id="sidebar-container">
             <div class="logov">
-            
             </div>
             <div class="menu">
-            
-                <a href="#" class="d-block text-light p-3 menuopciones">
+            <a href="#" class="d-block text-light p-3 menuopciones">
                     <div class="bola-blanco">
                         <div class="mas-azul"></div>
                     </div>
                 </a>
-            
                 <a href="#/experto/infocliente" class="d-block text-light p-3 menuopciones">
                     <div class="bola-blanco">
                         <div class="persona-azul"></div>
@@ -190,19 +154,11 @@ const observermenu = new MutationObserver(()=>{
                     </div>
                 </a>
                 <div class="si_no desaparece" id= "si_no">
-                
                 <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-              
-            
-            
-            
-            </div>
-            
-            
-            </div>`,
+                </div>
+                </div>`,
             scliente: `<div id="sidebar-container">
             <div class="logov">
-            
             </div>
             <div class="menu">
                  <a href="#/scliente/infooffers" class="d-block text-light p-3 mr menuopciones ">
@@ -220,26 +176,17 @@ const observermenu = new MutationObserver(()=>{
                     <div class="casa-azul"></div>
                 </div>
                 </a>
-
                 <a href="#" id="on" class="d-block text-light p-3 menuopciones">
                     <div class="bola-blanco">
                         <div class="on-azul"></div>
                     </div>
                 </a>
                 <div class="si_no desaparece" id= "si_no">
-                
                 <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-              
-            
-            
-            
-            </div>
-            
-            
-            </div>`,
+                </div>
+                </div>`,
             tcoordinador:`<div id="sidebar-container">
             <div class="logov">
-            
             </div>
             <div class="menu">
                 <a href="#" class="d-block text-light p-3 mr menuopciones ">
@@ -260,14 +207,8 @@ const observermenu = new MutationObserver(()=>{
                 </a>
                 <div class="si_no desaparece" id= "si_no">
                 
-                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
-              
-            
-            
-            
+                <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>     
             </div>
-            
-            
             </div>`
         }
         
