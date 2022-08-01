@@ -1,10 +1,8 @@
 const observermenu = new MutationObserver(()=>{ 
     if (Boolean(document.getElementById('menu')) && document.getElementById('menu').childElementCount < 1){
         const menus = {
-            admin:  ` 
-            <div id="sidebar-container">
-                <div class="logov">
-        
+            admin:  `<div id="sidebar-container">
+                <div class="logov">        
                 </div>
                 <div class="menu">
                     <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
