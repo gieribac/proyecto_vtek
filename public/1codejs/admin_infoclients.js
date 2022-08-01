@@ -72,5 +72,5 @@ const cargarDocs = (ds) => {
 }
 })
 const parent = document.getElementById('root');
-observerdatos.observe(parent,{childList:true, subtree:true})
+observerdatos.observe(parent,{childList:true})
 
