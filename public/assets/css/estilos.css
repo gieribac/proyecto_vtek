@@ -163,10 +163,11 @@ height: 40px;
     margin-right: 10px;
 }
 .dropdown2{
-    position: absolute;
-    right: 540px;
+    position: inherit;
+    
     border-radius: 50px;
     width: 200px;
+    margin-top: 16px;
 
 }
 .naranjasinb{
@@ -175,8 +176,7 @@ height: 40px;
     width: 197px;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 239px;
-    margin-top: -33px;
+    margin-left: 43%;
 
 
 
@@ -189,7 +189,7 @@ height: 40px;
     width: 229px;
     height: 81px;
     border: none;
-    margin-left: 408px;
+    margin-left: 62%;
     background-repeat: no-repeat;
     margin-top: -45px;
 
@@ -432,7 +432,24 @@ opacity: 1;
 .margenes{
     margin-top: 30px;
 }
-
+.letra_formulario2{
+    color: #e61919;
+    margin-left: 340px !important;
+    margin-top: 20px;
+}
+.letra_formulario{
+    color: #e61919;
+    position: absolute;
+    margin-top: 50px;
+}
+.letra_formulario3{
+    color: #e61919;
+    margin-left: 10px !important;
+    margin-top: 20px;
+}
+.acomodar{
+    float:left;
+}
 
 
 
