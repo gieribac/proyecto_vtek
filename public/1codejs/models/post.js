@@ -1,30 +1,68 @@
 //archivo encargado de ejecutar publicaciones a firestore
 
-import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
+import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
 import {collection, addDoc, getDocs, increment, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
 
 export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero, identificacion, tipoidentififcacion, cargo)=> {
+try {
     await createUserWithEmailAndPassword(auth, correo, clave)
-        .then((userCredential) => {
+        .then(async(userCredential) => {
             const user = userCredential.user;
-            setDoc(doc(db, "users", user.uid), {                
+            await setDoc(doc(db, "users", user.uid), {                
                 Responsable: nombreResposable,
                 Email: correo,
-                Uuario: nombreUsu,
+                Usuario: nombreUsu,
                 numeroTel: numero,
                 NoIdentificacion: identificacion,
                 TipoIdentificacion: tipoidentififcacion,
                 Cargo: cargo
             });
-        })
-        .catch((error) => {
+            signOut(auth).then(() => {
+                const correo = localStorage.getItem("em");
+                const clave = localStorage.getItem("k");                
+                signInWithEmailAndPassword(auth,correo,clave)
+                .then((userCredential) => {                     
+                    
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                    throw error;
+                })
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.log(errorCode)
+                    console.log(errorMessage)
+                    throw error;
+                })
+        }).catch ((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage)
-        });
+            console.log(errorCode)
+            console.log(errorMessage)
+            throw error;
+        })
+} catch (e){
+    throw e;
+
 }
+}
+// export const newClient = async() => {
+//     await setDoc(doc(db, "clients", '1000000'), datos);
+// }
+
+
+
+// const docRef = await addDoc(collection(db, "cities"), {
+//     name: "Tokyo",
+//     country: "Japan"
+//   });
+//   console.log("Document written with ID: ", docRef.id);
+
 // export const newClient = async() => {
 //     await setDoc(doc(db, "clients", '1000000'), datos);
 // }

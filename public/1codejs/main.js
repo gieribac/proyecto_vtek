@@ -38,21 +38,3 @@ export const validarlogin = (correo, clave) => {
     const valclave = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(clave); //digitos, almenos una mayuscula, almenos una minuscula
     return valcorreo && valclave;
 }
-// if (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(contrasenaF) &&  contrasenaF===recontrasenaF) {
-//     saveF.addEventListener('click', () => {
-//         newUser(correoF, contrasenaF, nombreF, usuarioF, numeroF, identificacionF, tipoIDF,  cargocliF, saveF);
-//       });
-// }
-
-//validar formulario de crear usuario
-// export const validarFormCrearUsu = (nombreResp,correo, nombreUsu, numeroContacto, ident, clave,reclave) => {
-//     const valcorreo = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(correo);
-//     const valreclave = clave === reclave;
-//     const valclave = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(clave);//digitos, almenos una mayuscula, almenos una minuscula
-//     const valnombreResp = /^[a-zA-ZÀ-ÿ\s]{4,50}$/.test(nombreResp);// Letras y espacios, pueden llevar tildes.
-//     const valnombreUsu = /^[a-zA-Z0-9\_\-]{4,16}$/.test(nombreUsu);// Letras, numeros, guion y guion_bajo
-//     const valnumeroContacto = /^\d{7,14}$/.test(numeroContacto);// 7 a 14 digitos
-//     const valident = /^\d{7,10}$/.test(ident);// 7 a 10 digitos
-//     return valcorreo && valclave;
-// }
-
