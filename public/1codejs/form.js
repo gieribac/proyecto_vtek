@@ -27,15 +27,15 @@ const saveF = document.getElementById('saveF');
 
 //mensaje para el usuario si aplica: la verificaciòn de contraseña no coincide
 //dejar desactivado el voton guardar (ponerlo opaco o de otro color hasta que coi)
-//hablar lo de validaciones de los demas campos
+//hablar lo de validaciones de los demas camposimage.png
 //https://www.youtube.com/watch?v=s3pC93LgP18&t=1297s
 
-// newUser('iba@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','comercial'); 
-// newUser('luffy@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','scliente');
-// newUser('ace@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','cliente');
-// newUser('sabo@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','admin');
-// newUser('zoro@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','experto');
-// newUser('nami@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','dtecnico');
-// newUser('sanji@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','tcoordinador');
-// newUser('correo','clave','nombre','usuario','numero','documento','tipo','cargo');
-//setDocument();
+newUser('iba@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','comercial'); 
+newUser('luffy@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','scliente');
+newUser('ace@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','cliente');
+newUser('sabo@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','admin');
+newUser('zoro@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','experto');
+newUser('nami@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','dtecnico');
+newUser('sanji@gmail.com','1234aA','Jose Celestino Mutis','gieribac','3203334970','1045789007','CC','tcoordinador');
+newUser('correo','clave','nombre','usuario','numero','documento','tipo','cargo');
+setDocument();

@@ -1,6 +1,6 @@
 //archivo encargado de ejecutar publicaciones a firestore
 
-import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
+import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
 import {collection, addDoc, getDocs, increment, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';

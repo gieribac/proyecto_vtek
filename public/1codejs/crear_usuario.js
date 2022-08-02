@@ -3,7 +3,6 @@ import {newUser} from './models/post.js';
 const observer = new MutationObserver(()=>{
   
     const charge = () => {
-        console.log("charge")
         const d = document;
         const myNodeList = d.querySelectorAll('.margenusu p');
         for (let v of myNodeList){
@@ -143,7 +142,7 @@ const observer = new MutationObserver(()=>{
         }); 
     }
 
-    Boolean(document.getElementById('saveF')) ? charge() : {};
+    location.hash == '#/admin/createuser' ? charge() : {};
 })
 
 const parent = document.getElementById('root');
