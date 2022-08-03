@@ -1,5 +1,9 @@
 
-    //codigo para invocar ids cuando ha cambiado el dom
+   
+   
+   
+   
+   //codigo para invocar ids cuando ha cambiado el dom
 
         // const observer = new MutationObserver(()=>{
             //codigo aqui
@@ -29,7 +33,7 @@
 //cuales con las opciones a escoger en tipo de identificacion
 //aqui cuantos clientes deben versen en el caso de que sean muchos como se manejaria? https://drive.google.com/drive/folders/1RyAdslHA_3HYSboxM_RCacao0jeI4d6X
 //se va a manejar estado activado/desactivado para el voton guardar hasta que el formulario este listo¿
-//estas se maquetan? y en que parte irian https://drive.google.com/drive/folders/1RyAdslHA_3HYSboxM_RCacao0jeI4d6X
+//estas se maquetan? y en que parte irian   
 //se supone que en la pagina que esta mostrando deberia cambiar el color del icono y mostrar ese letrerito? o se activaran con hover
 
 //https://drive.google.com/drive/folders/1Kiz8V7iZ1jFb2g2bCYPW32AyH_HPb4BO
@@ -40,5 +44,8 @@
 
 // pendiente ajustar la forma de dar error en el login 
 // pendiente terminar envio de formulario crear_usuario
+
+// link documentacion
+// https://drive.google.com/drive/folders/1hx4A6tOAiegZHyLZVkoqsvSXU4gSq2Sl
 
 

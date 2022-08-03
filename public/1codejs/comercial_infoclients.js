@@ -1,4 +1,4 @@
-import {querySnap, queryNext,queryNextnt} from './models/post.js';
+import {querySnapCom, queryNextCom, queryNextntCom} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
     
     const charge = () => {
@@ -12,16 +12,16 @@ const observerdatos = new MutationObserver(()=>{
 
         let ultimoDoc = null;
         let primerDoc = null;
-
-        querySnap().then((d) => {
-
+        console.log("asas")
+        querySnapCom().then((d) => {
+            console.log(d)
             let registers = cargarDocs(d.docs);
             ultimoDoc = registers.ultimo;
             primerDoc = registers.primer;
 
             btnSiguiente.addEventListener('click',() => {
                 try { 
-                    queryNext(ultimoDoc).then((d) => {
+                    queryNextCom(ultimoDoc).then((d) => {
 
                         registers = cargarDocs(d.docs); 
                         ultimoDoc = registers.ultimo;
@@ -37,7 +37,7 @@ const observerdatos = new MutationObserver(()=>{
 
             btnAnterior.addEventListener('click',() => {
                 
-                    queryNextnt(primerDoc).then((d) => {
+                    queryNextntCom(primerDoc).then((d) => {
                 
                     registers = cargarDocs(d.docs.reverse());
                     ultimoDoc = registers.ultimo;
@@ -46,7 +46,7 @@ const observerdatos = new MutationObserver(()=>{
                 })
                 
             })
-        })
+        }).then ((e) => console.log(e))
 
         const cargarmsje = () => {
             clienteA.innerHTML = `No hay más registros disponibles`;
@@ -89,7 +89,7 @@ const observerdatos = new MutationObserver(()=>{
         }
     }
 
-    location.hash == '#/admin/infoclients' && charge();
+    location.hash == '#/comercial/infoclientes' && charge();
 })
 const parent = document.getElementById('root');
 observerdatos.observe(parent,{childList:true})

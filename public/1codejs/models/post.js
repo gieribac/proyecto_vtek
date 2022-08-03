@@ -89,10 +89,11 @@ export const queryInc = async() => {
     return doc.data()});
 }
 
-export const paginacion = () => {
-db.collection('users').onSnapshot((s)=>{console.log(s)});}
+// export const paginacion = () => {
+// db.collection('users').onSnapshot((s)=>{console.log(s)});}
 
 
+//<admin_infoclients>//
 
 // Query the first page of docs
 
@@ -134,6 +135,53 @@ export const queryNextnt = async(lastVisible) => {
     return docs_;
             
 }
+
+//</admin_infoclients>//
+
+//<comercial_infoclients>//
+const uidcom = localStorage.getItem("u");
+export const querySnapCom = async() => {
+    try {
+        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
+        const documentSnapshots = await getDocs(first);
+        
+        console.log(`documentsSnapCom: ${documentSnapshots}`)
+        return documentSnapshots
+    
+    
+        } catch (e){
+            throw e.message
+    
+        }
+    }
+    
+    export const queryNextCom = async(lastVisible) => {
+    
+        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
+                orderBy("No_Identificacion","asc"),
+                startAfter(lastVisible),
+                limit(3));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+    
+    export const queryNextntCom = async(lastVisible) => {
+    
+        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
+                orderBy("No_Identificacion","desc"),
+                startAfter(lastVisible),
+                limit(3));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+    
+
+//</comercial_infoclients>//
+
 
 ////llamadas//
 // saveClient();

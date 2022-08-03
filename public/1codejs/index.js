@@ -3,6 +3,7 @@ import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
 import {validarlogin} from './main.js';
 import './admin_infoclients.js'
+import './comercial_infoclients.js'
 import "https://kit.fontawesome.com/5060f102e7.js";
 
 const setLC = (co,cl,u,rol) => {

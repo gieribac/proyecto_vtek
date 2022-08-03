@@ -194,7 +194,8 @@ const observer = new MutationObserver(()=>{
             Numero_Contacto: info[10].value,
             Web: info[11].value,
             Email: info[12].value,
-            Calificacion: info[13].value
+            Calificacion: info[13].value,
+            ComercialID: localStorage.getItem("u")
         }
 
         d.getElementById('guardarC').addEventListener('click', () => {
@@ -211,7 +212,7 @@ const observer = new MutationObserver(()=>{
         }); 
     }
 
-    location.hash == '#/comercial/createcliente' ? charge() : {};
+    location.hash == '#/comercial/createcliente' && charge();
 })
 
 const parent = document.getElementById('root');

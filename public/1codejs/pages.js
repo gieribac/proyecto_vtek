@@ -710,16 +710,6 @@ const
             </div>
       </div>
       </div>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       `,
     comercial_editcliente = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
@@ -738,12 +728,7 @@ const
       <div class="col-lg-9 ">
 
           <h6 class="info_de_oferta p-3">Información Cliente</h6>
-
-          
-
-
-
-      </div>
+              </div>
       <div class="col-lg-9 " style="margin-top: 20px;">
          <div class="i-azul centrarF"> 
           
@@ -753,12 +738,8 @@ const
           <div class="recuadro margenr1 sombra temano_recuadro" id="cliente">
 
               <div  class="infocliente_oferta_admin">
-            <div ><a href=""> <h6> Cliente #1</h6></a></div>
-
-            
+            <div ><a href=""> <h6> Cliente #1</h6></a></div>            
           </div>
-
-
           </div>
           <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
 
@@ -773,38 +754,13 @@ const
             <div class="p-lg-0" id="info_compania"><h6 > identificacion </h6></div>
             <div class="p-lg-0" id="info_compania"><h6 > Número de contácto </h6></div>
 
-        </div>
-              
-
-
-
-            
-
-            
-
-            
-
-
+        </div>              
           </div>
-
-        
-
-
-
-
-        </div>
-        
-
+        </div>      
 
       </div>
-      
-
-
-
-
-
       </div>`,
-    comercial_createcliente = `        <div class="d-flex align-items-stretch flex-column">
+    comercial_createcliente = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
             <div class="infopagina">
@@ -813,8 +769,7 @@ const
         </div>
         <form id="formcrearCLiente">
         <fieldset>
-        <div class="cols-lg-4  col--6 col-xs-12   margenusu">
-        
+        <div class="cols-lg-4  col--6 col-xs-12   margenusu">        
             <div class="input-group input-group_main p-3">
                 <div class="inputsdivi" id="nombre">
                     <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaC">
@@ -913,8 +868,7 @@ const
         </div>
         <form id="formcrearFabrica">
         <fieldset>
-        <div class="cols-lg-4  col--6 col-xs-12   margenusu">
-        
+        <div class="cols-lg-4  col--6 col-xs-12   margenusu">        
             <div class="input-group input-group_main p-3">
                 <div class="inputsdivi" id="nombre">
                     <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaCF">
@@ -960,15 +914,9 @@ const
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
-            </div>
-            
+            </div>            
             <div class="formulario__mensaje" id="formulario__mensaje">
             <i class="formulario"></i>
-
-
-
-
-        
         </fieldset>
         <div class="col-lg-9   col-xs-12">
         <div class="avisopSave"></div>
