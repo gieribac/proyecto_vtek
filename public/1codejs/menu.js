@@ -215,7 +215,6 @@ const observermenu = new MutationObserver(()=>{
         setTimeout(()=>{
             ( () => {
                 const rol = localStorage.getItem("rol");
-                console.log(rol)
                 const d = document.getElementById('menu');
                 if (rol=='admin'){
                     d.innerHTML = menus.admin;

@@ -11,19 +11,21 @@ const observer = new MutationObserver(()=>{
         d.getElementById('guardarC').disabled = true;
         var info = [];
             info.push(d.getElementById('guardarC'));//boton de guardar 0
-            info.push(d.getElementById('nombreCompaniaC'));1
-            info.push(d.getElementById('repLegalC'));2
-            info.push(d.getElementById('direccionC'));3
-            info.push(d.getElementById('ciudadC'));4
-            info.push(d.getElementById('nombreRespC'));5
-            info.push(d.getElementById('cargoC'));6
+            info.push(d.getElementById('nombreCompaniaC'));//1
+            info.push(d.getElementById('repLegalC'));//2
+            info.push(d.getElementById('direccionC'));//3
+            info.push(d.getElementById('ciudadC'));//4
+            info.push(d.getElementById('nombreRespC'));//5
+            info.push(d.getElementById('cargoC'));//6
             info.push(d.getElementById('tipoIDC'));//selector 7
-            info.push(d.getElementById('identificacionC'));8
-            info.push(d.getElementById('nitC')); 9
-            info.push(d.getElementById('ncontactoC')); 10
-            info.push(d.getElementById('webC'));11
-            info.push(d.getElementById('emailC'));12
+            info.push(d.getElementById('identificacionC'));//8
+            info.push(d.getElementById('nitC'));// 9
+            info.push(d.getElementById('ncontactoC')); //10
+            info.push(d.getElementById('webC'));//11
+            info.push(d.getElementById('emailC'));//12
             info.push(d.getElementById('calificacionC'));//selector 13
+            info.push(d.getElementById('claveC'));//14
+            info.push(d.getElementById('rclaveC'));//15
             
 
         const fenable = () => {
@@ -166,6 +168,26 @@ const observer = new MutationObserver(()=>{
                 d.getElementById('guardarC').disabled = true;
             } 
         }
+
+        const validator14 = () => {//contraseña
+            fenable();
+            if (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(info[14].value)){
+                d.querySelector('.clavecli').classList.add('formulario__input-error');
+            } else {
+                d.querySelector('.clavecli').classList.remove('formulario__input-error');
+                d.getElementById('guardarC').disabled = true;
+            }
+        }
+        const validator15 = () => {//confurmacion de contraseña
+            fenable();
+            if (info[14].value===info[15].value){
+                d.querySelector('.rclavecli').classList.add('formulario__input-error');
+            } else {
+                d.querySelector('.rclavecli').classList.remove('formulario__input-error');
+                d.getElementById('guardarC').disabled = true;
+            }
+        }
+
         
         info[1].addEventListener('keyup',validator1);
         info[2].addEventListener('keyup',validator2);
@@ -180,6 +202,8 @@ const observer = new MutationObserver(()=>{
         info[11].addEventListener('keyup',validator11);
         info[12].addEventListener('keyup',validator12);
         info[13].addEventListener('change',validator13);
+        info[14].addEventListener('keyup',validator14);
+        info[15].addEventListener('keyup',validator15);
 
         let datos = {
             Nombre_Compania: info[1].value,            
@@ -197,11 +221,11 @@ const observer = new MutationObserver(()=>{
             Calificacion: info[13].value,
             ComercialID: localStorage.getItem("u")
         }
-
+        let Clave = info[14];
         d.getElementById('guardarC').addEventListener('click', () => {
             console.log("se ha llenado todo correctamente");        
             console.log(datos)
-            saveClient(datos).then(()=>{}).catch((error) => {
+            saveClient(datos, Clave).then(()=>{}).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage);

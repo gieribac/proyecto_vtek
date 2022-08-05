@@ -1,4 +1,4 @@
-import {querySnapCom, queryNextCom, queryNextntCom} from './models/post.js';
+import {querySnapComCli, queryNextComCli, queryNextntComCli} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
     
     const charge = () => {
@@ -12,32 +12,27 @@ const observerdatos = new MutationObserver(()=>{
 
         let ultimoDoc = null;
         let primerDoc = null;
-        console.log("asas")
-        querySnapCom().then((d) => {
+
+        querySnapComCli().then((d) => {
             console.log(d)
             let registers = cargarDocs(d.docs);
             ultimoDoc = registers.ultimo;
             primerDoc = registers.primer;
 
             btnSiguiente.addEventListener('click',() => {
-                try { 
-                    queryNextCom(ultimoDoc).then((d) => {
 
-                        registers = cargarDocs(d.docs); 
-                        ultimoDoc = registers.ultimo;
-                        primerDoc = registers.primer;   
-                    }) 
-                } catch {
-                    console.log("catch")
-                    let registers = cargarmsje();
-                    ultimoDoc = d.docs[d.docs.length-1];
-                    primerDoc = d.docs[0];
-                }   
+                queryNextComCli(ultimoDoc).then((d) => {
+
+                    registers = cargarDocs(d.docs); 
+                    ultimoDoc = registers.ultimo;
+                    primerDoc = registers.primer;   
+                }) 
+
             })
 
             btnAnterior.addEventListener('click',() => {
                 
-                    queryNextntCom(primerDoc).then((d) => {
+                    queryNextntComCli(primerDoc).then((d) => {
                 
                     registers = cargarDocs(d.docs.reverse());
                     ultimoDoc = registers.ultimo;
@@ -48,12 +43,6 @@ const observerdatos = new MutationObserver(()=>{
             })
         }).then ((e) => console.log(e))
 
-        const cargarmsje = () => {
-            clienteA.innerHTML = `No hay más registros disponibles`;
-            legalA.innerHTML = ``;
-            nitA.innerHTML = ``;
-            ncontactoA.innerHTML = ``; 
-        }
         const cargarDocs = (ds) => {
             
             if(ds.length > 0){

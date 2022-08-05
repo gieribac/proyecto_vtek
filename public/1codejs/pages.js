@@ -493,9 +493,9 @@ const
               <div>
                 <select required="" class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDF">
                   <option selected>Seleccionar Opción</option>
-                  <option value="1">Tarjeta de Identidad</option>
-                  <option value="2">Cédula</option>
-                  <option value="3">Cédula de Extranjeria </option>
+                  <option value="TI">Tarjeta de Identidad</option>
+                  <option value="CC">Cédula</option>
+                  <option value="CE">Cédula de Extranjeria </option>
                 </select>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
               </div>
@@ -527,7 +527,6 @@ const
                 <select class="form-select dropdown2 sombra " aria-label="Default select example" id="cargocliF">
                   <option selected>Seleccionar Opción</option>
                   <option value="admin">Administrador</option>
-                  <option value="cliente">Cliente</option>
                   <option value="comercial">Comercial</option>
                   <option value="dtecnico">Director Técnico</option>
                   <option value="experto">Experto</option>
@@ -547,7 +546,6 @@ const
         </fieldset>
       </form>
     </div>`,
-    logout = `<button id="SignOff">cerrar sesion</button>`, 
     cliente_offer = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
 
@@ -923,107 +921,8 @@ const
         <button type="submit" class="btn btnguardar btnsave2 " id="guardarCF"> <h6 class="letrabtng ">Guardar</h6></button></div>
       </form>
     </div>`,
-    comercial_infoofer = `
-      <div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-
-    
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
-
-          <div class="infopagina">
-            <div class="check-color-p"></div>
-
-            <h4 class="letrainfo">Ofertas</h4>
-            
-
-          </div>
-      </div>
-      <div class="col-lg-9 ">
-
-          <h6 class="info_de_oferta p-3">Información Oferta</h6>
-
-          
-
-
-
-      </div>
-      <div class="col-lg-9 " style="margin-top: 20px;">
-         <div class="i-azul centrarF"> 
-          
-         
-
-
-          <div class="recuadro margenr1 sombra temano_recuadro" id="cliente">
-
-              <div  class="infocliente_oferta_admin">
-            <div ><a href=""> <h6> oferta #1</h6></a></div>
-
-            
-          </div>
-
-
-          </div>
-          <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
-              <div style="margin-left: 60px; margin-top: 20px;">
-
-              <div class="input-group p-2 ">
-                  <div class="inputsdivi " style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-                  <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-              </div>
-              <div class="input-group p-2  ">
-                  <div class="inputsdivi" style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-                  <div class="inputsdivi" style="width: 200px;">
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-              </div>
-              <div class="input-group p-2 ">
-                  <div class="inputsdivi" style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-                  <div class="inputsdivi" style="width: 200px;">
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-              </div>
-
-              <div class="input-group p-2  ">
-                  <div class="inputsdivi " style="width: 200px;" >
-                      <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-                  <div class="inputsdivi " style="width: 200px;" > <input type="text " id="NumeroClientesU" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-              </div>
-
-          </div>
-
-        </div>
-              
-
-
-
-            
-
-            
-
-            
-
-
-          </div>
-
-        
-
-
-
-
-        </div>
-        
-
-
-      </div>
-      
-
-
-
-
-
-      </div>`,
-    dtecnico_planeval = `</div>dtecnico_planeval</div>`,
+    comercial_createoffer = `<div>comercial_createoffer</div>     `,
+    dtecnico_planeval = `<div>dtecnico_planeval</div>`,
     dtecnico_infoclient = ` <div>
 
 
@@ -1066,10 +965,10 @@ const
 
           </div>
           </div>`,
-    dtecnico_infoprocesos = `</div>dtecnico_infoprocesos</div>`,
-    experto_createoffer = `</div>experto_createoffer</div>`,
-    experto_createeval = `</div>experto_createeval</div>`,
-    experto_paleval = `</div>experto_paleval</div>`,
+    dtecnico_infoprocesos = `<div>dtecnico_infoprocesos</div>`,
+    experto_createoffer = `<div>experto_createoffer</div>`,
+    experto_createeval = `<div>experto_createeval</div>`,
+    experto_paleval = `<div>experto_paleval</div>`,
     experto_infocliente = `     <div>
 
 
@@ -1234,8 +1133,8 @@ const
   
   
         </div>`,
-      scliente_certcliente = `</div>scliente_certcliente</div>`,
-      scliente_usuariocliente = `</div>scliente_usuariocliente</div>`,
+      scliente_certcliente = `<div>scliente_certcliente</div>`,
+      scliente_usuariocliente = `<div>scliente_usuariocliente</div>`,
       scliente_infoclientes = `<div>
 
 
@@ -1278,14 +1177,14 @@ const
   
             </div>
             </div>`,
-      tcoordinador_createasignacion = `</div>tcoordinador_createasignacion</div>`,
-      tcoordinador_asignacion = `</div>tcoordinador_asignacion</div>`;
+      tcoordinador_createasignacion = `<div>tcoordinador_createasignacion</div>`,
+      tcoordinador_asignacion = `<div>tcoordinador_asignacion</div>`;
 
 export {index,
-    admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser, logout, 
+    admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser,  
     cliente_default, cliente_offer, 
     comercial_default, comercial_infoclientes, comercial_infocerts, comercial_infooffers, comercial_editcliente, 
-    comercial_createcliente, comercial_createfactorie, comercial_infoofer,
+    comercial_createcliente, comercial_createfactorie, comercial_createoffer,
     dtecnico_default, dtecnico_planeval, dtecnico_infoclient, dtecnico_infoprocesos,
     experto_default, experto_createoffer, experto_createeval, experto_paleval, experto_infocliente,
     scliente_default, scliente_infooffers, scliente_infooffer, scliente_certcliente, scliente_usuariocliente, scliente_infoclientes,

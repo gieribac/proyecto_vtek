@@ -5,6 +5,8 @@ import {collection, addDoc, getDocs, increment, doc, setDoc, getDoc, query, wher
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
 
+
+////<admin_createuser>////
 export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero, identificacion, tipoidentififcacion, cargo)=> {
 try {
     await createUserWithEmailAndPassword(auth, correo, clave)
@@ -23,8 +25,7 @@ try {
                 const correo = localStorage.getItem("em");
                 const clave = localStorage.getItem("k");                
                 signInWithEmailAndPassword(auth,correo,clave)
-                .then((userCredential) => {                     
-                    
+                .then((userCredential) => {                        
                 }).catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
@@ -48,28 +49,61 @@ try {
         })
 } catch (e){
     throw e;
+}
+}
+////</admin_createuser>////
 
-}
-}
 // export const newClient = async() => {
 //     await setDoc(doc(db, "clients", '1000000'), datos);
 // }
 
 
 
-// const docRef = await addDoc(collection(db, "cities"), {
-//     name: "Tokyo",
-//     country: "Japan"
-//   });
-//   console.log("Document written with ID: ", docRef.id);
+////<comercial_createfactorie>////
+export const setFabrica = async(datos) => {
+    await addDoc(collection(db, "fabricas"), datos).then().catch(e=>{throw e});
+} 
+////</comercial_createfactorie>////
 
-// export const newClient = async() => {
-//     await setDoc(doc(db, "clients", '1000000'), datos);
-// }
-
-export const saveClient = async() => {
-    await addDoc(collection(db, "clients"), datos);
-}
+////<comercial_createcliente>////
+export const saveClient = async(datos)=> {
+    try {
+        await createUserWithEmailAndPassword(auth, datos.Email, Clave='1234aA')
+            .then(async(userCredential) => {
+                const user = userCredential.user;
+                datos.estado = true;
+                await setDoc(doc(db, "clients", user.uid), datos);
+                signOut(auth).then(() => {
+                    const correo = localStorage.getItem("em");
+                    const clave = localStorage.getItem("k");                
+                    signInWithEmailAndPassword(auth,correo,clave)
+                    .then((userCredential) => {                      
+                    }).catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.log(errorCode)
+                        console.log(errorMessage)
+                        throw error;
+                    })
+                    }).catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        console.log(errorCode)
+                        console.log(errorMessage)
+                        throw error;
+                    })
+            }).catch ((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                throw error;
+            })
+    } catch (e){
+        throw e;    
+    }
+    }
+////</comercial_createcliente>////
 
 // const docRef = await addDoc(collection(db, "cities"), {
 //     name: "Tokyo",
@@ -140,7 +174,7 @@ export const queryNextnt = async(lastVisible) => {
 
 //<comercial_infoclients>//
 const uidcom = localStorage.getItem("u");
-export const querySnapCom = async() => {
+export const querySnapComCli = async() => {
     try {
         const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
         const documentSnapshots = await getDocs(first);
@@ -155,7 +189,7 @@ export const querySnapCom = async() => {
         }
     }
     
-    export const queryNextCom = async(lastVisible) => {
+    export const queryNextComCli = async(lastVisible) => {
     
         const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","asc"),
@@ -167,7 +201,7 @@ export const querySnapCom = async() => {
                 
     }
     
-    export const queryNextntCom = async(lastVisible) => {
+    export const queryNextntComCli = async(lastVisible) => {
     
         const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","desc"),
@@ -178,9 +212,50 @@ export const querySnapCom = async() => {
         return docs_;
                 
     }
-    
 
 //</comercial_infoclients>//
+
+//<comercial_infooffers>//
+// const uidcom = localStorage.getItem("u");
+export const querySnapComOfs = async() => {
+    try {
+        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
+        const documentSnapshots = await getDocs(first);
+        
+        console.log(`documentsSnapCom: ${documentSnapshots}`)
+        return documentSnapshots
+    
+    
+        } catch (e){
+            throw e.message
+    
+        }
+    }
+    
+    export const queryNextComOfs= async(lastVisible) => {
+    
+        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
+                orderBy("No_Identificacion","asc"),
+                startAfter(lastVisible),
+                limit(3));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+    
+    export const queryNextntComOfs = async(lastVisible) => {
+    
+        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
+                orderBy("No_Identificacion","desc"),
+                startAfter(lastVisible),
+                limit(3));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+//</comercial_infooffers>//
 
 
 ////llamadas//

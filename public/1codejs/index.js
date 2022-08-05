@@ -14,8 +14,7 @@ const setLC = (co,cl,u,rol) => {
 }
 
 export const loguearse = () => {        
-        document.getElementById('login').addEventListener('click', () => {
-            console.log(`disponer loguearse()`)
+        document.getElementById('login').addEventListener('click', () => {            
             const correo = document.getElementById('correo').value;
             const clave = document.getElementById('contrasena').value;
             if (validarlogin(correo, clave) ) {            
