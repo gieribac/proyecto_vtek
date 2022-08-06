@@ -142,7 +142,7 @@ const observer = new MutationObserver(()=>{
         }); 
     }
 
-    location.hash == '#/admin/createuser' ? charge() : {};
+    location.hash == '#/admin/createuser' && charge();
 })
 
 const parent = document.getElementById('root');

@@ -1,11 +1,12 @@
-import {querySnap, queryNext,queryNextnt} from './models/post.js';
+import {querySnapComOfs, queryNextComOfs, queryNextntComOfs} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
     
     const charge = () => {
-        const clienteA = document.getElementById('clienteA');
-        const legalA = document.getElementById('legalA');
-        const nitA = document.getElementById('nitA');
-        const ncontactoA = document.getElementById('ncontactoA');
+        const oferta = document.getElementById('oferta');
+        const cliente = document.getElementById('cliente');
+        const producto = document.getElementById('producto');
+        const estado = document.getElementById('estado');
+        const formalizar = document.getElementById('formalizar');
 
         const btnSiguiente = document.getElementById('botonSiguiente');
         const btnAnterior = document.getElementById('botonAnterior');
@@ -13,7 +14,7 @@ const observerdatos = new MutationObserver(()=>{
         let ultimoDoc = null;
         let primerDoc = null;
 
-        querySnap().then((d) => {
+        querySnapComOfs().then((d) => {
 
             let registers = cargarDocs(d.docs);
             ultimoDoc = registers.ultimo;
@@ -21,14 +22,14 @@ const observerdatos = new MutationObserver(()=>{
 
             btnSiguiente.addEventListener('click',() => {
                 try { 
-                    queryNext(ultimoDoc).then((d) => {
+                    queryNextComOfs(ultimoDoc).then((d) => {
 
                         registers = cargarDocs(d.docs); 
                         ultimoDoc = registers.ultimo;
                         primerDoc = registers.primer;   
                     }) 
                 } catch {
-                    console.log("catch")
+                    
                     let registers = cargarmsje();
                     ultimoDoc = d.docs[d.docs.length-1];
                     primerDoc = d.docs[0];
@@ -37,7 +38,7 @@ const observerdatos = new MutationObserver(()=>{
 
             btnAnterior.addEventListener('click',() => {
                 
-                    queryNextnt(primerDoc).then((d) => {
+                    queryNextntComOfs(primerDoc).then((d) => {
                 
                     registers = cargarDocs(d.docs.reverse());
                     ultimoDoc = registers.ultimo;
@@ -46,13 +47,14 @@ const observerdatos = new MutationObserver(()=>{
                 })
                 
             })
-        })
+        }).then ((e) => console.log(e))
 
         const cargarmsje = () => {
-            clienteA.innerHTML = `No hay más registros disponibles`;
-            legalA.innerHTML = ``;
-            nitA.innerHTML = ``;
-            ncontactoA.innerHTML = ``; 
+            oferta.innerHTML = `No hay más registros disponibles`;
+            cliente.innerHTML = ``;
+            producto.innerHTML = ``;
+            estado.innerHTML = ``; 
+            formalizar.innerHTML = ``; 
         }
         const cargarDocs = (ds) => {
             
@@ -65,22 +67,37 @@ const observerdatos = new MutationObserver(()=>{
             nitA.innerHTML = ``;
             ncontactoA.innerHTML = ``; 
                 ds.forEach(d => {
-                    clienteA.innerHTML += `
+                    oferta.innerHTML += `
 
-                    <h6 >${d.data().Nombre_Compania}</h6>
+                    <h6 >${d.data().Oferta}</h6>
                     `;
-                    legalA.innerHTML += `
+                    cliente.innerHTML += `
 
-                    <h6 >${d.data().Representante_Legal}</h6>
+                    <h6 >${d.data().Cliente}</h6>
                     `;
-                    nitA.innerHTML += `
+                    producto.innerHTML += `
 
-                    <h6 >${d.data().Nit}</h6>
+                    <h6 >${d.data().Producto}</h6>
                     `;
-                    ncontactoA.innerHTML += `
+                    estado.innerHTML += `
 
-                    <h6 >${d.data().Numero_Contacto}</h6>
+                    <h6 >${d.data().Estado}</h6>
                     `;
+
+                    if (d.data().Formalizar = "Formalizado" ) {
+                        formalizar.innerHTML += `
+                        <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">${d.data().Formalizar}</h6></div>                      
+                        `;
+
+                        
+                    } else {
+                        formalizar.innerHTML += `
+
+                        <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >${d.data().Formalizar}</h6> </div>
+                        `;
+
+                    }
+                   
                     
                 });
             
@@ -89,7 +106,7 @@ const observerdatos = new MutationObserver(()=>{
         }
     }
 
-    location.hash == '#/admin/infoclients' && charge();
+    location.hash == '#/comercial/infooffers' && charge();
 })
 const parent = document.getElementById('root');
 observerdatos.observe(parent,{childList:true})
