@@ -432,16 +432,19 @@ opacity: 1;
     margin-top: 30px;
 }
 .letra_formulario2{
+    font-size: 11px;
     color: #e61919;
     margin-left: 340px !important;
     margin-top: 20px;
 }
 .letra_formulario{
+    font-size: 11px;
     color: #e61919;
     position: absolute;
     margin-top: 50px;
 }
 .letra_formulario3{
+    font-size: 11px;
     color: #e61919;
     margin-left: 10px !important;
     margin-top: 20px;

@@ -1,10 +1,10 @@
-import { setFabrica } from "./models/post";
+import { setOferta } from "./models/post";
 
 const observerdatos = new MutationObserver(()=>{ 
     
     const charge = () => {
-        const formulario = document.getElementById('formcrearFabrica');
-        const save = document.getElementById('guardarCF');
+        const formulario = document.getElementById('formCO');
+        const save = document.getElementById('guardarO');
         save.disabled = true;
         const entradas = document.querySelectorAll('input');
         
@@ -30,16 +30,17 @@ const observerdatos = new MutationObserver(()=>{
                 e.preventDefault();
                 let datosForm = new FormData(formulario);
                 let datos = {
-                    direccion: datosForm.get("direccionCF"),
-                    nombre_compania: datosForm.get("nombreCompaniaCF"),
-                    pais: datosForm.get("paisCF"),
-                    correo: datosForm.get("correoCF"),
-                    ciudad: datosForm.get("ciudadCF"),
-                    contacto: datosForm.get("contactoCF"),
-                    telefono: datosForm.get("telefonoCF")   
+                    Cliente: datosForm.get("cliente"),
+                    Producto: datosForm.get("producto"),
+                    Fabrica: datosForm.get("fabrica"),
+                    Vigencia: datosForm.get("vigencia"),
+                    Esquema: datosForm.get("esquema"),
+                    Vigilancia_Seguimiento: datosForm.get("vs"),
+                    Centro_Costo: datosForm.get("centrocosto"),
+                    Comercial: datosForm.get("comercial") 
                 }
                 console.log(datos)
-                // setFabrica(datos).then(console.log('Fábrica creada')).catch(e=>{console.log(`Fabrica no creada. Error: ${e}`)})
+                // setOferta(datos).then(console.log('Fábrica creada')).catch(e=>{console.log(`Fabrica no creada. Error: ${e}`)})
         
                 // setTimeout(()=>{    
                 // },3000)
@@ -49,7 +50,7 @@ const observerdatos = new MutationObserver(()=>{
         }
     }
 
-location.hash == '#/comercial/createfactorie' && charge();
+location.hash == '#/comercial/createoffer' && charge();
 })
 const parent = document.getElementById('root');
 observerdatos.observe(parent,{childList:true})

@@ -45,14 +45,14 @@
                           <i class="formulario__validacion-estado fas fa-times-circle"></i>
                           </div>              
                           <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
-                        <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Representante legal" aria-label="usuario" id="repregalC">
+                        <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Representante legal" aria-label="usuario" id="repLegalC">
                           <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
                         <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
                     </div>
                     <div class="input-group input-group_main p-3">
                         <div class="inputsdivi ">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Direccion" aria-label="usuario" id="DireccionC">
+                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Direccion" aria-label="usuario" id="direccionC">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                           </div>
                           <p class="usuarioFme formulario__input-error">  Escriba la direccion</p>
@@ -92,6 +92,18 @@
                               </div>
                         </div>
                         <div class="input-group input-group_main p-3">
+                          <div class="inputsdivi ">
+                              <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="NIT" aria-label="usuario" id="nitC">
+                              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="usuarioFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
+                          <div class="inputsdivi ">
+                              <input required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="Numero de contacto" aria-label="usuario" id="ncontactoC">
+                              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                            <p class="numeroFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
+                      </div>
+                        <div class="input-group input-group_main p-3">
                             <div class="inputsdivi ">
                                 <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="web" aria-label="usuario" id="webC">
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -103,34 +115,30 @@
                               </div>
                               <p class="numeroFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
                         </div>
-                    <div class="dropdown show  p-3 ">
-                      <div >
-                        <select class="form-select dropdown2 sombra " aria-label="Default select example" id="calificacionC">
-                          <option selected>puntaje</option>
-                          <option value="admin">Administrador</option>
-                          <option value="cliente">Cliente</option>
-                          <option value="comercial">Comercial</option>
-                          <option value="dtecnico">Director Técnico</option>
-                          <option value="experto">Experto</option>
-                          <option value="scliente">Servicio al Cliente</option>
-                          <option value="tcoordinador">Técnico Coordinador</option>
-                        </select>
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                      </div>
-                        <p class="cargocliFme formulario__input-error"></p>
-                    </div>
-                    <div class="formulario__mensaje" id="formulario__mensaje">
-                    <i class="formulario"></i>
-                    </div>
-                        <div class="naranjasinb">
-                        <h6 class="letracargo">calificacion</h6> </div>
-                    <div>
-                      <div class="avisopSave"></div>
-                        <button type="submit" class="btn btnguardar " id="guardarC"> <h6 class="letrabtng ">Guardar</h6></button>
-                    </div>
-                </fieldset>
-              </form>
-            </div>
+                        <div class="col-lg-9   col-xs-12" >
+                          <div class="dropdown show  p-3 ">
+                          <div class="naranjasinb acomodar">
+                          <h6 class="letracargo">cargo</h6> </div>
+                            <div >
+                              <select class="form-select dropdown2 sombra " aria-label="Default select example" id="calificacionC">
+                                <option selected>puntaje</option>
+                                <option value="1"></option>
+                                <option value="2"></option>
+                                <option value="3"></option>
+              
+                              </select>
+                              <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            </div>
+                              <p class="cargocliFme formulario__input-error"></p>
+                          </div>
+                          <div class="formulario__mensaje" id="formulario__mensaje">
+                          <i class="formulario"></i>
+                            <div class="avisopSave"></div>
+                              <button type="submit" class="btn btnguardar " id="guardarC"> <h6 class="letrabtng ">Guardar</h6></button>
+                          </div>
+                      </fieldset>
+                    </form>
+                  </div>
 
 
 

@@ -21,19 +21,14 @@ const observerdatos = new MutationObserver(()=>{
             primerDoc = registers.primer;
 
             btnSiguiente.addEventListener('click',() => {
-                try { 
+                
                     queryNextComOfs(ultimoDoc).then((d) => {
 
                         registers = cargarDocs(d.docs); 
                         ultimoDoc = registers.ultimo;
                         primerDoc = registers.primer;   
                     }) 
-                } catch {
-                    
-                    let registers = cargarmsje();
-                    ultimoDoc = d.docs[d.docs.length-1];
-                    primerDoc = d.docs[0];
-                }   
+
             })
 
             btnAnterior.addEventListener('click',() => {
@@ -48,14 +43,7 @@ const observerdatos = new MutationObserver(()=>{
                 
             })
         }).then ((e) => console.log(e))
-
-        const cargarmsje = () => {
-            oferta.innerHTML = `No hay más registros disponibles`;
-            cliente.innerHTML = ``;
-            producto.innerHTML = ``;
-            estado.innerHTML = ``; 
-            formalizar.innerHTML = ``; 
-        }
+        
         const cargarDocs = (ds) => {
             
             if(ds.length > 0){
@@ -83,9 +71,21 @@ const observerdatos = new MutationObserver(()=>{
 
                     <h6 >${d.data().Estado}</h6>
                     `;
-                    formalizar.innerHTML += `
-                    <h6 >${d.data().Formalizar}</h6>
-                    `;
+
+                    if (d.data().Formalizar = "Formalizado" ) {
+                        formalizar.innerHTML += `
+                        <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">${d.data().Formalizar}</h6></div>                      
+                        `;
+
+                        
+                    } else {
+                        formalizar.innerHTML += `
+
+                        <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >${d.data().Formalizar}</h6> </div>
+                        `;
+
+                    }
+                   
                     
                 });
             

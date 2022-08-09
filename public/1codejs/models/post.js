@@ -219,7 +219,7 @@ export const querySnapComCli = async() => {
 // const uidcom = localStorage.getItem("u");
 export const querySnapComOfs = async() => {
     try {
-        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
+        const first = query(collection(db, "ofertas"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
         const documentSnapshots = await getDocs(first);
         
         console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -234,7 +234,7 @@ export const querySnapComOfs = async() => {
     
     export const queryNextComOfs= async(lastVisible) => {
     
-        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
+        const next = query(collection(db, "ofertas"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","asc"),
                 startAfter(lastVisible),
                 limit(3));
@@ -246,7 +246,7 @@ export const querySnapComOfs = async() => {
     
     export const queryNextntComOfs = async(lastVisible) => {
     
-        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
+        const next = query(collection(db, "ofertas"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","desc"),
                 startAfter(lastVisible),
                 limit(3));

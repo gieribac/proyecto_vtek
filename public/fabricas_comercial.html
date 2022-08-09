@@ -28,74 +28,72 @@
     <div>
 
 
-        <div class="d-flex align-items-stretch flex-column">
-            <div id="menu"></div>
-                <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-                  <div class="infopagina">
-                    <div class="estrella-color-info"></div>
-                    <h4 class="letrainfo">Crear fabrica</h4>
-                  </div>
-                </div>
-                <form id="formcrearFabrica">
-                <fieldset>
-                <div class="cols-lg-4  col--6 col-xs-12   margenusu">
-                
-                    <div class="input-group input-group_main p-3">
-                        <div class="inputsdivi" id="nombre">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaCF">
-                          <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                          </div>              
-                          <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
-                        <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Representante legal" aria-label="usuario" id="repregalCF">
-                          <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
-                        <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
-                    </div>
-                    <div class="input-group input-group_main p-3">
-                        <div class="inputsdivi ">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Direccion" aria-label="usuario" id="DireccionCF">
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                          </div>
-                          <p class="usuarioFme formulario__input-error">  Escriba la direccion</p>
-                        <div class="inputsdivi ">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Ciudad" aria-label="usuario" id="ciudadCF">
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                          </div>
-                          <p class="numeroFme formulario__input-error">Escriba la Ciudad</p>
-                    </div>
-                    <div class="input-group input-group_main p-3">
-                        <div class="inputsdivi ">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre responsable" aria-label="usuario" id="nombreRespCF">
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                          </div>
-                          <p class="usuarioFme formulario__input-error">Escriba el nombre de responsable</p>
-                        <div class="inputsdivi ">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="cargo" aria-label="usuario" id="cargoCF">
-                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                          </div>
-                          <p class="numeroFme formulario__input-error">Escriba el cargo que tiene</p>
-                    </div>
-                    <div class="input-group input-group_main p-3">
-                        <div class="inputsdivi" id="nombre">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano inputFirma " placeholder="Firma" aria-label="usuario" id="Firma1">
-                          <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                          </div>              
-                          <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
-                        <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano inputFirma"  placeholder="Firma" aria-label="usuario" id="Firema2">
-                          <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                        </div>
-                        <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
-                    </div>
-                    
-                    <div class="formulario__mensaje" id="formulario__mensaje">
-                    <i class="formulario"></i>
-
-                      <div class="avisopSave"></div>
-                        <button type="submit" class="btn btnguardar btnsave2 " id="guardarCF"> <h6 class="letrabtng ">Guardar</h6></button>
-                    </div>
-                </fieldset>
-              </form>
+      <div class="d-flex align-items-stretch flex-column">
+        <div id="menu"></div>
+            <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+              <div class="infopagina">
+                <div class="estrella-color-info"></div>
+                <h4 class="letrainfo">Crear fabrica</h4>
+              </div>
             </div>
+            <form id="formcrearFabrica">
+            <fieldset>
+            <div class="cols-lg-4  col--6 col-xs-12   margenusu">        
+                <div class="input-group input-group_main p-3">
+                    <div class="inputsdivi" id="nombre">
+                        <input type="text" required="" pattern="^[a-zA-ZÀ-ÿ\s]{1,50}$"   style="width: 610px !important;" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaCF" name="nombreCompaniaCF">
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                      </div>              
+                      <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
+    
+                </div>
+                <div class="input-group input-group_main p-3">
+                    <div class="inputsdivi ">
+                        <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Representante legal" aria-label="usuario" id="repregalCF" name="repregalCF">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
+
+                    <div class="inputsdivi ">
+                        <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Direccion" aria-label="usuario" id="DireccionCF" name="DireccionCF">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="usuarioFme formulario__input-error">  Escriba la direccion</p>
+                </div>
+                <div class="input-group input-group_main p-3">
+                    <div class="inputsdivi ">
+                        <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre responsable" aria-label="usuario" id="nombreRespCF" name="nombreRespCF">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="usuarioFme formulario__input-error">Escriba el nombre de responsable</p>
+
+
+                    <div class="inputsdivi ">
+                        <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="cargo" aria-label="usuario" id="cargoCF" name="cargoCF">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                      </div>
+                      <p class="numeroFme formulario__input-error">Escriba el cargo que tiene</p>
+
+                </div>
+                <div class="input-group input-group_main p-3">
+                    <div class="inputsdivi" id="nombre">
+                        <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Contacto" aria-label="usuario" id="contactoCF">
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                      </div>              
+                      <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
+                    <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Telefono" aria-label="usuario" id="telefonoCF">
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
+                </div>            
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                <i class="formulario"></i>
+            </fieldset>
+            <div class="col-lg-9   col-xs-12">
+            <div class="avisopSave"></div>
+            <button type="submit" class="btn btnguardar btnsave2 " id="guardarCF"> <h6 class="letrabtng ">Guardar</h6></button></div>
+          </form>
+        </div>
 
 
 

@@ -37,6 +37,7 @@ window.addEventListener('hashchange',()=>{ //se escucha que el hash ha cambiado
 //   } else {
 //       console.log('no logueado ._.')
 //   } 
+console.log("el hash cambia")
 page(window.location.hash)
 })
 // });
@@ -67,7 +68,7 @@ export const page = (h) => {
     else if (h=='#/comercial/editcliente'){inner('comercial',comercial_editcliente)}
     else if (h=='#/comercial/createcliente'){inner('comercial',comercial_createcliente)}
     else if (h=='#/comercial/createfactorie'){inner('comercial',comercial_createfactorie)}
-    else if (h=='#/comercial/comercial_createoffer'){inner('comercial',comercial_createoffer)}
+    else if (h=='#/comercial/createoffer'){inner('comercial',comercial_createoffer)}
     else if (h=='#/dtecnico'){inner('dtecnico',dtecnico_default)}
     else if (h=='#/dtecnico/planeval'){inner('dtecnico',dtecnico_planeval)}
     else if (h=='#/dtecnico/infoclient'){inner('dtecnico',dtecnico_infoclient)}
@@ -86,9 +87,9 @@ export const page = (h) => {
     else if (h=='#/tcoordinador'){inner('tcoordinador',tcoordinador_default)}
     else if (h=='#/tcoordinador/createasignacion'){inner('tcoordinador',tcoordinador_createasignacion)}
     else if (h=='#/tcoordinador/asignacion'){inner('tcoordinador',tcoordinador_asignacion)}
-    else if (h==''){() => windows.location = ''}
+    else if (h==''){() => window.location = ''}
     else if (h=='#cs'){cerrarSession()}
-    else { () => document.getElementById('root').textContent = 'notFound'}
+    else { document.getElementById('root').textContent = 'notFound'}
 }
 
 
