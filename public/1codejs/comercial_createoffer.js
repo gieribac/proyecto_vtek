@@ -37,7 +37,7 @@ const observerdatos = new MutationObserver(()=>{
                     Esquema: datosForm.get("esquema"),
                     Vigilancia_Seguimiento: datosForm.get("vs"),
                     Centro_Costo: datosForm.get("centrocosto"),
-                    Comercial: datosForm.get("comercial") 
+                    Comercial: datosForm.get("comercial")
                 }
                 console.log(datos)
                 // setOferta(datos).then(console.log('Fábrica creada')).catch(e=>{console.log(`Fabrica no creada. Error: ${e}`)})
