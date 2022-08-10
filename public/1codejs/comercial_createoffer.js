@@ -1,4 +1,5 @@
 import { setOferta, queryOferta } from "./models/post";
+import {uploadFile, getFileURL} from "./storage.js";
 
 const observerdatos = new MutationObserver(()=>{ 
     
@@ -24,7 +25,7 @@ const observerdatos = new MutationObserver(()=>{
             }
         })
         let ofertaactiva = document.getElementsByClassName("active_o");
-        queryOfertaActiva(ofertaactiva.value).then( ds => {
+        queryOferta(ofertaactiva.value).then( ds => {
             const cliente = document.getElementsByName("cliente");
             const producto = document.getElementsByName("producto");
             const fabrica = document.getElementsByName("fabrica");
@@ -47,6 +48,30 @@ const observerdatos = new MutationObserver(()=>{
 
 
         })
+        //escuchar evento click de boton "nuevo, entonces:
+        //ejecutar ofertas.map( t => t.classList.remove("active_o"))
+        //formulario.reset()
+
+        //boton de adjuntar//
+        postForm.addEventListener('submit', async e => {
+            e.preventDefault();
+          
+            const inputFile = document.getElementById('adjuntar');
+          
+            let post = {
+              content: postForm['content'].value
+            }
+          
+            if (inputFile.files[0]){
+              const result = await uploadImage(inputFile.files[0]);
+              const url = await getImageURL(result.ref);
+              console.log(url);
+              post.image = url;
+            }
+          
+            savePost(post);
+          })
+
 
         //validacion de formulario//
         const formulario = document.getElementById('formCO');
@@ -85,6 +110,15 @@ const observerdatos = new MutationObserver(()=>{
                     Comercial: datosForm.get("comercial")
                 }
                 console.log(datos)
+
+                const inputFile = document.getElementById('adjuntar');
+            
+                if (inputFile.files[0]){
+                const result = await uploadFile(inputFile.files[0]);
+                const url = await getFileURL(result.ref);
+                datos.file = url;
+                }
+
                 // setOferta(datos).then(console.log('Fábrica creada')).catch(e=>{console.log(`Fabrica no creada. Error: ${e}`)})
         
                 // setTimeout(()=>{    

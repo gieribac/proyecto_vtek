@@ -229,6 +229,16 @@ export const setOferta = async(datos)=> {
         throw e;    
     }
     }
+
+export const queryOferta = async(ref) => {
+    try {
+        const q = query(collection(db, "ofertas"), where("Oferta", "==", ref));
+        const querySnapshot = await getDocs(q);
+        return querySnapshot;
+    } catch (e){
+        throw e.message
+    }
+}
 ////</comercial_createoffer////
 
 ////<comercial_infooffers>////
