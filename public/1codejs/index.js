@@ -5,6 +5,12 @@ import {validarlogin} from './main.js';
 import './admin_infoclients.js'
 import './comercial_infoclients.js'
 import "https://kit.fontawesome.com/5060f102e7.js";
+import './comercial_createcliente.js'
+import './comercial_createfactorie'
+import './comercial_createoffer'
+import './comercial_infoclients'
+import './comercial_infooffers'
+import './'
 
 const setLC = (co,cl,u,rol) => {
     localStorage.setItem("em",co);
