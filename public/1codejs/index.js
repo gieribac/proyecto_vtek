@@ -2,15 +2,15 @@ import {signInWithEmailAndPassword,signOut} from "https://www.gstatic.com/fireba
 import {readUser} from "./models/post.js";
 import {auth} from './firebase.js';
 import {validarlogin} from './main.js';
-import './admin_infoclients.js'
-import './comercial_infoclients.js'
+import './admin_infoclients.js';
+import './comercial_infoclients.js';
 import "https://kit.fontawesome.com/5060f102e7.js";
-import './comercial_createcliente.js'
-import './comercial_createfactorie'
-import './comercial_createoffer'
-import './comercial_infoclients'
-import './comercial_infooffers'
-import './'
+// import './comercial_createcliente.js';
+// import './comercial_createfactorie.js';
+// import './comercial_createoffer.js';
+// import './comercial_infoclients.js';
+// import './comercial_infooffers.js';
+
 
 const setLC = (co,cl,u,rol) => {
     localStorage.setItem("em",co);
