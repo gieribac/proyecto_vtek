@@ -12,9 +12,10 @@
 #/comercial/inforcerts      f  
 #/comercial/infooffers      f  
 #/comercial/editcliente     f  -> se necesita recuperar el uid del cliente de infoclientes para desplegar sus campos y tener el boton editar disponible
-#/comercial/createcliente
-#/comercial/createfactorie
-#/comercial/infoofer
+#/comercial/createcliente   c
+#/comercial/createfactorie  c
+#/comercial/infoofer        c
+#comercial/createoffer      c
 
 #/dtecnico
 #/dtecnico/planeval

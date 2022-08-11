@@ -1,7 +1,7 @@
 //archivo encargado de ejecutar publicaciones a firestore
 
 import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
-import {collection, addDoc, getDocs, increment, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
+import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
 
@@ -213,13 +213,39 @@ export const querySnapComCli = async() => {
                 
     }
 
-//</comercial_infoclients>//
+////</comercial_infoclients>////
 
-//<comercial_infooffers>//
+////<comercial_createoffer>////
+export const setOferta = async(datos)=> {
+    try {
+        const docRef = doc(db, "ofertas","Oferta");
+        const ds = await getDoc(docRef)
+        ds.length > 0 ? datos.Oferta = parseInt(ds[ds.length-1])+1 : datos.Oferta = 0;
+        datos.Formalizar="Pendiente";
+        await setDoc(doc(db, "ofertas"), datos).then(a => {return true}).catch (e => {throw e});
+        
+
+    } catch (e){
+        throw e;    
+    }
+    }
+
+export const queryOferta = async(ref) => {
+    try {
+        const q = query(collection(db, "ofertas"), where("Oferta", "==", ref));
+        const querySnapshot = await getDocs(q);
+        return querySnapshot;
+    } catch (e){
+        throw e.message
+    }
+}
+////</comercial_createoffer////
+
+////<comercial_infooffers>////
 // const uidcom = localStorage.getItem("u");
 export const querySnapComOfs = async() => {
     try {
-        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
+        const first = query(collection(db, "ofertas"), orderBy("Oferta","asc"), limit(3));
         const documentSnapshots = await getDocs(first);
         
         console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -234,8 +260,8 @@ export const querySnapComOfs = async() => {
     
     export const queryNextComOfs= async(lastVisible) => {
     
-        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
-                orderBy("No_Identificacion","asc"),
+        const next = query(collection(db, "ofertas"), 
+                orderBy("Oferta","asc"),
                 startAfter(lastVisible),
                 limit(3));
         const docs_ = await getDocs(next);
@@ -246,8 +272,8 @@ export const querySnapComOfs = async() => {
     
     export const queryNextntComOfs = async(lastVisible) => {
     
-        const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
-                orderBy("No_Identificacion","desc"),
+        const next = query(collection(db, "ofertas"), 
+                orderBy("Oferta","desc"),
                 startAfter(lastVisible),
                 limit(3));
         const docs_ = await getDocs(next);

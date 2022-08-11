@@ -26,7 +26,7 @@ const observerdatos = new MutationObserver(()=>{
         
         const habilitar = () => {
             
-            formulario.addEventListener("submit",(e)=>{
+            formulario.addEventListener("submit", e => {
                 e.preventDefault();
                 let datosForm = new FormData(formulario);
                 let datos = {

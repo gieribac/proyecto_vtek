@@ -29,6 +29,17 @@ font-weight: bold;
 
 
 }
+.btn_guardar_ofertas{
+    background-image: url(../img/Recurso\ 36VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    float: left;
+    margin-right: -30px;
+    background-repeat: no-repeat;
+    margin-top: 5px;
+}
 .btningresar2{
     
     position:absolute;
@@ -170,6 +181,14 @@ height: 40px;
     margin-top: 16px;
 
 }
+.dropdown_asignacion{
+    position: inherit;
+    border-radius: 50px;
+    width: 200px;
+    margin-top: 18px;
+    margin-left: 20px;
+    margin-bottom: 38px;
+}
 .naranjasinb{
     background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png);
     height: 96px;
@@ -224,13 +243,29 @@ height: 40px;
     margin-left: 71px;
 
 }
+.letra-columna2{
+    color: white!important;
+    font-weight: bold;
+    position: absolute;
+    top: 25px;
+    left: 34px;
+
+
+}
 .letra-columna{
     color: white!important;
     text-align: center;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 25px;
 
 
+}
+.letra-editar{
+     
+        color: white!important;
+        text-align: center;
+        font-weight: bold;
+    
 }
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
     border-top-right-radius: 50px !important;
@@ -395,6 +430,7 @@ opacity: 1;
     margin-bottom: 1px;
     font-weight: bold;
     margin-left: 97px;
+    float: left;
 }
 .temano_recuadro{
     height: 312px;
@@ -452,6 +488,28 @@ opacity: 1;
 }
 .acomodar{
     float:left;
+}
+.recuadro_asignacion{
+    background-color: white;
+    border-radius: 25px;
+    
+    width: 136px;
+}
+.div_recuadros_asignacion{
+
+    float: left;
+    position: relative;
+
+}
+.fondo_menu{
+    background-image: url("../img/Recurso\ 24VTEK\ RECURSOS.png");
+    height: 45px;
+    background-repeat: no-repeat;
+    margin-left: 111px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    background-size: contain;
+
 }
 
 

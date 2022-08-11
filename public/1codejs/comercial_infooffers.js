@@ -14,26 +14,21 @@ const observerdatos = new MutationObserver(()=>{
         let ultimoDoc = null;
         let primerDoc = null;
 
-        querySnapComOfs().then((d) => {
+        querySnapComOfs().then( d => {
 
             let registers = cargarDocs(d.docs);
             ultimoDoc = registers.ultimo;
             primerDoc = registers.primer;
 
             btnSiguiente.addEventListener('click',() => {
-                try { 
-                    queryNextComOfs(ultimoDoc).then((d) => {
+                
+                    queryNextComOfs(ultimoDoc).then( d => {
 
                         registers = cargarDocs(d.docs); 
                         ultimoDoc = registers.ultimo;
                         primerDoc = registers.primer;   
                     }) 
-                } catch {
-                    
-                    let registers = cargarmsje();
-                    ultimoDoc = d.docs[d.docs.length-1];
-                    primerDoc = d.docs[0];
-                }   
+
             })
 
             btnAnterior.addEventListener('click',() => {
@@ -48,28 +43,28 @@ const observerdatos = new MutationObserver(()=>{
                 
             })
         }).then ((e) => console.log(e))
-
-        const cargarmsje = () => {
-            oferta.innerHTML = `No hay más registros disponibles`;
-            cliente.innerHTML = ``;
-            producto.innerHTML = ``;
-            estado.innerHTML = ``; 
-            formalizar.innerHTML = ``; 
-        }
-        const cargarDocs = (ds) => {
+        
+        const cargarDocs = ds => {
             
             if(ds.length > 0){
 
             const ultimo = ds[ds.length-1];
             const primer = ds[0];
-            clienteA.innerHTML = ``;
-            legalA.innerHTML = ``;
-            nitA.innerHTML = ``;
-            ncontactoA.innerHTML = ``; 
-                ds.forEach(d => {
+
+            const mapOf = ds.data().map(reg => reg.Oferta);
+            localStorage.setItem("of",mapOf);
+
+            oferta.innerHTML = ``;
+            cliente.innerHTML = ``;
+            producto.innerHTML = ``;
+            estado.innerHTML = ``;
+            formalizar.innerHTML = ``;
+
+                ds.forEach(d => {       
+                    
                     oferta.innerHTML += `
 
-                    <h6 >${d.data().Oferta}</h6>
+                    <h6>${d.data().Oferta}  </h6>
                     `;
                     cliente.innerHTML += `
 

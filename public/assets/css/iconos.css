@@ -299,6 +299,19 @@
     background-repeat: no-repeat;
 
 }
+.btn-editar-ofertas{
+
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 234px;
+    height: 81px;
+    border: none;
+    float: left;
+    background-repeat: no-repeat;
+    margin-left: 312px;
+    margin-top: 20px;
+
+}
 .columnas-clasi4{
     background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
     background-size: contain;
@@ -306,6 +319,28 @@
     height: 77px;
     border: none;
     float: left;
+    margin-right: -30px;
+    background-repeat: no-repeat;
+}
+.adjuntar_ofertas {
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    float: left;
+    margin-right: -30px;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    margin-left: 144px;}
+.columnas-asignacion{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    position: relative;
+    
     margin-right: -30px;
     background-repeat: no-repeat;
 }
@@ -464,4 +499,14 @@
 }
 .recuadro_formalizar{
     position: inherit;
+}
+.revisado_color {
+    background-image: url(../imgx1/Recurso\ 20VTEK\ RECURSOS.png);
+    height: 121px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    float: left;
+    background-position: center;
+    margin-left: 40px;
 }
