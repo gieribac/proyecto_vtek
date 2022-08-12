@@ -1,3 +1,5 @@
+//archivo encargado de ejecutar publicaciones a firestore
+
 import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
 import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
@@ -59,7 +61,12 @@ try {
 
 ////<comercial_createfactorie>////
 export const setFabrica = async(datos) => {
-    await addDoc(collection(db, "fabricas"), datos).then().catch(e=>{throw e});
+    try{
+        await addDoc(collection(db, "fabricas"), datos).then().catch(e=>{throw e});
+        return 'enviado'
+    } catch (e){
+        throw e;
+    }
 } 
 ////</comercial_createfactorie>////
 

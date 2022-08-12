@@ -1,49 +1,53 @@
-import { setFabrica } from "./models/post";
+import { setFabrica } from "./models/post.js";
 
 const observerdatos = new MutationObserver(()=>{ 
     
     const charge = () => {
-        const formulario = document.getElementById('formcrearFabrica');
+        const formulario = document.getElementById('formcrearFabrica')
         const save = document.getElementById('guardarCF');
         save.disabled = true;
         const entradas = document.querySelectorAll('input');
+        console.log(entradas)
         
+        const verRequired = () => {
+            let list = [];
+            entradas.forEach(ev=>{list.push(ev.value.length <= 0)});
+            const estadoentradas = list.includes(true);
+            save.disabled = estadoentradas;
+            !estadoentradas && habilitar();
+        }
         
-        entradas.forEach(ev=>{  
-            let estadoentradas = true;
-                
-            ev.addEventListener('keyup',()=>{
-                entradas.forEach(e=>{  
-                    estadoentradas = estadoentradas && e.value.length > 0;
-                    console.log(`len= ${e.value.length}`)
+        entradas.forEach(ev=>{
+            ev.addEventListener('keyup',verRequired);
+        })
+
+        const setDataCF = () => {
+            let datosForm = new FormData(formulario);
+            let datos = {                    
+                nombre_compania: datosForm.get("nombreCompaniaCF"),
+                representante_legal: datosForm.get("replegalCF"),
+                direccion: datosForm.get("DireccionCF"),
+                nombre_responsable: datosForm.get("nombreRespCF"),
+                cargo: datosForm.get("cargoCF"),
+                contacto: datosForm.get("contactoCF"),
+                telefono: datosForm.get("telefonoCF")   
+            }
+            return datos;
+        }
         
-                })
-                save.disabled = !estadoentradas;
-                estadoentradas && habilitar();
-            });
+        const habilitar = () => {       
             
-        });
-        
-        const habilitar = () => {
-            
-            formulario.addEventListener("submit", e => {
+            save.addEventListener("click", e => {
                 e.preventDefault();
-                let datosForm = new FormData(formulario);
-                let datos = {
-                    direccion: datosForm.get("direccionCF"),
-                    nombre_compania: datosForm.get("nombreCompaniaCF"),
-                    pais: datosForm.get("paisCF"),
-                    correo: datosForm.get("correoCF"),
-                    ciudad: datosForm.get("ciudadCF"),
-                    contacto: datosForm.get("contactoCF"),
-                    telefono: datosForm.get("telefonoCF")   
-                }
+                e.stopImmediatePropagation();
+                const datos = setDataCF();
                 console.log(datos)
-                // setFabrica(datos).then(console.log('Fábrica creada')).catch(e=>{console.log(`Fabrica no creada. Error: ${e}`)})
-        
-                // setTimeout(()=>{    
-                // },3000)
-                // formulario.reset(); 
+                setFabrica(datos).then(() => {
+                    console.log('Fábrica creada');
+                    formulario.reset(); 
+                    document.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                }
+                ).catch(e=>{document.querySelector('.avisopSave').textContent = `Error, formulario anterior no enviado; ${errorCode}, ${errorMessage}`})
                 save.disabled = true;   
             })
         }

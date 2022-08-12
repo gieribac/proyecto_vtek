@@ -6,7 +6,7 @@ import './admin_infoclients.js';
 import './comercial_infoclients.js';
 import "https://kit.fontawesome.com/5060f102e7.js";
 import './comercial_createcliente.js';
-// import './comercial_createfactorie.js';
+import './comercial_createfactorie.js';
 // import './comercial_createoffer.js';
 // import './comercial_infoclients.js';
 // import './comercial_infooffers.js';
@@ -40,4 +40,4 @@ export const loguearse = () => {
                 alert ('correo o clave invalidos')
             }                
         })        
-}
+}   
