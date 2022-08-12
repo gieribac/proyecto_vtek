@@ -68,6 +68,8 @@ export const setFabrica = async(datos) => {
 ////<comercial_createcliente>////
 export const saveClient = async(datos, Clave)=> {
     try {
+        console.log(datos)
+        console.log(datos.Email)
         await createUserWithEmailAndPassword(auth, datos.Email, Clave)
             .then(async(userCredential) => {
                 const user = userCredential.user;

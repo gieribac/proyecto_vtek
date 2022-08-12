@@ -38,7 +38,6 @@ const observer = new MutationObserver(()=>{
             }
             val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;  
-            console.log(info[0].value)    
         }
         
         const validator1 = () => {
@@ -207,33 +206,40 @@ const observer = new MutationObserver(()=>{
         info[14].addEventListener('keyup',validator14);
         info[15].addEventListener('keyup',validator15);
 
-        let datos = {
-            Nombre_Compania: info[1].value,            
-            Representante_Legal: info[2].value,
-            Direccion: info[3].value,
-            Ciudad: info[4].value,
-            Nombre_Responsable: info[5].value,
-            Cargo: info[6].value,
-            Tipo_Identificacion: info[7].value,
-            No_Identificacion: info[8].value,
-            Nit: info[9].value,
-            Numero_Contacto: info[10].value,
-            Web: info[11].value,
-            Email: info[12].value,
-            Calificacion: info[13].value,
-            ComercialID: localStorage.getItem("u")
+        const getData_ = () => {
+            let datos = {
+                Nombre_Compania: info[1].value,            
+                Representante_Legal: info[2].value,
+                Direccion: info[3].value,
+                Ciudad: info[4].value,
+                Nombre_Responsable: info[5].value,
+                Cargo: info[6].value,
+                Tipo_Identificacion: info[7].value,
+                No_Identificacion: info[8].value,
+                Nit: info[9].value,
+                Numero_Contacto: info[10].value,
+                Web: info[11].value,
+                Email: info[12].value,
+                Calificacion: info[13].value,
+                ComercialID: localStorage.getItem("u")
+            }
+            let Clave = info[14].value;
+            return {datos, Clave}
         }
-        let Clave = info[14].value;
-        d.getElementById('guardarC').addEventListener('click', () => {
+        d.getElementById('guardarC').addEventListener('click', (e) => {
+            e.preventDefault();
+            const {datos, Clave} = getData_();
             console.log("se ha llenado todo correctamente");        
-            saveClient(datos, Clave).then(()=>{}).catch((error) => {
+            saveClient(datos, Clave).then(()=>{
+                d.getElementById('formcreateC').reset();
+                d.getElementById('guardarC').disabled = true;
+                d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+            }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage);
                 d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
             });
-            d.getElementById('formcreateC').reset();
-            d.getElementById('guardarC').disabled = true;
         }); 
     }
 
