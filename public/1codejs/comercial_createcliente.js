@@ -9,7 +9,7 @@ const observer = new MutationObserver(()=>{
             v.classList.remove('formulario__input-error')
         }
         d.getElementById('guardarC').disabled = true;
-        var info = [];
+        let info = [];
             info.push(d.getElementById('guardarC'));//boton de guardar 0
             info.push(d.getElementById('nombreCompaniaC'));//1
             info.push(d.getElementById('repLegalC'));//2
@@ -26,17 +26,19 @@ const observer = new MutationObserver(()=>{
             info.push(d.getElementById('calificacionC'));//selector 13
             info.push(d.getElementById('claveC'));//14
             info.push(d.getElementById('rclaveC'));//15
-            
+        
+        let infov = [...info];
+            infov.shift();            
 
         const fenable = () => {
             const d = document;            
             let val = true;
-            for (let v of info){
+            for (let v of infov){
                 val = val && v.value.length > 0;
             }
-            val = val && info[4].value.length < 2 && info[8].value.length < 2;
+            val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;  
-            console.log('fenable')    
+            console.log(info[0].value)    
         }
         
         const validator1 = () => {
@@ -61,7 +63,7 @@ const observer = new MutationObserver(()=>{
 
         const validator3 = () => {
             fenable();
-            if ( /[a-zA-Z\s0-9-]{1,30}+$/.test(info[3].value)){ //direcciòn: letras numeros y guion, 30 caracteres
+            if ( /[a-zA-Z0-9-\s\#]{1,30}$/.test(info[3].value)){ //direcciòn: letras numeros, #, guion, 30 caracteres
                 d.querySelector('.dC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.dC').classList.remove('formulario__input-error');
@@ -101,7 +103,7 @@ const observer = new MutationObserver(()=>{
 
         const validator7 = () => {
             fenable();
-            if (info[7].value.length < 2){ //tipo id selector
+            if (info[7].value.length < 3){ //tipo id selector
                 d.querySelector('.tidC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.tidC').classList.remove('formulario__input-error');
@@ -121,7 +123,7 @@ const observer = new MutationObserver(()=>{
 
         const validator9 = () => { //nit
             fenable();  
-            if (/^\d{7,12}$/.test(info[9].value)){
+            if (/^\d{7,12}(-)/.test(info[9].value)){
                 d.querySelector('.nC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.nC').classList.remove('formulario__input-error');
@@ -131,7 +133,7 @@ const observer = new MutationObserver(()=>{
 
         const validator10 = () => { //no. contacto
             fenable();
-            if (/^\d{7,14}$/.test(info[10].value)){
+            if (/^[\(\)\+\s\d]{7,14}/.test(info[10].value)){
                 d.querySelector('.numcC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.numcC').classList.remove('formulario__input-error');
@@ -141,7 +143,7 @@ const observer = new MutationObserver(()=>{
 
         const validator11 = () => {
             fenable();
-            if (/^http[s]?:\/\/[\w]+([\.]+[\w]+)+$/.test(info[11].value)){ //sitio web
+            if (/[a-zA-Z0-9-\s\#\_\:\/\\\.\@]{1,30}$/.test(info[11].value)){ //sitio web
                 d.querySelector('.wC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.wC').classList.remove('formulario__input-error');
@@ -221,10 +223,9 @@ const observer = new MutationObserver(()=>{
             Calificacion: info[13].value,
             ComercialID: localStorage.getItem("u")
         }
-        let Clave = info[14];
+        let Clave = info[14].value;
         d.getElementById('guardarC').addEventListener('click', () => {
             console.log("se ha llenado todo correctamente");        
-            console.log(datos)
             saveClient(datos, Clave).then(()=>{}).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;

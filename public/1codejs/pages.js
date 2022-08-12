@@ -473,7 +473,8 @@ const
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
                   </div>              
                   <p class="letra_formulario nombreFme formulario__input-error">Admite letras, espacios y tildes. </br> Máximo 50 caracteres </p>
-                <div class="inputsdivi  "> <input required="" type="Email" class="form-control inputsr sombra imputs_tamano"  placeholder="Correo" aria-label="usuario" id="correoF">
+                <div class="inputsdivi  "> 
+                    <input required="" type="Email" class="form-control inputsr sombra imputs_tamano"  placeholder="Correo" aria-label="usuario" id="correoF">
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class=" letra_formulario2 correoFme formulario__input-error">Escriba un correo válido</p>
@@ -512,8 +513,9 @@ const
                     <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="contrasenaF" placeholder="Contraseña " aria-label="usuario ">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                   </div>
-                  <p class="letra_formulario contrasenaFme formulario__input-error">La contraseña debe tener 6 caracteres y </br> como mínimo un dígito, una letra minúscula y </br> una mayúscula</p>
-                <div class="inputsdivi  "> <input required="" type="password" id="recontrasenaF" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">
+                  <p class="letra_formulario contrasenaFme formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
+                <div class="inputsdivi  "> 
+                    <input required="" type="password" id="recontrasenaF" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="letra_formulario2 recontrasenaFme formulario__input-error">Repita la contraseña</p>
@@ -763,14 +765,14 @@ const
 
       </div>
       </div>`,
-    comercial_createcliente = `              <div class="d-flex align-items-stretch flex-column">
+    comercial_createcliente = `<div class="d-flex align-items-stretch flex-column">
             <div id="menu"></div>
                 <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
                     <div class="infopagina">
-                      <h4 class="letrainfo">crear usuario</h4>          
+                      <h4 class="letrainfo">Crear cliente</h4>          
                     </div>
                 </div>
-                <form id="formcrearCLiente">
+                <form id="formcreateC">
                 <fieldset>
                 <div class="cols-lg-4  col--6 col-xs-12   margenusu">
                 
@@ -779,51 +781,53 @@ const
                             <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaC">
                           <i class="formulario__validacion-estado fas fa-times-circle"></i>
                           </div>              
-                          <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
-                        <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Representante legal" aria-label="usuario" id="repLegalC">
+                          <p class="letra_formulario2 letra_formulario2 ncC formulario__input-error">Letras, tildes y espacios</p>
+                        <div class="inputsdivi  "> 
+                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Representante legal" aria-label="usuario" id="repLegalC">
                           <i class="formulario__validacion-estado fas fa-times-circle"></i>
                         </div>
-                        <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
+                        <p class="letra_formulario2 rlC formulario__input-error">Letras, tildes y espacios</p>
                     </div>
                     <div class="input-group input-group_main p-2">
                         <div class="inputsdivi ">
                             <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Direccion" aria-label="usuario" id="direccionC">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                           </div>
-                          <p class="usuarioFme formulario__input-error">  Escriba la direccion</p>
+                          <p class="letra_formulario2 dC formulario__input-error"> Letras, números, guión, númeral (#)</p>
                         <div class="inputsdivi ">
                             <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Ciudad" aria-label="usuario" id="ciudadC">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                           </div>
-                          <p class="numeroFme formulario__input-error">Escriba la Ciudad</p>
+                          <p class="letra_formulario2 ciudadC formulario__input-error">Letras, tildes y espacios</p>
                     </div>
                     <div class="input-group input-group_main p-2">
                         <div class="inputsdivi ">
                             <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre responsable" aria-label="usuario" id="nombreRespC">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                           </div>
-                          <p class="usuarioFme formulario__input-error">Escriba el nombre de responsable</p>
+                          <p class="letra_formulario2 nrC formulario__input-error">Letras, tildes y espacios</p>
                         <div class="inputsdivi ">
-                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="cargo" aria-label="usuario" id="cargoC">
+                            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Cargo" aria-label="usuario" id="cargoC">
                             <i class="formulario__validacion-estado fas fa-times-circle"></i>
                           </div>
-                          <p class="numeroFme formulario__input-error">Escriba el cargo que tiene</p>
+                          <p class="letra_formulario2 cargoC formulario__input-error">Letras, tildes y espacios</p>
                     </div>
                     <div class=" input-group input-group_main p-2 " style="margin-bottom: -30px;">
                       <div>
                         <select required="" class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDC">
                           <option selected>Seleccionar Opción</option>
-                          <option value="1">Tarjeta de Identidad</option>
-                          <option value="2">Cédula</option>
-                          <option value="3">Cédula de Extranjeria </option>
+                          <option value="TI">Tarjeta de Identidad</option>
+                          <option value="CC">Cédula</option>
+                          <option value="CE">Cédula de Extranjeria </option>
                         </select>
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                       </div>
-                      <p class="tipoIDFme formulario__input-error">Seleccione tipo de Identificación</p>
+                      <p class="letra_formulario2 tidC formulario__input-error">Seleccione tipo de Identificación</p>
                         <div class="inputsdivi">
-                            <div> <input required="" type="number" class="form-control inputsr sombra  imputs_tamano " id="identificacionC" placeholder="Identificacion " aria-label="usuario ">                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                            <div> 
+                            <input required="" type="number" class="form-control inputsr sombra  imputs_tamano " id="identificacionC" placeholder="Identificacion " aria-label="usuario ">                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
-                              <p class="identificacionFme formulario__input-error">De 6 a 10 dígitos</p>
+                              <p class="letra_formulario2 idC formulario__input-error">De 6 a 10 dígitos</p>
                               </div>
                         </div>
                         <div class="input-group input-group_main p-2">
@@ -831,40 +835,54 @@ const
                               <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="NIT" aria-label="usuario" id="nitC">
                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
-                            <p class="usuarioFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
+                            <p class="letra_formulario2 nC formulario__input-error">De 7 a 12 digitos, guión</p>
                           <div class="inputsdivi ">
                               <input required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="Numero de contacto" aria-label="usuario" id="ncontactoC">
                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
-                            <p class="numeroFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
+                            <p class="letra_formulario2 numcC formulario__input-error">De 7 a 14 digitos</p>
                       </div>
                         <div class="input-group input-group_main p-2">
                             <div class="inputsdivi ">
                                 <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="web" aria-label="usuario" id="webC">
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                               </div>
-                              <p class="usuarioFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
+                              <p class="letra_formulario2 wC formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
                             <div class="inputsdivi ">
                                 <input required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="email" aria-label="usuario" id="emailC">
                                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
                               </div>
-                              <p class="numeroFme formulario__input-error"> Letras, números, guión y guión bajo. Máximo 16 caracteres</p>
+                              <p class="letra_formulario2 emailC formulario__input-error">Escriba un email válido</p>
                         </div>
+                        
+                        <div class="input-group input-group_main p-2 ">
+                        <div class="inputsdivi  ">
+                            <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="claveC" placeholder="Contraseña" aria-label="usuario ">
+                            <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                          </div>
+                          <p class="letra_formulario clavecli formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
+                        <div class="inputsdivi  "> 
+                            <input required="" type="password" id="rclaveC" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">
+                          <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                        </div>
+                        <p class="letra_formulario2 rclavecli formulario__input-error">Repita la contraseña</p>
+                    </div>
+
                         <div class="col-lg-9   col-xs-12" >
                           <div class="dropdown show  p-3 ">
                           <div class="naranjasinb acomodar">
-                          <h6 class="letracargo">Calificacion</h6> </div>
+                          <h6 class="letracargo">Calificación</h6> </div>
                             <div >
                               <select class="form-select dropdown2 sombra " aria-label="Default select example" id="calificacionC">
-                                <option selected>puntaje</option>
-                                <option value="1"></option>
-                                <option value="2"></option>
-                                <option value="3"></option>
+                                <option selected>Puntaje</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
               
                               </select>
                               <i class="formulario__validacion-estado fas fa-times-circle"></i>
                             </div>
-                              <p class="cargocliFme formulario__input-error"></p>
+                              <p class="calC letra_formulario2 formulario__input-error"></p>
                           </div>
                           <div class="formulario__mensaje" id="formulario__mensaje">
                           <i class="formulario"></i>
