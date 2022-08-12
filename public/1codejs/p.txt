@@ -17,3 +17,5 @@
     scliente_infoclientes = `</div></div>`,
     tcoordinador_createasignacion = `</div></div>`,
     tcoordinador_asignacion = `</div></div>`;
+
+    autocomplete="off"

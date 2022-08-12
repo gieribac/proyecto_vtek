@@ -887,7 +887,7 @@ const
                           <div class="formulario__mensaje" id="formulario__mensaje">
                           <i class="formulario"></i>
                             <div class="avisopSave"></div>
-                              <button type="submit" class="btn btnguardar " id="guardarC"> <h6 class="letrabtng ">Guardar</h6></button>
+                              <button type="button" class="btn btnguardar " id="guardarC"> <h6 class="letrabtng ">Guardar</h6></button>
                           </div>
                       </fieldset>
                     </form>
@@ -902,7 +902,8 @@ const
             <h4 class="letrainfo">Crear fabrica</h4>
           </div>
         </div>
-        <form id="formcrearFabrica">
+        <form id="formcrearFabrica" 
+        autocomplete="off">
         <fieldset>
         <div class="cols-lg-4  col--6 col-xs-12   margenusu">        
             <div class="input-group input-group_main p-3">
@@ -915,10 +916,10 @@ const
             </div>
             <div class="input-group input-group_main p-3">
                 <div class="inputsdivi ">
-                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Representante legal" aria-label="usuario" id="repregalCF" name="repregalCF">
+                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Representante legal" aria-label="usuario" id="replegalCF" name="replegalCF">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                   </div>
-                  <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
+                  <p class="correoFme formulario__input-error">Escriba el Representante legal</p>
 
                 <div class="inputsdivi ">
                     <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Direccion" aria-label="usuario" id="DireccionCF" name="DireccionCF">
@@ -943,11 +944,11 @@ const
             </div>
             <div class="input-group input-group_main p-3">
                 <div class="inputsdivi" id="nombre">
-                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Contacto" aria-label="usuario" id="contactoCF">
+                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Contacto" aria-label="usuario" name="contactoCF">
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
                   </div>              
                   <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
-                <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Telefono" aria-label="usuario" id="telefonoCF">
+                <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Telefono" aria-label="usuario" name="telefonoCF">
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>

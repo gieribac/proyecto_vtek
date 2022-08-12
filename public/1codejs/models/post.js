@@ -61,7 +61,12 @@ try {
 
 ////<comercial_createfactorie>////
 export const setFabrica = async(datos) => {
-    await addDoc(collection(db, "fabricas"), datos).then().catch(e=>{throw e});
+    try{
+        await addDoc(collection(db, "fabricas"), datos).then().catch(e=>{throw e});
+        return 'enviado'
+    } catch (e){
+        throw e;
+    }
 } 
 ////</comercial_createfactorie>////
 
