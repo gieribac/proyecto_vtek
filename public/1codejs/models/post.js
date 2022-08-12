@@ -1,5 +1,3 @@
-//archivo encargado de ejecutar publicaciones a firestore
-
 import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
 import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
@@ -66,9 +64,11 @@ export const setFabrica = async(datos) => {
 ////</comercial_createfactorie>////
 
 ////<comercial_createcliente>////
-export const saveClient = async(datos)=> {
+export const saveClient = async(datos, Clave)=> {
     try {
-        await createUserWithEmailAndPassword(auth, datos.Email, Clave='1234aA')
+        console.log(datos)
+        console.log(datos.Email)
+        await createUserWithEmailAndPassword(auth, datos.Email, Clave)
             .then(async(userCredential) => {
                 const user = userCredential.user;
                 datos.estado = true;

@@ -59,7 +59,7 @@ const observer = new MutationObserver(()=>{
         }
         const validator3 = () => {
             fenable();
-            if (/^\d{7,14}$/.test(info[3].value)){
+            if (/^[\(\)\+\s\d]{7,14}/.test(info[3].value)){
                 d.querySelector('.numeroFme').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.numeroFme').classList.remove('formulario__input-error');
