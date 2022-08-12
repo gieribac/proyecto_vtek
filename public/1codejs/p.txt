@@ -18,4 +18,10 @@
     tcoordinador_createasignacion = `</div></div>`,
     tcoordinador_asignacion = `</div></div>`;
 
-    autocomplete="off"
+<label id="cliente_active"   class=""> (checkbox) //class="editar_cliente_comercial"
+
+ <div class="infopagina">
+        <h4 id="crear_cliente_activo" class="letrainfo editar_cliente_comercial  ">Crear cliente</h4>  
+        <h4 id="Editar_cliente_activo_letra" class="letrainfo ">Editar cliente</h4>           
+    </div>
+

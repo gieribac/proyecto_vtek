@@ -78,7 +78,6 @@ export const saveClient = async(datos, Clave)=> {
         await createUserWithEmailAndPassword(auth, datos.Email, Clave)
             .then(async(userCredential) => {
                 const user = userCredential.user;
-                datos.estado = true;
                 await setDoc(doc(db, "clients", user.uid), datos);
                 signOut(auth).then(() => {
                     const correo = localStorage.getItem("em");

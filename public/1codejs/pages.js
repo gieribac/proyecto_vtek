@@ -598,7 +598,7 @@ const
       </div>
       </div>
       `,
-    comercial_editcliente = `<div class="d-flex align-items-stretch flex-column">
+    comercial_detallecliente = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
     
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -643,7 +643,7 @@ const
                 <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
                     <div class="infopagina">
                       <h4 id="crear_cliente_activo" class="letrainfo editar_cliente_comercial  ">Crear cliente</h4>  
-                      <h4 id="Editar_cliente_activo_letra"class="letrainfo ">Editar cliente</h4>           
+                      <h4 id="Editar_cliente_activo_letra" class="letrainfo ">Editar cliente</h4>           
                     </div>
                 </div>
                 <form id="formcreateC">
@@ -742,7 +742,7 @@ const
                         <p class="letra_formulario2 rclavecli formulario__input-error">Repita la contraseña</p>
                     </div>
                     <label id="cliente_active"   class="">
-                    <input  type="checkbox" >Cliente activo</label>
+                    <input id="checkb" type="checkbox" >Cliente activo</label>
                         <div class="col-lg-9   col-xs-12" >
                           <div class="dropdown show  p-3 ">
                           <div class="naranjasinb acomodar">
@@ -1239,7 +1239,7 @@ const
 export {index,
     admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser,  
     cliente_default, cliente_offer, 
-    comercial_default, comercial_infoclientes, comercial_infocerts, comercial_infooffers, comercial_editcliente, 
+    comercial_default, comercial_infoclientes, comercial_infocerts, comercial_infooffers, comercial_detallecliente, 
     comercial_createcliente, comercial_createfactorie, comercial_createoffer,
     dtecnico_default, dtecnico_planeval, dtecnico_infoclient, dtecnico_infoprocesos,
     experto_default, experto_createoffer, experto_createeval, experto_paleval, experto_infocliente,
