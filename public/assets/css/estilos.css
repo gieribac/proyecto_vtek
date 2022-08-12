@@ -469,21 +469,29 @@ opacity: 1;
 }
 .letra_formulario2{
     font-size: 11px;
-    color: #e61919;
+    color: #808080;
     margin-left: 340px !important;
     margin-top: 20px;
 }
 .letra_formulario{
     font-size: 11px;
-    color: #e61919;
+    color: #808080;
     position: absolute;
     margin-top: 50px;
+    margin-bottom: 0px;
 }
 .letra_formulario3{
     font-size: 11px;
-    color: #e61919;
+    color: #808080;
     margin-left: 10px !important;
     margin-top: 20px;
+}
+.letra_formulario4{
+    font-size: 11px;
+    color: #808080;
+    margin-left: 10px !important;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 .acomodar{
     float:left;
@@ -509,6 +517,9 @@ opacity: 1;
     margin-bottom: 40px;
     background-size: contain;
 
+}
+.editar_cliente_comercial{
+    display: none;
 }
 
 

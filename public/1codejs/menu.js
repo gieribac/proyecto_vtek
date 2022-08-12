@@ -189,7 +189,7 @@ const observermenu = new MutationObserver(()=>{
             <div class="logov">
             </div>
             <div class="menu">
-                <a href="#" class="d-block text-light p-3 mr menuopciones ">
+                <a href="#/tcoordinador/asignacion" class="d-block text-light p-3 mr menuopciones ">
                     <div class="bola-blanco">
                         <div class="check-azul"></div>
                     </div>
