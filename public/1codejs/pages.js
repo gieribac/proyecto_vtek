@@ -333,7 +333,7 @@ const
           <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
               
             <div class="p-3" id="Nombre_compania"><h6 > Nombre de compañia</h6></div>
-            <div class="p-3" id="info_compania"><h6 > Et quia repellat aut quasi eveniet nam tempore tempore a ducimus Quis. Cum explicabo rerum vel voluptas veritatis et veniam dolore 33 possimus modi et veritatis velit ut quia neque. Qui officiis odio aut commodi perferendis ut enim neque aut accusantium neque qui sint quas. Ut earum numquam aut iste necessitatibus vel dolorem repellendus et internos Quis ut consectetur quae.</h6></div>
+            <div class="p-3" ><h6 > Et quia repellat aut quasi eveniet nam tempore tempore a ducimus Quis. Cum explicabo rerum vel voluptas veritatis et veniam dolore 33 possimus modi et veritatis velit ut quia neque. Qui officiis odio aut commodi perferendis ut enim neque aut accusantium neque qui sint quas. Ut earum numquam aut iste necessitatibus vel dolorem repellendus et internos Quis ut consectetur quae.</h6></div>
             
           </div>
         
@@ -610,7 +610,7 @@ const
       </div>
       <div class="col-lg-9 ">
           <h6 class="info_de_oferta p-3">Información Cliente</h6>
-          <a href="#/comercial/createcliente">
+          <a href="#/comercial/editcliente">
           <button  id="login" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button></a>
               </div>
       <div class="col-lg-9 " style="margin-top: 20px;">
@@ -624,15 +624,20 @@ const
           </div>
           <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
             <div style="margin-top: 35px; margin-left: 20px;">
-            <div class="p-0" id="Nombre_compania"><h6 > Nombre de compañia</h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 > representante legal </h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 > direccion </h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 > Ciudad </h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 >  Nombre responsable </h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 > cargo </h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 > tipo de identificacion </h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 > identificacion </h6></div>
-            <div class="p-lg-0" id="info_compania"><h6 > Número de contácto </h6></div>
+            <div class="p-0" id="Nombre_compania"><h6 > Nombre de Compañía: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Representante Legal: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Dirección: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Ciudad: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Nombre Responsable: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Cargo: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Tipo de identificación: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Identificación: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Número de contácto: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Calificación: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Email: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Nit: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Web: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-lg-0" ><h6 > Estado: </h6><h6 class="i_c" ></h6></div>
         </div>              
           </div>
         </div>      

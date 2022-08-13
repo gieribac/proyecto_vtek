@@ -64,7 +64,7 @@ const observerdatos = new MutationObserver(()=>{
                     
                     oferta.innerHTML += `
 
-                    <h6>${d.data().Oferta}  </h6>
+                    <h6><b>${d.data().Oferta}</b></h6>
                     `;
                     cliente.innerHTML += `
 
