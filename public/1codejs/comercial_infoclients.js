@@ -16,6 +16,7 @@ const observerdatos = new MutationObserver(()=>{
         querySnapComCli().then((d) => {
 
             let registers = cargarDocs(d.docs);
+            console.log(d.docs)
             ultimoDoc = registers.ultimo;
             primerDoc = registers.primer;
 
@@ -56,8 +57,11 @@ const observerdatos = new MutationObserver(()=>{
             ncontactoA.innerHTML = ``; 
 
             let listC = [];
+            let list_id = [];
+
                 ds.forEach(d => {
-                    listC.push(d.data())
+                    list_id.push(d.id);
+                    listC.push(d.data());
 
                     clienteA.innerHTML += `
                     <h6><b>${d.data().Nombre_Compania}</b></h6>                    
@@ -75,7 +79,7 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${d.data().Numero_Contacto}</h6>
                     `;
                 });
-            console.log(listC);
+            localStorage.setItem("nidsClient",JSON.stringify(list_id));
             localStorage.setItem("nclient", JSON.stringify(listC));
             listeners();
             return {primer,ultimo}
@@ -85,6 +89,7 @@ const observerdatos = new MutationObserver(()=>{
             const vinculos = document.querySelectorAll('h6 > b');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
+                localStorage.setItem("clientSelect",element.textContent);
                 location.hash='#/comercial/detallecliente';
             })
         })

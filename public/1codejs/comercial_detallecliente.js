@@ -7,15 +7,17 @@ const observerdatos = new MutationObserver(()=>{
         const d = document;
         const left = d.getElementById('cliente');
         const cliente = JSON.parse(localStorage.getItem("nclient"));
+        const buttonEdit = d.getElementById('login');
         
-        cliente.forEach(d => {     
-            console.log(d.Nombre_Compania);   
+        cliente.forEach(d=> {      
 
             left.innerHTML += `
-            <h6 class="left" >${d.Nombre_Compania}</h6>`
+            <h6 class = "left" >${d.Nombre_Compania}</h6>`
         })
 
         const mostrarCliente = (clienteActual) => {
+
+            localStorage.setItem("actualc",JSON.stringify(clienteActual));
 
             const mcElements = d.querySelectorAll('.i_c');
 
@@ -35,21 +37,38 @@ const observerdatos = new MutationObserver(()=>{
             mcElements[13].textContent = clienteActual.estado;
 
         }
-        
+
+        const editarCliente = () => {
+            const mcElements = d.querySelectorAll('.left');
+            const selected = d.querySelectorAll('.left[style="font-weight: bold"]');
+            mcElements.forEach((e,i)=> {
+                (e==selected[0]) && localStorage.setItem("iselected",i);
+            })          
+        }
+                
         const listeners = () => {
-            const vinculos = document.querySelectorAll('.left');
+            const vinculos = d.querySelectorAll('.left');
+            
             vinculos.forEach(element => {
                 element.addEventListener('click',()=>{
                     vinculos.forEach(s => s.removeAttribute('style','font-weight: bold'));  
-                    element.setAttribute('style','font-weight: bold');       
+                    element.setAttribute('style','font-weight: bold');  
                     const clienteActual= cliente.find(e => e.Nombre_Compania==element.textContent);
                     mostrarCliente(clienteActual);                            
                 })
             })
+            buttonEdit.addEventListener('click', editarCliente);
         }
 
+        const clientSelect = localStorage.getItem("clientSelect");
+        const clienteActual = cliente.find(e => e.Nombre_Compania==clientSelect);
+        mostrarCliente(clienteActual); 
+  
+        const vinculos = Array.prototype.slice.apply(document.querySelectorAll('.left'));
+        const selected = vinculos.find(e => e.textContent == clientSelect)
+        selected.setAttribute('style','font-weight: bold'); 
+        
         listeners();
-
     }
 
     location.hash == '#/comercial/detallecliente' && charge();

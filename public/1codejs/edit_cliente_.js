@@ -1,28 +1,69 @@
-import {saveClient} from './models/post.js';
+// import {updateUserClient} from './models/post.js';
 
 const observer = new MutationObserver(()=>{
     
     const charge = () => {
         const d = document;
 
-        const hashactual = location.hash;
-        if (hashactual == '#/comercial/createcliente'){
-            d.getElementById('cliente_active').classList.add('editar_cliente_comercial');
-            d.getElementById('crear_cliente_activo').classList.remove('editar_cliente_comercial');
-            d.getElementById('Editar_cliente_activo_letra').classList.add('editar_cliente_comercial');
+        const check = d.getElementsByClassName('cliente_active');
+        for (let v of check){
+            v.classList.remove('editar_cliente_comercial');
         }
-        else {
-            d.getElementById('cliente_active').classList.remove('editar_cliente_comercial');
-            d.getElementById('crear_cliente_activo').classList.add('editar_cliente_comercial');
-            d.getElementById('Editar_cliente_activo_letra').classList.remove('editar_cliente_comercial');
+
+        d.getElementById('crear_cliente_activo').classList.add('editar_cliente_comercial');
+        d.getElementById('Editar_cliente_activo_letra').classList.remove('editar_cliente_comercial');
+        
+        const pError = d.querySelectorAll('.margenusu p')
+        for (let v of pError){
+            v.classList.remove('formulario__input-error');
         }
-        const myNodeList = d.querySelectorAll('.margenusu p')
-        for (let v of myNodeList){
-            v.classList.remove('formulario__input-error')
-        }
+        const inputscheked0 = d.getElementsByClassName('inputsdivi');
+        const inputscheked = Array.prototype.slice.apply(inputscheked0);
+
+        const checks = d.querySelectorAll('p + label > input');
+
+        checks.forEach((c,i) => {
+            c.addEventListener('click',() => {
+                inputscheked[i].classList.add(`campo${i}`);
+                const child = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} > input`));
+                const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} + p`));
+                console.log(inputscheked[i])
+                if (c.checked) {
+                    inputscheked[i].classList.add('habilitar_campo');
+                    child[0].removeAttribute('required','');
+                    fies[0].classList.add('formulario__input-error');
+                    console.log(d.getElementById('getBeforeEmail'));
+                    (i == 10 ) && (() => d.getElementById('getBeforeEmail').classList.add('habilitar_campo'))();
+                    if (i == 11){
+                        inputscheked[12].classList.add('habilitar_campo');
+                        d.getElementById('rclaveC').removeAttribute('required','');
+                        d.getElementsByClassName('rclavecli')[0].classList.add('formulario__input-error');
+                        d.getElementById('getBeforeClave').classList.add('habilitar_campo') ;
+                    }
+                } else {
+                    child[0].setAttribute('required','');
+                    inputscheked[i].classList.remove('habilitar_campo');
+                    fies[0].classList.remove('formulario__input-error');
+                    (i == 10 ) && (() => d.getElementById('getBeforeEmail').classList.remove('habilitar_campo'))();
+                    if (i == 11){
+                        inputscheked[12].classList.remove('habilitar_campo');
+                        d.getElementById('rclaveC').setAttribute('required','');
+                        d.getElementsByClassName('rclavecli')[0].classList.remove('formulario__input-error');
+                        d.getElementById('getBeforeClave').classList.remove('habilitar_campo');
+                    }
+                    
+
+                }
+            })  
+        })
+
+        // checkRclave i = 11
+        // checkEmail i=10
+
         d.getElementById('guardarC').disabled = true;
         let info = [];
             info.push(d.getElementById('guardarC'));//boton de guardar 0
+        let nombreCompaniaC = d.getElementById('nombreCompaniaC');
             info.push(d.getElementById('nombreCompaniaC'));//1
             info.push(d.getElementById('repLegalC'));//2
             info.push(d.getElementById('direccionC'));//3
@@ -46,21 +87,22 @@ const observer = new MutationObserver(()=>{
             const d = document;            
             let val = true;
             for (let v of infov){
-                val = val && v.value.length > 0;
+                v.hasAttribute('required') && (val = val && v.value.length > 0);
             }
-            val = val && info[7].value.length < 3 && info[13].value.length < 2;
+            // val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;  
         }
         
         const validator1 = () => {
-            
-            fenable();
-            if (/^[a-zA-ZÀ-ÿ\s]{1,30}$/.test(info[1].value)){ //nombre compania: letras, tildes y espacios, 30 caracteres
-                d.querySelector('.ncC').classList.add('formulario__input-error');
-            } else {
-                d.querySelector('.ncC').classList.remove('formulario__input-error');
-                d.getElementById('guardarC').disabled = true;
-            }
+
+                fenable();
+                if (/^[a-zA-ZÀ-ÿ\s]{1,30}$/.test(info[1].value)){ //nombre compania: letras, tildes y espacios, 30 caracteres
+                    d.querySelector('.ncC').classList.add('formulario__input-error');
+                } else {
+                    d.querySelector('.ncC').classList.remove('formulario__input-error');
+                    d.getElementById('guardarC').disabled = true;
+                }
+
         }
 
         const validator2 = () => {
@@ -219,50 +261,100 @@ const observer = new MutationObserver(()=>{
         info[14].addEventListener('keyup',validator14);
         info[15].addEventListener('keyup',validator15);
 
+        const cActual = JSON.parse(localStorage.getItem("actualc"));
+
+        info[1].placeholder = `${info[1].placeholder}: ${cActual.Nombre_Compania}`;
+        info[2].placeholder = `${info[2].placeholder}: ${cActual.Representante_Legal}`;
+        info[3].placeholder = `${info[3].placeholder}: ${cActual.Direccion}`;
+        info[4].placeholder = `${info[4].placeholder}: ${cActual.Ciudad}`;
+        info[5].placeholder = `${info[5].placeholder}: ${cActual.Nombre_Responsable}`;
+        info[6].placeholder = `${info[6].placeholder}: ${cActual.Cargo}`;
+        // info[7].addEventListener('change',validator7);
+        info[8].placeholder = `${info[8].placeholder}: ${cActual.No_Identificacion}`;
+        info[9].placeholder = `${info[9].placeholder}: ${cActual.Nit}`;
+        info[10].placeholder = `${info[10].placeholder}: ${cActual.Numero_Contacto}`;
+        info[11].placeholder = `${info[11].placeholder}: ${cActual.Web}`;
+        info[12].placeholder = `${info[12].placeholder}: ${cActual.Email}`;
+        // info[13].addEventListener('change',validator13); 
+        // info[14].placeholder = 
+        // info[15].placeholder = 
+
+
         
 
         const getData_ = () => {
             let datos = {
-                Nombre_Compania: info[1].value,            
-                Representante_Legal: info[2].value,
-                Direccion: info[3].value,
-                Ciudad: info[4].value,
-                Nombre_Responsable: info[5].value,
-                Cargo: info[6].value,
-                Tipo_Identificacion: info[7].value,
-                No_Identificacion: info[8].value,
-                Nit: info[9].value,
-                Numero_Contacto: info[10].value,
-                Web: info[11].value,
-                Email: info[12].value,
-                Calificacion: info[13].value,
-                ComercialID: localStorage.getItem("u"),
+                Estado: d.getElementById("checkb").checked
             }
+            let Clave;
+            info[1].hasAttribute("required") && (() => datos.Nombre_Compania = info[1].value)();
+            info[2].hasAttribute("required") && (() => datos.Representante_Legal = info[2].value)();
+            info[3].hasAttribute("required") && (() => datos.Direccion = info[3].value)();
+            info[4].hasAttribute("required") && (() => datos.Ciudad = info[4].value)();
+            info[5].hasAttribute("required") && (() => datos.Nombre_Responsable = info[5].value)();
+            info[6].hasAttribute("required") && (() => datos.Cargo = info[6].value)();
+            info[8].hasAttribute("required") && (() => datos.No_Identificacion = info[8].value)();
+            info[9].hasAttribute("required") && (() => datos.Nit = info[9].value)();
+            info[10].hasAttribute("required") && (() => datos.Numero_Contacto = info[10].value)();
+            info[11].hasAttribute("required") && (() => datos.Web = info[11].value)();
+            info[12].hasAttribute("required") && (() => datos.Email = info[11].value)();
+            info[14].hasAttribute("required") && (Clave = info[14].value);
+            (info[7].value.length < 3) && (() => datos.Tipo_Identificacion = info[7].value)();
+            (info[13].value.length < 3) && (() => datos.Tipo_Identificacion = info[13].value)();
 
-            let Clave = info[14].value;
-            location.hash == '#/comercial/editcliente' ? datos.Estado = document.getElementById("checkb").checked : datos.Estado = true;
-            return {datos, Clave}
+            const getCredentials = (info[14].value.length > 0 || info[11].value.length > 0 );
+
+            return {datos, Clave, getCredentials}
         }
 
+        const get_idc = () => {
+            const idsc = JSON.parse(localStorage.getItem("nidsClient"));
+            const idact = localStorage.getItem("iselected");
+            const idc = idsc[idact];
+            console.log(idc);
+            return idc;
+        }
+
+        const getCredentials_ = () => {
+            const bEmail = prompt ('Suministre el correo electronico de la cuenta de usuario: ');
+            const bClave = promot ('Suministre la clave de la cuenta de usuario: ');
+
+            return {bEmail, bClave}
+
+        }
        
-        d.getElementById('guardarC').addEventListener('click', (e) => {
+        d.getElementById('guardarC').addEventListener('click', e => {
             e.preventDefault();
-            const {datos, Clave} = getData_();
-            console.log("se ha llenado todo correctamente");        
-            saveClient(datos, Clave).then(()=>{
-                d.getElementById('formcreateC').reset();
-                d.getElementById('guardarC').disabled = true;
-                d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
-            }).catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorMessage);
-                d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
-            });
+            const {datos, Clave, getCredentials} = getData_();
+            const idClient = get_idc(); 
+            let c;
+            // getCredentials && (() => { c = getCredentials_ ()})();     
+            // getCredentials && updateUserClient(datos.Email, Clave, c.bClave, c.bEmail).then(()=>{
+            //         d.getElementById('formcreateC').reset();
+            //         d.getElementById('guardarC').disabled = true;
+            //         d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+            //     }).catch((error) => {
+            //         const errorCode = error.code;
+            //         const errorMessage = error.message;
+            //         console.log(errorMessage);
+            //         d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
+            //     });
+            
+            
+            // updateDataClient(datos, Clave, idClient).then(()=>{
+            //     d.getElementById('formcreateC').reset();
+            //     d.getElementById('guardarC').disabled = true;
+            //     d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+            // }).catch((error) => {
+            //     const errorCode = error.code;
+            //     const errorMessage = error.message;
+            //     console.log(errorMessage);
+            //     d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
+            // });
         }); 
     }
 
-    (location.hash == '#/comercial/createcliente' || location.hash == '#/comercial/editcliente' ) && charge();
+    location.hash == '#/comercial/editcliente' && charge();
 })
 
 const parent = document.getElementById('root');
