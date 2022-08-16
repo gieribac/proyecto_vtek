@@ -5,7 +5,7 @@ import {loguearse} from './index.js';
 import {index,
     admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser,  
     cliente_default, cliente_offer, 
-    comercial_default, comercial_infoclientes, comercial_infocerts, comercial_infooffers, comercial_editcliente, 
+    comercial_default, comercial_infoclientes, comercial_infocerts, comercial_infooffers, comercial_detallecliente, 
     comercial_createcliente, comercial_createfactorie, comercial_createoffer, 
     dtecnico_default, dtecnico_planeval, dtecnico_infoclient, dtecnico_infoprocesos,
     experto_default, experto_createoffer, experto_createeval, experto_paleval, experto_infocliente,
@@ -65,7 +65,8 @@ export const page = (h) => {
     else if (h=='#/comercial/infoclientes'){inner('comercial',comercial_infoclientes)}
     else if (h=='#/comercial/inforcerts'){inner('comercial',comercial_infocerts)}
     else if (h=='#/comercial/infooffers'){inner('comercial',comercial_infooffers)}
-    else if (h=='#/comercial/editcliente'){inner('comercial',comercial_editcliente)}
+    else if (h=='#/comercial/editcliente'){inner('comercial',comercial_createcliente)}
+    else if (h=='#/comercial/detallecliente'){inner('comercial',comercial_detallecliente)}
     else if (h=='#/comercial/createcliente'){inner('comercial',comercial_createcliente)}
     else if (h=='#/comercial/createfactorie'){inner('comercial',comercial_createfactorie)}
     else if (h=='#/comercial/createoffer'){inner('comercial',comercial_createoffer)}

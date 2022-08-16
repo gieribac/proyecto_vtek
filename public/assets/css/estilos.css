@@ -426,8 +426,8 @@ opacity: 1;
 }
 .info_de_oferta{
     font-size: 20px;
-    margin-top: 24px;
-    margin-bottom: 1px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     font-weight: bold;
     margin-left: 97px;
     float: left;
@@ -440,6 +440,13 @@ opacity: 1;
     margin-left: 20px;
     margin-top:  19px
 
+}
+
+.margen-cliente_com{
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+    
 }
 .btnsave{
     position: absolute;
@@ -522,7 +529,25 @@ opacity: 1;
 .editar_cliente_comercial{
     display: none;
 }
+.i_c{
+    position: absolute;
+    margin-left: 224px;
+}
+.scroll_rec{
+    overflow-y:scroll ;
+}
+.scroll_rec::-webkit-scrollbar{
+    width: 9px;
+    background-color: rgba(239, 239, 239, 0);
+    
+}
+.scroll_rec::-webkit-scrollbar-thumb{
 
+    background-color: rgb(255, 161, 0);
+    border-radius: 25px;
+    
+    
+}
 
 
 

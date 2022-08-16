@@ -8,6 +8,15 @@ const observer = new MutationObserver(()=>{
         for (let v of myNodeList){
             v.classList.remove('formulario__input-error')
         }
+
+        const check = d.getElementsByClassName('cliente_active');
+        for (let v of check){
+            v.classList.add('editar_cliente_comercial');
+        }
+
+        d.getElementById('crear_cliente_activo').classList.remove('editar_cliente_comercial');
+        d.getElementById('Editar_cliente_activo_letra').classList.add('editar_cliente_comercial');
+
         d.getElementById('guardarC').disabled = true;
         let info = [];
             info.push(d.getElementById('guardarC'));//boton de guardar 0
@@ -221,7 +230,8 @@ const observer = new MutationObserver(()=>{
                 Web: info[11].value,
                 Email: info[12].value,
                 Calificacion: info[13].value,
-                ComercialID: localStorage.getItem("u")
+                ComercialID: localStorage.getItem("u"),
+                Estado: true
             }
             let Clave = info[14].value;
             return {datos, Clave}

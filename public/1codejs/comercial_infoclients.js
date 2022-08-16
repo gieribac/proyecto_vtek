@@ -14,8 +14,9 @@ const observerdatos = new MutationObserver(()=>{
         let primerDoc = null;
 
         querySnapComCli().then((d) => {
-            console.log(d)
+
             let registers = cargarDocs(d.docs);
+            console.log(d.docs)
             ultimoDoc = registers.ultimo;
             primerDoc = registers.primer;
 
@@ -43,40 +44,66 @@ const observerdatos = new MutationObserver(()=>{
             })
         }).then ((e) => console.log(e))
 
-        const cargarDocs = (ds) => {
+        const cargarDocs = ds => {
             
             if(ds.length > 0){
 
             const ultimo = ds[ds.length-1];
             const primer = ds[0];
+
             clienteA.innerHTML = ``;
             legalA.innerHTML = ``;
             nitA.innerHTML = ``;
             ncontactoA.innerHTML = ``; 
+
+            let listC = [];
+            let list_id = [];
+
                 ds.forEach(d => {
+                    list_id.push(d.id);
+                    listC.push(d.data());
+
                     clienteA.innerHTML += `
-
-                    <h6 >${d.data().Nombre_Compania}</h6>
-                    `;
-                    legalA.innerHTML += `
-
-                    <h6 >${d.data().Representante_Legal}</h6>
-                    `;
-                    nitA.innerHTML += `
-
-                    <h6 >${d.data().Nit}</h6>
-                    `;
-                    ncontactoA.innerHTML += `
-
-                    <h6 >${d.data().Numero_Contacto}</h6>
+                    <h6><b>${d.data().Nombre_Compania}</b></h6>                    
                     `;
                     
+                    legalA.innerHTML += `
+                    <h6 >${d.data().Representante_Legal}</h6>
+                    `;
+
+                    nitA.innerHTML += `
+                    <h6 >${d.data().Nit}</h6>
+                    `;
+                   
+                    ncontactoA.innerHTML += `
+                    <h6 >${d.data().Numero_Contacto}</h6>
+                    `;
                 });
-            
+            localStorage.setItem("nidsClient",JSON.stringify(list_id));
+            localStorage.setItem("nclient", JSON.stringify(listC));
+            listeners();
             return {primer,ultimo}
             }
         }
+        const listeners = () => {
+            const vinculos = document.querySelectorAll('h6 > b');
+            vinculos.forEach(element => {
+            element.addEventListener('click',()=>{
+                localStorage.setItem("clientSelect",element.textContent);
+                location.hash='#/comercial/detallecliente';
+            })
+        })
+        }
+        
+
+
+
     }
+
+   
+
+
+
 
     location.hash == '#/comercial/infoclientes' && charge();
 })

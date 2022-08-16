@@ -78,7 +78,6 @@ export const saveClient = async(datos, Clave)=> {
         await createUserWithEmailAndPassword(auth, datos.Email, Clave)
             .then(async(userCredential) => {
                 const user = userCredential.user;
-                datos.estado = true;
                 await setDoc(doc(db, "clients", user.uid), datos);
                 signOut(auth).then(() => {
                     const correo = localStorage.getItem("em");
@@ -181,12 +180,14 @@ export const queryNextnt = async(lastVisible) => {
 
 //<comercial_infoclients>//
 const uidcom = localStorage.getItem("u");
-export const querySnapComCli = async() => {
+export const    querySnapComCli = async() => {
     try {
         const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
         const documentSnapshots = await getDocs(first);
         
-        console.log(`documentsSnapCom: ${documentSnapshots}`)
+        // console.log(`documentsSnapCom: ${documentSnapshots}`)
+        // console.dir(documentSnapshots);
+        // console.info(documentSnapshots);
         return documentSnapshots
     
     
