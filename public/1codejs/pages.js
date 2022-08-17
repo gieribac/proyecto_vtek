@@ -617,27 +617,24 @@ const
          <div class="i-azul centrarF"> 
           
          
-          <div class="recuadro margenr1 sombra temano_recuadro" id="cliente">
-              <div  class="infocliente_oferta_admin">
-            <div ><a href=""> <h6> Cliente #1</h6></a></div>            
+          <div class="recuadro margenr1 sombra temano_recuadro p-3" id="cliente">
           </div>
-          </div>
-          <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
+          <div class="recuadro margenr sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
             <div style="margin-top: 35px; margin-left: 20px;">
-            <div class="p-0" id="Nombre_compania"><h6 > Nombre de Compañía: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Representante Legal: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Dirección: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Ciudad: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Nombre Responsable: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Cargo: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Tipo de identificación: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Identificación: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Número de contácto: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Calificación: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Email: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Nit: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Web: </h6><h6 class="i_c" ></h6></div>
-            <div class="p-lg-0" ><h6 > Estado: </h6><h6 class="i_c" ></h6></div>
+            <div class="p-0" id="Nombre_compania"> <h6 class="i_c" ></h6> <h6 > Nombre de Compañía: </h6></div>
+            <div class="p-lg-0" > <h6 class="i_c" ></h6><h6 > Representante Legal: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ><h6 > Dirección: </h6></h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Ciudad: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Nombre Responsable: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Cargo: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Tipo de identificación: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Identificación: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Número de contácto: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Calificación: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Email: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Nit: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Web: </h6></div>
+            <div class="p-lg-0" ><h6 class="i_c" ></h6><h6 > Estado: </h6></div>
         </div>              
           </div>
         </div>      
@@ -712,13 +709,14 @@ const
             <div class=" input-group input-group_main p-1" style="margin-bottom: -30px;">
               <div class="">
                 <select required="" class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDC">
-                  <option selected>Tipo de Identificación</option>
+                  <option selected>Escoja: </option>
                   <option value="TI">Tarjeta de Identidad</option>
                   <option value="CC">Cédula</option>
                   <option value="CE">Cédula de Extranjeria </option>
                 </select>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
               </div>
+              <p class="letra_formulario2 tidC formulario__input-error">Elija tipo de documento</p>
 
               </label>
 
@@ -793,7 +791,7 @@ const
                 </div>
                 <div id="getBeforeClave">
                     <div class="inputsdivi  ">
-                        <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="claveC" placeholder="Contraseña anterior" aria-label="usuario ">
+                        <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="letra_formulario clavecli formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>

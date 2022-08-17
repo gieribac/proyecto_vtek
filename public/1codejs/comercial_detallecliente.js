@@ -12,7 +12,7 @@ const observerdatos = new MutationObserver(()=>{
         cliente.forEach(d=> {      
 
             left.innerHTML += `
-            <h6 class = "left" >${d.Nombre_Compania}</h6>`
+            <h6 class = "left margen-cliente_com" >${d.Nombre_Compania}</h6>`
         })
 
         const mostrarCliente = (clienteActual) => {

@@ -1,4 +1,5 @@
 // import {updateUserClient} from './models/post.js';
+// import {updateDataClient} from './models/post.js';
 
 const observer = new MutationObserver(()=>{
     
@@ -29,30 +30,37 @@ const observer = new MutationObserver(()=>{
                 const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} + p`));
                 console.log(inputscheked[i])
                 if (c.checked) {
+                    fenable();
                     inputscheked[i].classList.add('habilitar_campo');
                     child[0].removeAttribute('required','');
                     fies[0].classList.add('formulario__input-error');
                     console.log(d.getElementById('getBeforeEmail'));
-                    (i == 10 ) && (() => d.getElementById('getBeforeEmail').classList.add('habilitar_campo'))();
-                    if (i == 11){
+                    (i == 10) && (() => {
+                        d.getElementById('getBeforeEmail').classList.add('habilitar_campo'); 
+                        d.getElementById('bemailC').removeAttribute('required','');
+                    })();
+                    (i == 11) && (() => {
                         inputscheked[12].classList.add('habilitar_campo');
                         d.getElementById('rclaveC').removeAttribute('required','');
                         d.getElementsByClassName('rclavecli')[0].classList.add('formulario__input-error');
-                        d.getElementById('getBeforeClave').classList.add('habilitar_campo') ;
-                    }
+                        d.getElementById('getBeforeClave').classList.add('habilitar_campo');
+                        d.getElementById('bclaveC').removeAttribute('required','');                        
+                    })();
                 } else {
                     child[0].setAttribute('required','');
                     inputscheked[i].classList.remove('habilitar_campo');
                     fies[0].classList.remove('formulario__input-error');
-                    (i == 10 ) && (() => d.getElementById('getBeforeEmail').classList.remove('habilitar_campo'))();
-                    if (i == 11){
+                    (i == 10) && (() => {
+                        d.getElementById('getBeforeEmail').classList.remove('habilitar_campo');
+                        d.getElementById('bemailC').setAttribute('required','');                                            
+                    })();
+                    (i == 11) && (() => {
                         inputscheked[12].classList.remove('habilitar_campo');
                         d.getElementById('rclaveC').setAttribute('required','');
                         d.getElementsByClassName('rclavecli')[0].classList.remove('formulario__input-error');
                         d.getElementById('getBeforeClave').classList.remove('habilitar_campo');
-                    }
-                    
-
+                        d.getElementById('bclaveC').setAttribute('required',''); 
+                    })();                 
                 }
             })  
         })
@@ -79,7 +87,8 @@ const observer = new MutationObserver(()=>{
             info.push(d.getElementById('calificacionC'));//selector 13
             info.push(d.getElementById('claveC'));//14
             info.push(d.getElementById('rclaveC'));//15
-        
+            info.push(d.getElementById('bemailC'));//16
+            info.push(d.getElementById('bclaveC'));//17
         let infov = [...info];
             infov.shift();            
 
@@ -91,6 +100,7 @@ const observer = new MutationObserver(()=>{
             }
             // val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;  
+            console.log(val)
         }
         
         const validator1 = () => {
@@ -243,8 +253,25 @@ const observer = new MutationObserver(()=>{
                 d.getElementById('guardarC').disabled = true;
             }
         }
+        const validator16 = () => {//bcorreo
+            fenable(); 
+            if (/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(info[16].value)){
+                d.querySelector('.emailC').classList.add('formulario__input-error');
+            } else {
+                d.querySelector('.emailC').classList.remove('formulario__input-error');
+                d.getElementById('guardarC').disabled = true;
+            }
+        }
+        const validator17 = () => {//bcontraseña
+            fenable();
+            if (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(info[17].value)){
+                d.querySelector('.clavecli').classList.add('formulario__input-error');
+            } else {
+                d.querySelector('.clavecli').classList.remove('formulario__input-error');
+                d.getElementById('guardarC').disabled = true;
+            }
+        }
 
-        
         info[1].addEventListener('keyup',validator1);
         info[2].addEventListener('keyup',validator2);
         info[3].addEventListener('keyup',validator3);
@@ -260,6 +287,8 @@ const observer = new MutationObserver(()=>{
         info[13].addEventListener('change',validator13);
         info[14].addEventListener('keyup',validator14);
         info[15].addEventListener('keyup',validator15);
+        info[16].addEventListener('keyup',validator16);
+        info[17].addEventListener('keyup',validator17);
 
         const cActual = JSON.parse(localStorage.getItem("actualc"));
 
@@ -277,16 +306,13 @@ const observer = new MutationObserver(()=>{
         info[12].placeholder = `${info[12].placeholder}: ${cActual.Email}`;
         // info[13].addEventListener('change',validator13); 
         // info[14].placeholder = 
-        // info[15].placeholder = 
-
-
-        
+        // info[15].placeholder =         
 
         const getData_ = () => {
             let datos = {
                 Estado: d.getElementById("checkb").checked
             }
-            let Clave;
+            let Clave, Email, bClave, bEmail;
             info[1].hasAttribute("required") && (() => datos.Nombre_Compania = info[1].value)();
             info[2].hasAttribute("required") && (() => datos.Representante_Legal = info[2].value)();
             info[3].hasAttribute("required") && (() => datos.Direccion = info[3].value)();
@@ -297,14 +323,19 @@ const observer = new MutationObserver(()=>{
             info[9].hasAttribute("required") && (() => datos.Nit = info[9].value)();
             info[10].hasAttribute("required") && (() => datos.Numero_Contacto = info[10].value)();
             info[11].hasAttribute("required") && (() => datos.Web = info[11].value)();
-            info[12].hasAttribute("required") && (() => datos.Email = info[11].value)();
+            info[12].hasAttribute("required") && (Email = info[12].value);
             info[14].hasAttribute("required") && (Clave = info[14].value);
             (info[7].value.length < 3) && (() => datos.Tipo_Identificacion = info[7].value)();
             (info[13].value.length < 3) && (() => datos.Tipo_Identificacion = info[13].value)();
+            info.push(d.getElementById('bemailC'));//16
+            info.push(d.getElementById('bclaveC'));//17
+            info[17].hasAttribute("required") && (() => bClave = info[17].value)();
+            info[16].hasAttribute("required") && (() => bEmail = info[16].value)();
+
 
             const getCredentials = (info[14].value.length > 0 || info[11].value.length > 0 );
 
-            return {datos, Clave, getCredentials}
+            return {datos, Email, Clave, bClave, bEmail}
         }
 
         const get_idc = () => {
@@ -314,20 +345,49 @@ const observer = new MutationObserver(()=>{
             console.log(idc);
             return idc;
         }
-
-        const getCredentials_ = () => {
-            const bEmail = prompt ('Suministre el correo electronico de la cuenta de usuario: ');
-            const bClave = promot ('Suministre la clave de la cuenta de usuario: ');
-
-            return {bEmail, bClave}
-
-        }
        
         d.getElementById('guardarC').addEventListener('click', e => {
             e.preventDefault();
-            const {datos, Clave, getCredentials} = getData_();
+            const {datos, Email, Clave, bClave, bEmail} = getData_();
             const idClient = get_idc(); 
             let c;
+            console.log(`datos: ${datos}, email: ${Email} Clave: ${Clave}, bClave: ${bClave}, bEmail: ${bEmail}`);
+            if (datos && (Clave || Email)) {
+                console.log('updateUserClient then updateDataClient');
+                updateUserClient(bEmail,bClave, Clave, Email).then(
+
+                    updateDataClient(idClient, datos).then(
+
+                    ).catch(
+
+                    )
+
+                ).catch(
+
+                );
+            } else if  (datos && !(Clave || Email)) {
+                console.log('updateDataClient')
+
+                updateDataClient(idClient, datos).then(
+
+                    ).catch(
+
+                    )
+
+            } else if (!datos && (Clave || Email)) {
+                console.log('updateUserClient')
+
+                // updateUserClient(bEmail,bClave, Clave, Email).then(
+
+                // ).catch(
+
+                // );
+
+            } else {
+
+            }
+            // import {updateUserClient} from './models/post.js';
+// import {updateDataClient} from './models/post.js';
             // getCredentials && (() => { c = getCredentials_ ()})();     
             // getCredentials && updateUserClient(datos.Email, Clave, c.bClave, c.bEmail).then(()=>{
             //         d.getElementById('formcreateC').reset();

@@ -1,7 +1,8 @@
 //archivo encargado de ejecutar publicaciones a firestore
 
-import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
-import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
+import {createUserWithEmailAndPassword, signOut, updateEmail, signInWithEmailAndPassword, getAuth} 
+from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
+import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit, updateDoc} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
 
@@ -290,6 +291,72 @@ export const querySnapComOfs = async() => {
                 
     }
 //</comercial_infooffers>//
+
+////<comercial_editcliente>////
+export const updateUserClient = (bcorreo, bclave, Clave = null, Email = null) => {
+    /*iniciar sesion como cliente*/
+    signInWithEmailAndPassword(auth,bcorreo,bclave)
+    .then((userCredential) => {
+        /*update email si aplica*/
+        Email && (() => {
+            const auth = getAuth();
+            updateEmail(auth.currentUser, Email).then(() => {
+                return "Email updated!";
+            }).catch((error) => {
+                throw error.message;
+            });
+        })();    
+        /*update clave si aplica*/
+        Clave && (() => {
+            const auth = getAuth();
+            const user = auth.currentUser;
+            updatePassword(user, Clave).then(() => {
+            // Update successful.
+            }).catch((error) => {
+            // An error ocurred
+            // ...
+            });
+        })();
+        /*cerrar sesion del cliente y volver a cargar sesion del comercial*/
+        signOut(auth).then(() => {
+            const correo = localStorage.getItem("em");
+            const clave = localStorage.getItem("k");                
+            signInWithEmailAndPassword(auth,correo,clave)
+            .then((userCredential) => {                        
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                throw error;
+            })
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                throw error;
+            })
+    })
+    .catch((error) => {
+        throw error.messaje;
+    })
+}
+
+
+
+export const updateDataClient = (idClient, datos) => {
+    try {
+        updateDoc(doc(db, "clients", idClient), datos);
+        return "doc updated";
+    } catch (e){
+        throw e.message;
+    }
+}
+
+////</comercial_editcliente>////
+
+
 
 
 ////llamadas//
