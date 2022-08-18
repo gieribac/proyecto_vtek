@@ -915,27 +915,29 @@ const
           </div>
           <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
               <div style="margin-left: 60px; margin-top: 20px;">
-              <div class="input-group p-2 ">
-                  <div class="inputsdivi " style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
-                  <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
-              </div>
-              <div class="input-group p-2  ">
-                  <div class="inputsdivi" style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
-                  <div class="inputsdivi" style="width: 200px;">
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
-              </div>
-              <div class="input-group p-2 ">
-                  <div class="inputsdivi" style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
-                  <div class="inputsdivi" style="width: 200px;">
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
-              </div>
-              <div class="input-group p-2  ">
-                  <div class="inputsdivi " style="width: 200px;" >
-                      <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
-                  <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
+              <div id="inputs">
+                <div class="input-group p-2 ">
+                    <div class="inputsdivi " style="width: 200px;" >
+                        <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
+                    <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
+                </div>
+                <div class="input-group p-2  ">
+                    <div class="inputsdivi" style="width: 200px;" >
+                        <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
+                    <div class="inputsdivi" style="width: 200px;">
+                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
+                </div>
+                <div class="input-group p-2 ">
+                    <div class="inputsdivi" style="width: 200px;" >
+                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
+                    <div class="inputsdivi" style="width: 200px;">
+                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
+                </div>
+                <div class="input-group p-2  ">
+                    <div class="inputsdivi " style="width: 200px;" >
+                        <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
+                    <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
+                </div>
               </div>
               <div>
                 <div class="adjuntar_ofertas alinear_ofertas"  id="adjuntar"><h6 class="letra-columna">Adjuntar</h6></div>
