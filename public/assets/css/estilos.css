@@ -1,35 +1,30 @@
 body {
     background: #ffffff;
-
     color: rgba(0, 0, 0, 0.87);
     font-family: Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.letrab{
-
-text-align: right;
-font-weight: bold;
-
+.letrab {
+    text-align: right;
+    font-weight: bold;
 }
-.inputsr{
+
+.inputsr {
     border-radius: 50px;
-    
-
-
 }
-.btningresar1{
+
+.btningresar1 {
     background-image: url('../img/Recurso\ 36VTEK\ RECURSOS.png') !important;
     background-size: 100% 100%;
     width: 202px;
     height: 81px;
     border: none;
     margin-left: 130px;
-
-
 }
-.btn_guardar_ofertas{
+
+.btn_guardar_ofertas {
     background-image: url(../img/Recurso\ 36VTEK\ RECURSOS.png) !important;
     background-size: contain;
     width: 204px;
@@ -40,55 +35,46 @@ font-weight: bold;
     background-repeat: no-repeat;
     margin-top: 5px;
 }
-.btningresar2{
-    
-    position:absolute;
-    
+
+.btningresar2 {
+    position: absolute;
     clip-path: circle();
     top: 0;
     left: 270px;
 }
-.botones{
-background: white;
-position: relative;
-width: 360px;
-height: 40px;
 
+.botones {
+    background: white;
+    position: relative;
+    width: 360px;
+    height: 40px;
 }
 
-.letrabtn{
+.letrabtn {
     color: white!important;
     text-align: center;
     font-weight: bold;
     margin-top: 10px;
     margin-right: 30px;
-    
-
 }
-.fondo1{
+
+.fondo1 {
     background-image: url('../img/fondo1.png');
     height: 624px;
     background-size: contain;
     background-repeat: no-repeat;
-    
-
-
-
 }
-.fondo2{
+
+.fondo2 {
     background-image: url("../img/Recurso\ 21VTEK\ RECURSOS.png");
     height: 477px;
     background-size: contain;
     background-repeat: no-repeat;
     margin-left: 191px;
     margin-top: -575px;
-
-
-
-
-
 }
-.logo{
+
+.logo {
     background-image: url("../img/Recurso\ 47VTEK\ RECURSOS.png");
     height: 162px;
     background-size: contain;
@@ -97,7 +83,7 @@ height: 40px;
     margin-left: 811px;
 }
 
-.logov{
+.logov {
     background-image: url("../img/Recurso\ 88VTEK\ RECURSOS.png");
     height: 45px;
     background-repeat: no-repeat;
@@ -105,31 +91,28 @@ height: 40px;
     margin-top: 30px;
     margin-bottom: 40px;
     background-size: contain;
-
-
 }
 
-#sidebar-container{
+#sidebar-container {
     min-height: 100vh;
-    background-color: #ffffff ;
-    position:absolute;
+    background-color: #ffffff;
+    position: absolute;
     right: 0;
 }
-#sidebar-container .logov{
+
+#sidebar-container .logov {
     padding: .875rem 1.25rem;
 }
-#sidebar-container .menu{
+
+#sidebar-container .menu {
     width: 18rem;
-    
-
-
 }
-.menuopciones{
+
+.menuopciones {
     margin-left: 139px
-    
-
 }
-.infopagina{
+
+.infopagina {
     background-image: url(../img/Recurso\ 38VTEK\ RECURSOS.png);
     height: 124px;
     width: 411px;
@@ -137,51 +120,44 @@ height: 40px;
     margin-left: 71px;
     background-size: contain;
     position: relative;
-
-
-
-
 }
-.letrainfo{
+
+.letrainfo {
     color: #ffffff;
     position: absolute;
     font-weight: bold;
     margin-top: 50px;
     margin-left: 142px;
     float: left;
-
-
 }
-.prueba{
 
+.prueba {
     background-color: #ffa100;
 }
-.inputsdivi{
+
+.inputsdivi {
     width: 300px;
     margin-right: 10px;
-    
-
-
 }
 
-.margenusu{
+.margenusu {
     margin-left: 200px;
-
 }
-.dropdown1{
+
+.dropdown1 {
     border-radius: 50px;
     width: 300px;
     margin-right: 10px;
 }
-.dropdown2{
+
+.dropdown2 {
     position: inherit;
-    
     border-radius: 50px;
     width: 200px;
     margin-top: 16px;
-
 }
-.dropdown_asignacion{
+
+.dropdown_asignacion {
     position: inherit;
     border-radius: 50px;
     width: 200px;
@@ -189,20 +165,17 @@ height: 40px;
     margin-left: 20px;
     margin-bottom: 38px;
 }
-.naranjasinb{
+
+.naranjasinb {
     background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png);
     height: 96px;
     width: 197px;
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: 43%;
-
-
-
-
-
 }
-.btnguardar{
+
+.btnguardar {
     background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
     background-size: contain;
     width: 229px;
@@ -211,10 +184,9 @@ height: 40px;
     margin-left: 62%;
     background-repeat: no-repeat;
     margin-top: -45px;
-
-
 }
-.btnguardar2{
+
+.btnguardar2 {
     background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
     background-size: contain;
     width: 229px;
@@ -222,89 +194,80 @@ height: 40px;
     border: none;
     margin-left: 408px;
     background-repeat: no-repeat;
-
-
-
 }
-.letrabtng{
+
+.letrabtng {
     color: white!important;
     text-align: center;
     font-weight: bold;
-
-    
-
 }
-.letracargo{
+
+.letracargo {
     color: white!important;
     text-align: center;
     font-weight: bold;
     position: absolute;
     margin-top: 22px;
     margin-left: 71px;
-
 }
-.letra-columna2{
+
+.letra-columna2 {
     color: white!important;
     font-weight: bold;
     position: absolute;
     top: 25px;
     left: 34px;
-
-
 }
-.letra-columna{
+
+.letra-columna {
     color: white!important;
     text-align: center;
     font-weight: bold;
     margin-top: 25px;
-
-
 }
-.letra-editar{
-     
-        color: white!important;
-        text-align: center;
-        font-weight: bold;
-    
+
+.letra-editar {
+    color: white!important;
+    text-align: center;
+    font-weight: bold;
 }
+
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
     border-top-right-radius: 50px !important;
     border-bottom-right-radius: 50px !important;
-
-
-
-
-
 }
 
-.container{
+.container {
     background-color: aqua;
     width: 50px;
     height: 60PX;
-
-
 }
-.margenr{
-margin-right: 41px;
+
+.margenr {
+    margin-right: 41px;
 }
-.margenr1{
+
+.margenr1 {
     margin-right: 33px;
 }
-.margenr2{
+
+.margenr2 {
     margin-left: 20px;
 }
 
-.sombra{
+.sombra {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.37);
 }
-.saliendo{
+
+.saliendo {
     color: white!important;
     font-weight: bold;
     float: left;
     margin-top: 25px;
     margin-left: 26px;
 }
-.nosalir{
+
+.nosalir {
     color: white!important;
     font-weight: bold;
     float: left;
@@ -322,6 +285,7 @@ margin-right: 41px;
     background-size: contain;
     position: relative;
 }
+
 .letrausuario {
     color: #ffffff;
     position: absolute;
@@ -330,7 +294,8 @@ margin-right: 41px;
     margin-left: 233px;
     float: left;
 }
-.btncontactarC{
+
+.btncontactarC {
     background-image: url('../img/Recurso\ 36VTEK\ RECURSOS.png') !important;
     background-size: 100% 100%;
     width: 202px;
@@ -338,37 +303,30 @@ margin-right: 41px;
     border: none;
     position: flex;
     justify-content: right;
-
-
-
 }
-.margenrecuadro{ margin-left: 20px;}
 
+.margenrecuadro {
+    margin-left: 20px;
+}
 
-
-
-
-
-
-main{
+main {
     max-width: 800px;
     width: 90%;
-    margin: auto;  
+    margin: auto;
     padding: 40px;
-
-
 }
 
-.formulario__input-error{
+.formulario__input-error {
     font-size: 12px;
     margin-bottom: 0;
     display: none;
-
 }
-.formulario__input-error-activo{
+
+.formulario__input-error-activo {
     display: block;
 }
-.formulario__validacion-estado{
+
+.formulario__validacion-estado {
     position: relative;
     bottom: 15 px;
     z-index: 100;
@@ -376,45 +334,41 @@ main{
     opacity: 0;
     left: 259px;
     margin: 10px;
-
-
-
 }
-.formulario{
+
+.formulario {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-.imputs_tamano{
-    position: absolute;
-    width: 300px;
+
+.imputs_tamano {
+    width: 95%;
+    margin: 14px 0;
 }
-.formulario__grupo-input{
+
+.formulario__grupo-input {
     position: relative;
-
 }
-.formulario{
+
+.formulario {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
-
-
-
-.formulario__grupo-correcto .formulario__validacion-estado{
-color: #1ed12d;
-opacity: 1;
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
 }
-.formulario__grupo-incorrecto .formulario__validacion-estado{
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
     color: #bb2929;
     opacity: 1;
-    }
-    
-.puntero{
+}
+
+.puntero {
     cursor: pointer;
-
-
 }
 
 .input-group_main {
@@ -424,7 +378,8 @@ opacity: 1;
     align-items: stretch !important;
     width: 70% !important;
 }
-.info_de_oferta{
+
+.info_de_oferta {
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 0px;
@@ -432,91 +387,96 @@ opacity: 1;
     margin-left: 97px;
     float: left;
 }
-.temano_recuadro{
+
+.temano_recuadro {
     height: 312px;
     width: 136px;
 }
-.infocliente_oferta_admin{
-    margin-left: 20px;
-    margin-top:  19px
 
+.infocliente_oferta_admin {
+    margin-left: 20px;
+    margin-top: 19px
 }
 
-.margen-cliente_com{
+.margen-cliente_com {
     width: fit-content;
     margin: 0 auto;
     cursor: pointer;
-    
 }
-.btnsave{
+
+.btnsave {
     position: absolute;
     margin-top: 0px;
 }
-.btnsave2{
+
+.btnsave2 {
     position: absolute;
     margin-top: 75px;
-
 }
-.inputFirma{
+
+.inputFirma {
     height: 110px !important;
     border-radius: 25px !important;
-
 }
-.btn_degrade{
-    background-image:linear-gradient(to right, orange, #e61919) !important ;
 
+.btn_degrade {
+    background-image: linear-gradient(to right, orange, #e61919) !important;
 }
-.btn_pasar{
+
+.btn_pasar {
     --bs-btn-color: #fff;
     border-radius: 50px;
     position: absolute;
     margin-left: 40px;
 }
-.margenes{
+
+.margenes {
     margin-top: 30px;
 }
-.letra_formulario2{
+
+.letra_formulario2 {
     font-size: 11px;
     color: #808080;
-    margin-left: 340px !important;
-    margin-top: 20px;
+    margin: 10px;
 }
-.letra_formulario{
+
+.letra_formulario {
     font-size: 11px;
     color: #808080;
-    position: absolute;
-    margin-top: 50px;
-    margin-bottom: 0px;
+    margin: 10px;
 }
-.letra_formulario3{
+
+.letra_formulario3 {
     font-size: 11px;
     color: #808080;
     margin-left: 10px !important;
     margin-top: 20px;
 }
-.letra_formulario4{
+
+.letra_formulario4 {
     font-size: 11px;
     color: #808080;
     margin-left: 10px !important;
     margin-top: 20px;
     margin-bottom: 30px;
 }
-.acomodar{
-    float:left;
+
+.acomodar {
+    float: left;
 }
-.recuadro_asignacion{
+
+.recuadro_asignacion {
     background-color: white;
     border-radius: 25px;
-    
     width: 136px;
 }
-.div_recuadros_asignacion{
 
+.div_recuadros_asignacion {
     float: left;
     position: relative;
-
 }
-.fondo_menu{
+
+.fondo_menu {
     background-image: url("../img/Recurso\ 24VTEK\ RECURSOS.png");
     height: 45px;
     background-repeat: no-repeat;
@@ -524,38 +484,30 @@ opacity: 1;
     margin-top: 30px;
     margin-bottom: 40px;
     background-size: contain;
-
 }
-.editar_cliente_comercial{
+
+.editar_cliente_comercial {
     display: none;
 }
-.i_c{
+
+.i_c {
     position: absolute;
     margin-left: 224px;
 }
-.scroll_rec{
-    overflow-y:scroll ;
+
+.scroll_rec {
+    overflow-y: scroll;
 }
-.scroll_rec::-webkit-scrollbar{
+
+.scroll_rec::-webkit-scrollbar {
     width: 9px;
     background-color: rgba(239, 239, 239, 0);
-    
 }
-.scroll_rec::-webkit-scrollbar-thumb{
 
+.scroll_rec::-webkit-scrollbar-thumb {
     background-color: rgb(255, 161, 0);
     border-radius: 25px;
-    
-    
 }
-
-
-
-
-
-
-
-
 
 @media (max-width: 600px) {
     body,

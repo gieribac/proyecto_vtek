@@ -14,8 +14,9 @@ const observer = new MutationObserver(()=>{
             v.classList.add('editar_cliente_comercial');
         }
 
-        d.getElementById('crear_cliente_activo').classList.remove('editar_cliente_comercial');
-        d.getElementById('Editar_cliente_activo_letra').classList.add('editar_cliente_comercial');
+        d.hert
+        d.getElementById('getBeforeEmail').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
+        d.getElementById('getBeforeClave').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
 
         d.getElementById('guardarC').disabled = true;
         let info = [];
@@ -171,7 +172,7 @@ const observer = new MutationObserver(()=>{
         
         const validator13 = () => { //calificaciòn: selector
             fenable();
-            if (info[13].value.length < 2){
+            if (/^[\(\)\+\s\d]{1,10}/.test(info[13].value)){
                 d.querySelector('.calC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.calC').classList.remove('formulario__input-error');
@@ -181,11 +182,16 @@ const observer = new MutationObserver(()=>{
 
         const validator14 = () => {//contraseña
             fenable();
+            console.log(d.querySelector('.clavecli'));
             if (/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(info[14].value)){
                 d.querySelector('.clavecli').classList.add('formulario__input-error');
+                console.log("INGRESO CONTRASEÑÁ");
+                console.log(d.querySelector('.clavecli'));
+                
             } else {
                 d.querySelector('.clavecli').classList.remove('formulario__input-error');
                 d.getElementById('guardarC').disabled = true;
+                console.log("NO");
             }
         }
         const validator15 = () => {//confurmacion de contraseña
@@ -211,7 +217,7 @@ const observer = new MutationObserver(()=>{
         info[10].addEventListener('keyup',validator10);
         info[11].addEventListener('keyup',validator11);
         info[12].addEventListener('keyup',validator12);
-        info[13].addEventListener('change',validator13);
+        info[13].addEventListener('keyup',validator13);
         info[14].addEventListener('keyup',validator14);
         info[15].addEventListener('keyup',validator15);
 

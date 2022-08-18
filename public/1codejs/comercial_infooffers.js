@@ -1,7 +1,9 @@
 import {querySnapComOfs, queryNextComOfs, queryNextntComOfs} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
+   
     
     const charge = () => {
+        console.log('infoofers');
         const oferta = document.getElementById('oferta');
         const cliente = document.getElementById('cliente');
         const producto = document.getElementById('producto');
@@ -63,19 +65,15 @@ const observerdatos = new MutationObserver(()=>{
                 ds.forEach(d => {       
                     
                     oferta.innerHTML += `
-
                     <h6><b>${d.data().Oferta}</b></h6>
                     `;
                     cliente.innerHTML += `
-
                     <h6 >${d.data().Cliente}</h6>
                     `;
                     producto.innerHTML += `
-
                     <h6 >${d.data().Producto}</h6>
                     `;
                     estado.innerHTML += `
-
                     <h6 >${d.data().Estado}</h6>
                     `;
 
@@ -87,7 +85,6 @@ const observerdatos = new MutationObserver(()=>{
                         
                     } else {
                         formalizar.innerHTML += `
-
                         <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >${d.data().Formalizar}</h6> </div>
                         `;
 
@@ -105,4 +102,3 @@ const observerdatos = new MutationObserver(()=>{
 })
 const parent = document.getElementById('root');
 observerdatos.observe(parent,{childList:true})
-

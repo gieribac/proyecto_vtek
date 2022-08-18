@@ -1,5 +1,5 @@
-const 
-    index=`<div class="fondo1"></div>
+const
+    index = `<div class="fondo1"></div>
         <div class="fondo2"></div>
         <div class="logo"> </div>
         <div id="formulario">
@@ -127,7 +127,7 @@ const
           </div>
       </div>
   </div>`,
-    admin_default =`<div class="d-flex align-items-stretch flex-column">
+    admin_default = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
           <div class="infousuario ">
@@ -235,7 +235,7 @@ const
           </div>
       </div>
   </div>`,
-    comercial_default   = `<div class="d-flex align-items-stretch flex-column">
+    comercial_default = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
           <div class="infousuario ">
@@ -342,7 +342,7 @@ const
       </div>
       
       </div>
-      ` ,
+      `,
     admin_infoclients = `     <div>
     <div>
       <div class="d-flex align-items-stretch flex-column">
@@ -558,7 +558,7 @@ const
             </div>
           </div>
           </div>`,
-    comercial_infocerts = `<div>comercial_infocerts</div>`, 
+    comercial_infocerts = `<div>comercial_infocerts</div>`,
     comercial_infooffers = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -640,7 +640,8 @@ const
         </div>      
       </div>
       </div>`,
-    comercial_createcliente = `<div class="d-flex align-items-stretch flex-column">
+    comercial_createcliente = `
+    <div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
             <div class="infopagina">
@@ -650,17 +651,241 @@ const
         </div>
         <form id="formcreateC">
         <fieldset>
-        <div class="cols-lg-4  col--6 col-xs-12   margenusu">
+        <div class="cols-lg-4  col-8 col-xs-12   margenusu">
         
+        
+        <div class="row">
+        <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="Nombre de Compañia">
+            <p class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>
+            <label class="cliente_active">
+                <input class="checkb" type="checkbox" >
+              </label>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Representante legal">
+            <p class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>
+            <label class="cliente_active">
+                <input class="checkb" type="checkbox" >
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="direccionC" placeholder="Direccion">
+            <p class="dC formulario__input-error letra_formulario" >
+                Letras, números, guión, númeral (#)
+            </p>
+            <label class="cliente_active">
+                <input class="checkb" type="checkbox" >
+              </label>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad">
+            <p class="ciudadC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>
+            <label class="cliente_active">
+                <input class="checkb" type="checkbox" >
+            </label>
+        </div>
+    </div>
+    <div>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreRespC" placeholder="Nombre responsable">
+            <p class="nrC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>
+            <label class="cliente_active">
+                <input class="checkb" type="checkbox" >
+              </label>
+        </div>
+        <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="cargoC" placeholder="Cargo">
+            <p class="cargoC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>
+            <label class="cliente_active">
+                <input class="checkb" type="checkbox" >
+            </label>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            
+            <div class="col">
+                <select required="" class="form-select dropdown1 sombra" id="tipoIDC">
+                    <option selected>Tipo de Identificación</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="CC">Cédula</option>
+                    <option value="CE">Cédula de Extranjeria </option>
+                  </select>
+
+
+            <p class="letra_formulario tidC formulario__input-error">Seleccione tipo de Identificación</p>
+
+
+                
+    
+            </div>
+            <div class="col">
+                <input type="number" class="form-control inputsr sombra imputs_tamano" id="identificacionC" placeholder="Identificacion">
+                <p class="idC formulario__input-error letra_formulario" >
+                    De 6 a 10 dígitos
+                </p>
+                <label class="cliente_active">
+                    <input class="checkb" type="checkbox" >
+                  </label>
+            </div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="nitC" placeholder="NIT">
+                    <p class="nC formulario__input-error letra_formulario" >
+                        De 7 a 12 digitos, guión
+                    </p>
+                    <label class="cliente_active">
+                        <input class="checkb" type="checkbox" >
+                      </label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="ncontactoC" placeholder="Numero de contacto">
+                    <p class="numcC formulario__input-error letra_formulario" >
+                        De 7 a 14 digitos
+                    </p>
+                    <label class="cliente_active">
+                        <input class="checkb" type="checkbox" >
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="webC" placeholder="Web">
+                    <p class="wC formulario__input-error letra_formulario" >
+                        Letras, números, guión y guión bajo. Máximo 16 caracteres
+                    </p>
+                    <label class="cliente_active">
+                        <input class="checkb" type="checkbox" >
+                      </label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="emailC" placeholder="Email">
+                    <p class="emailC formulario__input-error letra_formulario" >
+                        Escriba un email válido
+                    </p>
+                    <label class="cliente_active">
+                        <input class="checkb" type="checkbox" >
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="claveC" placeholder="Contraseña">
+                    <p class="clavecli formulario__input-error letra_formulario" >
+                        Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres
+                    </p>
+                    <label class="cliente_active">
+                        <input class="checkb" type="checkbox" >
+                      </label>
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="rclaveC" placeholder="rectificar contraseña">
+                    <p class="rclavecli formulario__input-error letra_formulario" >
+                        Escriba la misma contraseña
+                    </p>
+                    <label class="cliente_active">
+                        <input class="checkb" type="checkbox" >
+                    </label>
+                </div>
+            </div>
+                <div id="getBeforeEmail">
+                    <div class="inputsdivi ">
+                        <input required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="Email anterior" aria-label="usuario" id="bemailC">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="letra_formulario  formulario__input-error">Escriba un email válido</p>
+                </div>
+                <div id="getBeforeClave">
+                    <div class="inputsdivi  ">
+                        <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="bClave" placeholder="Contraseña anterior" aria-label="usuario ">
+                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                    <p class="letra_formulario  formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
+                </div>
+
+            <label class="cliente_active"   >
+            <input class="checkb" id="checkb" type="checkbox" >Cliente activo</label>
+                <div class="col-lg-9   col-xs-12" >
+                  <div class="p-3 ">
+                  <div class="naranjasinb acomodar">
+                  <h6 class="letracargo">Calificación</h6> </div>                                                           
+
+                  <div class="inputsdivi ">
+                  <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Puntaje" aria-label="usuario" id="calificacionC">
+
+                  <p class="calC letra_formulario2 formulario__input-error"></p>
+              </div>
+
+
+
+                      <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    </div>
+                      <p class="calC letra_formulario2 formulario__input-error"></p>
+
+                  </div>
+                  <div class="formulario__mensaje" id="formulario__mensaje">
+                  <i class="formulario"></i>
+                    <div class="avisopSave"></div>
+                      <button type="button" class="btn btnguardar " id="guardarC"> <h6 class="letrabtng ">Guardar</h6></button>
+                      
+                  </div>
+              </fieldset>
+            </form>
+          </div>`,
+    comercial_createcliente1 = `
+    <div class="d-flex align-items-stretch flex-column">
+    <div id="menu"></div>
+        <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
+            <div class="infopagina">
+              <h4 id="crear_cliente_activo" class="letrainfo editar_cliente_comercial  ">Crear cliente</h4>  
+              <h4 id="Editar_cliente_activo_letra" class="letrainfo ">Editar cliente</h4>           
+            </div>
+        </div>
+        <form id="formcreateC">
+        <fieldset>
+        <div class="cols-lg-4  col-8 col-xs-12   margenusu">
+        
+
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="Nombre de Compañia">
+            <div class="ncC formulario__input-error" style="font-size: 11px;color: #808080;">
+              Letras, tildes y espacios
+            </div>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Representante legal">
+            <div class="rlC formulario__input-error"  style="font-size: 11px;color: #808080;">
+              Letras, tildes y espacios
+            </div>
+          </div>
+        <div>
             <div class="input-group input-group_main p-1">
                 <div class="inputsdivi " id="nombre">
                     <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaC">
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                  </div>              
                   <p class="letra_formulario ncC formulario__input-error">Letras, tildes y espacios</p>
                   <label class="cliente_active"   >
                     <input class="checkb" type="checkbox" >
                   </label>
+                  </div>              
+                 
                 <div class="inputsdivi "> 
                     <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Representante legal" aria-label="usuario" id="repLegalC">
                   <i class="formulario__validacion-estado fas fa-times-circle"></i>
@@ -819,6 +1044,7 @@ const
                   <i class="formulario"></i>
                     <div class="avisopSave"></div>
                       <button type="button" class="btn btnguardar " id="guardarC"> <h6 class="letrabtng ">Guardar</h6></button>
+                      </div>
                   </div>
               </fieldset>
             </form>
@@ -833,50 +1059,84 @@ const
         </div>
         <form id="formcrearFabrica" autocomplete="off">
         <fieldset>
-        <div class="cols-lg-4  col--6 col-xs-12   margenusu">        
-            <div class="input-group input-group_main p-3">
-                <div class="inputsdivi" id="nombre">
-                    <input type="text" required="" pattern="^[a-zA-ZÀ-ÿ\s]{1,50}$"   style="width: 610px !important;" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaCF" name="nombreCompaniaCF">
-                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                  </div>              
-                  <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
+        <div class="cols-lg-4  col-8 col-xs-12   margenusu">
+
+
+
+
+
+
+        <div class="row">
+        <div class="col">
+            <input type="text" pattern="^[a-zA-ZÀ-ÿ\s]{1,50}$" class="form-control inputsr sombra imputs_tamano" placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaCF" name="nombreCompaniaCF">
+            <div class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
             </div>
-            <div class="input-group input-group_main p-3">
-                <div class="inputsdivi ">
-                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Representante legal" aria-label="usuario" id="replegalCF" name="replegalCF">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                  </div>
-                  <p class="correoFme formulario__input-error"> Escriba el Representante legal</p>
-                <div class="inputsdivi ">
-                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Direccion" aria-label="usuario" id="DireccionCF" name="DireccionCF">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                  </div>
-                  <p class="usuarioFme formulario__input-error">  Escriba la direccion</p>
+            <label class="cliente_active">
+
+              </label>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col">
+            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC"  placeholder="Representante legal" aria-label="usuario" id="replegalCF" name="replegalCF">
+            <div class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
             </div>
-            <div class="input-group input-group_main p-3">
-                <div class="inputsdivi ">
-                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Nombre responsable" aria-label="usuario" id="nombreRespCF" name="nombreRespCF">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                  </div>
-                  <p class="usuarioFme formulario__input-error">Escriba el nombre de responsable</p>
-                <div class="inputsdivi ">
-                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="cargo" aria-label="usuario" id="cargoCF" name="cargoCF">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                  </div>
-                  <p class="numeroFme formulario__input-error">Escriba el cargo que tiene</p>
+
+        </div>
+        <div class="col">
+            <input type="text"  class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Direccion" aria-label="usuario" id="DireccionCF" name="DireccionCF">
+            <div class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
             </div>
-            <div class="input-group input-group_main p-3">
-                <div class="inputsdivi" id="nombre">
-                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Contacto" aria-label="usuario" name="contactoCF">
-                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                  </div>              
-                  <p class="nombreFme formulario__input-error">Escriba nombre de Compañia </p>
-                <div class="inputsdivi  "> <input required="" type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Telefono" aria-label="usuario" name="telefonoCF">
-                  <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-                <p class="correoFme formulario__input-error">Escriba el Representante legal</p>
-            </div>            
-            <div class="formulario__mensaje" id="formulario__mensaje">
+
+        </div>
+    </div>
+    <div class="row">
+    <div class="col">
+        <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC"  placeholder="Nombre responsable" aria-label="usuario" id="nombreRespCF" name="nombreRespCF">
+        <div class="ncC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </div>
+
+    </div>
+    <div class="col">
+        <input type="text"  class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="cargo" aria-label="usuario" id="cargoCF" name="cargoCF">
+        <div class="rlC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </div>
+
+    </div>
+</div>
+<div class="row">
+<div class="col">
+    <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC"  placeholder="Contacto" aria-label="usuario" name="contactoCF">
+    <div class="ncC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </div>
+
+</div>
+<div class="col">
+    <input type="text"  class="form-control inputsr sombra imputs_tamano" id="repLegalC"placeholder="Telefono" aria-label="usuario" name="telefonoCF">
+    <div class="rlC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </div>
+
+</div>
+</div>
+        
+        
+
+
+
+
+
+
+
+
+
+
             <i class="formulario"></i>
         </fieldset>
         <div class="col-lg-9   col-xs-12">
@@ -914,27 +1174,29 @@ const
           </div>
           <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
               <div style="margin-left: 60px; margin-top: 20px;">
-              <div class="input-group p-2 ">
-                  <div class="inputsdivi " style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
-                  <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
-              </div>
-              <div class="input-group p-2  ">
-                  <div class="inputsdivi" style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
-                  <div class="inputsdivi" style="width: 200px;">
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
-              </div>
-              <div class="input-group p-2 ">
-                  <div class="inputsdivi" style="width: 200px;" >
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
-                  <div class="inputsdivi" style="width: 200px;">
-                      <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
-              </div>
-              <div class="input-group p-2  ">
-                  <div class="inputsdivi " style="width: 200px;" >
-                      <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
-                  <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
+              <div id="inputs">
+                <div class="input-group p-2 ">
+                    <div class="inputsdivi " style="width: 200px;" >
+                        <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
+                    <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
+                </div>
+                <div class="input-group p-2  ">
+                    <div class="inputsdivi" style="width: 200px;" >
+                        <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
+                    <div class="inputsdivi" style="width: 200px;">
+                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
+                </div>
+                <div class="input-group p-2 ">
+                    <div class="inputsdivi" style="width: 200px;" >
+                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
+                    <div class="inputsdivi" style="width: 200px;">
+                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
+                </div>
+                <div class="input-group p-2  ">
+                    <div class="inputsdivi " style="width: 200px;" >
+                        <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
+                    <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
+                </div>
               </div>
               <div>
                 <div class="adjuntar_ofertas alinear_ofertas"  id="adjuntar"><h6 class="letra-columna">Adjuntar</h6></div>
@@ -1071,7 +1333,7 @@ const
         </div>
     
 `,
-      scliente_infooffer = `    <div class="d-flex align-items-stretch flex-column">
+    scliente_infooffer = `    <div class="d-flex align-items-stretch flex-column">
       <div id="menu"></div>
   
       
@@ -1154,9 +1416,9 @@ const
   
   
         </div>`,
-      scliente_certcliente = `<div>scliente_certcliente</div>`,
-      scliente_usuariocliente = `<div>scliente_usuariocliente</div>`,
-      scliente_infoclientes = `<div>
+    scliente_certcliente = `<div>scliente_certcliente</div>`,
+    scliente_usuariocliente = `<div>scliente_usuariocliente</div>`,
+    scliente_infoclientes = `<div>
       <div>
         <div class="d-flex align-items-stretch flex-column">
           <div id="menu"></div>
@@ -1196,7 +1458,7 @@ const
   
             </div>
             </div>`,
-      tcoordinador_createasignacion = `    <div class="d-flex align-items-stretch flex-column">
+    tcoordinador_createasignacion = `    <div class="d-flex align-items-stretch flex-column">
       <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
             <div class="infopagina">
@@ -1235,7 +1497,7 @@ const
         </div>
         
         </div>`,
-      tcoordinador_asignacion = `<div class="d-flex align-items-stretch flex-column">
+    tcoordinador_asignacion = `<div class="d-flex align-items-stretch flex-column">
       <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
             <div class="infopagina">
@@ -1291,13 +1553,40 @@ const
         </div>
 `;
 
-export {index,
-    admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser,  
-    cliente_default, cliente_offer, 
-    comercial_default, comercial_infoclientes, comercial_infocerts, comercial_infooffers, comercial_detallecliente, 
-    comercial_createcliente, comercial_createfactorie, comercial_createoffer,
-    dtecnico_default, dtecnico_planeval, dtecnico_infoclient, dtecnico_infoprocesos,
-    experto_default, experto_createoffer, experto_createeval, experto_paleval, experto_infocliente,
-    scliente_default, scliente_infooffers, scliente_infooffer, scliente_certcliente, scliente_usuariocliente, scliente_infoclientes,
-    tcoordinador_default, tcoordinador_createasignacion, tcoordinador_asignacion
-} 
+export {
+    index,
+    admin_default,
+    admin_infooffer,
+    admin_infooffers,
+    admin_infoclients,
+    admin_createuser,
+    cliente_default,
+    cliente_offer,
+    comercial_default,
+    comercial_infoclientes,
+    comercial_infocerts,
+    comercial_infooffers,
+    comercial_detallecliente,
+    comercial_createcliente,
+    comercial_createcliente1,
+    comercial_createfactorie,
+    comercial_createoffer,
+    dtecnico_default,
+    dtecnico_planeval,
+    dtecnico_infoclient,
+    dtecnico_infoprocesos,
+    experto_default,
+    experto_createoffer,
+    experto_createeval,
+    experto_paleval,
+    experto_infocliente,
+    scliente_default,
+    scliente_infooffers,
+    scliente_infooffer,
+    scliente_certcliente,
+    scliente_usuariocliente,
+    scliente_infoclientes,
+    tcoordinador_default,
+    tcoordinador_createasignacion,
+    tcoordinador_asignacion
+}
