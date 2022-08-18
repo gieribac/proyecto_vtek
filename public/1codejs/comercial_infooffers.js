@@ -1,5 +1,6 @@
 import {querySnapComOfs, queryNextComOfs, queryNextntComOfs} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
+    console.log('infoofers')
     
     const charge = () => {
         const oferta = document.getElementById('oferta');

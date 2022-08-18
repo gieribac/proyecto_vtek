@@ -14,8 +14,9 @@ const observer = new MutationObserver(()=>{
             v.classList.add('editar_cliente_comercial');
         }
 
-        d.getElementById('crear_cliente_activo').classList.remove('editar_cliente_comercial');
-        d.getElementById('Editar_cliente_activo_letra').classList.add('editar_cliente_comercial');
+        d.hert
+        d.getElementById('getBeforeEmail').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
+        d.getElementById('getBeforeClave').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
 
         d.getElementById('guardarC').disabled = true;
         let info = [];

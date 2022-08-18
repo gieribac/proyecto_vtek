@@ -644,8 +644,8 @@ const
     <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
             <div class="infopagina">
-              <h4 id="crear_cliente_activo" class="letrainfo editar_cliente_comercial  ">Crear cliente</h4>  
-              <h4 id="Editar_cliente_activo_letra" class="letrainfo ">Editar cliente</h4>           
+              <h4 id="crear_cliente_activo" class="letrainfo ">Crear cliente</h4>  
+              <h4 id="Editar_cliente_activo_letra" class="letrainfo editar_cliente_comercial">Editar cliente</h4>           
             </div>
         </div>
         <form id="formcreateC">
@@ -774,7 +774,7 @@ const
                     </div>
                     <p class="letra_formulario clavecli formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
                     <label class="cliente_active"   >
-                      <input id="checkRclave" class="checkb" type="checkbox" >
+                      <input id="checkRclave" class="checkb" type="checkbox"  >
                     </label>
                   <div class="inputsdivi  "> 
                       <input required="" type="password" id="rclaveC" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">

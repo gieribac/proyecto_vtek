@@ -18,55 +18,63 @@ const observer = new MutationObserver(()=>{
         for (let v of pError){
             v.classList.remove('formulario__input-error');
         }
-        const inputscheked0 = d.getElementsByClassName('inputsdivi');
-        const inputscheked = Array.prototype.slice.apply(inputscheked0);
+
+        const inputscheked = Array.prototype.slice.apply(d.getElementsByClassName('inputsdivi'));
 
         const checks = d.querySelectorAll('p + label > input');
+        d.getElementById('getBeforeEmail').setAttribute('style','display:none'); 
+        d.getElementById('getBeforeClave').setAttribute('style','display:none');
 
         checks.forEach((c,i) => {
             c.addEventListener('click',() => {
                 inputscheked[i].classList.add(`campo${i}`);
-                const child = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} > input`));
-                const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} + p`));
-                console.log(inputscheked[i])
+                const child = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} > input`));//inputs
+                const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} + p`));//mensajes
                 if (c.checked) {
                     fenable();
-                    inputscheked[i].classList.add('habilitar_campo');
+                    // inputscheked[i].setAttribute('habilitar_campo');
                     child[0].removeAttribute('required','');
+                    child[0].disabled=true;
                     fies[0].classList.add('formulario__input-error');
-                    console.log(d.getElementById('getBeforeEmail'));
-                    (i == 10) && (() => {
-                        d.getElementById('getBeforeEmail').classList.add('habilitar_campo'); 
-                        d.getElementById('bemailC').removeAttribute('required','');
-                    })();
                     (i == 11) && (() => {
-                        inputscheked[12].classList.add('habilitar_campo');
+                        // inputscheked[12].classList.add('habilitar_campo');
+                        getCredencialesnt();
                         d.getElementById('rclaveC').removeAttribute('required','');
-                        d.getElementsByClassName('rclavecli')[0].classList.add('formulario__input-error');
-                        d.getElementById('getBeforeClave').classList.add('habilitar_campo');
-                        d.getElementById('bclaveC').removeAttribute('required','');                        
+                        d.getElementsByClassName('rclavecli')[0].classList.add('formulario__input-error');                     
                     })();
                 } else {
                     child[0].setAttribute('required','');
+                    child[0].disabled=false;
                     inputscheked[i].classList.remove('habilitar_campo');
-                    fies[0].classList.remove('formulario__input-error');
-                    (i == 10) && (() => {
-                        d.getElementById('getBeforeEmail').classList.remove('habilitar_campo');
-                        d.getElementById('bemailC').setAttribute('required','');                                            
-                    })();
+                    fies[0].classList.remove('formulario__input-error');  
                     (i == 11) && (() => {
-                        inputscheked[12].classList.remove('habilitar_campo');
+                        getCredenciales();
                         d.getElementById('rclaveC').setAttribute('required','');
                         d.getElementsByClassName('rclavecli')[0].classList.remove('formulario__input-error');
-                        d.getElementById('getBeforeClave').classList.remove('habilitar_campo');
-                        d.getElementById('bclaveC').setAttribute('required',''); 
                     })();                 
                 }
+                (!d.getElementById("checkEmail").checked || !d.getElementById("checkRclave").checked) ? getCredenciales() : getCredencialesnt();
+                
             })  
         })
 
-        // checkRclave i = 11
-        // checkEmail i=10
+        const getCredenciales = () => {
+                d.getElementById('getBeforeEmail').removeAttribute('style','display:none'); 
+                d.getElementById('getBeforeClave').removeAttribute('style','display:none'); 
+                d.getElementById('bclaveC').setAttribute('required','');
+                d.getElementById('bemailC').setAttribute('required','');
+                d.querySelector('#getBeforeEmail > p').classList.remove('formulario__input-error');
+                d.querySelector('#getBeforeClave > p').classList.remove('formulario__input-error');
+        }
+        const getCredencialesnt = () => {
+                d.getElementById('getBeforeEmail').setAttribute('style','display:none'); 
+                d.getElementById('getBeforeClave').setAttribute('style','display:none'); 
+                d.getElementById('bclaveC').removeAttribute('required','');
+                d.getElementById('bemailC').removeAttribute('required','');
+                d.querySelector('#getBeforeEmail > p').classList.add('formulario__input-error');
+                d.querySelector('#getBeforeClave > p').classList.add('formulario__input-error');
+        }
+        getCredenciales();
 
         d.getElementById('guardarC').disabled = true;
         let info = [];
@@ -100,7 +108,6 @@ const observer = new MutationObserver(()=>{
             }
             // val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;  
-            console.log(val)
         }
         
         const validator1 = () => {
@@ -342,7 +349,6 @@ const observer = new MutationObserver(()=>{
             const idsc = JSON.parse(localStorage.getItem("nidsClient"));
             const idact = localStorage.getItem("iselected");
             const idc = idsc[idact];
-            console.log(idc);
             return idc;
         }
        
@@ -377,40 +383,15 @@ const observer = new MutationObserver(()=>{
             } else if (!datos && (Clave || Email)) {
                 console.log('updateUserClient')
 
-                // updateUserClient(bEmail,bClave, Clave, Email).then(
+                updateUserClient(bEmail,bClave, Clave, Email).then(
 
-                // ).catch(
+                ).catch(
 
-                // );
+                );
 
             } else {
 
             }
-            // import {updateUserClient} from './models/post.js';
-// import {updateDataClient} from './models/post.js';
-            // getCredentials && (() => { c = getCredentials_ ()})();     
-            // getCredentials && updateUserClient(datos.Email, Clave, c.bClave, c.bEmail).then(()=>{
-            //         d.getElementById('formcreateC').reset();
-            //         d.getElementById('guardarC').disabled = true;
-            //         d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
-            //     }).catch((error) => {
-            //         const errorCode = error.code;
-            //         const errorMessage = error.message;
-            //         console.log(errorMessage);
-            //         d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
-            //     });
-            
-            
-            // updateDataClient(datos, Clave, idClient).then(()=>{
-            //     d.getElementById('formcreateC').reset();
-            //     d.getElementById('guardarC').disabled = true;
-            //     d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
-            // }).catch((error) => {
-            //     const errorCode = error.code;
-            //     const errorMessage = error.message;
-            //     console.log(errorMessage);
-            //     d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
-            // });
         }); 
     }
 

@@ -8,6 +8,7 @@ const observer = new MutationObserver(()=>{
         for (let v of myNodeList){
             v.classList.remove('formulario__input-error')
         }
+        
         d.getElementById('saveF').disabled = true
         var info = [];
             info.push(d.getElementById('correoF'));
