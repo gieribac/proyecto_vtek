@@ -3,6 +3,7 @@ import { setFabrica } from "./models/post.js";
 const observerdatos = new MutationObserver(()=>{ 
     
     const charge = () => {
+        console.log('crear fabrica');
         const formulario = document.getElementById('formcrearFabrica')
         const save = document.getElementById('guardarCF');
         save.disabled = true;

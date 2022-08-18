@@ -11,6 +11,7 @@ import './comercial_detallecliente.js';
 import "//cdn.jsdelivr.net/npm/sweetalert2@11";
 import './comercial_createoffer.js';
 import './comercial_infooffers.js';
+import './comercial_createfactorie.js';
 
 
 const setLC = (co,cl,u,rol) => {
