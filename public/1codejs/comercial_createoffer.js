@@ -1,5 +1,5 @@
-import { setOferta, queryOferta } from "./models/post";
-import {uploadFile, getFileURL} from "./storage.js";
+// import { setOferta, queryOferta } from "./models/post";
+// import {uploadFile, getFileURL} from "./storage.js";
 
 const observerdatos = new MutationObserver(()=>{ 
     
@@ -8,6 +8,26 @@ const observerdatos = new MutationObserver(()=>{
         let estado;
         d.getElementById("btnNuevo").addEventListener('click',formNew());
         d.getElementById("btnEdit").addEventListener('click',formEdit());
+        d.getElementsByClassName('checks');
+        const inputs = [`<div class="input-group p-2 ">
+                <div class="inputsdivi " style="width: 200px;" >
+                    <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
+                <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
+            </div>`,`<div class="input-group p-2  ">
+            <div class="inputsdivi" style="width: 200px;" >
+                <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
+            <div class="inputsdivi" style="width: 200px;">
+                <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
+            </div>`,` <div class="input-group p-2 ">
+            <div class="inputsdivi" style="width: 200px;" >
+                <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
+            <div class="inputsdivi" style="width: 200px;">
+                <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
+            </div>`,` <div class="input-group p-2  ">
+            <div class="inputsdivi " style="width: 200px;" >
+                <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
+            <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
+            </div>`]
         
         const formNew = () => {
             estado=true;
@@ -36,7 +56,12 @@ const observerdatos = new MutationObserver(()=>{
         }
         const formEdit = () => {
             estado=false;
+            let lischeck = [true, false, true, false];
+            // d.getElementById('inputs').innerHTML += 
+            
+
         }
+
         
 
     }

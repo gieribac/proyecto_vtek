@@ -27,9 +27,9 @@ const observer = new MutationObserver(()=>{
             for (let v of info){
                 val = val && v.value.length > 0;
             }
-            val = val && info[4].value.length < 2 && info[8].value.length < 13;
+            val = val && info[4].value.length < 3 && info[8].value.length < 13;
             d.getElementById('saveF').disabled = !val;  
-            console.log('fenable')    
+            console.log('val')    
         }
         const validator0 = () => {
             fenable();
@@ -69,7 +69,8 @@ const observer = new MutationObserver(()=>{
         }
         const validator4 = () => {
             fenable();
-            if (info[4].value.length < 2){
+            console.log(info[4].value.length < 3)
+            if (info[4].value.length < 3){
                 d.querySelector('.tipoIDFme').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.tipoIDFme').classList.remove('formulario__input-error');
