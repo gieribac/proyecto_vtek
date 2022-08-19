@@ -46,9 +46,23 @@ const observerdatos = new MutationObserver(()=>{
                 setFabrica(datos).then(() => {
                     console.log('Fábrica creada');
                     formulario.reset(); 
-                    document.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                    // document.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                    Swal.fire(
+                        '¡Muy Bien!',
+                        '¡El formulario fue enviado con exito!',
+                        'success'
+                      )
                 }
-                ).catch(e=>{document.querySelector('.avisopSave').textContent = `Error, formulario anterior no enviado; ${errorCode}, ${errorMessage}`})
+                ).catch(e=>{
+                    // document.querySelector('.avisopSave').textContent = `Error, formulario anterior no enviado; ${errorCode}, ${errorMessage}`
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: errorMessage,
+                        
+                      })
+                
+                })
                 save.disabled = true;   
             })
         }

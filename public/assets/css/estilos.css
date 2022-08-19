@@ -146,8 +146,8 @@ body {
 
 .dropdown1 {
     border-radius: 50px;
-    width: 300px;
-    margin-right: 10px;
+    width: 95%;
+    margin-top: 15px !important;
 }
 
 .dropdown2 {
@@ -173,6 +173,16 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: 43%;
+    margin-top: -14px;
+}
+.naranjasinb2{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png);
+    height: 96px;
+    width: 197px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 43%;
+    margin-top: 0px;
 }
 
 .btnguardar {
@@ -183,7 +193,7 @@ body {
     border: none;
     margin-left: 62%;
     background-repeat: no-repeat;
-    margin-top: -45px;
+    
 }
 
 .btnguardar2 {
@@ -507,6 +517,16 @@ main {
 .scroll_rec::-webkit-scrollbar-thumb {
     background-color: rgb(255, 161, 0);
     border-radius: 25px;
+}
+.swal2-styled.swal2-confirm {
+    background-color: #e68019 !important;
+
+}
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: 0 0 0 3px rgb(255 128 0 / 30%);
+}
+.puntero_ver{
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {

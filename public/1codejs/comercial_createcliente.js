@@ -1,5 +1,10 @@
 import {saveClient} from './models/post.js';
 
+
+
+
+
+
 const observer = new MutationObserver(()=>{
     
     const charge = () => {
@@ -249,12 +254,24 @@ const observer = new MutationObserver(()=>{
             saveClient(datos, Clave).then(()=>{
                 d.getElementById('formcreateC').reset();
                 d.getElementById('guardarC').disabled = true;
-                d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                // d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                Swal.fire(
+                    '¡Muy Bien!',
+                    '¡La fabrica fue creada con Exito!',
+                    'success'
+                  )
+
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage);
-                d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
+                // d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: errorMessage,
+                    
+                  })
             });
         }); 
     }
