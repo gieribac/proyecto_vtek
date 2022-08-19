@@ -1,5 +1,5 @@
-// import {updateUserClient} from './models/post.js';
-// import {updateDataClient} from './models/post.js';
+import {updateUserClient} from './models/post.js';
+import {updateDataClient} from './models/post.js';
 
 const observer = new MutationObserver(()=>{
     
@@ -32,15 +32,14 @@ const observer = new MutationObserver(()=>{
                 const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} + p`));//mensajes
                 if (c.checked) {
                     fenable();
-                    // inputscheked[i].setAttribute('habilitar_campo');
                     child[0].removeAttribute('required','');
                     child[0].disabled=true;
                     fies[0].classList.add('formulario__input-error');
                     (i == 11) && (() => {
-                        // inputscheked[12].classList.add('habilitar_campo');
                         getCredencialesnt();
                         d.getElementById('rclaveC').removeAttribute('required','');
-                        d.getElementsByClassName('rclavecli')[0].classList.add('formulario__input-error');                     
+                        d.getElementById('rclaveC').disabled=true; 
+                        d.getElementsByClassName('rclavecli')[0].classList.add('formulario__input-error');                    
                     })();
                 } else {
                     child[0].setAttribute('required','');
@@ -50,6 +49,7 @@ const observer = new MutationObserver(()=>{
                     (i == 11) && (() => {
                         getCredenciales();
                         d.getElementById('rclaveC').setAttribute('required','');
+                        d.getElementById('rclaveC').disabled=false; 
                         d.getElementsByClassName('rclavecli')[0].classList.remove('formulario__input-error');
                     })();                 
                 }
@@ -101,13 +101,16 @@ const observer = new MutationObserver(()=>{
             infov.shift();            
 
         const fenable = () => {
+            console.log('fenable');
             const d = document;            
             let val = true;
             for (let v of infov){
+                v.hasAttribute('required') &&(() => {console.log(v);console.log(v.value.length)})();
                 v.hasAttribute('required') && (val = val && v.value.length > 0);
             }
             // val = val && info[7].value.length < 3 && info[13].value.length < 2;
-            d.getElementById('guardarC').disabled = !val;  
+            d.getElementById('guardarC').disabled = !val;
+            console.log(`val ${val}`)  
         }
         
         const validator1 = () => {
@@ -362,23 +365,14 @@ const observer = new MutationObserver(()=>{
                 console.log('updateUserClient then updateDataClient');
                 updateUserClient(bEmail,bClave, Clave, Email).then(
 
-                    updateDataClient(idClient, datos).then(
-
-                    ).catch(
-
-                    )
-
+                    updateDataClient(idClient, datos)
                 ).catch(
 
                 );
             } else if  (datos && !(Clave || Email)) {
                 console.log('updateDataClient')
 
-                updateDataClient(idClient, datos).then(
-
-                    ).catch(
-
-                    )
+                updateDataClient(idClient, datos)
 
             } else if (!datos && (Clave || Email)) {
                 console.log('updateUserClient')

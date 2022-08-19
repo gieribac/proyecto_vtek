@@ -13,8 +13,7 @@ const observer = new MutationObserver(()=>{
         for (let v of check){
             v.classList.add('editar_cliente_comercial');
         }
-
-        d.hert
+        
         d.getElementById('getBeforeEmail').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
         d.getElementById('getBeforeClave').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
 
