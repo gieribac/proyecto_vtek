@@ -171,7 +171,7 @@ const observer = new MutationObserver(()=>{
         
         const validator13 = () => { //calificaciòn: selector
             fenable();
-            if (/^[\(\)\+\s\d]{1,10}/.test(info[13].value)){
+            if (/[\d]{1,10}/.test(info[13].value)){
                 d.querySelector('.calC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.calC').classList.remove('formulario__input-error');

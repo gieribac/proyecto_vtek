@@ -1,5 +1,5 @@
-// import {updateUserClient} from './models/post.js';
-// import {updateDataClient} from './models/post.js';
+import {updateUserClient} from './models/post.js';
+import {updateDataClient} from './models/post.js';
 
 const observer = new MutationObserver(() => {
 
@@ -19,7 +19,7 @@ const observer = new MutationObserver(() => {
             v.classList.remove('formulario__input-error');
         }
 
-        const inputscheked = Array.prototype.slice.apply(d.getElementsByClassName('inputsdivi'));
+        const inputscheked = Array.prototype.slice.apply(d.getElementsByClassName('icheked'));
 
         const checks = d.querySelectorAll('p + label > input');
         d.getElementById('getBeforeEmail').setAttribute('style', 'display:none');
@@ -29,9 +29,8 @@ const observer = new MutationObserver(() => {
             c.addEventListener('click', () => {
                 inputscheked[i].classList.add(`campo${i}`);
                 const child = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} > input`)); //inputs
-                const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} + p`)); //mensajes
+                const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} > p`)); //mensajes
                 if (c.checked) {
-                    fenable();
                     child[0].removeAttribute('required', '');
                     child[0].disabled = true;
                     fies[0].classList.add('formulario__input-error');
@@ -54,6 +53,7 @@ const observer = new MutationObserver(() => {
                     })();
                 }
                 (!d.getElementById("checkEmail").checked || !d.getElementById("checkRclave").checked) ? getCredenciales(): getCredencialesnt();
+                fenable();
 
             })
         })
@@ -67,6 +67,7 @@ const observer = new MutationObserver(() => {
             d.querySelector('#getBeforeClave > p').classList.remove('formulario__input-error');
         }
         const getCredencialesnt = () => {
+            console.log("getcredencialesnt")
             d.getElementById('getBeforeEmail').setAttribute('style', 'display:none');
             d.getElementById('getBeforeClave').setAttribute('style', 'display:none');
             d.getElementById('bclaveC').removeAttribute('required', '');
@@ -100,15 +101,17 @@ const observer = new MutationObserver(() => {
             infov.shift();            
 
         const fenable = () => {
-            console.log('fenable');
+            console.log("fenable")
             const d = document;            
             let val = true;
             for (let v of infov){
-                v.hasAttribute('required') &&(() => {console.log(v);console.log(v.value.length)})();
+                v.hasAttribute('required') && (() => console.log(v))()
+                v.hasAttribute('required') && (() => console.log(v.value))()
                 v.hasAttribute('required') && (val = val && v.value.length > 0);
             }
             // val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;
+            console.log(!val)
         }
 
         const validator1 = () => {
@@ -175,7 +178,7 @@ const observer = new MutationObserver(() => {
 
         const validator7 = () => {
             fenable();
-            if (info[7].value.length < 3) { //tipo id selector
+            if (info[7].value.length < 3 ) { //tipo id selector
                 d.querySelector('.tidC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.tidC').classList.remove('formulario__input-error');
@@ -233,9 +236,9 @@ const observer = new MutationObserver(() => {
             }
         }
 
-        const validator13 = () => { //calificaciòn: selector
+        const validator13 = () => { //calificaciòn
             fenable();
-            if (info[13].value.length < 2) {
+            if (/[\d]{1,10}/.test(info[13].value)) {
                 d.querySelector('.calC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.calC').classList.remove('formulario__input-error');
@@ -292,7 +295,7 @@ const observer = new MutationObserver(() => {
         info[10].addEventListener('keyup', validator10);
         info[11].addEventListener('keyup', validator11);
         info[12].addEventListener('keyup', validator12);
-        info[13].addEventListener('change', validator13);
+        info[13].addEventListener('keyup', validator13);
         info[14].addEventListener('keyup', validator14);
         info[15].addEventListener('keyup', validator15);
         info[16].addEventListener('keyup', validator16);
@@ -312,7 +315,7 @@ const observer = new MutationObserver(() => {
         info[10].placeholder = `${info[10].placeholder}: ${cActual.Numero_Contacto}`;
         info[11].placeholder = `${info[11].placeholder}: ${cActual.Web}`;
         info[12].placeholder = `${info[12].placeholder}: ${cActual.Email}`;
-        // info[13].addEventListener('change',validator13); 
+        info[13].placeholder = `${info[13].placeholder}: ${cActual.Calificacion}`;
         // info[14].placeholder = 
         // info[15].placeholder =         
 
@@ -363,11 +366,7 @@ const observer = new MutationObserver(() => {
                 console.log('updateUserClient then updateDataClient');
                 updateUserClient(bEmail, bClave, Clave, Email).then(
 
-                    updateDataClient(idClient, datos).then(
-
-                    ).catch(
-
-                    )
+                    updateDataClient(idClient, datos)
 
                 ).catch(
 
@@ -375,11 +374,7 @@ const observer = new MutationObserver(() => {
             } else if (datos && !(Clave || Email)) {
                 console.log('updateDataClient')
 
-                updateDataClient(idClient, datos).then(
-
-                ).catch(
-
-                )
+                updateDataClient(idClient, datos)
 
             } else if (!datos && (Clave || Email)) {
                 console.log('updateUserClient')

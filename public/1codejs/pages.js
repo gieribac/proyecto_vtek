@@ -655,8 +655,8 @@ const
         
         
         <div class="row">
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="Nombre de Compañia">
+        <div class="col icheked">
+            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="Nombre de Compañia">
             <p class="ncC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
@@ -664,8 +664,8 @@ const
                 <input class="checkb" type="checkbox" >
               </label>
         </div>
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Representante legal">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Representante legal">
             <p class="rlC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
@@ -675,8 +675,8 @@ const
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="direccionC" placeholder="Direccion">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="direccionC" placeholder="Direccion">
             <p class="dC formulario__input-error letra_formulario" >
                 Letras, números, guión, númeral (#)
             </p>
@@ -684,8 +684,8 @@ const
                 <input class="checkb" type="checkbox" >
               </label>
         </div>
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad">
             <p class="ciudadC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
@@ -696,8 +696,8 @@ const
     </div>
     <div>
     <div class="row">
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreRespC" placeholder="Nombre responsable">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="nombreRespC" placeholder="Nombre responsable">
             <p class="nrC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
@@ -705,8 +705,8 @@ const
                 <input class="checkb" type="checkbox" >
               </label>
         </div>
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="cargoC" placeholder="Cargo">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="cargoC" placeholder="Cargo">
             <p class="cargoC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
@@ -719,7 +719,7 @@ const
         <div class="row">
             
             <div class="col">
-                <select required="" class="form-select dropdown1 sombra" id="tipoIDC">
+                <select required=""  class="form-select dropdown1 sombra" id="tipoIDC">
                     <option selected>Tipo de Identificación</option>
                     <option value="TI">Tarjeta de Identidad</option>
                     <option value="CC">Cédula</option>
@@ -728,13 +728,9 @@ const
 
 
             <p class="letra_formulario tidC formulario__input-error">Seleccione tipo de Identificación</p>
-
-
-                
-    
             </div>
-            <div class="col">
-                <input type="number" class="form-control inputsr sombra imputs_tamano" id="identificacionC" placeholder="Identificacion">
+            <div  class="col icheked">
+                <input required=""  type="number" class="form-control inputsr sombra imputs_tamano" id="identificacionC" placeholder="Identificacion">
                 <p class="idC formulario__input-error letra_formulario" >
                     De 6 a 10 dígitos
                 </p>
@@ -745,8 +741,8 @@ const
         </div>
         <div>
             <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="nitC" placeholder="NIT">
+                <div class="col icheked">
+                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nitC" placeholder="NIT">
                     <p class="nC formulario__input-error letra_formulario" >
                         De 7 a 12 digitos, guión
                     </p>
@@ -754,8 +750,8 @@ const
                         <input class="checkb" type="checkbox" >
                       </label>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="ncontactoC" placeholder="Numero de contacto">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ncontactoC" placeholder="Numero de contacto">
                     <p class="numcC formulario__input-error letra_formulario" >
                         De 7 a 14 digitos
                     </p>
@@ -765,8 +761,8 @@ const
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="webC" placeholder="Web">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="webC" placeholder="Web">
                     <p class="wC formulario__input-error letra_formulario" >
                         Letras, números, guión y guión bajo. Máximo 16 caracteres
                     </p>
@@ -774,39 +770,37 @@ const
                         <input class="checkb" type="checkbox" >
                       </label>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="emailC" placeholder="Email">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="emailC" placeholder="Email">
                     <p class="emailC formulario__input-error letra_formulario" >
                         Escriba un email válido
                     </p>
                     <label class="cliente_active">
-                        <input class="checkb" type="checkbox" >
+                        <input id="checkEmail" class="checkb" type="checkbox" >
                     </label>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="claveC" placeholder="Contraseña">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="claveC" placeholder="Contraseña">
                     <p class="clavecli formulario__input-error letra_formulario" >
                         Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres
                     </p>
                     <label class="cliente_active">
-                        <input class="checkb" type="checkbox" >
+                        <input id="checkRclave" class="checkb" type="checkbox" >
                       </label>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="rclaveC" placeholder="rectificar contraseña">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="rclaveC" placeholder="rectificar contraseña">
                     <p class="rclavecli formulario__input-error letra_formulario" >
                         Escriba la misma contraseña
                     </p>
-                    <label class="cliente_active">
-                        <input class="checkb" type="checkbox" >
-                    </label>
+                    
                 </div>
             </div>
                 <div id="getBeforeEmail">
                     <div class="inputsdivi ">
-                        <input required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="Email anterior" aria-label="usuario" id="bemailC">
+                        <input required=""  required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="Email anterior" aria-label="usuario" id="bemailC">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="letra_formulario  formulario__input-error">Escriba un email válido</p>
@@ -826,14 +820,14 @@ const
                   <div class="naranjasinb acomodar">
                   <h6 class="letracargo">Calificación</h6> </div>                                                           
 
-                  <div class="inputsdivi ">
+                  <div class="inputsdivi icheked">
                   <input required="" type="text" class="form-control inputsr sombra imputs_tamano " placeholder="Puntaje" aria-label="usuario" id="calificacionC">
 
-                  <p class="calC letra_formulario2 formulario__input-error"></p>
+                  <p class="calC letra_formulario2 formulario__input-error">Ingrese hasta 10 dígitos</p>
+                  <label class="cliente_active">
+                    <input required=""  class="checkb" type="checkbox" >
+                  </label>
               </div>
-
-
-
                       <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                       <p class="calC letra_formulario2 formulario__input-error"></p>
