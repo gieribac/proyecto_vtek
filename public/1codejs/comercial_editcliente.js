@@ -328,7 +328,7 @@ const observer = new MutationObserver(() => {
             info[9].hasAttribute("required") && (() => datos.Nit = info[9].value)();
             info[10].hasAttribute("required") && (() => datos.Numero_Contacto = info[10].value)();
             info[11].hasAttribute("required") && (() => datos.Web = info[11].value)();
-            info[12].hasAttribute("required") && (Email = info[12].value);
+            info[12].hasAttribute("required") && (() => {Email = info[12].value; datos.Email = Email});
             info[14].hasAttribute("required") && (Clave = info[14].value);
             (info[7].value.length < 3) && (() => datos.Tipo_Identificacion = info[7].value)();
             (info[13].value.length < 3) && (() => datos.Tipo_Identificacion = info[13].value)();
@@ -354,7 +354,7 @@ const observer = new MutationObserver(() => {
             e.preventDefault();
             const { datos, Email, Clave, bClave, bEmail } = getData_();
             const idClient = get_idc();
-            console.log(`datos: ${datos}, email: ${Email} Clave: ${Clave}, bClave: ${bClave}, bEmail: ${bEmail}`);
+            console.log(`datos: ${datos.Email}, email: ${Email} Clave: ${Clave}, bClave: ${bClave}, bEmail: ${bEmail}`);
             if (datos && (Clave || Email)) {
                 console.log('updateUserClient then updateDataClient');
                     updateUserClient(bEmail, bClave, Clave, Email).then(

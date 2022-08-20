@@ -624,6 +624,10 @@ const
           <h4 class="letrainfo">ofertas</h4>
           </div>
       </div>
+
+
+
+
       <div class="col-lg-9 ">
         <div> </div>
         <div class="columnas-clasi4 alinear_ofertas" style="    margin-left: 74px !important;"><h6 class="letra-columna">oferta</h6></div>
@@ -633,7 +637,8 @@ const
           <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Formalizar</h6></div>
       </div>
       <div class="col-lg-10 " style="margin-top: 20px;">
-          <div>
+          <div> 
+          <button id="btnNuevo" type="button" class="btn btn_degrade btn_nueva"> <h6 class="letra-editar">Nueva</h6></button>
           <button type="button" class="btn btn_degrade btn_pasar " style="margin-top: 94px;" id="botonAnterior"><i class="icono-izquierda fas fa-chevron-left"></i></button>
           <button type="button" class="btn btn_degrade btn_pasar" style="margin-top: 150px;" id="botonSiguiente"><i class="icono-derecha fas fa-chevron-right"></i></button>
           </div>
@@ -1222,6 +1227,7 @@ const
           <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button>
           <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Nuevo</h6></button>
 
+
           
       </div>
       <div class="col-lg-9 ">
@@ -1241,7 +1247,6 @@ const
               <div style="margin-left: 60px; margin-top: 20px;">
               <div id="inputs">
 
-              
         <div class="row">
         <div class="col icheked">
             <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ClienteOF" placeholder="Cliente">
@@ -1251,7 +1256,7 @@ const
             </p>
             <label class="cliente_active " style="position:relative;">
             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks " type="checkbox" >
+                <input class="checks" type="checkbox" checked >
 
               </label>
         </div>
@@ -1262,7 +1267,7 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" >
+                <input class="checks" type="checkbox" checked >
             </label>
         </div>
     </div>
@@ -1276,7 +1281,7 @@ const
         </p>
         <label class="cliente_active " style="position:relative;">
         <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" >
+            <input class="checks " type="checkbox" checked >
 
           </label>
     </div>
@@ -1287,7 +1292,7 @@ const
         </p>
         <label class="cliente_active" style="position:relative;">
                     <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox" >
+            <input class="checks" type="checkbox" checked >
         </label>
     </div>
 </div>
@@ -1302,7 +1307,7 @@ const
             </p>
             <label class="cliente_active " style="position:relative;">
             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks " type="checkbox" >
+                <input class="checks " type="checkbox" checked >
 
               </label>
         </div>
@@ -1313,7 +1318,7 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" >
+                <input class="checks" type="checkbox" checked >
             </label>
         </div>
     </div>
@@ -1329,7 +1334,7 @@ const
         </p>
         <label class="cliente_active " style="position:relative;">
         <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" >
+            <input class="checks " type="checkbox" checked >
 
           </label>
     </div>
@@ -1340,7 +1345,7 @@ const
         </p>
         <label class="cliente_active" style="position:relative;">
                     <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox" >
+            <input class="checks" type="checkbox " checked>
         </label>
     </div>
 </div>
@@ -1458,6 +1463,9 @@ const
             <h4 class="letrainfo">ofertas</h4>
             </div>
         </div>
+
+
+        
         <div class="col-lg-9 ">
           <div> </div>
           <div class="columnas-clasi4 alinear_ofertas"><h6 class="letra-columna">oferta</h6></div>

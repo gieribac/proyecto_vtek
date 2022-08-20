@@ -73,8 +73,6 @@ export const setFabrica = async(datos) => {
 ////<comercial_createcliente>////
 export const saveClient = async(datos, Clave)=> {
     try {
-        console.log(datos)
-        console.log(datos.Email)
         await createUserWithEmailAndPassword(auth, datos.Email, Clave)
             .then(async(userCredential) => {
                 const user = userCredential.user;
@@ -294,13 +292,12 @@ export const querySnapComOfs = async() => {
 ////<comercial_editcliente>////
 export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = null) => {
     /*iniciar sesion como cliente*/
+    console.log(`bcorreo: ${bcorreo}; bClave ${bclave}`)
     signInWithEmailAndPassword(auth,bcorreo,bclave)
     .then(() => {
         /*update email si aplica*/
       
         Email && (async() => {
-            const auth = auth;
-            console.info('auth'+auth)
             await updateEmail(auth.currentUser, Email).then(() => {
                 return "Email updated!";
             }).catch((error) => {
@@ -312,7 +309,6 @@ export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = nu
        
     }).then (()=>{
         Clave && (async() => {
-            const auth = auth;
             const user = auth.currentUser;
             await updatePassword(user, Clave).then(() => {
                 return "Email updated!";

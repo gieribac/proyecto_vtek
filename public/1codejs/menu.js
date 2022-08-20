@@ -6,7 +6,7 @@ const observermenu = new MutationObserver(()=>{
         
                 </div>
                 <div class="menu">
-                    <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones  ">
+                    <a href="#/admin/infooffer" class="d-block text-light p-3 mr menuopciones   ">
                         <div class="bola-blanco">
                             <div class="check-azul"></div>
                         </div>
@@ -60,39 +60,73 @@ const observermenu = new MutationObserver(()=>{
                 <a href="#cs" ><h6 class="saliendo">Si</h6> </a>  <a id="off"><h6 class="nosalir">no</h6> </a></div>
             </div> 
             </div>`,
-            comercial: `<div id="sidebar-container">
+            comercial:`<div id="sidebar-container">
             <div class="logov">            
             </div>
             <div class="menu">
-                <a href="#/comercial/createcliente" class="d-block text-light p-2 menuopciones">
-                    <div class="bola-blanco">
+                <a href="#/comercial/createcliente" class="d-block text-light p-2 menuopciones menu_hover1">
+
+                    <div class="bola-blanco img_dominante1">
                         <div class="mas-azul"></div>
+                    </div>
+                    <p class = "letra_menu letra_menu img_recesivo1"  >
+                        Crear cliente
+                    </p>
+                    <div class="bola-blanco img_recesivo1">
+                        <div class="mas-blanco"></div>
                     </div>
                 </a>
             
-                    <a href="#/comercial/createfactorie" class="d-block text-light p-2 menuopciones">
-                    <div class="bola-blanco">
+                    <a href="#/comercial/createfactorie" style ="width: 65px !important; " class="d-block text-light p-2 menuopciones menu_hover1">
+                    <div class="bola-blanco img_dominante1">
                         <div class="estrella-azul"></div>
                     </div>
+                    <p class = "letra_menu2 letra_menu img_recesivo1"  >
+                        Crear fabrica
+                    </p>
+                    <div class="bola-blanco img_recesivo1">
+                    <div class="estrella-blanco"></div>
+                    </div>
                 </a>          
-                <a href="#/comercial/infooffers" class="d-block text-light p-2 mr menuopciones ">
-                    <div class="bola-blanco">
+                <a href="#/comercial/infooffers" class="d-block text-light p-2 mr menuopciones menu_hover1 ">
+                    <div class="bola-blanco img_dominante1">
                         <div class="check-azul"></div>
                     </div>
+                        <p class = "letra_menu3 letra_menu img_recesivo1"  >
+                        Ofertas
+                    </p>
+                    <div class="bola-blanco img_recesivo1">
+                    <div class="check-blanco"></div>
+                </div>
                 </a>
-                <a href="#/comercial/infoclientes" class="d-block text-light p-2 menuopciones">
-                    <div class="bola-blanco">
+                <a href="#/comercial/infoclientes" class="d-block text-light p-2 menuopciones menu_hover1">
+                    <div class="bola-blanco img_dominante1">
                         <div class="persona-azul"></div>
                     </div>
+                        <p class = "letra_menu4 letra_menu img_recesivo1"  >
+                        Cliente
+                    </p>
+                    <div class="bola-blanco img_recesivo1">
+                        <div class="persona-blanco"></div>
+                    </div>
                 </a>
-                    <a href="#/comercial" class="d-block text-light p-2 menuopciones">
-                    <div class="bola-blanco">
+                    <a href="#/comercial" class="d-block text-light p-2 menuopciones menu_hover1">
+                    <div class="bola-blanco img_dominante1">
                         <div class="audifonos-azul"></div>
                     </div>
+                        <p class = "letra_menu5 letra_menu img_recesivo1"  >
+                        Ver perfil
+                    </p>
+                    <div class="bola-blanco img_recesivo1">
+                        <div class="audifonos-blanco"></div>
+                    </div>
                 </a>           
-                <a href="#" id="on" class="d-block text-light p-2 menuopciones">
-                    <div class="bola-blanco">
+                <a href="#" id="on" class="d-block text-light p-2 menuopciones menu_hover1">
+                    <div class="bola-blanco img_dominante1">
                         <div class="on-azul"></div>
+                    </div>
+                    <div class="bola-blanco img_recesivo1">
+                        <div class="on-blanco"></div>
                     </div>
                 </a>
                 <div class="si_no_comercial desaparece" id= "si_no">
