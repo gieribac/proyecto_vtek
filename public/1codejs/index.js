@@ -6,10 +6,9 @@ import './admin_infoclients.js';
 import './comercial_infoclients.js';
 import "https://kit.fontawesome.com/5060f102e7.js";
 import './comercial_createcliente.js';
-import './edit_cliente_.js';
+import './comercial_editcliente.js';
 import './comercial_detallecliente.js';
 import '../node_modules/sweetalert2/dist/sweetalert2.js'
-
 // import './comercial_createoffer.js';
 // import './comercial_infoclients.js';
 import './comercial_infooffers.js';

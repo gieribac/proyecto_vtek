@@ -64,7 +64,7 @@ const observerdatos = new MutationObserver(()=>{
                     listC.push(d.data());
 
                     clienteA.innerHTML += `
-                    <h6 class= 'puntero_ver'><b>${d.data().Nombre_Compania}</b></h6>                    
+                    <h6 class = "puntero_ver"><b>${d.data().Nombre_Compania}</b></h6>                    
                     `;
                     
                     legalA.innerHTML += `
@@ -109,4 +109,3 @@ const observerdatos = new MutationObserver(()=>{
 })
 const parent = document.getElementById('root');
 observerdatos.observe(parent,{childList:true})
-

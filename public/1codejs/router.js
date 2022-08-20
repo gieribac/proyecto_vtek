@@ -49,7 +49,16 @@ export const page = (h) => {
             if (hashp==localStorage.getItem("rol")){
                 document.getElementById('root').innerHTML = chtml;
             } else {
-                document.getElementById('root').textContent = 'no tiene permiso para su rol';
+                onAuthStateChanged(auth, (user) => {
+                    if (user) {
+                        document.getElementById('root').textContent = 'no tiene permiso para su rol';
+                        // const uid = user.uid;
+                    } else {
+                        window.history.pushState({}, document.title, window.location.pathname); 
+                                document.getElementById('root').innerHTML = index;
+                    }
+                    });
+
             }
         // })
     }

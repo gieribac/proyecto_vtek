@@ -671,7 +671,7 @@ const
           <button  id="login" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button></a>
               </div>
       <div class="col-lg-9 " style="margin-top: 20px;">
-         <div class="i-azul centrarF"> 
+         <div class="i-azul1 centrarF"> 
           
          
           <div class="recuadro margenr1 sombra temano_recuadro p-3" id="cliente">
@@ -697,12 +697,13 @@ const
         </div>      
       </div>
       </div>`,
-    comercial_createcliente = ` <div class="d-flex align-items-stretch flex-column">
+    comercial_createcliente = `
+    <div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
             <div class="infopagina">
-              <h4 id="crear_cliente_activo" class="letrainfo editar_cliente_comercial  ">Crear cliente</h4>  
-              <h4 id="Editar_cliente_activo_letra" class="letrainfo ">Editar cliente</h4>           
+              <h4 id="crear_cliente_activo" class="letrainfo ">Crear cliente</h4>  
+              <h4 id="Editar_cliente_activo_letra" class="letrainfo editar_cliente_comercial">Editar cliente</h4>           
             </div>
         </div>
         <form id="formcreateC">
@@ -711,62 +712,70 @@ const
         
         
         <div class="row">
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="Nombre de Compañia">
+        <div class="col icheked">
+            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="Nombre de Compañia">
             <p class="ncC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
+                
             </p>
-            <label class="cliente_active">
-                <input class="checkb" type="checkbox" >
+            <label class="cliente_active " style="position:relative;">
+            <span class="tooltip-box"> de click para desactivar el espacio</span>
+                <input class="checkb " type="checkbox" >
+
               </label>
         </div>
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Representante legal">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Representante legal">
             <p class="rlC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
-            <label class="cliente_active">
+            <label class="cliente_active" style="position:relative;">
+                        <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <input class="checkb" type="checkbox" >
             </label>
         </div>
     </div>
     <div class="row">
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="direccionC" placeholder="Direccion">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="direccionC" placeholder="Direccion">
             <p class="dC formulario__input-error letra_formulario" >
                 Letras, números, guión, númeral (#)
             </p>
-            <label class="cliente_active">
+            <label class="cliente_active" style="position:relative;">
+                        <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <input class="checkb" type="checkbox" >
               </label>
         </div>
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad">
             <p class="ciudadC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
-            <label class="cliente_active">
+            <label class="cliente_active" style="position:relative;">
+                        <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <input class="checkb" type="checkbox" >
             </label>
         </div>
     </div>
     <div>
     <div class="row">
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreRespC" placeholder="Nombre responsable">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="nombreRespC" placeholder="Nombre responsable">
             <p class="nrC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
-            <label class="cliente_active">
+            <label class="cliente_active" style="position:relative;">
+                        <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <input class="checkb" type="checkbox" >
               </label>
         </div>
-        <div class="col">
-            <input type="text" class="form-control inputsr sombra imputs_tamano" id="cargoC" placeholder="Cargo">
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="cargoC" placeholder="Cargo">
             <p class="cargoC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
-            <label class="cliente_active">
+            <label class="cliente_active" style="position:relative;">
+                        <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <input class="checkb" type="checkbox" >
             </label>
         </div>
@@ -775,130 +784,122 @@ const
         <div class="row">
             
             <div class="col">
-                <select required="" class="form-select dropdown1 sombra" id="tipoIDC">
+                <select required=""  class="form-select dropdown1 sombra" id="tipoIDC">
                     <option selected>Tipo de Identificación</option>
                     <option value="TI">Tarjeta de Identidad</option>
                     <option value="CC">Cédula</option>
                     <option value="CE">Cédula de Extranjeria </option>
                   </select>
-
-
             <p class="letra_formulario tidC formulario__input-error">Seleccione tipo de Identificación</p>
-
-
-                
-    
             </div>
-            <div class="col">
-                <input type="number" class="form-control inputsr sombra imputs_tamano" id="identificacionC" placeholder="Identificacion">
+            <div  class="col icheked">
+                <input required=""  type="number" class="form-control inputsr sombra imputs_tamano" id="identificacionC" placeholder="Identificacion">
                 <p class="idC formulario__input-error letra_formulario" >
                     De 6 a 10 dígitos
                 </p>
-                <label class="cliente_active">
+                <label class="cliente_active" style="position:relative;">
+                            <span class="tooltip-box"> de click para desactivar el espacio</span>
                     <input class="checkb" type="checkbox" >
                   </label>
             </div>
         </div>
         <div>
             <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="nitC" placeholder="NIT">
+                <div class="col icheked">
+                    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nitC" placeholder="NIT">
                     <p class="nC formulario__input-error letra_formulario" >
                         De 7 a 12 digitos, guión
                     </p>
-                    <label class="cliente_active">
+                    <label class="cliente_active" style="position:relative;">
+                                <span class="tooltip-box"> de click para desactivar el espacio</span>
                         <input class="checkb" type="checkbox" >
                       </label>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="ncontactoC" placeholder="Numero de contacto">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ncontactoC" placeholder="Numero de contacto">
                     <p class="numcC formulario__input-error letra_formulario" >
                         De 7 a 14 digitos
                     </p>
-                    <label class="cliente_active">
+                    <label class="cliente_active" style="position:relative;">
+                                <span class="tooltip-box"> de click para desactivar el espacio</span>
                         <input class="checkb" type="checkbox" >
                     </label>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="webC" placeholder="Web">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="webC" placeholder="Web">
                     <p class="wC formulario__input-error letra_formulario" >
                         Letras, números, guión y guión bajo. Máximo 16 caracteres
                     </p>
-                    <label class="cliente_active">
+                    <label class="cliente_active" style="position:relative;">
+                                <span class="tooltip-box"> de click para desactivar el espacio</span>
                         <input class="checkb" type="checkbox" >
                       </label>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="emailC" placeholder="Email">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="emailC" placeholder="Email">
                     <p class="emailC formulario__input-error letra_formulario" >
                         Escriba un email válido
                     </p>
-                    <label class="cliente_active">
-                        <input class="checkb" type="checkbox" >
+                    <label class="cliente_active" style="position:relative;">
+                                <span class="tooltip-box"> de click para desactivar el espacio</span>
+                        <input id="checkEmail" class="checkb" type="checkbox" >
                     </label>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="claveC" placeholder="Contraseña">
+                <div class="col icheked">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="claveC" placeholder="Contraseña">
                     <p class="clavecli formulario__input-error letra_formulario" >
                         Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres
                     </p>
-                    <label class="cliente_active">
-                        <input class="checkb" type="checkbox" >
+                    <label class="cliente_active" style="position:relative;">
+                                <span class="tooltip-box"> de click para desactivar el espacio</span>
+                        <input id="checkRclave" class="checkb" type="checkbox" >
                       </label>
                 </div>
                 <div class="col">
-                    <input type="text" class="form-control inputsr sombra imputs_tamano" id="rclaveC" placeholder="rectificar contraseña">
+                    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="rclaveC" placeholder="rectificar contraseña">
                     <p class="rclavecli formulario__input-error letra_formulario" >
                         Escriba la misma contraseña
                     </p>
-                    <label class="cliente_active">
-                        <input class="checkb" type="checkbox" >
-                    </label>
+                    
                 </div>
             </div>
-                <div id="getBeforeEmail">
-                    <div class="inputsdivi ">
-                        <input required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="Email anterior" aria-label="usuario" id="bemailC">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+
+            <div class="row">
+                <div class="col " id="getBeforeEmail">
+                <input required=""  required="" type="Email" class="form-control inputsr sombra imputs_tamano " placeholder="Email anterior" aria-label="usuario" id="bemailC">
+                <p id="getBeforeEmail_p" class="letra_formulario  formulario__input-error">
+                Escriba un email válido</p>
+
                     </div>
-                    <p class="letra_formulario  formulario__input-error">Escriba un email válido</p>
-                </div>
-                <div id="getBeforeClave">
-                    <div class="inputsdivi  ">
-                        <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="bClave" placeholder="Contraseña anterior" aria-label="usuario ">
-                        <i class="formulario__validacion-estado fas fa-times-circle"></i>
+                    
+                    <div class="col" id ="getBeforeClave">
+                <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
+                <p id="getBeforeClave_p" class="letra_formulario  formulario__input-error">
+                Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
                     </div>
-                    <p class="letra_formulario  formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
-                </div>
+                    
+
+            </div>
+
+            
+            <div class = "row">
 
 
-        </div>
-        <div>
+            <div class= "col" > 
+            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " style= "width: 45%;" placeholder="Puntaje" aria-label="usuario" id="calificacionC">
 
+            <p class="calC letra_formulario2 formulario__input-error"></p>   
+
+
+            </div>
             <label class="cliente_active"   >
             <input class="checkb" id="checkb" type="checkbox" >Cliente activo</label>
 
-            <div class="naranjasinb acomodar" style = "margin-top: -15px;">
-                  <h6 class="letracargo">Calificación</h6> </div>   
-                  <input required="" type="text" style=" width: 30% !important;" class="form-control inputsr sombra imputs_tamano " placeholder="Puntaje" aria-label="usuario" id="calificacionC">
-
-                  <p class="calC letra_formulario2 formulario__input-error"></p>   
-                  
-                  
-
-                  </div>
-
-
-
-
-                      
-                    
-                
-
+           </div>
                   </div>
                   <div class="formulario__mensaje" id="formulario__mensaje">
                   <i class="formulario"></i>
@@ -1217,7 +1218,10 @@ const
       </div>
       <div class="col-lg-9 ">
           <h6 class="info_de_oferta p-3">Información Oferta</h6>
-          <button id="login" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button>
+
+          <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button>
+          <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Nuevo</h6></button>
+
           
       </div>
       <div class="col-lg-9 ">
@@ -1233,31 +1237,120 @@ const
             
           </div>
           </div>
-          <div class="recuadro margenr sombra" id="legal" style="width: 600px;height: 312px;">
+          <div class="recuadro margenr sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
               <div style="margin-left: 60px; margin-top: 20px;">
               <div id="inputs">
-                <div class="input-group p-2 ">
-                    <div class="inputsdivi " style="width: 200px;" >
-                        <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
-                    <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
-                </div>
-                <div class="input-group p-2  ">
-                    <div class="inputsdivi" style="width: 200px;" >
-                        <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
-                    <div class="inputsdivi" style="width: 200px;">
-                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
-                </div>
-                <div class="input-group p-2 ">
-                    <div class="inputsdivi" style="width: 200px;" >
-                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
-                    <div class="inputsdivi" style="width: 200px;">
-                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
-                </div>
-                <div class="input-group p-2  ">
-                    <div class="inputsdivi " style="width: 200px;" >
-                        <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
-                    <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
-                </div>
+
+              
+        <div class="row">
+        <div class="col icheked">
+            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ClienteOF" placeholder="Cliente">
+            <p class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+                
+            </p>
+            <label class="cliente_active " style="position:relative;">
+            <span class="tooltip-box"> de click para desactivar el espacio</span>
+                <input class="checks " type="checkbox" >
+
+              </label>
+        </div>
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Usuario">
+            <p class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>
+            <label class="cliente_active" style="position:relative;">
+                        <span class="tooltip-box"> de click para desactivar el espacio</span>
+                <input class="checks" type="checkbox" >
+            </label>
+        </div>
+    </div>
+    
+    <div class="row">
+    <div class="col icheked">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="fabrica">
+        <p class="ncC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+            
+        </p>
+        <label class="cliente_active " style="position:relative;">
+        <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks " type="checkbox" >
+
+          </label>
+    </div>
+    <div class="col icheked">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Vigencia">
+        <p class="rlC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </p>
+        <label class="cliente_active" style="position:relative;">
+                    <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks" type="checkbox" >
+        </label>
+    </div>
+</div>
+
+
+        <div class="row">
+        <div class="col icheked">
+            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="esquema">
+            <p class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+                
+            </p>
+            <label class="cliente_active " style="position:relative;">
+            <span class="tooltip-box"> de click para desactivar el espacio</span>
+                <input class="checks " type="checkbox" >
+
+              </label>
+        </div>
+        <div class="col icheked">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="vigilancia">
+            <p class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>
+            <label class="cliente_active" style="position:relative;">
+                        <span class="tooltip-box"> de click para desactivar el espacio</span>
+                <input class="checks" type="checkbox" >
+            </label>
+        </div>
+    </div>
+
+
+    
+    <div class="row">
+    <div class="col icheked">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="centro de costos">
+        <p class="ncC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+            
+        </p>
+        <label class="cliente_active " style="position:relative;">
+        <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks " type="checkbox" >
+
+          </label>
+    </div>
+    <div class="col icheked">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="comercial">
+        <p class="rlC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </p>
+        <label class="cliente_active" style="position:relative;">
+                    <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks" type="checkbox" >
+        </label>
+    </div>
+</div>
+
+
+
+
+
+
+
               </div>
               <div>
                 <div class="adjuntar_ofertas alinear_ofertas"  id="adjuntar"><h6 class="letra-columna">Adjuntar</h6></div>

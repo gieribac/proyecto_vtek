@@ -1,10 +1,5 @@
 import {saveClient} from './models/post.js';
 
-
-
-
-
-
 const observer = new MutationObserver(()=>{
     
     const charge = () => {
@@ -18,8 +13,7 @@ const observer = new MutationObserver(()=>{
         for (let v of check){
             v.classList.add('editar_cliente_comercial');
         }
-
-        d.hert
+        
         d.getElementById('getBeforeEmail').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
         d.getElementById('getBeforeClave').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
 
@@ -51,7 +45,6 @@ const observer = new MutationObserver(()=>{
             for (let v of infov){
                 val = val && v.value.length > 0;
             }
-            val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;  
         }
         
@@ -177,7 +170,7 @@ const observer = new MutationObserver(()=>{
         
         const validator13 = () => { //calificaciòn: selector
             fenable();
-            if (/^[\(\)\+\s\d]{1,10}/.test(info[13].value)){
+            if (/[\d]{1,10}/.test(info[13].value)){
                 d.querySelector('.calC').classList.add('formulario__input-error');
             } else {
                 d.querySelector('.calC').classList.remove('formulario__input-error');
@@ -254,7 +247,7 @@ const observer = new MutationObserver(()=>{
             saveClient(datos, Clave).then(()=>{
                 d.getElementById('formcreateC').reset();
                 d.getElementById('guardarC').disabled = true;
-                // d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
                 Swal.fire(
                     '¡Muy Bien!',
                     '¡La fabrica fue creada con Exito!',
@@ -265,7 +258,7 @@ const observer = new MutationObserver(()=>{
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage);
-                // d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
+                d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

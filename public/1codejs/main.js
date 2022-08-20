@@ -38,3 +38,16 @@ export const validarlogin = (correo, clave) => {
     const valclave = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{6}$/.test(clave); //digitos, almenos una mayuscula, almenos una minuscula
     return valcorreo && valclave;
 }
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+    } else {
+        window.history.pushState({}, document.title, window.location.pathname); 
+                document.getElementById('root').innerHTML = index;
+                loguearse();
+    }
+    });

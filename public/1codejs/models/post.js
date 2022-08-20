@@ -1,10 +1,10 @@
 //archivo encargado de ejecutar publicaciones a firestore
 
-import {createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
-import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit} 
+import {createUserWithEmailAndPassword, signOut, updateEmail, signInWithEmailAndPassword, getAuth} 
+from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js"; //Authentication
+import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy, startAfter, limit, updateDoc} 
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
-
 
 ////<admin_createuser>////
 export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero, identificacion, tipoidentififcacion, cargo)=> {
@@ -291,67 +291,77 @@ export const querySnapComOfs = async() => {
     }
 //</comercial_infooffers>//
 
+////<comercial_editcliente>////
+export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = null) => {
+    /*iniciar sesion como cliente*/
+    signInWithEmailAndPassword(auth,bcorreo,bclave)
+    .then(() => {
+        /*update email si aplica*/
+      
+        Email && (async() => {
+            const auth = auth;
+            console.info('auth'+auth)
+            await updateEmail(auth.currentUser, Email).then(() => {
+                return "Email updated!";
+            }).catch((error) => {
+                throw error.message;
+            });
+        })();    
+        /*update clave si aplica*/      
+    
+       
+    }).then (()=>{
+        Clave && (async() => {
+            const auth = auth;
+            const user = auth.currentUser;
+            await updatePassword(user, Clave).then(() => {
+                return "Email updated!";
+            }).catch((error) => {
+                throw error.message;
+            });
+        })();
+         /*cerrar sesion del cliente y volver a cargar sesion del comercial*/
 
-////llamadas//
-// saveClient();
-// queryInc().then((d)=>{console.log(d);
-//     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
-// });;
+             
+    }).then (()=>{
+        signOut(auth).then(() => {
+            const correo = localStorage.getItem("em");
+            const clave = localStorage.getItem("k");                
+            signInWithEmailAndPassword(auth,correo,clave)
+            .then(() => {                        
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                throw error;
+            })
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                throw error;
+            })
+    })
+    .catch((error) => {console.log(error.code);
+        console.log(error.message);
+        throw error.messaje;
+    })
+}
 
-// querySnap().then((d)=>{
-//     // console.log(d._document.data.value.mapValue.fields.Cargo)
-//     // console.log(d.data())
-//     }
-// )
-//  next_() 
 
-// readCli().then((d)=>{console.log(d);
-//     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
-// });
-/////////////////
 
-// const querySnap = async() => {
-//     const first = query(collection(db, "clients"), orderBy("cargo"), limit(25));
-//     const documentSnapshots = await getDocs(first);
-//     documentSnapshots.forEach((d) => {console.log(d)})
-//     // Get the last visible document
-//     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
-//     console.log("last", lastVisible);
+export const updateDataClient = (idClient, datos) => {
+    try {
+        updateDoc(doc(db, "clients", idClient), datos);
+        return "doc updated";
+    } catch (e){
+        throw e.message;
+    }
+}
 
-// querySnap().then(()=>{});
-// 1. se encesita id automatico o se deja la cedula?
-// 2. se va a manejar contador, pero dice que la bd deja crear 1 por segundo. es necesario usar contador distribuido para aplicaciones de mas traficio. que hacer?
-
-// export const savePost = async(post) => {
-//     return await addDoc(collection(db, "posts"), post);
-// }
-
-// export const loadPosts = async() => {
-//     const querySnapshot = await getDocs(collection(db, "users"));
-//     const posts = querySnapshot.docs.map(doc => doc.data().tipo);
-//     return posts;
-// }
-//para crear un usuario
-
-// export const newUser = (correo, clave)=> {
-//     createUserWithEmailAndPassword(auth, correo, clave)
-//         .then((userCredential) => {
-//             const user = userCredential.user;
-//             // setDoc(doc(db, "users", user.uid), {                
-//             //     Responsable: nombreResposable,
-//             //     Email: correo,
-//             //     Uuario: nombreUsu,
-//             //     numeroTel: numero,
-//             //     NoIdentificacion: identificacion,
-//             //     TipoIdentificacion: tipoidentififcacion,
-//             //     Cargo: cargo
-//             // });
-//         })
-//         .catch((error) => {
-//             const errorCode = error.code;
-//             const errorMessage = error.message;
-//         });
-// }
+////</comercial_editcliente>////
 
 export const readUser = async () => {
     const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));
