@@ -6,8 +6,6 @@ import {collection, addDoc, getDocs, doc, setDoc, getDoc, query, where, orderBy,
 from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firestore Database
 import {auth, db} from '../firebase.js';
 
-
-
 ////<admin_createuser>////
 export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero, identificacion, tipoidentififcacion, cargo)=> {
 try {
@@ -75,8 +73,6 @@ export const setFabrica = async(datos) => {
 ////<comercial_createcliente>////
 export const saveClient = async(datos, Clave)=> {
     try {
-        console.log(datos)
-        console.log(datos.Email)
         await createUserWithEmailAndPassword(auth, datos.Email, Clave)
             .then(async(userCredential) => {
                 const user = userCredential.user;
@@ -294,64 +290,14 @@ export const querySnapComOfs = async() => {
 //</comercial_infooffers>//
 
 ////<comercial_editcliente>////
-export const updateUserClient1 = (bcorreo, bclave, Clave = null, Email = null) => {
-    /*iniciar sesion como cliente*/
-    signInWithEmailAndPassword(auth,bcorreo,bclave)
-    .then((userCredential) => {
-        /*update email si aplica*/
-        Email && (() => {
-            const auth = getAuth();
-            updateEmail(auth.currentUser, Email).then(() => {
-                return "Email updated!";
-            }).catch((error) => {
-                throw error.message;
-            });
-        })();    
-        /*update clave si aplica*/
-        Clave && (() => {
-            const auth = getAuth();
-            const user = auth.currentUser;
-            updatePassword(user, Clave).then(() => {
-            // Update successful.
-            }).catch((error) => {
-            // An error ocurred
-            // ...
-            });
-        })();
-        /*cerrar sesion del cliente y volver a cargar sesion del comercial*/
-        signOut(auth).then(() => {
-            const correo = localStorage.getItem("em");
-            const clave = localStorage.getItem("k");                
-            signInWithEmailAndPassword(auth,correo,clave)
-            .then((userCredential) => {                        
-            }).catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode)
-                console.log(errorMessage)
-                throw error;
-            })
-            }).catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode)
-                console.log(errorMessage)
-                throw error;
-            })
-    })
-    .catch((error) => {
-        throw error.messaje;
-    })
-}
-
 export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = null) => {
     /*iniciar sesion como cliente*/
+    console.log(`bcorreo: ${bcorreo}; bClave ${bclave}`)
     signInWithEmailAndPassword(auth,bcorreo,bclave)
     .then(() => {
         /*update email si aplica*/
       
         Email && (async() => {
-            const auth = getAuth();
             await updateEmail(auth.currentUser, Email).then(() => {
                 return "Email updated!";
             }).catch((error) => {
@@ -363,7 +309,6 @@ export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = nu
        
     }).then (()=>{
         Clave && (async() => {
-            // const auth = getAuth();
             const user = auth.currentUser;
             await updatePassword(user, Clave).then(() => {
                 return "Email updated!";
@@ -402,6 +347,7 @@ export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = nu
 }
 
 
+
 export const updateDataClient = (idClient, datos) => {
     try {
         updateDoc(doc(db, "clients", idClient), datos);
@@ -412,70 +358,6 @@ export const updateDataClient = (idClient, datos) => {
 }
 
 ////</comercial_editcliente>////
-
-
-
-
-////llamadas//
-// saveClient();
-// queryInc().then((d)=>{console.log(d);
-//     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
-// });;
-
-// querySnap().then((d)=>{
-//     // console.log(d._document.data.value.mapValue.fields.Cargo)
-//     // console.log(d.data())
-//     }
-// )
-//  next_() 
-
-// readCli().then((d)=>{console.log(d);
-//     console.log(`${d.Representante_Legal}, ${d.Direccion}`)
-// });
-/////////////////
-
-// const querySnap = async() => {
-//     const first = query(collection(db, "clients"), orderBy("cargo"), limit(25));
-//     const documentSnapshots = await getDocs(first);
-//     documentSnapshots.forEach((d) => {console.log(d)})
-//     // Get the last visible document
-//     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
-//     console.log("last", lastVisible);
-
-// querySnap().then(()=>{});
-// 1. se encesita id automatico o se deja la cedula?
-// 2. se va a manejar contador, pero dice que la bd deja crear 1 por segundo. es necesario usar contador distribuido para aplicaciones de mas traficio. que hacer?
-
-// export const savePost = async(post) => {
-//     return await addDoc(collection(db, "posts"), post);
-// }
-
-// export const loadPosts = async() => {
-//     const querySnapshot = await getDocs(collection(db, "users"));
-//     const posts = querySnapshot.docs.map(doc => doc.data().tipo);
-//     return posts;
-// }
-//para crear un usuario
-
-// export const newUser = (correo, clave)=> {
-//     createUserWithEmailAndPassword(auth, correo, clave)
-//         .then((userCredential) => {
-//             const user = userCredential.user;
-//             // setDoc(doc(db, "users", user.uid), {                
-//             //     Responsable: nombreResposable,
-//             //     Email: correo,
-//             //     Uuario: nombreUsu,
-//             //     numeroTel: numero,
-//             //     NoIdentificacion: identificacion,
-//             //     TipoIdentificacion: tipoidentififcacion,
-//             //     Cargo: cargo
-//             // });
-//         })
-//         .catch((error) => {
-//             const errorCode = error.code;
-//             const errorMessage = error.message;
-//         });
-// }
 
 export const readUser = async () => {
     const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));

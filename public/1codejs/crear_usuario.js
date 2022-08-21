@@ -132,12 +132,23 @@ const observer = new MutationObserver(() => {
                     console.log("then newUser  ")
                     d.getElementById('formcreateuser').reset();
                     d.getElementById('saveF').disabled = true;
-                    d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                    // d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                    Swal.fire(
+                        '¡Muy Bien!',
+                        '¡Usuario creado con exito!',
+                        'success'
+                      )
                 }).catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     console.log(errorMessage);
-                    d.querySelector('.avisopSave').textContent = `Error, formulario anterior no enviado; ${errorCode}, ${errorMessage}`
+                    // d.querySelector('.avisopSave').textContent = `Error, formulario anterior no enviado; ${errorCode}, ${errorMessage}`
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: errorMessage,
+                        
+                      })
                 });
 
         });

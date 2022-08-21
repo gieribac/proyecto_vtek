@@ -95,7 +95,7 @@ body {
 
 #sidebar-container {
     min-height: 100vh;
-    background-color: #ffffff;
+    background-color: rgba(250, 250, 250, 0);
     position: absolute;
     right: 0;
 }
@@ -109,7 +109,8 @@ body {
 }
 
 .menuopciones {
-    margin-left: 139px
+    margin-left: 139px;
+    width: 65px !important;
 }
 
 .infopagina {
@@ -153,8 +154,8 @@ body {
 
 .dropdown1 {
     border-radius: 50px;
-    width: 300px;
-    margin-right: 10px;
+    width: 95%;
+    margin-top: 15px !important;
 }
 
 .dropdown2 {
@@ -180,6 +181,16 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: 43%;
+    margin-top: -14px;
+}
+.naranjasinb2{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png);
+    height: 96px;
+    width: 197px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 43%;
+    margin-top: 0px;
 }
 
 .btnguardar {
@@ -190,7 +201,7 @@ body {
     border: none;
     margin-left: 62%;
     background-repeat: no-repeat;
-    margin-top: -45px;
+    
 }
 
 .btnguardar2 {
@@ -456,6 +467,14 @@ main {
     position: absolute;
     margin-left: 40px;
 }
+.btn_nueva{
+    margin-left: 18px !important;
+    margin-top: 27px;
+    position: absolute;
+    --bs-btn-color: #fff;
+    border-radius: 50px;
+}
+
 
 .margenes {
     margin-top: 30px;
@@ -524,6 +543,7 @@ main {
 
 .scroll_rec {
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .scroll_rec::-webkit-scrollbar {
@@ -534,6 +554,54 @@ main {
 .scroll_rec::-webkit-scrollbar-thumb {
     background-color: rgb(255, 161, 0);
     border-radius: 25px;
+}
+.swal2-styled.swal2-confirm {
+    background-color: #e68019 !important;
+
+}
+.swal2-styled.swal2-confirm:focus {
+    box-shadow: 0 0 0 3px rgb(255 128 0 / 30%);
+}
+.puntero_ver{
+    cursor: pointer;
+}
+.tooltip{
+position: relative;
+
+}
+.cliente_active:hover .tooltip-box{
+    display: inline-block;
+
+}
+.tooltip-box{
+    display: none;
+    position: absolute;
+    background: #000;
+    line-height: 12px;
+    z-index: 500;
+    text-align: center;
+    color: #ffff;
+    font-size: 14px;
+    padding: 5px 18px;
+    border-radius: 5px;
+    bottom: 30px;
+    right: -42px;
+
+    
+
+}
+.tooltip-box::after{
+    content: "";
+    display: block;
+    border-top: 7px solid #000 ;
+    border-left: 7px solid transparent ;
+    border-right: 7px solid transparent;
+    position: absolute;
+    bottom: -7px;
+    left: calc(50% - 7px);
+
+
+
 }
 
 @media (max-width: 600px) {

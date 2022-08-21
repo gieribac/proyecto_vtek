@@ -8,7 +8,7 @@ import "https://kit.fontawesome.com/5060f102e7.js";
 import './comercial_createcliente.js';
 import './comercial_editcliente.js';
 import './comercial_detallecliente.js';
-import "//cdn.jsdelivr.net/npm/sweetalert2@11";
+import '../node_modules/sweetalert2/dist/sweetalert2.js'
 import './comercial_createoffer.js';
 // import './comercial_infoclients.js';
 import './comercial_infooffers.js';

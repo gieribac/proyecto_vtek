@@ -16,24 +16,25 @@
 }
 .mas-blanco{
     background-image: url("../imgx1/Recurso\ 3VTEK\ RECURSOS.png");
-    height: 28px;
-    width: 28px;
+    height: 22px;
+    width: 25px;
     background-repeat: no-repeat;
     background-size: contain;
-    
     background-position: center;
+    margin-left: 11px;
+    margin-top: 19px;
 
 
 }
 .estrella-blanco{
     background-image: url("../imgx1/Recurso\ 2VTEK\ RECURSOS.png");
-
-    height: 28px;
-    width: 28px;
+    height: 22px;
+    width: 25px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-
+    margin-left: 11px;
+    margin-top: 19px;
 }
 .estrella-color{
     background-image: url("../imgx1/Recurso\ 55VTEK\ RECURSOS.png");
@@ -43,6 +44,37 @@
     background-size: contain;
     background-position: center;
 
+}
+.img_dominante1{
+    display: inline-block;
+}
+.img_recesivo1{
+    display: none;
+}
+.menu_hover1:hover .img_dominante1{
+    display: none ;
+
+}
+.menu_hover1:hover .img_recesivo1{
+    display: inline-block ;
+
+}
+.letra_menu{
+    position: absolute !important;
+    left: 59px !important;
+    top: 139px ;
+    color: grey !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+}
+.letra_menu2{
+    top: 219px !important;
+
+}
+.letra_menu3{top: 300px !important;}
+.letra_menu4{ top: 380px !important;}
+.letra_menu5{top: 463px !important;}
+.letra_menu6{  
 }
 .estrella-color-info{
     background-image: url(../img/Recurso\ 55VTEK\ RECURSOS.png);
@@ -87,12 +119,14 @@
 
 }
 .persona-blanco{
-    background-image: url("../imgx1/Recurso\ 16VTEK\ RECURSOS.png");
-     height: 28px;
-    width: 28px;
+    background-image: url("../imgx1/Recurso\ 4VTEK\ RECURSOS.png");
+    height: 22px;
+    width: 25px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    margin-left: 11px;
+    margin-top: 19px;
 
 }
 .persona-color{
@@ -121,11 +155,13 @@
 }
 .check-blanco{
     background-image: url("../imgx1/Recurso\ 1VTEK\ RECURSOS.png");
-    height: 28px;
-    width: 28px;
+    height: 22px;
+    width: 25px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    margin-left: 11px;
+    margin-top: 19px;
 
 }
 .check-color-c{
@@ -182,16 +218,34 @@
 }
 .on-blanco{
     background-image: url("../imgx1/Recurso\ 17VTEK\ RECURSOS.png");
-    height: 28px;
-    width: 28px;
+    height: 25px;
+    width: 20px;
     background-repeat: no-repeat;
     background-size: contain;
+    
     background-position: center;
+    position: absolute;
+    left: 13px;
+    top: 17px;
 
 }
 
 .audifonos-azul{
     background-image: url("../imgx1/Recurso\ 11VTEK\ RECURSOS.png");
+    height: 25px;
+    width: 20px;
+    background-repeat: no-repeat;
+
+    background-size: contain;
+
+    background-position: center;
+    position: absolute;
+    left: 13px;
+    top: 17px;
+
+}
+.audifonos-blanco{
+    background-image: url("../imgx1/Recurso\ 25VTEK\ RECURSOS.png");
     height: 25px;
     width: 20px;
     background-repeat: no-repeat;
@@ -308,7 +362,19 @@
     border: none;
     float: left;
     background-repeat: no-repeat;
-    margin-left: 312px;
+    margin-left: 10%;
+    margin-top: 0px;
+
+}
+.btn-nueva-ofertas{
+
+    background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 234px;
+    height: 81px;
+    border: none;
+    float: left;
+    background-repeat: no-repeat;
     margin-top: 0px;
 
 }
@@ -357,6 +423,19 @@
     height: 400px;
     background-repeat: no-repeat;
 
+
+}
+.i-azul1{
+    /* background-image: url(../img/Recurso\ 39VTEK\ RECURSOS.png) !important; */
+    background-size: contain;
+    width: 100%;
+    height: 400px;
+    background-repeat: no-repeat;
+    background: rgb(61,109,159);
+    background: linear-gradient(90deg, rgba(61,109,159,1) 0%, rgba(137,206,192,1) 100%);
+    -webkit-border-top-right-radius: 50px;
+-moz-border-radius-topright: 50px;
+border-top-right-radius: 50px;
 
 }
 .container2{

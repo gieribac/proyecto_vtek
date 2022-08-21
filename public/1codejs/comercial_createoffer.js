@@ -5,10 +5,7 @@ const observerdatos = new MutationObserver(()=>{
     
     const charge = () => {  
         const d=document;
-        let estado;
-        d.getElementById("btnNuevo").addEventListener('click',formNew());
-        d.getElementById("btnEdit").addEventListener('click',formEdit());
-        const campos = Array.prototype.slice.apply(d.getElementsByClassName('col'));
+        let estado;      
         
         const inputs = [
             `<input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ClienteOF" placeholder="Cliente">
@@ -51,22 +48,29 @@ const observerdatos = new MutationObserver(()=>{
                 Letras, tildes y espacios
             </p>`
         ]
-        
+
         const formNew = () => {
             estado=true;
-
+            const campos = Array.prototype.slice.apply(d.getElementsByClassName('col'));
             campos.forEach((e, i) => {
                 campos[i].innerHTML = inputs[i];
             })
         }
         const formEdit = () => {
             estado=false;          
-            let listcheck = d.getElementsByClassName('checks');
+            const listcheck = Array.prototype.slice.apply(d.getElementsByClassName('checks'));
+            const campos = Array.prototype.slice.apply(d.getElementsByClassName('col'));
    
             listcheck.forEach((e, i) => {
-                campos[i].innerHTML = e.cheked ?  inputs[i] : '';
+                console.log(e)
+                console.info(e.checked);
+                campos[i].innerHTML = e.checked ?  inputs[i] : '';
             })
-        }       
+        } 
+
+        d.getElementById("btnNuevo").addEventListener('click',formNew);
+        d.getElementById("btnEdit").addEventListener('click',formEdit);
+              
     }
 
 location.hash == '#/comercial/createoffer' && charge();

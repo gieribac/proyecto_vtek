@@ -39,15 +39,15 @@ export const validarlogin = (correo, clave) => {
     return valcorreo && valclave;
 }
 
-// onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//         // User is signed in, see docs for a list of available properties
-//         // https://firebase.google.com/docs/reference/js/firebase.User
-//         const uid = user.uid;
-//         // ...
-//     } else {
-//         window.history.pushState({}, document.title, window.location.pathname); 
-//                 document.getElementById('root').innerHTML = index;
-//                 loguearse();
-//     }
-//     });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+    } else {
+        window.history.pushState({}, document.title, window.location.pathname); 
+                document.getElementById('root').innerHTML = index;
+                loguearse();
+    }
+    });

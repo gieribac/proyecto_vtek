@@ -45,7 +45,6 @@ const observer = new MutationObserver(()=>{
             for (let v of infov){
                 val = val && v.value.length > 0;
             }
-            val = val && info[7].value.length < 3 && info[13].value.length < 2;
             d.getElementById('guardarC').disabled = !val;  
         }
         
@@ -249,11 +248,23 @@ const observer = new MutationObserver(()=>{
                 d.getElementById('formcreateC').reset();
                 d.getElementById('guardarC').disabled = true;
                 d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                Swal.fire(
+                    '¡Muy Bien!',
+                    '¡La fabrica fue creada con Exito!',
+                    'success'
+                  )
+
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage);
                 d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: errorMessage,
+                    
+                  })
             });
         }); 
     }
