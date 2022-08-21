@@ -7,6 +7,7 @@ from "https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js"; //Firesto
 import {auth, db} from '../firebase.js';
 
 
+
 ////<admin_createuser>////
 export const newUser = async(correo, clave, nombreResposable, nombreUsu, numero, identificacion, tipoidentififcacion, cargo)=> {
 try {
@@ -293,7 +294,7 @@ export const querySnapComOfs = async() => {
 //</comercial_infooffers>//
 
 ////<comercial_editcliente>////
-export const updateUserClient = (bcorreo, bclave, Clave = null, Email = null) => {
+export const updateUserClient1 = (bcorreo, bclave, Clave = null, Email = null) => {
     /*iniciar sesion como cliente*/
     signInWithEmailAndPassword(auth,bcorreo,bclave)
     .then((userCredential) => {
@@ -343,6 +344,62 @@ export const updateUserClient = (bcorreo, bclave, Clave = null, Email = null) =>
     })
 }
 
+export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = null) => {
+    /*iniciar sesion como cliente*/
+    signInWithEmailAndPassword(auth,bcorreo,bclave)
+    .then(() => {
+        /*update email si aplica*/
+      
+        Email && (async() => {
+            const auth = getAuth();
+            await updateEmail(auth.currentUser, Email).then(() => {
+                return "Email updated!";
+            }).catch((error) => {
+                throw error.message;
+            });
+        })();    
+        /*update clave si aplica*/      
+    
+       
+    }).then (()=>{
+        Clave && (async() => {
+            // const auth = getAuth();
+            const user = auth.currentUser;
+            await updatePassword(user, Clave).then(() => {
+                return "Email updated!";
+            }).catch((error) => {
+                throw error.message;
+            });
+        })();
+         /*cerrar sesion del cliente y volver a cargar sesion del comercial*/
+
+             
+    }).then (()=>{
+        signOut(auth).then(() => {
+            const correo = localStorage.getItem("em");
+            const clave = localStorage.getItem("k");                
+            signInWithEmailAndPassword(auth,correo,clave)
+            .then(() => {                        
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                throw error;
+            })
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode)
+                console.log(errorMessage)
+                throw error;
+            })
+    })
+    .catch((error) => {console.log(error.code);
+        console.log(error.message);
+        throw error.messaje;
+    })
+}
 
 
 export const updateDataClient = (idClient, datos) => {

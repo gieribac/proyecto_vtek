@@ -8,62 +8,65 @@ const observerdatos = new MutationObserver(()=>{
         let estado;
         d.getElementById("btnNuevo").addEventListener('click',formNew());
         d.getElementById("btnEdit").addEventListener('click',formEdit());
-        d.getElementsByClassName('checks');
-        const inputs = [`<div class="input-group p-2 ">
-                <div class="inputsdivi " style="width: 200px;" >
-                    <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
-                <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
-            </div>`,`<div class="input-group p-2  ">
-            <div class="inputsdivi" style="width: 200px;" >
-                <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
-            <div class="inputsdivi" style="width: 200px;">
-                <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
-            </div>`,` <div class="input-group p-2 ">
-            <div class="inputsdivi" style="width: 200px;" >
-                <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
-            <div class="inputsdivi" style="width: 200px;">
-                <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
-            </div>`,` <div class="input-group p-2  ">
-            <div class="inputsdivi " style="width: 200px;" >
-                <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
-            <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
-            </div>`]
+        const campos = Array.prototype.slice.apply(d.getElementsByClassName('col'));
+        
+        const inputs = [
+            `<input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ClienteOF" placeholder="Cliente">
+            <p class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios                
+            </p>`,
+
+            `<input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Usuario">
+            <p class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>`,
+
+            `<input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="fabrica">
+            <p class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios      
+            </p>`,
+
+            `<input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Vigencia">
+            <p class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>`,
+
+            `<input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="esquema">
+            <p class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios          
+            </p>`,
+
+            `<input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="vigilancia">
+            <p class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>`,
+            
+            `<input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="centro de costos">
+            <p class="ncC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios      
+            </p>`,
+
+            `<input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="comercial">
+            <p class="rlC formulario__input-error letra_formulario" >
+                Letras, tildes y espacios
+            </p>`
+        ]
         
         const formNew = () => {
             estado=true;
-            d.getElementById('inputs').innerHTML = `<div class="input-group p-2 ">
-                    <div class="inputsdivi " style="width: 200px;" >
-                        <input type="text" class="form-control inputsr sombra" style="width: 200px;" placeholder="cliente" aria-label="usuario" id="cliente" ></div>
-                    <div class="inputsdivi" style="width: 200px;"> <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="producto" aria-label="usuario" id="ciudadU"></div>
-                </div>
-                <div class="input-group p-2  ">
-                    <div class="inputsdivi" style="width: 200px;" >
-                        <input type="text" class="form-control inputsr sombra" style="width: 200px;"  placeholder="Fábrica" aria-label="usuario" id="fabrica"></div>
-                    <div class="inputsdivi" style="width: 200px;">
-                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigencia" aria-label="usuario" id="vigencia"></div>
-                </div>
-                <div class="input-group p-2 ">
-                    <div class="inputsdivi" style="width: 200px;" >
-                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Esquema" aria-label="usuario" id="esquema"></div>
-                    <div class="inputsdivi" style="width: 200px;">
-                        <input type="text" class="form-control inputsr sombra"  style="width: 200px;" placeholder="Vigilancia" aria-label="usuario" id="vs"></div>
-                </div>
-                <div class="input-group p-2  ">
-                    <div class="inputsdivi " style="width: 200px;" >
-                        <input type="text " class="form-control inputsr sombra" style="width: 200px;"  id="centrocosto" placeholder="Centro de costos" aria-label="usuario "></div>
-                    <div class="inputsdivi " style="width: 200px;" > <input type="text " id="comercial" style="width: 200px;"  class="form-control inputsr sombra " placeholder="Comercial" aria-label="usuario "></div>
-                </div>`
+
+            campos.forEach((e, i) => {
+                campos[i].innerHTML = inputs[i];
+            })
         }
         const formEdit = () => {
-            estado=false;
-            let lischeck = [true, false, true, false];
-            // d.getElementById('inputs').innerHTML += 
-            
-
-        }
-
-        
-
+            estado=false;          
+            let listcheck = d.getElementsByClassName('checks');
+   
+            listcheck.forEach((e, i) => {
+                campos[i].innerHTML = e.cheked ?  inputs[i] : '';
+            })
+        }       
     }
 
 location.hash == '#/comercial/createoffer' && charge();

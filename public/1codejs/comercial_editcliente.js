@@ -366,7 +366,7 @@ const observer = new MutationObserver(() => {
                 console.log('updateUserClient then updateDataClient');
                 updateUserClient(bEmail, bClave, Clave, Email).then(
 
-                    updateDataClient(idClient, datos)
+                    updateDataClient(idClient, datos)       
 
                 ).catch(
 

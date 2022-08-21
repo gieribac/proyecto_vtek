@@ -42,4 +42,4 @@ export const loguearse = () => {
             alert('correo o clave invalidos')
         }
     })
-}
+}   
