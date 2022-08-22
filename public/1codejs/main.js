@@ -46,8 +46,13 @@ onAuthStateChanged(auth, (user) => {
         const uid = user.uid;
         // ...
     } else {
-        window.history.pushState({}, document.title, window.location.pathname); 
-                document.getElementById('root').innerHTML = index;
+        const b2 = localStorage.getItem('b2');
+        if (b2 == undefined) {
+            window.history.pushState({}, document.title, window.location.pathname); 
+                // document.getElementById('root').innerHTML = index;
                 loguearse();
-    }
-    });
+        } else {
+            localStorage.removeItem('b2');    
+        }
+    }        
+});

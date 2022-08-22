@@ -10,7 +10,6 @@ import './comercial_editcliente.js';
 import './comercial_detallecliente.js';
 import '../node_modules/sweetalert2/dist/sweetalert2.js'
 import './comercial_createoffer.js';
-// import './comercial_infoclients.js';
 import './comercial_infooffers.js';
 import './comercial_createfactorie.js';
 

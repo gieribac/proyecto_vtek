@@ -13,6 +13,12 @@ const observerdatos = new MutationObserver(()=>{
         const btnSiguiente = document.getElementById('botonSiguiente');
         const btnAnterior = document.getElementById('botonAnterior');
 
+        document.getElementById('btnNuevo').addEventListener('click',()=>{      
+            localStorage.setItem('b1','1');      
+            location.hash='#/comercial/createoffer';;
+        });
+
+
         let ultimoDoc = null;
         let primerDoc = null;
 
@@ -62,7 +68,12 @@ const observerdatos = new MutationObserver(()=>{
             estado.innerHTML = ``;
             formalizar.innerHTML = ``;
 
-                ds.forEach(d => {       
+            let listC = [];
+            let list_id = [];
+
+                ds.forEach(d => {
+                    list_id.push(d.id);
+                    listC.push(d.data());  
                     
                     oferta.innerHTML += `
                     <h6><b>${d.data().Oferta}</b></h6>
@@ -81,21 +92,28 @@ const observerdatos = new MutationObserver(()=>{
                         formalizar.innerHTML += `
                         <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">${d.data().Formalizar}</h6></div>                      
                         `;
-
-                        
                     } else {
                         formalizar.innerHTML += `
                         <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >${d.data().Formalizar}</h6> </div>
                         `;
-
                     }
-                   
-                    
+
                 });
-            
+            localStorage.setItem("nidsClient",JSON.stringify(list_id));
+            localStorage.setItem("nclient", JSON.stringify(listC));
+            listeners();
             return {primer,ultimo}
             }
         }
+        const listeners = () => {
+            const vinculos = document.querySelectorAll('h6 > b');
+            vinculos.forEach(element => {
+            element.addEventListener('click',()=>{
+                localStorage.setItem("clientSelect",element.textContent);
+                location.hash='#/comercial/createoffer';
+            })
+        })
+        }        
     }
 
     location.hash == '#/comercial/infooffers' && charge();

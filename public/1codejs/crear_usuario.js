@@ -125,14 +125,14 @@ const observer = new MutationObserver(() => {
 
         d.getElementById('saveF').addEventListener('click', (e) => {
             e.preventDefault();
-            console.log("se ha llenado todo correctamente");
+            localStorage.setItem('b2','1');
             console.log(info[0].value, info[6].value, info[1].value, info[2].value, info[3].value, info[5].value, info[4].value, info[8].value)
             newUser(info[0].value, info[6].value, info[1].value, info[2].value, info[3].value, info[5].value, info[4].value, 'comercial')
                 .then(() => {
                     console.log("then newUser  ")
                     d.getElementById('formcreateuser').reset();
                     d.getElementById('saveF').disabled = true;
-                    // d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                   
                     Swal.fire(
                         '¡Muy Bien!',
                         '¡Usuario creado con exito!',
@@ -142,7 +142,7 @@ const observer = new MutationObserver(() => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     console.log(errorMessage);
-                    // d.querySelector('.avisopSave').textContent = `Error, formulario anterior no enviado; ${errorCode}, ${errorMessage}`
+                    
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',

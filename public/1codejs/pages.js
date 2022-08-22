@@ -1193,19 +1193,7 @@ const
 
 </div>
 </div>
-        
-        
-
-
-
-
-
-
-
-
-
-
-            <i class="formulario"></i>
+        <i class="formulario"></i>
         </fieldset>
         <div class="col-lg-9   col-xs-12">
         <div class="avisopSave"></div>
@@ -1257,7 +1245,7 @@ const
             </p>
             <label class="cliente_active " style="position:relative;">
             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" checked >
+                <input class="checks" type="checkbox" >
 
               </label>
         </div>
@@ -1268,32 +1256,32 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" checked >
+                <input class="checks" type="checkbox" >
             </label>
         </div>
     </div>
     
     <div class="row">
     <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="fabrica">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="fabricaOF" placeholder="fabrica">
         <p class="ncC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
             
         </p>
         <label class="cliente_active " style="position:relative;">
         <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" checked >
+            <input class="checks " type="checkbox" >
 
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Vigencia">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="Vigencia">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
         <label class="cliente_active" style="position:relative;">
                     <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox" checked >
+            <input class="checks" type="checkbox" >
         </label>
     </div>
 </div>
@@ -1301,25 +1289,25 @@ const
 
         <div class="row">
         <div class="col icheked">
-            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="esquema">
+            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema">
             <p class="ncC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
                 
             </p>
             <label class="cliente_active " style="position:relative;">
             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks " type="checkbox" checked >
+                <input class="checks " type="checkbox" >
 
               </label>
         </div>
         <div class="col icheked">
-            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="vigilancia">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigilanciaOF" placeholder="vigilancia">
             <p class="rlC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" checked >
+                <input class="checks" type="checkbox" >
             </label>
         </div>
     </div>
@@ -1328,25 +1316,25 @@ const
     
     <div class="row">
     <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="centro de costos">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="centrocostosOF" placeholder="centro de costos">
         <p class="ncC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
             
         </p>
         <label class="cliente_active " style="position:relative;">
         <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" checked >
+            <input class="checks " type="checkbox" >
 
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="comercial">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="comercialOF" placeholder="comercial">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
         <label class="cliente_active" style="position:relative;">
                     <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox " checked>
+            <input class="checks" type="checkbox" >
         </label>
     </div>
 </div>
@@ -1359,7 +1347,7 @@ const
 
               </div>
               <div>
-                <div class="adjuntar_ofertas alinear_ofertas"  id="adjuntar"><h6 class="letra-columna">Adjuntar</h6></div>
+                <div class="adjuntar_ofertas alinear_ofertas"  ><input type="file" id="adjuntar"><h6 class="letra-columna">Adjuntar</h6></div>
                 <button id="guardarO" type="button" class="btn btn_guardar_ofertas"> <h6 class="letrabtn">Guardar</h6></button>
               </div>
           </div>

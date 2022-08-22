@@ -354,6 +354,7 @@ const observer = new MutationObserver(() => {
 
         d.getElementById('guardarC').addEventListener('click', e => {
             e.preventDefault();
+            localStorage.setItem('b2','1');
             const { datos, Email, Clave, bClave, bEmail } = getData_();
             const idClient = get_idc();
             console.log(`datos: ${datos.Email}, email: ${Email} Clave: ${Clave}, bClave: ${bClave}, bEmail: ${bEmail}`);
@@ -362,9 +363,9 @@ const observer = new MutationObserver(() => {
                     updateUserClient(bEmail, bClave, Clave, Email).then(
                         
                         updateDataClient(idClient, datos)     
-
+                        
                     ).catch(
-
+                        
                     );
                 // updateUserClient(bEmail, bClave, Clave, Email)
                 // updateDataClient(idClient, datos) 
@@ -372,16 +373,15 @@ const observer = new MutationObserver(() => {
                 console.log('updateDataClient')
 
                 updateDataClient(idClient, datos)
+                
 
             } else if (!datos && (Clave || Email)) {
                 console.log('updateUserClient')
-
                 updateUserClient(bEmail, bClave, Clave, Email).then(
-
+                    
                 ).catch(
-
+                    
                 );
-
             } else {
 
             }
