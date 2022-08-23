@@ -12,19 +12,31 @@ const observerdatos = new MutationObserver(()=>{
         const listcheck = Array.prototype.slice.apply(d.getElementsByClassName('checks'));
         const data = {};
 
+        (() => {
+            const left = d.getElementById('cliente');
+            const cliente = JSON.parse(localStorage.getItem("nclient"));  
+            const idcliente = JSON.parse(localStorage.getItem("nidsClient"));      
+            cliente.forEach((d,i)=> {      
+
+                left.innerHTML += `
+                <h6 class = "left margen-cliente_com" >${idcliente[i]}</h6>`
+            })
+
+        })();
+
         const formNew = () => {
             estado=true;
-            if (b1 == false){
-                location.reload();
-            } else {
-                d.getElementById("guardarO").disabled = false;
-                d.getElementById("adjuntar").disabled = false;
-                d.getElementById("guardarO").removeAttribute('style','display:none');
-                d.getElementById("estilo_adjuntar").removeAttribute('style','display:none');
-                b1 = !b1;    
+
+            d.getElementById("guardarO").disabled = false;
+            d.getElementById("adjuntar").disabled = false;
+            d.getElementById("guardarO").removeAttribute('style','display:none');
+            d.getElementById("estilo_adjuntar").removeAttribute('style','display:none');
+            b1 = false;
+            try {   
                 campos.forEach ((e,i) => {
                     e.removeChild(campos_label[i]);
                 })
+            } catch (e) {                    
             }
         }
 
@@ -56,8 +68,7 @@ const observerdatos = new MutationObserver(()=>{
             const inputs = d.getElementsByClassName('inputsr');
             Array.prototype.slice.apply(inputs).forEach(e => {
                 e.value.length > 0 && (() => data[e.id] = e.value)();
-            })
-            console.log(data);          
+            })          
         }
 
         d.getElementById("guardarO").disabled = true;
@@ -67,23 +78,23 @@ const observerdatos = new MutationObserver(()=>{
         d.getElementById("adjuntar").disabled = true;
         d.getElementById("btnNuevo").addEventListener('click',formNew);
         d.getElementById("btnEdit").addEventListener('click',formEdit);
-        // d.getElementById("guardarO").addEventListener('click',enviar);
         const enviar = d.getElementById("guardarO");
         const inputFile = d.getElementById("adjuntar");
 
         enviar.addEventListener('click', async () => {
             getData();
             const lenghtData = Object.keys(data).length;
-            console.log(lenghtData)
             const sigue = () => {
                 if (inputFile.files[0]){ async () => { 
                     const result = await uploadFile(inputFile.files[0]);
                     const url = await getFileURL(result.ref);
-                    console.log(url);
                     data.file = url;
                 }}
                  
                 estado ? setOffer(data): updateOffer(idOF, data);
+                Array.prototype.slice.apply(d.getElementsByClassName('inputsr')).forEach (e => {
+                    e.value=""
+                })
             }
             if (estado){
                 (lenghtData < 8) ? (() => {
