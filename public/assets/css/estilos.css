@@ -603,6 +603,40 @@ position: relative;
 
 
 }
+#estilo_adjuntar{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    float: left;
+    margin-right: -30px;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    margin-left: 144px;
+    position: relative;
+}
+
+.letra_adjuntar{
+    color: white!important;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 25px;
+
+
+
+}
+.adjuntando{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
 
 @media (max-width: 600px) {
     body,

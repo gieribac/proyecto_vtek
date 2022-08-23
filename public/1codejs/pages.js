@@ -1338,25 +1338,17 @@ const
         </label>
     </div>
 </div>
-
-
-
-
-
-
-
               </div>
               <div>
-                <div class="adjuntar_ofertas alinear_ofertas"  ><input type="file" id="adjuntar"><h6 class="letra-columna">Adjuntar</h6></div>
+                <div id="estilo_adjuntar">
+                <p class="letra_adjuntar">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando" enabled>
+                </div>
                 <button id="guardarO" type="button" class="btn btn_guardar_ofertas"> <h6 class="letrabtn">Guardar</h6></button>
               </div>
           </div>
         </div>
-              
-            
-            
-            
-          </div>
+      </div>
         
         </div>
         
