@@ -243,11 +243,11 @@ const observer = new MutationObserver(()=>{
         d.getElementById('guardarC').addEventListener('click', (e) => {
             e.preventDefault();
             const {datos, Clave} = getData_();
-            console.log("se ha llenado todo correctamente");        
+            localStorage.setItem('b2','1');      
             saveClient(datos, Clave).then(()=>{
                 d.getElementById('formcreateC').reset();
                 d.getElementById('guardarC').disabled = true;
-                d.querySelector('.avisopSave').textContent = "El formulario anterior fue enviado correctamente"
+                
                 Swal.fire(
                     '¡Muy Bien!',
                     '¡La fabrica fue creada con Exito!',
@@ -258,7 +258,7 @@ const observer = new MutationObserver(()=>{
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorMessage);
-                d.querySelector('.avisopSave').textContent = `no enviado; ${errorCode}, ${errorMessage}`
+                
                 Swal.fire({
                     icon: 'error',
                     title: 'Oops...',

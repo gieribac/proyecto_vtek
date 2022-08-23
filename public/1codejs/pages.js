@@ -1001,13 +1001,14 @@ const
             <div class=" input-group input-group_main p-1" style="margin-bottom: -30px;">
               <div class="">
                 <select required="" class="form-select dropdown1 sombra" aria-label="Default select example" id="tipoIDC">
-                  <option selected>Tipo de Identificación</option>
+                  <option selected>Escoja: </option>
                   <option value="TI">Tarjeta de Identidad</option>
                   <option value="CC">Cédula</option>
                   <option value="CE">Cédula de Extranjeria </option>
                 </select>
                 <i class="formulario__validacion-estado fas fa-times-circle"></i>
               </div>
+              <p class="letra_formulario2 tidC formulario__input-error">Elija tipo de documento</p>
 
               </label>
 
@@ -1065,7 +1066,7 @@ const
                     </div>
                     <p class="letra_formulario clavecli formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
                     <label class="cliente_active"   >
-                      <input id="checkRclave" class="checkb" type="checkbox" >
+                      <input id="checkRclave" class="checkb" type="checkbox"  >
                     </label>
                   <div class="inputsdivi  "> 
                       <input required="" type="password" id="rclaveC" class="form-control inputsr sombra imputs_tamano " placeholder="rectificar contraseña " aria-label="usuario ">
@@ -1082,7 +1083,7 @@ const
                 </div>
                 <div id="getBeforeClave">
                     <div class="inputsdivi  ">
-                        <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="claveC" placeholder="Contraseña anterior" aria-label="usuario ">
+                        <input required="" type="password" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
                         <i class="formulario__validacion-estado fas fa-times-circle"></i>
                     </div>
                     <p class="letra_formulario clavecli formulario__input-error">Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
@@ -1192,19 +1193,7 @@ const
 
 </div>
 </div>
-        
-        
-
-
-
-
-
-
-
-
-
-
-            <i class="formulario"></i>
+        <i class="formulario"></i>
         </fieldset>
         <div class="col-lg-9   col-xs-12">
         <div class="avisopSave"></div>
@@ -1256,7 +1245,7 @@ const
             </p>
             <label class="cliente_active " style="position:relative;">
             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" checked >
+                <input class="checks" type="checkbox" >
 
               </label>
         </div>
@@ -1267,32 +1256,32 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" checked >
+                <input class="checks" type="checkbox" >
             </label>
         </div>
     </div>
     
     <div class="row">
     <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="fabrica">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="fabricaOF" placeholder="fabrica">
         <p class="ncC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
             
         </p>
         <label class="cliente_active " style="position:relative;">
         <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" checked >
+            <input class="checks " type="checkbox" >
 
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="Vigencia">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="Vigencia">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
         <label class="cliente_active" style="position:relative;">
                     <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox" checked >
+            <input class="checks" type="checkbox" >
         </label>
     </div>
 </div>
@@ -1300,25 +1289,25 @@ const
 
         <div class="row">
         <div class="col icheked">
-            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="esquema">
+            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema">
             <p class="ncC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
                 
             </p>
             <label class="cliente_active " style="position:relative;">
             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks " type="checkbox" checked >
+                <input class="checks " type="checkbox" >
 
               </label>
         </div>
         <div class="col icheked">
-            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="vigilancia">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigilanciaOF" placeholder="vigilancia">
             <p class="rlC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" checked >
+                <input class="checks" type="checkbox" >
             </label>
         </div>
     </div>
@@ -1327,25 +1316,25 @@ const
     
     <div class="row">
     <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC" placeholder="centro de costos">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="centrocostosOF" placeholder="centro de costos">
         <p class="ncC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
             
         </p>
         <label class="cliente_active " style="position:relative;">
         <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" checked >
+            <input class="checks " type="checkbox" >
 
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="repLegalC" placeholder="comercial">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="comercialOF" placeholder="comercial">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
         <label class="cliente_active" style="position:relative;">
                     <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox " checked>
+            <input class="checks" type="checkbox" >
         </label>
     </div>
 </div>
@@ -1358,7 +1347,12 @@ const
 
               </div>
               <div>
-                <div class="adjuntar_ofertas alinear_ofertas"  id="adjuntar"><h6 class="letra-columna">Adjuntar</h6></div>
+
+
+                <div id="estilo_adjuntar">
+                <p class="letra_adjuntar">Adjuntar</p>
+                <input type="file" id="adjuntar " class= "adjuntando" enabled>
+                </div>
                 <button id="guardarO" type="button" class="btn btn_guardar_ofertas"> <h6 class="letrabtn">Guardar</h6></button>
               </div>
           </div>

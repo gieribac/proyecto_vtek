@@ -1,4 +1,4 @@
-import {onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
+import {onAuthStateChanged, getAuth} from "https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js";
 import {page} from "./router.js";
 import {auth} from './firebase.js';
 import {loguearse}  from "./index.js";
@@ -46,8 +46,13 @@ onAuthStateChanged(auth, (user) => {
         const uid = user.uid;
         // ...
     } else {
-        window.history.pushState({}, document.title, window.location.pathname); 
-                document.getElementById('root').innerHTML = index;
+        const b2 = localStorage.getItem('b2');
+        if (b2 == undefined) {
+            window.history.pushState({}, document.title, window.location.pathname); 
+                // document.getElementById('root').innerHTML = index;
                 loguearse();
-    }
-    });
+        } else {
+            localStorage.removeItem('b2');    
+        }
+    }        
+});
