@@ -67,7 +67,7 @@ const observerdatos = new MutationObserver(()=>{
         enviar.addEventListener('click', async () => {
             if (inputFile.files[0]){
                 const result = await uploadFile(inputFile.files[0]);
-                const url = await getImageURL(result.ref);
+                const url = await getFileURL(result.ref);
                 console.log(url);
                 data.file = url;
             }
