@@ -13,10 +13,9 @@ const observerdatos = new MutationObserver(()=>{
         let ultimoDoc = null;
         let primerDoc = null;
 
-        querySnapComCli().then((d) => {
+        querySnapComCli().then(d => {
 
             let registers = cargarDocs(d.docs);
-            console.log(d.docs)
             ultimoDoc = registers.ultimo;
             primerDoc = registers.primer;
 
@@ -33,7 +32,7 @@ const observerdatos = new MutationObserver(()=>{
 
             btnAnterior.addEventListener('click',() => {
                 
-                    queryNextntComCli(primerDoc).then((d) => {
+                    queryNextntComCli(primerDoc).then(d => {
                 
                     registers = cargarDocs(d.docs.reverse());
                     ultimoDoc = registers.ultimo;

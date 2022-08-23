@@ -69,7 +69,25 @@ export const setFabrica = async(datos) => {
     }
 } 
 ////</comercial_createfactorie>////
+////<comercial_createoffer>////
+export const setOffer = async(datos) => {
+    try{
+        await addDoc(collection(db, "ofertas"), datos).then().catch(e=>{throw e});
+        return 'enviado'
+    } catch (e){
+        throw e;
+    }
+} 
 
+export const updateOffer = async (idOf, datos) => {
+    try {
+        await updateDoc(doc(db, "ofertas", idOf), datos);
+        return "doc updated";
+    } catch (e){
+        throw e;
+    }
+}
+////</comercial_createoffer>////
 ////<comercial_createcliente>////
 export const saveClient = async(datos, Clave)=> {
     try {
@@ -222,7 +240,7 @@ export const    querySnapComCli = async() => {
 ////</comercial_infoclients>////
 
 ////<comercial_createoffer>////
-export const setOferta = async(datos)=> {
+export const getOfertas = async(datos)=> {
     try {
         const docRef = doc(db, "ofertas","Oferta");
         const ds = await getDoc(docRef)
@@ -251,7 +269,7 @@ export const queryOferta = async(ref) => {
 // const uidcom = localStorage.getItem("u");
 export const querySnapComOfs = async() => {
     try {
-        const first = query(collection(db, "ofertas"), orderBy("Oferta","asc"), limit(3));
+        const first = query(collection(db, "ofertas"), orderBy("ClienteOF","asc"), limit(3));
         const documentSnapshots = await getDocs(first);
         
         console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -267,7 +285,7 @@ export const querySnapComOfs = async() => {
     export const queryNextComOfs= async(lastVisible) => {
     
         const next = query(collection(db, "ofertas"), 
-                orderBy("Oferta","asc"),
+                orderBy("ClienteOF","asc"),
                 startAfter(lastVisible),
                 limit(3));
         const docs_ = await getDocs(next);
@@ -279,7 +297,7 @@ export const querySnapComOfs = async() => {
     export const queryNextntComOfs = async(lastVisible) => {
     
         const next = query(collection(db, "ofertas"), 
-                orderBy("Oferta","desc"),
+                orderBy("ClienteOF","desc"),
                 startAfter(lastVisible),
                 limit(3));
         const docs_ = await getDocs(next);

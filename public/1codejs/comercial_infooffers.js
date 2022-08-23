@@ -59,9 +59,6 @@ const observerdatos = new MutationObserver(()=>{
             const ultimo = ds[ds.length-1];
             const primer = ds[0];
 
-            const mapOf = ds.data().map(reg => reg.Oferta);
-            localStorage.setItem("of",mapOf);
-
             oferta.innerHTML = ``;
             cliente.innerHTML = ``;
             producto.innerHTML = ``;

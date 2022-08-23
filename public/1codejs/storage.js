@@ -4,7 +4,7 @@ export const uploadFile = async (file) => {
     try{
         const storageRef = ref(storage, file.name);
         return await uploadBytes(storageRef, file);
-    // }catch (e){console.log(e.code)
+    }catch (e){console.log(e.code)
 
     }
 }
