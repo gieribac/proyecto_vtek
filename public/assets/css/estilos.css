@@ -284,6 +284,9 @@ body {
 .margenr {
     margin-right: 41px;
 }
+.margen_recuadro_ofer{
+    margin-right: 197px;
+}
 
 .margenr1 {
     margin-right: 33px;
@@ -430,6 +433,11 @@ main {
     height: 312px;
     width: 136px;
 }
+.temano_recuadro_offer {
+    height: 312px;
+    width: 194px;
+}
+
 
 .infocliente_oferta_admin {
     margin-left: 20px;
@@ -638,6 +646,21 @@ position: relative;
     height: 100%;
     opacity: 0;
     cursor: pointer;
+
+}
+.letra_recuadro_info{
+    max-width: 162px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.letra_recuadro_info2{
+    cursor: pointer;
+    max-width: 112px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
 
 }
 

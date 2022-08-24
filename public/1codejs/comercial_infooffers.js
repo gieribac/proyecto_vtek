@@ -69,11 +69,12 @@ const observerdatos = new MutationObserver(()=>{
             let list_id = [];
 
                 ds.forEach(d => {
+                    
                     list_id.push(d.id);
                     listC.push(d.data());  
                     
                     oferta.innerHTML += `
-                    <h6><b>${d.id}</b></h6>
+                    <h6 class = "letra_recuadro_info2">${d.id}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>
@@ -103,7 +104,7 @@ const observerdatos = new MutationObserver(()=>{
             }
         }
         const listeners = () => {
-            const vinculos = document.querySelectorAll('h6 > b');
+            const vinculos = document.querySelectorAll('.letra_recuadro_info2');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 localStorage.setItem("clientSelect",element.textContent);

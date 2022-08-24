@@ -73,7 +73,7 @@ export const setFabrica = async(datos) => {
 export const setOffer = async(datos) => {
     try{
         await addDoc(collection(db, "ofertas"), datos).then().catch(e=>{throw e});
-        return 'enviado'
+        return 'oferta enviada correctamente'
     } catch (e){
         throw e;
     }
@@ -82,7 +82,7 @@ export const setOffer = async(datos) => {
 export const updateOffer = async (idOf, datos) => {
     try {
         await updateDoc(doc(db, "ofertas", idOf), datos);
-        return "doc updated";
+        return "oferta actualizada correctamente";
     } catch (e){
         throw e;
     }
