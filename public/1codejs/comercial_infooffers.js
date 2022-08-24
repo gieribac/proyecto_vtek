@@ -59,9 +59,6 @@ const observerdatos = new MutationObserver(()=>{
             const ultimo = ds[ds.length-1];
             const primer = ds[0];
 
-            const mapOf = ds.data().map(reg => reg.Oferta);
-            localStorage.setItem("of",mapOf);
-
             oferta.innerHTML = ``;
             cliente.innerHTML = ``;
             producto.innerHTML = ``;
@@ -76,10 +73,10 @@ const observerdatos = new MutationObserver(()=>{
                     listC.push(d.data());  
                     
                     oferta.innerHTML += `
-                    <h6><b>${d.data().Oferta}</b></h6>
+                    <h6><b>${d.id}</b></h6>
                     `;
                     cliente.innerHTML += `
-                    <h6 >${d.data().Cliente}</h6>
+                    <h6 >${d.data().ClienteOF}</h6>
                     `;
                     producto.innerHTML += `
                     <h6 >${d.data().Producto}</h6>

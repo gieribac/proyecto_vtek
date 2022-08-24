@@ -642,20 +642,20 @@ const
           <button type="button" class="btn btn_degrade btn_pasar " style="margin-top: 94px;" id="botonAnterior"><i class="icono-izquierda fas fa-chevron-left"></i></button>
           <button type="button" class="btn btn_degrade btn_pasar" style="margin-top: 150px;" id="botonSiguiente"><i class="icono-derecha fas fa-chevron-right"></i></button>
           </div>
-          <div class="recuadro margenr1 margenofertas sombra  temano_recuadro" style="margin-left: 104px;" id="cliente">
-            <div class="p-3" id="oferta"></div>
+          <div class="recuadro margenr1 margenofertas sombra  temano_recuadro" style="margin-left: 104px;" id="oferta">
+            <div class="p-3" ></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="legal">
-            <div class="p-3" id="cliente"></div>
+          <div class="recuadro margenr sombra temano_recuadro" id="cliente">
+            <div class="p-3"></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="nit">
-            <div class="p-3" id="producto"></div>
+          <div class="recuadro margenr sombra temano_recuadro" id="producto">
+            <div class="p-3" ></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="ncontacto">
-            <div class="p-3" id="estado"></div>
+          <div class="recuadro margenr sombra temano_recuadro" id="estado">
+            <div class="p-3""></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="ncontacto">
-              <div class="p-3 recuadro_formalizar" id="formalizar" >
+          <div class="recuadro margenr sombra temano_recuadro" id="formalizar">
+              <div class="p-3 recuadro_formalizar">
             </div>
       </div>
       </div>
@@ -679,7 +679,7 @@ const
          <div class="i-azul1 centrarF"> 
           
          
-          <div class="recuadro margenr1 sombra temano_recuadro p-3" id="cliente">
+          <div class="recuadro margenr1 sombra temano_recuadro_offer letra_recuadro_info " id="cliente">
           </div>
           <div class="recuadro margenr sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
             <div style="margin-top: 35px; margin-left: 20px;">
@@ -1200,174 +1200,170 @@ const
         <button type="submit" class="btn btnguardar btnsave2 " id="guardarCF"> <h6 class="letrabtng ">Guardar</h6></button></div>
       </form>
     </div>`,
-    comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-    
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
-          <div class="infopagina">
-            <div class="check-color-p"></div>
-            <h4 class="letrainfo">Ofertas</h4>
-            
-          </div>
-      </div>
-      <div class="col-lg-9 ">
-          <h6 class="info_de_oferta p-3">Información Oferta</h6>
+comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
+<div id="menu"></div>
 
-          <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button>
-          <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Nuevo</h6></button>
-
-
-          
-      </div>
-      <div class="col-lg-9 ">
-         <div class="i-azul centrarF"> 
-          
-         
-          <div class="recuadro margenr1 sombra temano_recuadro" id="cliente">
-            <div><h6 class="infocliente_oferta_admin">Nueva</h6></div>
-              <div  class="infocliente_oferta_admin">
-            <div ><a href=""> <h6> oferta #1</h6></a></div>
-            <div ><a href=""> <h6> oferta #1</h6></a></div>
-            <div ><a href=""> <h6> oferta #1</h6></a></div>
-            
-          </div>
-          </div>
-          <div class="recuadro margenr sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
-              <div style="margin-left: 60px; margin-top: 20px;">
-              <div id="inputs">
-
-        <div class="row">
-        <div class="col icheked">
-            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ClienteOF" placeholder="Cliente">
-            <p class="ncC formulario__input-error letra_formulario" >
-                Letras, tildes y espacios
-                
-            </p>
-            <label class="cliente_active " style="position:relative;">
-            <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" >
-
-              </label>
-        </div>
-        <div class="col icheked">
-            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Usuario">
-            <p class="rlC formulario__input-error letra_formulario" >
-                Letras, tildes y espacios
-            </p>
-            <label class="cliente_active" style="position:relative;">
-                        <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" >
-            </label>
-        </div>
-    </div>
-    
-    <div class="row">
-    <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="fabricaOF" placeholder="fabrica">
-        <p class="ncC formulario__input-error letra_formulario" >
-            Letras, tildes y espacios
-            
-        </p>
-        <label class="cliente_active " style="position:relative;">
-        <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" >
-
-          </label>
-    </div>
-    <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="Vigencia">
-        <p class="rlC formulario__input-error letra_formulario" >
-            Letras, tildes y espacios
-        </p>
-        <label class="cliente_active" style="position:relative;">
-                    <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox" >
-        </label>
-    </div>
-</div>
-
-
-        <div class="row">
-        <div class="col icheked">
-            <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema">
-            <p class="ncC formulario__input-error letra_formulario" >
-                Letras, tildes y espacios
-                
-            </p>
-            <label class="cliente_active " style="position:relative;">
-            <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks " type="checkbox" >
-
-              </label>
-        </div>
-        <div class="col icheked">
-            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigilanciaOF" placeholder="vigilancia">
-            <p class="rlC formulario__input-error letra_formulario" >
-                Letras, tildes y espacios
-            </p>
-            <label class="cliente_active" style="position:relative;">
-                        <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checks" type="checkbox" >
-            </label>
-        </div>
-    </div>
-
-
-    
-    <div class="row">
-    <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="centrocostosOF" placeholder="centro de costos">
-        <p class="ncC formulario__input-error letra_formulario" >
-            Letras, tildes y espacios
-            
-        </p>
-        <label class="cliente_active " style="position:relative;">
-        <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" >
-
-          </label>
-    </div>
-    <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="comercialOF" placeholder="comercial">
-        <p class="rlC formulario__input-error letra_formulario" >
-            Letras, tildes y espacios
-        </p>
-        <label class="cliente_active" style="position:relative;">
-                    <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox" >
-        </label>
-    </div>
-</div>
-
-
-
-
-
-
-
-              </div>
-              <div>
-
-
-                <div id="estilo_adjuntar">
-                <p class="letra_adjuntar">Adjuntar</p>
-                <input type="file" id="adjuntar " class= "adjuntando" enabled>
-                </div>
-                <button id="guardarO" type="button" class="btn btn_guardar_ofertas"> <h6 class="letrabtn">Guardar</h6></button>
-              </div>
-          </div>
-        </div>
-              
-            
-            
-            
-          </div>
-        
-        </div>
+  <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <div class="infopagina">
+        <div class="check-color-p"></div>
+        <h4 class="letrainfo">Ofertas</h4>
         
       </div>
+  </div>
+  <div class="col-lg-9 ">
+      <h6 class="info_de_oferta p-3">Información Oferta</h6>
+
+      <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button>
+      <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Nuevo</h6></button>
+
+
       
-      </div>`,
+  </div>
+  <div class="col-lg-9 ">
+     <div class="i-azul1 centrarF"> 
+      
+     
+      <div class="recuadro margenr1 sombra temano_recuadro_offer p-3" id="cliente">
+          <div  class="infocliente_oferta_admin">
+        
+      </div>
+      </div>
+      <div class="recuadro  sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
+          <div style="margin-left: 30px; margin-top: 20px;">
+          <div id="inputs">
+
+    <div class="row">
+    <div class="col icheked">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ClienteOF" placeholder="Cliente">
+        <p class="ncC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+            
+        </p>
+        <label class="cliente_active " style="position:relative;">
+        <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks" type="checkbox" >
+
+          </label>
+    </div>
+    <div class="col icheked">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Usuario">
+        <p class="rlC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </p>
+        <label class="cliente_active" style="position:relative;">
+                    <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks" type="checkbox" >
+        </label>
+    </div>
+</div>
+
+<div class="row">
+<div class="col icheked">
+    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="fabricaOF" placeholder="fabrica">
+    <p class="ncC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+        
+    </p>
+    <label class="cliente_active " style="position:relative;">
+    <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks " type="checkbox" >
+
+      </label>
+</div>
+<div class="col icheked">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="Vigencia">
+    <p class="rlC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </p>
+    <label class="cliente_active" style="position:relative;">
+                <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks" type="checkbox" >
+    </label>
+</div>
+</div>
+
+
+    <div class="row">
+    <div class="col icheked">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema">
+        <p class="ncC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+            
+        </p>
+        <label class="cliente_active " style="position:relative;">
+        <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks " type="checkbox" >
+
+          </label>
+    </div>
+    <div class="col icheked">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigilanciaOF" placeholder="vigilancia">
+        <p class="rlC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </p>
+        <label class="cliente_active" style="position:relative;">
+                    <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks" type="checkbox" >
+        </label>
+    </div>
+</div>
+
+
+
+<div class="row">
+<div class="col icheked">
+    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="centrocostosOF" placeholder="centro de costos">
+    <p class="ncC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+        
+    </p>
+    <label class="cliente_active " style="position:relative;">
+    <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks " type="checkbox" >
+
+      </label>
+</div>
+<div class="col icheked">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="comercialOF" placeholder="comercial">
+    <p class="rlC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </p>
+    <label class="cliente_active" style="position:relative;">
+                <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks" type="checkbox" >
+    </label>
+</div>
+</div>
+
+
+
+
+
+
+
+          </div>
+          <div>
+
+
+            <div id="estilo_adjuntar">
+            <p class="letra_adjuntar">Adjuntar</p>
+            <input type="file" id="adjuntar " class= "adjuntando" enabled>
+            </div>
+            <button id="guardarO" type="button" class="btn btn_guardar_ofertas"> <h6 class="letrabtn">Guardar</h6></button>
+          </div>
+      </div>
+    </div>
+          
+        
+        
+        
+      </div>
+    
+    </div>
+    
+  </div>
+  
+  </div>`,
     dtecnico_planeval = `<div>dtecnico_planeval</div>`,
     dtecnico_infoclient = ` <div>
     <div>
@@ -1457,9 +1453,6 @@ const
             <h4 class="letrainfo">ofertas</h4>
             </div>
         </div>
-
-
-        
         <div class="col-lg-9 ">
           <div> </div>
           <div class="columnas-clasi4 alinear_ofertas"><h6 class="letra-columna">oferta</h6></div>
