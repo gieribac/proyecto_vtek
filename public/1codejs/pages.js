@@ -642,19 +642,19 @@ const
           <button type="button" class="btn btn_degrade btn_pasar " style="margin-top: 94px;" id="botonAnterior"><i class="icono-izquierda fas fa-chevron-left"></i></button>
           <button type="button" class="btn btn_degrade btn_pasar" style="margin-top: 150px;" id="botonSiguiente"><i class="icono-derecha fas fa-chevron-right"></i></button>
           </div>
-          <div class="recuadro margenr1 margenofertas sombra  temano_recuadro" style="margin-left: 104px;" id="oferta">
+          <div class="p-3 recuadro margenr1 margenofertas sombra  temano_recuadro" style="margin-left: 104px;" id="oferta">
             <div class="p-3" ></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="cliente">
+          <div class=" p-3 recuadro margenr sombra temano_recuadro" id="cliente">
             <div class="p-3"></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="producto">
+          <div class=" p-3 recuadro margenr sombra temano_recuadro" id="producto">
             <div class="p-3" ></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="estado">
+          <div class=" p-3 recuadro margenr sombra temano_recuadro" id="estado">
             <div class="p-3""></div>
           </div>
-          <div class="recuadro margenr sombra temano_recuadro" id="formalizar">
+          <div class=" p-3 recuadro margenr sombra temano_recuadro" id="formalizar">
               <div class="p-3 recuadro_formalizar">
             </div>
       </div>

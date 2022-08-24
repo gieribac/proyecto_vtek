@@ -73,7 +73,7 @@ const observerdatos = new MutationObserver(()=>{
                     listC.push(d.data());  
                     
                     oferta.innerHTML += `
-                    <h6><b>${d.id}</b></h6>
+                    <h6 class = "letra_recuadro_info2">${d.id}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>

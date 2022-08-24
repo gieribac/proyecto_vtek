@@ -627,6 +627,15 @@ position: relative;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.letra_recuadro_info2{
+    cursor: pointer;
+    max-width: 112px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+
+}
 
 
 @media (max-width: 600px) {
