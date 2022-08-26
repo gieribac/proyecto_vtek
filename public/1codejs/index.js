@@ -12,6 +12,8 @@ import '../node_modules/sweetalert2/dist/sweetalert2.js'
 import './comercial_createoffer.js';
 import './comercial_infooffers.js';
 import './comercial_createfactorie.js';
+import './tcoordinador_infooffers.js';
+import './tcoordinador_createasignacion.js';
 
 const setLC = (co, cl, u, rol) => {
     localStorage.setItem("em", co);

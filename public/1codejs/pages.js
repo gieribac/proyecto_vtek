@@ -1593,24 +1593,24 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
         <div class="div_recuadros_asignacion"> 
           <div class="columnas-asignacion alinear_ofertas"><h6 class="letra-columna2">Experto asignado</h6></div>
           <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Pre evaluador</h6></div>
-          <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Observador</h6></div>  
+          <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Oferta</h6></div>  
           
         </div>
         <div class="div_recuadros_asignacion ">
-          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="calificacionC">
+          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="experto_asignado_">
             <option selected>puntaje</option>
             <option value="1"></option>
             <option value="2"></option>
             <option value="3"></option>
           </select>
-          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="calificacionC">
+          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="preevaluador_">
             <option selected>puntaje</option>
             <option value="1"></option>
             <option value="2"></option>
             <option value="3"></option>
           </select>
-          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="calificacionC">
-            <option selected>puntaje</option>
+          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="oferta_">
+            <option selected>oferta</option>
             <option value="1"></option>
             <option value="2"></option>
             <option value="3"></option>
