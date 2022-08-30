@@ -73,7 +73,7 @@ export const setFabrica = async(datos) => {
 export const setOffer = async(datos) => {
     try{
         await addDoc(collection(db, "ofertas"), datos).then().catch(e=>{throw e});
-        return 'enviado'
+        return 'oferta enviada correctamente'
     } catch (e){
         throw e;
     }
@@ -82,7 +82,7 @@ export const setOffer = async(datos) => {
 export const updateOffer = async (idOf, datos) => {
     try {
         await updateDoc(doc(db, "ofertas", idOf), datos);
-        return "doc updated";
+        return "oferta actualizada correctamente";
     } catch (e){
         throw e;
     }
@@ -196,7 +196,7 @@ export const queryNextnt = async(lastVisible) => {
 
 //<comercial_infoclients>//
 const uidcom = localStorage.getItem("u");
-export const    querySnapComCli = async() => {
+export const querySnapComCli = async() => {
     try {
         const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
         const documentSnapshots = await getDocs(first);
@@ -266,7 +266,6 @@ export const queryOferta = async(ref) => {
 ////</comercial_createoffer////
 
 ////<comercial_infooffers>////
-// const uidcom = localStorage.getItem("u");
 export const querySnapComOfs = async() => {
     try {
         const first = query(collection(db, "ofertas"), orderBy("ClienteOF","asc"), limit(3));
@@ -375,7 +374,51 @@ export const updateDataClient = (idClient, datos) => {
     }
 }
 
-////</comercial_editcliente>////
+////</tcoordinador_createasignacion>////
+
+    export const querySnapTcAsignExpert = async() => {
+        try {
+            const first = query(collection(db, "users"), where("Cargo", "==", "experto"), orderBy("NoIdentificacion","asc")/*, limit(3)*/);
+            const documentSnapshots = await getDocs(first);
+            
+            // console.log(`documentsSnapCom: ${documentSnapshots}`)
+            // console.dir(documentSnapshots);
+            // console.info(documentSnapshots);
+            return documentSnapshots
+        
+        
+            } catch (e){
+                throw e.message
+        
+            }
+        }
+
+    
+    export const queryNextTcAsignExpert= async(lastVisible) => {
+    
+        const next = query(collection(db, "ofertas"), 
+                orderBy("ClienteOF","asc"),
+                startAfter(lastVisible),
+                limit(3));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+    
+    export const queryNextntTcAsignExpert = async(lastVisible) => {
+    
+        const next = query(collection(db, "ofertas"), 
+                orderBy("ClienteOF","desc"),
+                startAfter(lastVisible),
+                limit(3));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+//</tcoorditcoordinador_createasignacion>//
+
 
 export const readUser = async () => {
     const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));

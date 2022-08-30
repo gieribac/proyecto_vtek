@@ -1,27 +1,63 @@
 import {setOffer, updateOffer} from "./models/post.js";
 import {uploadFile, getFileURL} from "./storage.js";
+import {comercial_createoffer} from "./pages.js";
 
 const observerdatos = new MutationObserver(()=>{ 
     
     const charge = () => {  
         const d=document;
-        let estado = true;  
-        let b1 = true;
-        let campos_label = document.querySelectorAll('label'); 
-        const campos = Array.prototype.slice.apply(d.getElementsByClassName('col')); 
-        const listcheck = Array.prototype.slice.apply(d.getElementsByClassName('checks'));
-        const data = {};
+        let clienteActual,
+        estado = true,  
+        b1 = true,
+        campos_label = d.querySelectorAll('label'); 
+        const campos = Array.prototype.slice.apply(d.getElementsByClassName('col')),
+        listcheck = Array.prototype.slice.apply(d.getElementsByClassName('checks')),
+        inputs = d.getElementsByClassName('inputsr'),
+        enviar = d.getElementById("guardarO"),
+        inputFile = d.getElementById("adjuntar"),
+        data = {};
+
+        const recargar = () => {
+            d.getElementById("root").innerHTML = comercial_createoffer;
+        }
 
         (() => {
-            const left = d.getElementById('cliente');
-            const cliente = JSON.parse(localStorage.getItem("nclient"));  
-            const idcliente = JSON.parse(localStorage.getItem("nidsClient"));      
-            cliente.forEach((d,i)=> {      
-
+            const left = d.getElementById('cliente'),
+            cliente = JSON.parse(localStorage.getItem("nclient")), 
+            idcliente = JSON.parse(localStorage.getItem("nidsClient"));      
+            cliente.forEach((d,i)=> {  
                 left.innerHTML += `
-                <h6 class = "p-2 left margen-cliente_com letra_recuadro_info" style = "font-size: 15px;" >${idcliente[i]}</h6>`
+                <h6 class = "p-2 left margen-cliente_com letra_recuadro_info" >${idcliente[i]}</h6>`
             })
 
+            const mostrarCliente = (clienteActual) => {              
+                const cA = cliente[idcliente.indexOf(clienteActual)];
+
+                inputs[0].placeholder = `Cliente: ${cA.ClienteOF}`;
+                inputs[1].placeholder = `Usuario: ${cA.usuarioOF}`;
+                inputs[2].placeholder = `Fabrica: ${cA.fabricaOF}`;
+                inputs[3].placeholder = `Vigencia: ${cA.vigenciaOF}`;
+                inputs[4].placeholder = `Esquema: ${cA.esquemaOF}`;
+                inputs[5].placeholder = `Vigilancia: ${cA.vigilanciaOF}`;
+                inputs[6].placeholder = `C. de Costos: ${cA.centrocostosOF}`;
+                inputs[7].placeholder = `Comercial: ${cA.comercialOF}`;         
+            }
+        
+            const vinculos = Array.prototype.slice.apply(d.querySelectorAll('.left'));
+            
+            vinculos.forEach(element => {
+                element.addEventListener('click',()=>{
+                    vinculos.forEach(s => s.removeAttribute('style','font-weight: bold'));  
+                    element.setAttribute('style','font-weight: bold');  
+                    clienteActual= idcliente.find(e => e==element.textContent);
+                    mostrarCliente(clienteActual);                             
+                })
+            })
+            
+            clienteActual = localStorage.getItem("clientSelect");
+            mostrarCliente(clienteActual);     
+            const selected = vinculos.find(e => e.textContent == clienteActual)
+            selected.setAttribute('style','font-weight: bold'); 
         })();
 
         const formNew = () => {
@@ -43,7 +79,7 @@ const observerdatos = new MutationObserver(()=>{
         const formEdit = () => {
             estado = false;
             if (b1 == false){
-                location.reload();
+                recargar();
             } else { 
                 const mapcheck = listcheck.map(e => e.checked)               
                 const continuar = () => {
@@ -65,21 +101,19 @@ const observerdatos = new MutationObserver(()=>{
         } 
 
         const getData = () => {             
-            const inputs = d.getElementsByClassName('inputsr');
             Array.prototype.slice.apply(inputs).forEach(e => {
                 e.value.length > 0 && (() => data[e.id] = e.value)();
             })          
         }
 
-        d.getElementById("guardarO").disabled = true;
         d.getElementById("adjuntar").disabled = true;
-        d.getElementById("guardarO").setAttribute('style','display:none');
         d.getElementById("estilo_adjuntar").setAttribute('style','display:none');
         d.getElementById("adjuntar").disabled = true;
         d.getElementById("btnNuevo").addEventListener('click',formNew);
         d.getElementById("btnEdit").addEventListener('click',formEdit);
-        const enviar = d.getElementById("guardarO");
-        const inputFile = d.getElementById("adjuntar");
+        
+        enviar.disabled = true;
+        enviar.setAttribute('style','display:none');        
 
         enviar.addEventListener('click', async () => {
             getData();
@@ -90,18 +124,35 @@ const observerdatos = new MutationObserver(()=>{
                     const url = await getFileURL(result.ref);
                     data.file = url;
                 }}
-                 
-                estado ? setOffer(data): updateOffer(idOF, data);
+                const idclientSelect = localStorage.getItem("clientSelect");
+                
                 Array.prototype.slice.apply(d.getElementsByClassName('inputsr')).forEach (e => {
                     e.value=""
                 })
+                if (estado){
+                    setOffer(data).then(m => 
+                        alert(m)
+                    ).catch(e => 
+                        alert(`Error: ${e.message}`)
+                    );
+                } else {
+                    updateOffer(clienteActual, data).then(
+                        recargar()                        
+                    ).then(m => 
+                        alert(m)
+                    ).catch(
+                        recargar()                        
+                    ).catch(e => 
+                        alert(`Error: ${e.message}`)
+                    );
+                }
             }
             if (estado){
                 (lenghtData < 8) ? (() => {
                     alert('Debe llenar todos los acampos');                            
                 })() : sigue();
             } else {
-                (lenghtData < 2) ? (() => {
+                (lenghtData < 1) ? (() => {
                     alert('Debe editar al menos un campo');                            
                 })() : sigue();                
             }

@@ -3,21 +3,16 @@ const observerdatos = new MutationObserver(()=>{
    
     
     const charge = () => {
-        console.log('infoofers');
-        const oferta = document.getElementById('oferta');
-        const cliente = document.getElementById('cliente');
-        const producto = document.getElementById('producto');
-        const estado = document.getElementById('estado');
-        const formalizar = document.getElementById('formalizar');
-
-        const btnSiguiente = document.getElementById('botonSiguiente');
-        const btnAnterior = document.getElementById('botonAnterior');
-
-        document.getElementById('btnNuevo').addEventListener('click',()=>{      
-            localStorage.setItem('b1','1');      
-            location.hash='#/comercial/createoffer';;
-        });
-
+        console.log('tcoordinador_infoofers');
+        const d = document;
+        d.getElementById('btnNuevo').remove();
+        const oferta = d.getElementById('oferta'),
+        cliente = d.getElementById('cliente'),
+        producto = d.getElementById('producto'),
+        estado = d.getElementById('estado'),
+        formalizar = d.getElementById('formalizar'),
+        btnSiguiente = d.getElementById('botonSiguiente'),
+        btnAnterior = d.getElementById('botonAnterior');
 
         let ultimoDoc = null;
         let primerDoc = null;
@@ -65,13 +60,11 @@ const observerdatos = new MutationObserver(()=>{
             estado.innerHTML = ``;
             formalizar.innerHTML = ``;
 
-            let listC = [];
             let list_id = [];
 
                 ds.forEach(d => {
                     
                     list_id.push(d.id);
-                    listC.push(d.data());  
                     
                     oferta.innerHTML += `
                     <h6 class = "letra_recuadro_info2">${d.id}</h6>
@@ -98,23 +91,22 @@ const observerdatos = new MutationObserver(()=>{
 
                 });
             localStorage.setItem("nidsClient",JSON.stringify(list_id));
-            localStorage.setItem("nclient", JSON.stringify(listC));
             listeners();
             return {primer,ultimo}
             }
         }
         const listeners = () => {
-            const vinculos = document.querySelectorAll('.letra_recuadro_info2');
+            const vinculos = d.querySelectorAll('.letra_recuadro_info2');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 localStorage.setItem("clientSelect",element.textContent);
-                location.hash='#/comercial/createoffer';
+                location.hash='#/tcoordinador/createasignacion';
             })
         })
         }        
     }
 
-    location.hash == '#/comercial/infooffers' && charge();
+    location.hash == '#/tcoordinador/infooffers' && charge();
 })
 const parent = document.getElementById('root');
 observerdatos.observe(parent,{childList:true})

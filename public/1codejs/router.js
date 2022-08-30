@@ -95,6 +95,7 @@ export const page = (h) => {
     else if (h=='#/scliente/usuariocliente'){inner('scliente',scliente_usuariocliente)}
     else if (h=='#/scliente/infoclientes'){inner('scliente',scliente_infoclientes)}
     else if (h=='#/tcoordinador'){inner('tcoordinador',tcoordinador_default)}
+    else if (h=='#/tcoordinador/infooffers'){inner('tcoordinador',comercial_infooffers)}//
     else if (h=='#/tcoordinador/createasignacion'){inner('tcoordinador',tcoordinador_createasignacion)}
     else if (h=='#/tcoordinador/asignacion'){inner('tcoordinador',tcoordinador_asignacion)}
     else if (h==''){() => window.location = ''}
