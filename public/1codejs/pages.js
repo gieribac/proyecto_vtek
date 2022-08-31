@@ -1776,7 +1776,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
        
 
       </div>
-      <button id="login" type="button" class="btn btn_asignar"> <h6 class="letra_btn_asignar">asignar evaluador </h6></button>
+      <button id="asignar" type="button" class="btn btn_asignar"> <h6 class="letra_btn_asignar">asignar evaluador </h6></button>
       </div>
       
       </div>`,
