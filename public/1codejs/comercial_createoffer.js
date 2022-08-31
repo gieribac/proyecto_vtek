@@ -62,6 +62,14 @@ const observerdatos = new MutationObserver(()=>{
 
         const formNew = () => {
             estado=true;
+            inputs[0].placeholder = `Cliente`;
+            inputs[1].placeholder = `Usuario`;
+            inputs[2].placeholder = `Fabrica`;
+            inputs[3].placeholder = `Vigencia`;
+            inputs[4].placeholder = `Esquema`;
+            inputs[5].placeholder = `Vigilancia`;
+            inputs[6].placeholder = `C. de Costos`;
+            inputs[7].placeholder = `Comercial`;  
 
             d.getElementById("guardarO").disabled = false;
             d.getElementById("adjuntar").disabled = false;
@@ -118,12 +126,15 @@ const observerdatos = new MutationObserver(()=>{
         enviar.addEventListener('click', async () => {
             getData();
             const lenghtData = Object.keys(data).length;
-            const sigue = () => {
-                if (inputFile.files[0]){ async () => { 
+            if (inputFile.files[0]){
+                console.log("inputfile")
                     const result = await uploadFile(inputFile.files[0]);
                     const url = await getFileURL(result.ref);
                     data.file = url;
-                }}
+                }
+            
+            const sigue = async () => {
+                
                 const idclientSelect = localStorage.getItem("clientSelect");
                 
                 Array.prototype.slice.apply(d.getElementsByClassName('inputsr')).forEach (e => {
