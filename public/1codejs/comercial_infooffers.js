@@ -92,7 +92,7 @@ const observerdatos = new MutationObserver(()=>{
                         `;
                     } else {
                         formalizar.innerHTML += `
-                        <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >${d.data().Formalizar}</h6> </div>
+                        <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >${d.data().Formalizar}</h6>  </div>
                         `;
                     }
 

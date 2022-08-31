@@ -1235,7 +1235,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
     <div class="row">
     <div class="col icheked">
         <select required=""  class="form-select dropdown1 sombra" id="ClienteOF">
-            <option selected>Cliente</option>
+            <option selected>Nombre del cliente</option>
             <option value="TI">1</option>
             <option value="CC">2</option>
             <option value="CE">3 </option>
@@ -1250,7 +1250,30 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Usuario">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Producto a certificar">
+        <p class="rlC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </p>
+        <label class="cliente_active" style="position:relative;">
+                    <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks" type="checkbox" >
+        </label>
+    </div>
+</div>
+
+    <div class="row">
+    <div class="col icheked">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema de certificacion">
+        <p class="ncC formulario__input-error letra_formulario" >
+            Letras, tildes y espacios
+        </p>
+        <label class="cliente_active " style="position:relative;">
+        <span class="tooltip-box"> de click para desactivar el espacio</span>
+            <input class="checks " type="checkbox" >
+          </label>
+    </div>
+    <div class="col icheked">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="vigencia">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
@@ -1263,7 +1286,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 <div class="row">
 <div class="col icheked">
     <select required=""  class="form-select dropdown1 sombra" id="fabricaOF">
-        <option selected>fabrica</option>
+        <option selected>Auditoria en fabrica</option>
         <option value="TI">1</option>
         <option value="CC">2</option>
         <option value="CE">3 </option>
@@ -1279,7 +1302,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
       </label>
 </div>
 <div class="col icheked">
-    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="Vigencia">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="homologacionOF" placeholder="homologacion de iso 9001">
     <p class="rlC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
     </p>
@@ -1289,31 +1312,9 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
     </label>
 </div>
 </div>
-    <div class="row">
-    <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema">
-        <p class="ncC formulario__input-error letra_formulario" >
-            Letras, tildes y espacios
-        </p>
-        <label class="cliente_active " style="position:relative;">
-        <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks " type="checkbox" >
-          </label>
-    </div>
-    <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigilanciaOF" placeholder="vigilancia">
-        <p class="rlC formulario__input-error letra_formulario" >
-            Letras, tildes y espacios
-        </p>
-        <label class="cliente_active" style="position:relative;">
-                    <span class="tooltip-box"> de click para desactivar el espacio</span>
-            <input class="checks" type="checkbox" >
-        </label>
-    </div>
-</div>
 <div class="row">
 <div class="col icheked">
-    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="centrocostosOF" placeholder="centro de costos">
+    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos">
     <p class="ncC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
         
@@ -1323,8 +1324,43 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
         <input class="checks " type="checkbox" >
 
       </label>
+      
+</div>
+<div class="col icheked">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras">
+    <p class="rlC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </p>
+    <label class="cliente_active" style="position:relative;">
+                <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks" type="checkbox" >
+    </label>
+</div>
 </div>
 
+<div class="row">
+<div class="col icheked">
+    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="homo_restOF" placeholder="Homologacion de test report">
+    <p class="ncC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+        
+    </p>
+    <label class="cliente_active " style="position:relative;">
+    <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks " type="checkbox" >
+
+      </label>
+      
+</div>
+<div class="col icheked">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="condicionespagoOF" placeholder="condiciones de pago">
+    <p class="rlC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </p>
+    <label class="cliente_active" style="position:relative;">
+                <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks" type="checkbox" >
+    </label>
 </div>
           </div>
           <div>
