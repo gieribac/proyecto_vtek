@@ -719,7 +719,7 @@ const
                 Letras, tildes y espacios
                 
             </p>
-            <label class="cliente_active " style="position:relative;">
+              
             <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <label><input class="checkb " type="checkbox" >
 
@@ -1309,7 +1309,8 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 </div>
 <div class="row">
 <div class="col icheked">
-    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos">
+    <!-- <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"> -->
+    <textarea  required=""  class="form-control textareaexp" class="form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"></textarea>
     <p class="ncC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
         
@@ -1322,7 +1323,8 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
       
 </div>
 <div class="col icheked">
-    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras">
+<!-- <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"> -->
+    <textarea  required=""  class="form-control textareaexp" class="form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"></textarea>
     <p class="rlC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
     </p>
@@ -1335,7 +1337,12 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 
 <div class="row">
 <div class="col icheked">
-    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="homo_restOF" placeholder="Homologacion de test report">
+    <!--<input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="homo_restOF" placeholder="Homologacion de test report"> -->
+    <select required=""  class="form-select dropdown1 sombra" id="homo_restOF">
+        <option selected value="0">Homologación test report</option>
+        <option value=true>Aplica: Se reconocerán los test report aportados por el cliente</option>
+        <option value=false>No aplica</option>
+      </select>
     <p class="ncC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
         
