@@ -343,6 +343,32 @@ export const querySnapComOfs = async() => {
         }
     }
 
+    export async function sendNotificateEmail(email, subject, body) {
+        const collectionRef = collection(db, 'mail');
+        const emailContent = {
+            to: email,
+            message: {
+                subject: subject,
+                text: body,
+                html: `<p>${body}</p>`,
+            },
+        };
+        return await addDoc(collectionRef, emailContent);
+    }
+
+    export const getTecnicoCoordinadorEmail = async () =>{
+        try {
+            const first = query(collection(db, "users"), where("Cargo", "==", "tcoordinador"));
+            const documentSnapshots = await getDocs(first);
+            return documentSnapshots        
+        
+        } catch (e){
+            console.log(e.messaje)
+                throw e.message
+        
+        }
+    }
+
 //</comercial_infooffers>//
 
 ////<comercial_editcliente>////

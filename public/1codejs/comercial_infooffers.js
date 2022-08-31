@@ -1,4 +1,4 @@
-import {querySnapComOfs, queryNextComOfs, queryNextntComOfs, updateFormalizarOF } from './models/post.js';
+import {querySnapComOfs, queryNextComOfs, queryNextntComOfs, updateFormalizarOF, getTecnicoCoordinadorEmail, sendNotificateEmail} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
    
     
@@ -90,12 +90,12 @@ const observerdatos = new MutationObserver(()=>{
                         // formalizar.innerHTML += `
                         // <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">Formalizado</h6></div>                      
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" checked>Formalizado</label>`;
+                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" id="${d.id}"checked>Formalizado</label>`;
                     } else {
                         // formalizar.innerHTML += `
                         // <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >No formalizado</h6>  </div>
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" >Pendiente</label>
+                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" id="${d.id}">Pendiente</label>
                         `;
 
                     }
@@ -119,8 +119,25 @@ const observerdatos = new MutationObserver(()=>{
                 check.addEventListener('click', async ()=>{
                     const formalizado = check.checked;
                     const idoferta = check.id;
-                    await updateFormalizarOF(idoferta,formalizado);                    
+                    const subject = 'VTEK Oferta Formalizada';
+                    const body = `Oferta con id = ${check.id}, pendiente por asignar`;
+                    await updateFormalizarOF(idoferta,formalizado);  
+                    getTecnicoCoordinadorEmail().then(el => {
+                        const docs = el.docs;                    
+                        // console.log(docs);
+                        if (docs.length > 0) {
+                            docs.forEach( async e => {
+                                const email = e.data().Email;
+                                console.log(email)
+                                if (formalizado){await sendNotificateEmail(email, subject, body)};
+                            })
+                        }
+                    }).catch(e => {
+                        console.log(e);
+                    })
+                    
                 })
+                    
             })
         })
         }        
