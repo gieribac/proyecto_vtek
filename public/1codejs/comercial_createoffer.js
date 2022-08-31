@@ -1,4 +1,4 @@
-import {setOffer, updateOffer} from "./models/post.js";
+import {setOffer, updateOffer, querySnapOffClients, querySnapOffFabricas } from "./models/post.js";
 import {uploadFile, getFileURL} from "./storage.js";
 import {comercial_createoffer} from "./pages.js";
 
@@ -13,12 +13,39 @@ const observerdatos = new MutationObserver(()=>{
         const campos = Array.prototype.slice.apply(d.getElementsByClassName('col')),
         listcheck = Array.prototype.slice.apply(d.getElementsByClassName('checks')),
         inputs = d.getElementsByClassName('inputsr'),
+        selectCliente = d.getElementById('ClienteOF'),
+        selectFabrica = d.getElementById('fabricaOF'),
         enviar = d.getElementById("guardarO"),
         inputFile = d.getElementById("adjuntar"),
         data = {};
 
         const recargar = () => {
             d.getElementById("root").innerHTML = comercial_createoffer;
+        }
+
+        const traerClientesFabricas = async() => {
+
+            await querySnapOffClients().then(d =>{
+                const docs = d.docs;
+                if (docs.length > 0) {
+                    docs.forEach (d => {
+                        console.log(d.data())
+                        selectCliente.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`
+
+                    })
+                }
+            }).then (e => console.log(e));
+
+            await querySnapOffFabricas().then(d =>{
+                const docs = d.docs;
+                if (docs.length > 0) {
+                    docs.forEach (d => {
+                        selectFabrica.innerHTML += `<option value="${d.data().nombre_compania}">${d.data().nombre_compania}</option>`
+
+                    })
+                }
+            }).then (e => console.log(e));
+
         }
 
         (() => {
@@ -32,15 +59,18 @@ const observerdatos = new MutationObserver(()=>{
 
             const mostrarCliente = (clienteActual) => {              
                 const cA = cliente[idcliente.indexOf(clienteActual)];
-
-                inputs[0].placeholder = `Cliente: ${cA.ClienteOF}`;
-                inputs[1].placeholder = `Usuario: ${cA.usuarioOF}`;
-                inputs[2].placeholder = `Fabrica: ${cA.fabricaOF}`;
-                inputs[3].placeholder = `Vigencia: ${cA.vigenciaOF}`;
-                inputs[4].placeholder = `Esquema: ${cA.esquemaOF}`;
-                inputs[5].placeholder = `Vigilancia: ${cA.vigilanciaOF}`;
-                inputs[6].placeholder = `C. de Costos: ${cA.centrocostosOF}`;
-                inputs[7].placeholder = `Comercial: ${cA.comercialOF}`;         
+                
+                selectCliente.innerHTML = `<option selected="" value="0">Fabrica: ${cA.fabricaOF}</option>`;
+                selectFabrica.innerHTML = `<option selected="" value="0">Cliente: ${cA.ClienteOF}</option>`;
+                traerClientesFabricas();
+                inputs[0].placeholder = `Producto: ${cA.productoOF}`;
+                inputs[1].placeholder = `Esquema: ${cA.esquemaOF}`;
+                inputs[2].placeholder = `Vigencia: ${cA.vigenciaOF}`;
+                inputs[3].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
+                inputs[4].placeholder = `Ensayos: ${cA.ensayosOF}`;
+                inputs[5].placeholder = `Muestras: ${cA.muestrasOF}`;
+                inputs[6].placeholder = `Homologación test r: ${cA.homo_restOF}`;
+                inputs[7].placeholder = `Condiciones pago: ${cA.condicionespagoOF}`;         
             }
         
             const vinculos = Array.prototype.slice.apply(d.querySelectorAll('.left'));
@@ -62,17 +92,32 @@ const observerdatos = new MutationObserver(()=>{
 
         const formNew = () => {
             estado=true;
+            if (b1 == false){
+                recargar();
+            } else { 
+                selectCliente.innerHTML = `<option selected="" value="0">Auditoria en fábrica</option>`;
+                selectFabrica.innerHTML = `<option selected="" value="0">Nombre del Cliente</option>`;
+                traerClientesFabricas();
+                inputs[0].placeholder = `Producto a certificar`;
+                inputs[1].placeholder = `Esquema de certificación`;
+                inputs[2].placeholder = `Vigencia`;
+                inputs[3].placeholder = `Homologación ISO 9001`;
+                inputs[4].placeholder = `Ensayos`;
+                inputs[5].placeholder = `Muestras`;
+                inputs[6].placeholder = `C. Homologación test report`;
+                inputs[7].placeholder = `Condiciones de pago`;  
 
-            d.getElementById("guardarO").disabled = false;
-            d.getElementById("adjuntar").disabled = false;
-            d.getElementById("guardarO").removeAttribute('style','display:none');
-            d.getElementById("estilo_adjuntar").removeAttribute('style','display:none');
-            b1 = false;
-            try {   
-                campos.forEach ((e,i) => {
-                    e.removeChild(campos_label[i]);
-                })
-            } catch (e) {                    
+                d.getElementById("guardarO").disabled = false;
+                d.getElementById("adjuntar").disabled = false;
+                d.getElementById("guardarO").removeAttribute('style','display:none');
+                d.getElementById("estilo_adjuntar").removeAttribute('style','display:none');
+                b1 = false;
+                try {   
+                    campos.forEach ((e,i) => {
+                        e.removeChild(campos_label[i]);
+                    })
+                } catch (e) {                    
+                }
             }
         }
 
@@ -103,7 +148,9 @@ const observerdatos = new MutationObserver(()=>{
         const getData = () => {             
             Array.prototype.slice.apply(inputs).forEach(e => {
                 e.value.length > 0 && (() => data[e.id] = e.value)();
-            })          
+            }) 
+            selectCliente.value != "0" && (() => data.ClienteOF = selectCliente.value)();
+            selectFabrica.value != "0" && (() => data.fabricaOF = selectFabrica.value)();
         }
 
         d.getElementById("adjuntar").disabled = true;
@@ -118,12 +165,15 @@ const observerdatos = new MutationObserver(()=>{
         enviar.addEventListener('click', async () => {
             getData();
             const lenghtData = Object.keys(data).length;
-            const sigue = () => {
-                if (inputFile.files[0]){ async () => { 
+            if (inputFile.files[0]){
+                console.log("inputfile")
                     const result = await uploadFile(inputFile.files[0]);
                     const url = await getFileURL(result.ref);
                     data.file = url;
-                }}
+                }
+            
+            const sigue = async () => {
+                
                 const idclientSelect = localStorage.getItem("clientSelect");
                 
                 Array.prototype.slice.apply(d.getElementsByClassName('inputsr')).forEach (e => {

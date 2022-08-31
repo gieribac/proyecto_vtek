@@ -624,15 +624,11 @@ const
           <h4 class="letrainfo">ofertas</h4>
           </div>
       </div>
-
-
-
-
       <div class="col-lg-9 ">
         <div> </div>
         <div class="columnas-clasi4 alinear_ofertas" style="    margin-left: 74px !important;"><h6 class="letra-columna">oferta</h6></div>
-        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">cliente</h6></div>
-        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Producto</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Cliente</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna"></h6></div>
         <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Estado</h6></div>         
           <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Formalizar</h6></div>
       </div>
@@ -725,7 +721,7 @@ const
             </p>
             <label class="cliente_active " style="position:relative;">
             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checkb " type="checkbox" >
+                <label><input class="checkb " type="checkbox" >
 
               </label>
         </div>
@@ -1235,7 +1231,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
     <div class="row">
     <div class="col icheked">
         <select required=""  class="form-select dropdown1 sombra" id="ClienteOF">
-            <option selected>Nombre del cliente</option>
+            <option selected value = "0" >Nombre del cliente</option>
             <option value="TI">1</option>
             <option value="CC">2</option>
             <option value="CE">3 </option>
@@ -1250,7 +1246,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Producto a certificar">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="productoOF" placeholder="Producto a certificar">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
@@ -1260,7 +1256,6 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
         </label>
     </div>
 </div>
-
     <div class="row">
     <div class="col icheked">
         <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema de certificacion">
@@ -1286,7 +1281,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 <div class="row">
 <div class="col icheked">
     <select required=""  class="form-select dropdown1 sombra" id="fabricaOF">
-        <option selected>Auditoria en fabrica</option>
+        <option selected value="0">Auditoria en fábrica</option>
         <option value="TI">1</option>
         <option value="CC">2</option>
         <option value="CE">3 </option>
@@ -1526,7 +1521,9 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
                 <input type="file" id="adjuntar" class= "adjuntando2" enabled>
                 </div>
         </div>
-        <button  id="login" style="margin-left: 70%;" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">Guardar</h6></button></a>
+        <button  id="login" style="margin-left: 70%;" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">enviar</h6></button></a>
+        <div>
+
 
     </div>
   </div>
