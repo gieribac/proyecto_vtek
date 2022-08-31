@@ -1421,63 +1421,116 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
           </div>
       </div>
 
-      <div class="col-lg-9 " style="margin-top: 20px;">
-          <h6 class="info_de_oferta p-2">Proceso numero 10102021-21221</h6>
-          <a target="_blank" rel="noreferrer noopener" href="#/comercial/editcliente">
-          <button  id="Guardarevaluacion" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">Guardar</h6></button></a>
-              </div>
-
-
-        
-              
-
-      </div>
-      <div style="margin-left: 40px;">
-      <div class="row" >
-          <div class="col " id="getBeforeEmail">
-              <div class="columnas-clasi3"><h6 class="letra-eval">Esquema</h6></div>
-              <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
-          <p id="getBeforeEmail_p" class="letra_formulario  formulario__input-error">
-          Escriba un email válido</p>
-
-              </div>
-              <div class="columnas-clasi3"><h6 class="letra-eval">producto</h6></div>
-              
-              <div class="col" id ="getBeforeClave">
-          <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
-          <p id="getBeforeClave_p" class="letra_formulario  formulario__input-error">
-          Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
-              </div>
+      <div class="col-lg-9 ">
 
       </div>
       <div class="row">
-          <div class="col " id="getBeforeEmail">
-              <div class="columnas-clasi3"><h6 class="letra-eval">Experto asignado</h6></div>
-              <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
-          <p id="getBeforeEmail_p" class="letra_formulario  formulario__input-error">
-          Escriba un email válido</p>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="solicitud" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Oferta comercial" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="FichasTécnicas" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Fotos" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="ISO 9001" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Resultados de ensayos" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Etiquetado" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Carta de trazabilidad" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="actividades complementarias" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Acta de Muestreo" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Resultado de la evaluación" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <div class="">
+            <input required=""type="text" class="form-control inputsr sombra inpu_eval_exp" id="esquemaOF" placeholder="Borrador del certificado" disabled>
+            <textarea class="form-control textareaexp"id="exampleFormControlTextarea1" rows="2"></textarea>
+            <div id="estilo_adjuntar2">
+                <p class="letra_adjuntar2">Adjuntar</p>
+                <input type="file" id="adjuntar" class= "adjuntando2" enabled>
+                </div>
+        </div>
+        <button  id="login" style="margin-left: 70%;" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">enviar</h6></button></a>
+        <div>
 
-              </div>
-              <div class="columnas-clasi3"><h6 class="letra-eval">Pre evaluador</h6></div>
-              
-              <div class="col" id ="getBeforeClave">
-          <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
-          <p id="getBeforeClave_p" class="letra_formulario  formulario__input-error">
-          Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
-              </div>
 
-      </div>
-      <div class="row">
-          <div class="col " id="getBeforeEmail">
-              <div class="columnas-clasi3"><h6 class="letra-eval">Muestras seleccionadas:</h6></div>
-              <input required="" style="    width: 64.5%;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
-          <p id="getBeforeEmail_p" class="letra_formulario  formulario__input-error">
-          Escriba un email válido</p>
+    </div>
+  </div>
 
-              </div>
 
-      </div>
-  </div>`,
+
+      </div>`,
     experto_paleval = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">

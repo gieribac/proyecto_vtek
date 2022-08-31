@@ -167,7 +167,7 @@ const observermenu = new MutationObserver(()=>{
             <div class="logov">
             </div>
             <div class="menu">
-            <a href="#" class="d-block text-light p-3 menuopciones">
+            <a href="#/experto/createeval" class="d-block text-light p-3 menuopciones">
                     <div class="bola-blanco">
                         <div class="mas-azul"></div>
                     </div>

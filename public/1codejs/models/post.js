@@ -89,7 +89,6 @@ export const updateOffer = async (idOf, datos) => {
     }
 }
 
-
 export const querySnapOffClients = async() => {
     try {
         const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc")/*, limit(3)*/);
