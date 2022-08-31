@@ -72,6 +72,7 @@ export const setFabrica = async(datos) => {
 ////<comercial_createoffer>////
 export const setOffer = async(datos) => {
     try{
+        datos.Formalizar = false;
         await addDoc(collection(db, "ofertas"), datos).then().catch(e=>{throw e});
         return 'oferta enviada correctamente'
     } catch (e){
@@ -87,6 +88,34 @@ export const updateOffer = async (idOf, datos) => {
         throw e;
     }
 }
+
+export const querySnapOffClients = async() => {
+    try {
+        const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc")/*, limit(3)*/);
+        const documentSnapshots = await getDocs(first);
+        
+        return documentSnapshots    
+    
+        } catch (e){
+            throw e.message
+    
+        }
+    }
+
+    export const querySnapOffFabricas = async() => {
+        try {
+            const first = query(collection(db, "fabricas"), orderBy("nombre_compania","asc")/*, limit(3)*/);
+            const documentSnapshots = await getDocs(first);
+
+            return documentSnapshots        
+        
+            } catch (e){
+                throw e.message
+        
+            }
+        }
+
+
 ////</comercial_createoffer>////
 ////<comercial_createcliente>////
 export const saveClient = async(datos, Clave)=> {
