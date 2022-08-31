@@ -1772,7 +1772,10 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
           <option value="2"></option>
           <option value="3"></option>
         </select>
+       
+
       </div>
+      <button id="asignar" type="button" class="btn btn_asignar"> <h6 class="letra_btn_asignar">asignar evaluador </h6></button>
       </div>
       
       </div>`,
