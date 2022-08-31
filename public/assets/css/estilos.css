@@ -663,7 +663,12 @@ position: relative;
     font-weight: bold;
 
 }
-
+.letra-eval{
+    color: white!important;
+    text-align: left;
+    margin-top: 25px;
+    margin-left: 29px;
+}
 
 @media (max-width: 600px) {
     body,

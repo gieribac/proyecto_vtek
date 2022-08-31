@@ -365,6 +365,11 @@ const observer = new MutationObserver(() => {
                         updateDataClient(idClient, datos)     
                         
                     ).catch(
+                        Swal.fire(
+                            'Good job!',
+                            'se han actualizado lso datos',
+                            'success'
+                          )
                         
                     );
                 // updateUserClient(bEmail, bClave, Clave, Email)

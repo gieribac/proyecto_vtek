@@ -62,25 +62,29 @@ const observerdatos = new MutationObserver(()=>{
 
         const formNew = () => {
             estado=true;
-            inputs[0].placeholder = `Cliente`;
-            inputs[1].placeholder = `Usuario`;
-            inputs[2].placeholder = `Fabrica`;
-            inputs[3].placeholder = `Vigencia`;
-            inputs[4].placeholder = `Esquema`;
-            inputs[5].placeholder = `Vigilancia`;
-            inputs[6].placeholder = `C. de Costos`;
-            inputs[7].placeholder = `Comercial`;  
+            if (b1 == false){
+                recargar();
+            } else { 
+                inputs[0].placeholder = `Cliente`;
+                inputs[1].placeholder = `Usuario`;
+                inputs[2].placeholder = `Fabrica`;
+                inputs[3].placeholder = `Vigencia`;
+                inputs[4].placeholder = `Esquema`;
+                inputs[5].placeholder = `Vigilancia`;
+                inputs[6].placeholder = `C. de Costos`;
+                inputs[7].placeholder = `Comercial`;  
 
-            d.getElementById("guardarO").disabled = false;
-            d.getElementById("adjuntar").disabled = false;
-            d.getElementById("guardarO").removeAttribute('style','display:none');
-            d.getElementById("estilo_adjuntar").removeAttribute('style','display:none');
-            b1 = false;
-            try {   
-                campos.forEach ((e,i) => {
-                    e.removeChild(campos_label[i]);
-                })
-            } catch (e) {                    
+                d.getElementById("guardarO").disabled = false;
+                d.getElementById("adjuntar").disabled = false;
+                d.getElementById("guardarO").removeAttribute('style','display:none');
+                d.getElementById("estilo_adjuntar").removeAttribute('style','display:none');
+                b1 = false;
+                try {   
+                    campos.forEach ((e,i) => {
+                        e.removeChild(campos_label[i]);
+                    })
+                } catch (e) {                    
+                }
             }
         }
 

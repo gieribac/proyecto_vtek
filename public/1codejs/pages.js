@@ -1234,7 +1234,12 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 
     <div class="row">
     <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ClienteOF" placeholder="Cliente">
+        <select required=""  class="form-select dropdown1 sombra" id="ClienteOF">
+            <option selected>Nombre del cliente</option>
+            <option value="TI">1</option>
+            <option value="CC">2</option>
+            <option value="CE">3 </option>
+          </select>
         <p class="ncC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
@@ -1245,7 +1250,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Usuario">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="usuarioOF" placeholder="Producto a certificar">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
@@ -1255,31 +1260,9 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
         </label>
     </div>
 </div>
-<div class="row">
-<div class="col icheked">
-    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="fabricaOF" placeholder="fabrica">
-    <p class="ncC formulario__input-error letra_formulario" >
-        Letras, tildes y espacios
-    </p>
-    <label class="cliente_active " style="position:relative;">
-    <span class="tooltip-box"> de click para desactivar el espacio</span>
-        <input class="checks " type="checkbox" >
-      </label>
-</div>
-<div class="col icheked">
-    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="Vigencia">
-    <p class="rlC formulario__input-error letra_formulario" >
-        Letras, tildes y espacios
-    </p>
-    <label class="cliente_active" style="position:relative;">
-                <span class="tooltip-box"> de click para desactivar el espacio</span>
-        <input class="checks" type="checkbox" >
-    </label>
-</div>
-</div>
     <div class="row">
     <div class="col icheked">
-        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema">
+        <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="esquemaOF" placeholder="esquema de certificacion">
         <p class="ncC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
@@ -1289,7 +1272,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigilanciaOF" placeholder="vigilancia">
+        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="vigencia">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
@@ -1301,7 +1284,36 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 </div>
 <div class="row">
 <div class="col icheked">
-    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="centrocostosOF" placeholder="centro de costos">
+    <select required=""  class="form-select dropdown1 sombra" id="fabricaOF">
+        <option selected>Auditoria en fabrica</option>
+        <option value="TI">1</option>
+        <option value="CC">2</option>
+        <option value="CE">3 </option>
+      </select>
+    
+
+    <p class="ncC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </p>
+    <label class="cliente_active " style="position:relative;">
+    <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks " type="checkbox" >
+      </label>
+</div>
+<div class="col icheked">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="homologacionOF" placeholder="homologacion de iso 9001">
+    <p class="rlC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </p>
+    <label class="cliente_active" style="position:relative;">
+                <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks" type="checkbox" >
+    </label>
+</div>
+</div>
+<div class="row">
+<div class="col icheked">
+    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos">
     <p class="ncC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
         
@@ -1311,9 +1323,10 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
         <input class="checks " type="checkbox" >
 
       </label>
+      
 </div>
 <div class="col icheked">
-    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="comercialOF" placeholder="comercial">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras">
     <p class="rlC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
     </p>
@@ -1322,6 +1335,31 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
         <input class="checks" type="checkbox" >
     </label>
 </div>
+</div>
+
+<div class="row">
+<div class="col icheked">
+    <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="homo_restOF" placeholder="Homologacion de test report">
+    <p class="ncC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+        
+    </p>
+    <label class="cliente_active " style="position:relative;">
+    <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks " type="checkbox" >
+
+      </label>
+      
+</div>
+<div class="col icheked">
+    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="condicionespagoOF" placeholder="condiciones de pago">
+    <p class="rlC formulario__input-error letra_formulario" >
+        Letras, tildes y espacios
+    </p>
+    <label class="cliente_active" style="position:relative;">
+                <span class="tooltip-box"> de click para desactivar el espacio</span>
+        <input class="checks" type="checkbox" >
+    </label>
 </div>
           </div>
           <div>
@@ -1377,8 +1415,127 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
           </div>`,
     dtecnico_infoprocesos = `<div>dtecnico_infoprocesos</div>`,
     experto_createoffer = `<div>experto_createoffer</div>`,
-    experto_createeval = `<div>experto_createeval</div>`,
-    experto_paleval = `<div>experto_paleval</div>`,
+    experto_createeval = `<div class="d-flex align-items-stretch flex-column">
+    <div id="menu"></div>
+      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="infopagina">
+          <div class="revisado_color"></div>
+
+          <h4 class="letrainfo" style="    font-size: 20px !important;">Crear evaluacion</h4>
+          </div>
+      </div>
+
+      <div class="col-lg-9 " style="margin-top: 20px;">
+          <h6 class="info_de_oferta p-2">Proceso numero 10102021-21221</h6>
+          <a target="_blank" rel="noreferrer noopener" href="#/comercial/editcliente">
+          <button  id="Guardarevaluacion" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">Guardar</h6></button></a>
+              </div>
+
+
+        
+              
+
+      </div>
+      <div style="margin-left: 40px;">
+      <div class="row" >
+          <div class="col " id="getBeforeEmail">
+              <div class="columnas-clasi3"><h6 class="letra-eval">Esquema</h6></div>
+              <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
+          <p id="getBeforeEmail_p" class="letra_formulario  formulario__input-error">
+          Escriba un email válido</p>
+
+              </div>
+              <div class="columnas-clasi3"><h6 class="letra-eval">producto</h6></div>
+              
+              <div class="col" id ="getBeforeClave">
+          <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
+          <p id="getBeforeClave_p" class="letra_formulario  formulario__input-error">
+          Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
+              </div>
+
+      </div>
+      <div class="row">
+          <div class="col " id="getBeforeEmail">
+              <div class="columnas-clasi3"><h6 class="letra-eval">Experto asignado</h6></div>
+              <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
+          <p id="getBeforeEmail_p" class="letra_formulario  formulario__input-error">
+          Escriba un email válido</p>
+
+              </div>
+              <div class="columnas-clasi3"><h6 class="letra-eval">Pre evaluador</h6></div>
+              
+              <div class="col" id ="getBeforeClave">
+          <input required="" style="width: 300px;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
+          <p id="getBeforeClave_p" class="letra_formulario  formulario__input-error">
+          Al menos un dígito, una letra minúscula y una mayúscula, </br>longitud de 6 caracteres</p>
+              </div>
+
+      </div>
+      <div class="row">
+          <div class="col " id="getBeforeEmail">
+              <div class="columnas-clasi3"><h6 class="letra-eval">Muestras seleccionadas:</h6></div>
+              <input required="" style="    width: 64.5%;" type="text" class="form-control inputsr sombra imputs_tamano " id="bclaveC" placeholder="Contraseña anterior" aria-label="usuario ">
+          <p id="getBeforeEmail_p" class="letra_formulario  formulario__input-error">
+          Escriba un email válido</p>
+
+              </div>
+
+      </div>
+  </div>`,
+    experto_paleval = `<div class="d-flex align-items-stretch flex-column">
+    <div id="menu"></div>
+      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="infopagina">
+          <div class="revisado_color"></div>
+
+          <h4 class="letrainfo" style="    font-size: 20px !important;">Crear evaluacion</h4>
+          </div>
+      </div>
+      <div class="col-lg-9 ">
+        <div> </div>
+        <div class="columnas-clasi4 alinear_ofertas" style="margin-left: 15%;"><h6 class="letra-columna">Fecha</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">hora</h6></div>
+        <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Actividad</h6></div>         
+          <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Responsable</h6></div>
+      </div>
+      <div class="col-lg-10 " style="margin-top: 20px;" >
+        <div class=" div_recuadros_asignacion" style="margin-left: 17%;" >
+          <div class=" margenr1 margenofertas sombra recuadro_asignacion " id="cliente">
+            <div class="p-3" ><h6 >oferta # 3</h6></div>
+        </div>
+        <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
+            <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+          </div>
+    </div>
+    <div class=" div_recuadros_asignacion">
+        
+        
+          <div class=" margenr sombra recuadro_asignacion" id="legal">
+            <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+          </div>
+          <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
+            <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+          </div>
+    </div >
+    <div class=" div_recuadros_asignacion">
+          <div class=" margenr sombra recuadro_asignacion" id="nit">
+            <div class="p-3" ><h6 >8305556512</h6></div>
+          </div>
+          <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
+            <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+          </div>
+    </div>
+    
+    <div class=" div_recuadros_asignacion">
+          <div class=" margenr sombra recuadro_asignacion" id="ncontacto">
+            <div class="p-3" ><h6 >8305556512</h6></div>
+          </div>
+          <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
+            <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+          </div>
+    </div>
+      </div>
+      </div>`,
     experto_infocliente = `     <div>
     <div>
       <div class="d-flex align-items-stretch flex-column">
@@ -1580,45 +1737,45 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
   
             </div>
             </div>`,
-    tcoordinador_createasignacion = `    <div class="d-flex align-items-stretch flex-column">
-      <div id="menu"></div>
-        <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
-            <div class="infopagina">
-            <div class="revisado_color"></div>
-  
-            <h4 class="letrainfo" style="    font-size: 20px !important;"> Crear asignación</h4>
-            </div>
-        </div>
-        <div class="col-lg-4 " style="margin-left: 20%">
-        <div class="div_recuadros_asignacion"> 
-          <div class="columnas-asignacion alinear_ofertas"><h6 class="letra-columna2">Experto asignado</h6></div>
-          <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Pre evaluador</h6></div>
-          <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Oferta</h6></div>  
-          
-        </div>
-        <div class="div_recuadros_asignacion ">
-          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="experto_asignado_">
-            <option selected>puntaje</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-          </select>
-          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="preevaluador_">
-            <option selected>puntaje</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-          </select>
-          <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="oferta_">
-            <option selected>oferta</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-          </select>
-        </div>
-        </div>
+    tcoordinador_createasignacion = `     <div class="d-flex align-items-stretch flex-column">
+    <div id="menu"></div>
+      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="infopagina">
+          <div class="revisado_color"></div>
+
+          <h4 class="letrainfo" style="    font-size: 20px !important;"> Crear asignación</h4>
+          </div>
+      </div>
+      <div class="col-lg-4 " style="margin-left: 20%">
+      <div class="div_recuadros_asignacion"> 
+        <div class="columnas-asignacion alinear_ofertas"><h6 class="letra-columna2">Experto asignado</h6></div>
+        <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Pre evaluador</h6></div>
+        <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Oferta</h6></div>  
         
-        </div>`,
+      </div>
+      <div class="div_recuadros_asignacion ">
+        <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="experto_asignado_">
+          <option selected>puntaje</option>
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+        </select>
+        <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="preevaluador_">
+          <option selected>puntaje</option>
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+        </select>
+        <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="oferta_">
+          <option selected>oferta</option>
+          <option value="1"></option>
+          <option value="2"></option>
+          <option value="3"></option>
+        </select>
+      </div>
+      </div>
+      
+      </div>`,
     tcoordinador_asignacion = `<div class="d-flex align-items-stretch flex-column">
       <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
