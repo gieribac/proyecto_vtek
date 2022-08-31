@@ -89,6 +89,7 @@ export const updateOffer = async (idOf, datos) => {
     }
 }
 
+
 export const querySnapOffClients = async() => {
     try {
         const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc")/*, limit(3)*/);
@@ -333,6 +334,16 @@ export const querySnapComOfs = async() => {
         return docs_;
                 
     }
+
+    export const updateFormalizarOF = async (idOf, check) => {
+        try {
+            await updateDoc(doc(db, "ofertas", idOf), {Formalizar: check});
+            return "oferta actualizada formalizada correctamente";
+        } catch (e){
+            throw e;
+        }
+    }
+
 //</comercial_infooffers>//
 
 ////<comercial_editcliente>////

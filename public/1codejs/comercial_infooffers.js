@@ -1,4 +1,4 @@
-import {querySnapComOfs, queryNextComOfs, queryNextntComOfs} from './models/post.js';
+import {querySnapComOfs, queryNextComOfs, queryNextntComOfs, updateFormalizarOF } from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
    
     
@@ -107,10 +107,18 @@ const observerdatos = new MutationObserver(()=>{
         }
         const listeners = () => {
             const vinculos = document.querySelectorAll('.letra_recuadro_info2');
+            const checks = document.querySelectorAll('.checkb');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 localStorage.setItem("clientSelect",element.textContent);
                 location.hash='#/comercial/createoffer';
+            })
+            checks.forEach(check => {
+                check.addEventListener('click', async ()=>{
+                    const formalizado = check.checked;
+                    const idoferta = check.id;
+                    await updateFormalizarOF(idoferta,formalizado);                    
+                })
             })
         })
         }        
