@@ -29,9 +29,7 @@ const observerdatos = new MutationObserver(()=>{
                 const docs = d.docs;
                 if (docs.length > 0) {
                     docs.forEach (d => {
-                        console.log(d.data())
                         selectCliente.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`
-
                     })
                 }
             }).then (e => console.log(e));
@@ -60,8 +58,8 @@ const observerdatos = new MutationObserver(()=>{
             const mostrarCliente = (clienteActual) => {              
                 const cA = cliente[idcliente.indexOf(clienteActual)];
                 
-                selectCliente.innerHTML = `<option selected="" value="0">Fabrica: ${cA.fabricaOF}</option>`;
-                selectFabrica.innerHTML = `<option selected="" value="0">Cliente: ${cA.ClienteOF}</option>`;
+                selectCliente.innerHTML = `<option selected="" value="0">Cliente: ${cA.ClienteOF}</option>`;
+                selectFabrica.innerHTML = `<option selected="" value="0">Fabrica: ${cA.fabricaOF}</option>`;
                 traerClientesFabricas();
                 inputs[0].placeholder = `Producto: ${cA.productoOF}`;
                 inputs[1].placeholder = `Esquema: ${cA.esquemaOF}`;
@@ -95,8 +93,8 @@ const observerdatos = new MutationObserver(()=>{
             if (b1 == false){
                 recargar();
             } else { 
-                selectCliente.innerHTML = `<option selected="" value="0">Auditoria en fábrica</option>`;
-                selectFabrica.innerHTML = `<option selected="" value="0">Nombre del Cliente</option>`;
+                selectCliente.innerHTML = `<option selected="" value="0">Cliente</option>`;
+                selectFabrica.innerHTML = `<option selected="" value="0">Auditoria en Fábrica</option>`;
                 traerClientesFabricas();
                 inputs[0].placeholder = `Producto a certificar`;
                 inputs[1].placeholder = `Esquema de certificación`;

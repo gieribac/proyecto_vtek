@@ -91,7 +91,7 @@ export const updateOffer = async (idOf, datos) => {
 
 export const querySnapOffClients = async() => {
     try {
-        const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc")/*, limit(3)*/);
+        const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc"));
         const documentSnapshots = await getDocs(first);
         
         return documentSnapshots    
@@ -104,7 +104,7 @@ export const querySnapOffClients = async() => {
 
     export const querySnapOffFabricas = async() => {
         try {
-            const first = query(collection(db, "fabricas"), orderBy("nombre_compania","asc")/*, limit(3)*/);
+            const first = query(collection(db, "fabricas"), orderBy("nombre_compania","asc"));
             const documentSnapshots = await getDocs(first);
 
             return documentSnapshots        
@@ -353,6 +353,7 @@ export const querySnapComOfs = async() => {
                 html: `<p>${body}</p>`,
             },
         };
+        console.log('listo para ser enviado'+email);
         return await addDoc(collectionRef, emailContent);
     }
 
