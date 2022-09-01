@@ -8,29 +8,41 @@ const observerdatos = new MutationObserver(()=>{
         const despliequeOfertas= d.getElementById('oferta_'),
         cliente = JSON.parse(localStorage.getItem("nidsClient")),
         clientSelect = localStorage.getItem("clientSelect"),
+        clientSelectid = localStorage.getItem("clientSelectid"),
+        clientID = JSON.parse(localStorage.getItem("offersID")),
         expertoAsignado = d.getElementById('experto_asignado_'),
         preevaluadorAsignado = d.getElementById('preevaluador_');
+        d.getElementById('asignar').addEventListener('click',()=>{
+            const experto = expertoAsignado.value;
+            if (experto.length > 0){    
+                const data = {}, 
+                id = despliequeOfertas.value;
+                preevaluadorAsignado.value.length > 0 && (() => {data.preevaluador = preevaluadorAsignado.value})();          
+                data.experto = experto;
+                console.log(id);
+                console.log(data);
+                // await setAsingExpert(id, data);
+            } else {
+                alert("Debe seleccionar Experto")
+            }
+        })
         
-        despliequeOfertas.innerHTML = `<option selected>${clientSelect}</option>`
+        despliequeOfertas.innerHTML = `<option value="${clientSelectid}">${clientSelect}</option>`
         cliente.forEach((d,i)=> {      
 
             despliequeOfertas.innerHTML += `
-            <option value="${cliente[i]}">${cliente[i]}</option>`
+            <option value="${clientID[i]}">${cliente[i]}</option>`
         })
 
         querySnapTcAsignExpert().then(d => {
-            console.log(d.docs)
             cargarDocs(d.docs);
-
-            
-
         }).then ((e) => console.log(e))
 
         const cargarDocs = ds => {
             
             if(ds.length > 0){
-                expertoAsignado.innerHTML = `<option selected>Experto</option>`;
-                preevaluadorAsignado.innerHTML = `<option selected>Preevaluador</option>`;
+                expertoAsignado.innerHTML = `<option value="" selected>Experto</option>`;
+                preevaluadorAsignado.innerHTML = `<option value="">Preevaluador</option>`;
 
                     ds.forEach(d => {
                         expertoAsignado.innerHTML += `<option value="${d.data().NoIdentificacion}">${d.data().NoIdentificacion}</option>`;

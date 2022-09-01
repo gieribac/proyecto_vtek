@@ -184,7 +184,7 @@ export const queryInc = async() => {
 
 export const querySnap = async() => {
 try {
-    const first = query(collection(db, "clients"), orderBy("No_Identificacion","asc"), limit(3));
+    const first = query(collection(db, "clients"), orderBy("No_Identificacion","asc"), limit(10));
     const documentSnapshots = await getDocs(first);
     
     
@@ -202,7 +202,7 @@ export const queryNext = async(lastVisible) => {
     const next = query(collection(db, "clients"),
             orderBy("No_Identificacion","asc"),
             startAfter(lastVisible),
-            limit(3));
+            limit(10));
     const docs_ = await getDocs(next);
     
     return docs_;
@@ -214,7 +214,7 @@ export const queryNextnt = async(lastVisible) => {
     const next = query(collection(db, "clients"),
             orderBy("No_Identificacion","desc"),
             startAfter(lastVisible),
-            limit(3));
+            limit(10));
     const docs_ = await getDocs(next);
     
     return docs_;
@@ -227,7 +227,7 @@ export const queryNextnt = async(lastVisible) => {
 const uidcom = localStorage.getItem("u");
 export const querySnapComCli = async() => {
     try {
-        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
+        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(10));
         const documentSnapshots = await getDocs(first);
         
         // console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -247,7 +247,7 @@ export const querySnapComCli = async() => {
         const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","asc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -259,7 +259,7 @@ export const querySnapComCli = async() => {
         const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","desc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -297,7 +297,7 @@ export const queryOferta = async(ref) => {
 ////<comercial_infooffers>////
 export const querySnapComOfs = async() => {
     try {
-        const first = query(collection(db, "ofertas"), orderBy("ClienteOF","asc"), limit(3));
+        const first = query(collection(db, "ofertas"), orderBy("ClienteOF","asc"), limit(10));
         const documentSnapshots = await getDocs(first);
         
         console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -315,7 +315,7 @@ export const querySnapComOfs = async() => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","asc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -327,7 +327,7 @@ export const querySnapComOfs = async() => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","desc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -444,7 +444,7 @@ export const updateDataClient = (idClient, datos) => {
 
     export const querySnapTcAsignExpert = async() => {
         try {
-            const first = query(collection(db, "users"), where("Cargo", "==", "experto"), orderBy("NoIdentificacion","asc")/*, limit(3)*/);
+            const first = query(collection(db, "users"), where("Cargo", "==", "experto"), orderBy("NoIdentificacion","asc")/*, limit(10)*/);
             const documentSnapshots = await getDocs(first);
             
             // console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -465,7 +465,7 @@ export const updateDataClient = (idClient, datos) => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","asc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -477,7 +477,7 @@ export const updateDataClient = (idClient, datos) => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","desc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;

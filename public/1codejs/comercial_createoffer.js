@@ -15,9 +15,11 @@ const observerdatos = new MutationObserver(()=>{
         inputs = d.getElementsByClassName('inputsr'),
         selectCliente = d.getElementById('ClienteOF'),
         selectFabrica = d.getElementById('fabricaOF'),
+        selectHtestReport = d.getElementById('homo_restOF'),
         enviar = d.getElementById("guardarO"),
         inputFile = d.getElementById("adjuntar"),
         data = {};
+        console.log(inputs)
 
         const recargar = () => {
             d.getElementById("root").innerHTML = comercial_createoffer;
@@ -60,6 +62,9 @@ const observerdatos = new MutationObserver(()=>{
                 
                 selectCliente.innerHTML = `<option selected="" value="0">Cliente: ${cA.ClienteOF}</option>`;
                 selectFabrica.innerHTML = `<option selected="" value="0">Fabrica: ${cA.fabricaOF}</option>`;
+                selectHtestReport.innerHTML = `<option selected="" value="0">Homologación test report: ${cA.homo_restOF}</option>
+                                                <option value="aplica">Aplica: Se reconocerán los test report aportados por el cliente</option>
+                                                <option value="no aplica">No aplica</option>`;
                 traerClientesFabricas();
                 inputs[0].placeholder = `Producto: ${cA.productoOF}`;
                 inputs[1].placeholder = `Esquema: ${cA.esquemaOF}`;
@@ -67,8 +72,7 @@ const observerdatos = new MutationObserver(()=>{
                 inputs[3].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
                 inputs[4].placeholder = `Ensayos: ${cA.ensayosOF}`;
                 inputs[5].placeholder = `Muestras: ${cA.muestrasOF}`;
-                inputs[6].placeholder = `Homologación test r: ${cA.homo_restOF}`;
-                inputs[7].placeholder = `Condiciones pago: ${cA.condicionespagoOF}`;         
+                inputs[6].placeholder = `Condiciones pago: ${cA.condicionespagoOF}`;         
             }
         
             const vinculos = Array.prototype.slice.apply(d.querySelectorAll('.left'));
@@ -95,6 +99,9 @@ const observerdatos = new MutationObserver(()=>{
             } else { 
                 selectCliente.innerHTML = `<option selected="" value="0">Cliente</option>`;
                 selectFabrica.innerHTML = `<option selected="" value="0">Auditoria en Fábrica</option>`;
+                selectHtestReport.innerHTML = `<option selected="" value="0">Homologación test report</option>
+                                                <option value="aplica">Aplica: Se reconocerán los test report aportados por el cliente</option>
+                                                <option value="no aplica">No aplica</option>`;
                 traerClientesFabricas();
                 inputs[0].placeholder = `Producto a certificar`;
                 inputs[1].placeholder = `Esquema de certificación`;
@@ -102,8 +109,7 @@ const observerdatos = new MutationObserver(()=>{
                 inputs[3].placeholder = `Homologación ISO 9001`;
                 inputs[4].placeholder = `Ensayos`;
                 inputs[5].placeholder = `Muestras`;
-                inputs[6].placeholder = `C. Homologación test report`;
-                inputs[7].placeholder = `Condiciones de pago`;  
+                inputs[6].placeholder = `Condiciones de pago`;  
 
                 d.getElementById("guardarO").disabled = false;
                 d.getElementById("adjuntar").disabled = false;
@@ -146,9 +152,10 @@ const observerdatos = new MutationObserver(()=>{
         const getData = () => {             
             Array.prototype.slice.apply(inputs).forEach(e => {
                 e.value.length > 0 && (() => data[e.id] = e.value)();
-            }) 
+            })  
             selectCliente.value != "0" && (() => data.ClienteOF = selectCliente.value)();
             selectFabrica.value != "0" && (() => data.fabricaOF = selectFabrica.value)();
+            selectHtestReport.value != "0" && (() => data.homo_restOF = selectHtestReport.value)();
         }
 
         d.getElementById("adjuntar").disabled = true;
@@ -178,6 +185,7 @@ const observerdatos = new MutationObserver(()=>{
                     e.value=""
                 })
                 if (estado){
+                    console.log(data)
                     setOffer(data).then(m => 
                         alert(m)
                     ).catch(e => 
@@ -196,7 +204,7 @@ const observerdatos = new MutationObserver(()=>{
                 }
             }
             if (estado){
-                (lenghtData < 8) ? (() => {
+                (lenghtData < 10) ? (() => {
                     alert('Debe llenar todos los acampos');                            
                 })() : sigue();
             } else {

@@ -71,10 +71,13 @@ const observerdatos = new MutationObserver(()=>{
                 ds.forEach(d => {
                     
                     list_id.push(d.id);
-                    listC.push(d.data());  
+                    listC.push(d.data());
+                    const id = d.id;  
+                    const name = d.data().esquemaOF;
+                    console.log(id);
                     
                     oferta.innerHTML += `
-                    <h6 class = "letra_recuadro_info2">${d.id}</h6>
+                    <h6 class = "letra_recuadro_info2">${name}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>
@@ -85,17 +88,16 @@ const observerdatos = new MutationObserver(()=>{
                     estado.innerHTML += `
                     <h6 >${d.data().Estado}</h6>
                     `;
-
                     if (d.data().Formalizar) {
                         // formalizar.innerHTML += `
                         // <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">Formalizado</h6></div>                      
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" id="${d.id}"checked>Formalizado</label>`;
+                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}"checked>Formalizado</label>`;
                     } else {
                         // formalizar.innerHTML += `
                         // <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >No formalizado</h6>  </div>
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" id="${d.id}">Pendiente</label>
+                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}">Pendiente</label>
                         `;
 
                     }
@@ -107,39 +109,40 @@ const observerdatos = new MutationObserver(()=>{
             return {primer,ultimo}
             }
         }
-        const listeners = () => {
+        const listeners = async () => {
             const vinculos = document.querySelectorAll('.letra_recuadro_info2');
             const checks = document.querySelectorAll('.checkb');
             vinculos.forEach(element => {
-            element.addEventListener('click',()=>{
-                localStorage.setItem("clientSelect",element.textContent);
-                location.hash='#/comercial/createoffer';
+                element.addEventListener('click',()=>{
+                    localStorage.setItem("clientSelect",element.textContent);
+                    location.hash='#/comercial/createoffer';
+                })            
             })
             checks.forEach(check => {
                 check.addEventListener('click', async ()=>{
                     const formalizado = check.checked;
                     const idoferta = check.id;
-                    const subject = 'VTEK Oferta Formalizada';
-                    const body = `Oferta con id = ${check.id}, pendiente por asignar`;
-                    await updateFormalizarOF(idoferta,formalizado);  
-                    getTecnicoCoordinadorEmail().then(el => {
-                        const docs = el.docs;                    
-                        // console.log(docs);
-                        if (docs.length > 0) {
-                            docs.forEach( async e => {
-                                const email = e.data().Email;
-                                console.log(email)
-                                if (formalizado){await sendNotificateEmail(email, subject, body)};
-                            })
-                        }
-                    }).catch(e => {
-                        console.log(e);
-                    })
+                    const name = check.name;
+                    try {
+                        await updateFormalizarOF(idoferta,formalizado); 
+                    } catch (e){console.log(e)} ;
                     
-                })
-                    
+                    if (formalizado){
+                        const subject = 'VTEK Oferta Formalizada';
+                        const body = `Oferta con Esquema = "${name}", formalizada y pendiente por asignar`;     
+                        getTecnicoCoordinadorEmail().then( el => {
+                            const docs = el.docs;
+                            if (docs.length > 0) {
+                                docs.forEach( async e => {
+                                    const email = e.data().Email;
+                                    console.log(email)
+                                    await sendNotificateEmail(email, subject, body);
+                                })
+                            }
+                        }).catch(e => console.log(e));                               
+                    }
+                })   
             })
-        })
         }        
     }
 
