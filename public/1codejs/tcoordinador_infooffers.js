@@ -65,12 +65,13 @@ const observerdatos = new MutationObserver(()=>{
 
                 ds.forEach(d => {
                     
-                    list_id.push(d.id);
+                    list_id.push(d.data().No_oferta);
                     const esquema = d.data().esquemaOF;
+                    const st = d.data().Estado === undefined ? " - " : d.data().Estado;
                     esquemas.push(esquema);
                     console.log(d.id);
                     oferta.innerHTML += `
-                    <h6 id="${d.id}"class = "letra_recuadro_info2">${esquema}</h6>
+                    <h6 id="${d.id}"class = "letra_recuadro_info2">${d.data().No_oferta}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>
@@ -79,7 +80,7 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${d.data().productoOF}</h6>
                     `;
                     estado.innerHTML += `
-                    <h6 >${d.data().Estado}</h6>
+                    <h6 >${st}</h6>
                     `;
 
                     if (d.data().Formalizar) {

@@ -23,7 +23,7 @@ const charge = () => {
     const generarData = () => {
             cuenta++;
         const data = { 
-            productoOF: "producto "+generateRandomString()+cuenta, 
+            productoOF: "producto", 
             esquemaOF: "esquema "+generateRandomString()+cuenta, 
             vigenciaOF: "vigencia "+generateRandomString()+cuenta, 
             homologacionOF: "homologacionISO "+generateRandomString()+cuenta, 
@@ -32,7 +32,8 @@ const charge = () => {
             condicionespagoOF: "condicionesPAgo "+generateRandomString()+cuenta, 
             ClienteOF: "cliente "+generateRandomString()+cuenta, 
             fabricaOF: "factory "+generateRandomString()+cuenta, 
-            homo_restOF: "no aplica"+generateRandomString()+cuenta
+            homo_restOF: "no aplica",
+            No_oferta: "No_"+generateRandomString()+cuenta
         };
         return data;
     }

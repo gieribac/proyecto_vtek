@@ -70,14 +70,15 @@ const observerdatos = new MutationObserver(()=>{
 
                 ds.forEach(d => {
                     
-                    list_id.push(d.id);
+                    list_id.push(d.data().No_oferta);
                     listC.push(d.data());
-                    const id = d.id;  
-                    const name = d.data().esquemaOF;
-                    console.log(id);
+                    const id = d.id; 
+                    console.log(id) ;
+                    const n_oferta = d.data().No_oferta;
+                    const st = d.data().Estado === undefined ? " - " : d.data().Estado;
                     
                     oferta.innerHTML += `
-                    <h6 class = "letra_recuadro_info2">${name}</h6>
+                    <h6 class = "letra_recuadro_info2">${n_oferta}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>
@@ -86,18 +87,18 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${d.data().productoOF}</h6>
                     `;
                     estado.innerHTML += `
-                    <h6 >${d.data().Estado}</h6>
+                    <h6 >${st}</h6>
                     `;
                     if (d.data().Formalizar) {
                         // formalizar.innerHTML += `
                         // <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">Formalizado</h6></div>                      
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}"checked>Formalizado</label>`;
+                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${n_oferta}" id="${id}"checked>Formalizado</label>`;
                     } else {
                         // formalizar.innerHTML += `
                         // <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >No formalizado</h6>  </div>
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}">Pendiente</label>
+                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${n_oferta}" id="${id}">Pendiente</label>
                         `;
 
                     }

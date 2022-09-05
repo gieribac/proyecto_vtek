@@ -15,7 +15,8 @@ const observerdatos = new MutationObserver(()=>{
         inputs = d.getElementsByClassName('inputsr'),
         selectCliente = d.getElementById('ClienteOF'),
         selectFabrica = d.getElementById('fabricaOF'),
-        selectHtestReport = d.getElementById('homo_restOF'),
+        selectHtestReport = d.getElementById('homo_restOF').firstElementChild,
+        selectProducto = d.getElementById('productoOF').firstElementChild,
         enviar = d.getElementById("guardarO"),
         inputFile = d.getElementById("adjuntar"),
         data = {};
@@ -62,17 +63,17 @@ const observerdatos = new MutationObserver(()=>{
                 
                 selectCliente.innerHTML = `<option selected="" value="0">Cliente: ${cA.ClienteOF}</option>`;
                 selectFabrica.innerHTML = `<option selected="" value="0">Fabrica: ${cA.fabricaOF}</option>`;
-                selectHtestReport.innerHTML = `<option selected="" value="0">Homologación test report: ${cA.homo_restOF}</option>
-                                                <option value="aplica">Aplica: Se reconocerán los test report aportados por el cliente</option>
-                                                <option value="no aplica">No aplica</option>`;
+                selectHtestReport.textContent = `Homologación test report: ${cA.homo_restOF}`;
+                selectProducto.textContent = `Producto: ${cA.productoOF}`;
+                
                 traerClientesFabricas();
-                inputs[0].placeholder = `Producto: ${cA.productoOF}`;
-                inputs[1].placeholder = `Esquema: ${cA.esquemaOF}`;
-                inputs[2].placeholder = `Vigencia: ${cA.vigenciaOF}`;
-                inputs[3].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
-                inputs[4].placeholder = `Ensayos: ${cA.ensayosOF}`;
-                inputs[5].placeholder = `Muestras: ${cA.muestrasOF}`;
-                inputs[6].placeholder = `Condiciones pago: ${cA.condicionespagoOF}`;         
+                
+                inputs[0].placeholder = `Esquema: ${cA.esquemaOF}`;
+                inputs[1].placeholder = `Vigencia: ${cA.vigenciaOF}`;
+                inputs[2].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
+                inputs[3].placeholder = `Ensayos: ${cA.ensayosOF}`;
+                inputs[4].placeholder = `Muestras: ${cA.muestrasOF}`;
+                inputs[5].placeholder = `Condiciones pago: ${cA.condicionespagoOF}`;         
             }
         
             const vinculos = Array.prototype.slice.apply(d.querySelectorAll('.left'));
@@ -99,17 +100,16 @@ const observerdatos = new MutationObserver(()=>{
             } else { 
                 selectCliente.innerHTML = `<option selected="" value="0">Cliente</option>`;
                 selectFabrica.innerHTML = `<option selected="" value="0">Auditoria en Fábrica</option>`;
-                selectHtestReport.innerHTML = `<option selected="" value="0">Homologación test report</option>
-                                                <option value="aplica">Aplica: Se reconocerán los test report aportados por el cliente</option>
-                                                <option value="no aplica">No aplica</option>`;
+                selectHtestReport.textContent = `Homologación test report`;
+                selectProducto.textContent = `Producto a certificar`;
                 traerClientesFabricas();
-                inputs[0].placeholder = `Producto a certificar`;
-                inputs[1].placeholder = `Esquema de certificación`;
-                inputs[2].placeholder = `Vigencia`;
-                inputs[3].placeholder = `Homologación ISO 9001`;
-                inputs[4].placeholder = `Ensayos`;
-                inputs[5].placeholder = `Muestras`;
-                inputs[6].placeholder = `Condiciones de pago`;  
+                
+                inputs[0].placeholder = `Esquema de certificación`;
+                inputs[1].placeholder = `Vigencia`;
+                inputs[2].placeholder = `Homologación ISO 9001`;
+                inputs[3].placeholder = `Ensayos`;
+                inputs[4].placeholder = `Muestras`;
+                inputs[5].placeholder = `Condiciones de pago`;  
 
                 d.getElementById("guardarO").disabled = false;
                 d.getElementById("adjuntar").disabled = false;
