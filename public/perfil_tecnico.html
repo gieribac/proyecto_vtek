@@ -87,46 +87,43 @@
 
 
             </div>
+        </div>
+    </div>
+
 
 
 
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js " integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2 " crossorigin="anonymous "></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.js" integrity="sha512-wUa0ktp10dgVVhWdRVfcUO4vHS0ryT42WOEcXjVVF2+2rcYBKTY7Yx7JCEzjWgPV+rj2EDUr8TwsoWF6IoIOPg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-           <script type="module">
-                function CreatePDFfromHTML() {
-            
-            
-            // const styleSheets = Array.from(document.styleSheets).filter(
-            //     (styleSheet) => !styleSheet.href || styleSheet.href.startsWith(window.location.origin)
-            // );
-            // for (let style of styleSheets) {
-            //     if (style instanceof CSSStyleSheet && style.cssRules) {
-            //         // do something with the CSS rules of each style sheet
-            //     }
-            // }
-            var node = document.getElementsByTagName("Body")[0]; 
-            node.setAttribute("style", "width: 1200px; height: 1400px;")
-            domtoimage.toPng(node)
-                .then(function(dataUrl) {
 
-                    var img = new Image();
-                    img.src = dataUrl;
-                    // window.save(img, 'my-node.png');
-                    // img.save("intento.png")
-                    console.log(dataUrl)
-                    const imagennew = dataUrl;
-                    // document.body.appendChild(img); //append the converted image to html body
-                })
-                .catch(function(error) {
-                    console.error("oops, something went wrong!", error);
-                });
+            <script type="module" src="https://github.com/eKoopmans/html2pdf.js/blob/master/dist/html2pdf.bundle.min.js" crossorigin="anonymous "></script>
 
-            // domtoimage.toBlob(node).then(function(blob) {
-            //     window.save(blob, 'my-node.png');
-            // });
-        }
-            document.getElementById("saveU").addEventListener('click',CreatePDFfromHTML)
+           <script >
+                const convtoPDF = () => {
+                    const $elementoParaConvertir = document.body; // <-- Aquí puedes elegir cualquier elemento del DOM
+                    html2pdf()
+                        .set({
+                            margin: 1,
+                            filename: 'documento.pdf',
+                            image: {
+                                type: 'jpeg',
+                                quality: 0.98
+                            },
+                            html2canvas: {
+                                scale: 3, // A mayor escala, mejores gráficos, pero más peso
+                                letterRendering: true,
+                            },
+                            jsPDF: {
+                                unit: "in",
+                                format: "a3",
+                                orientation: 'portrait' // landscape o portrait
+                            }
+                        })
+                        .from($elementoParaConvertir)
+                        .save()
+                        .catch(err => console.log(err));
+                }
+                document.getElementById('saveU').addEventListener('click',convtoPDF)
             </script>
             
 
