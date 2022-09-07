@@ -85,12 +85,15 @@ const observerdatos = new MutationObserver(()=>{
                     clienteActual= idcliente.find(e => e==element.textContent);
                     mostrarCliente(clienteActual);                             
                 })
+                
             })
             
             clienteActual = localStorage.getItem("clientSelect");
             mostrarCliente(clienteActual);     
             const selected = vinculos.find(e => e.textContent == clienteActual)
             selected.setAttribute('style','font-weight: bold'); 
+            d.getElementById("btngenPDF").addEventListener('click',() => location.hash = "#/comercial/plantillapdf");
+           
         })();
 
         const formNew = () => {
