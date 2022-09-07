@@ -20,7 +20,6 @@ const observerdatos = new MutationObserver(()=>{
         enviar = d.getElementById("guardarO"),
         inputFile = d.getElementById("adjuntar"),
         data = {};
-        console.log(inputs)
 
         const recargar = () => {
             d.getElementById("root").innerHTML = comercial_createoffer;
@@ -92,7 +91,7 @@ const observerdatos = new MutationObserver(()=>{
             mostrarCliente(clienteActual);     
             const selected = vinculos.find(e => e.textContent == clienteActual)
             selected.setAttribute('style','font-weight: bold'); 
-            d.getElementById("btngenPDF").addEventListener('click',() => location.hash = "#/comercial/plantillapdf");
+            d.getElementById("btngenPDF").addEventListener('click',() => location.hash = "#/comercial/createpdf1");
            
         })();
 

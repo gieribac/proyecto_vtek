@@ -1,32 +1,34 @@
 const observerdatos = new MutationObserver(()=>{ 
 
         const charge = () => {
-        //     const nav = `<nav>
-        // <a target="contents" href="#comercial_createpdf1">Page 1</a>
-        // <a target="contents" href="#comercial_createpdf2">Page 2</a>
-        // <a target="contents" href="ef="#comercial_createpdf5">Page 5</a>
-        // <a target="contents" href="#comercial_createpdf6">Page 6</a>
-        // <a target="contents" href="#comercial_createpdf7">Page 7</a>#comercial_createpdf3">Page 3</a>
-        // <a target="contents" href="#comercial_createpdf4">Page 4</a>
-        // <a target="contents" hr
-        // </nav><div id="pgpdf"></div>`,
+
+        const fecha = new Date(),        
+        year = fecha.getFullYear();
+        let day = fecha.getDate(),
+        month = fecha.getMonth()+1;
+        day < 10 && (() => day=`0${day}`)();
+        month < 10 && (() => month=`0${month}`)();
+        const date = `${day} / ${month} / ${year}`;
+        const head = `<div></div>
+        <div >
+            <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                <tr>
+                <td  class="centrar_t" style="padding: 5px; "><div class="logoPDF"></div></td>
+                <td  class="centrar_t " style="padding: 5px;" >OFERTA COMERCIAL DE CERTIFICACION</td>
+                <td class="centrar_t" style="padding: 5px;" >GV-FC 02 v:8 <br>fecha de vigencia: <br>${date}</td>
+                </tr>
+                </table>
+            
+            </div>
+        <div>
+            <p></p>
+            <p></p>
+            </div>`,
+        footer = `<div class="iconosPdf"></div>`;
+
         const pdf1 = `<div id="pg1 " style="margin-left: 10% ; margin-right: 10%;">
-        <head>
-            <div></div>
-            <div >
-                <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
-                    <tr>
-                    <td  class="centrar_t" style="padding: 5px; "><div class="logoPDF"></div></td>
-                    <td  class="centrar_t " style="padding: 5px;" >OFERTA COMERCIAL DE CERTIFICACION</td>
-                    <td class="centrar_t" style="padding: 5px;" >GV-FC 02 v:8 <br>fecha de vigencia: <br>04/03/2022</td>
-                    </tr>
-                    </table>
-                
-                </div>
-            <div>
-                <p></p>
-                <p></p>
-                </div>
+        <head>${head}
+            
         </head>
         <main>
             <div class="letra1pdf" >
@@ -118,8 +120,8 @@ const observerdatos = new MutationObserver(()=>{
             </table>
         </main>
         <footer>
-            <div>
-                <div class="iconosPdf"></div>
+              <div >${footer}
+                
             </div>
             <p>1</p>
             <div></div>
@@ -127,7 +129,7 @@ const observerdatos = new MutationObserver(()=>{
     </div>`,
         pdf2 = `<div id="pg2 style="margin-left: 10% ; margin-right: 10%;">
         <head>
-            <!-- el mismo head -->
+        ${head}
         </head>
         <main>
             <div class="margnees_elem">
@@ -232,8 +234,8 @@ const observerdatos = new MutationObserver(()=>{
             </table>
         </main>
         <footer>
-            <div>
-                <!-- lo mismo que en pa pagina anterior -->
+              <div >${footer}
+                
             </div>
             <p>2</p>
             <div></div>
@@ -241,7 +243,7 @@ const observerdatos = new MutationObserver(()=>{
         </div>`,
         pdf3 = `<div id="pg3">
         <head>
-            <!-- el mismo head -->
+        ${head}
         </head>
         <main>
             <div class="margnees_elem">
@@ -351,8 +353,8 @@ const observerdatos = new MutationObserver(()=>{
             </table>
         </main>
         <footer>
-            <div>
-                <!-- lo mismo que en pa pagina anterior -->
+              <div >${footer}
+                
             </div>
             <p>3</p>
             <div></div>
@@ -360,7 +362,7 @@ const observerdatos = new MutationObserver(()=>{
         </div>`,
         pdf4 = `<div id="pg4">
         <head>
-            <!-- el mismo head -->
+        ${head}
         </head>
         <main>
             <div>
@@ -459,8 +461,8 @@ const observerdatos = new MutationObserver(()=>{
             </div>
         </main>
         <footer>
-            <div>
-                <!-- lo mismo que en pa pagina anterior -->
+              <div >${footer}
+                
             </div>
             <p>4</p>
             <div></div>
@@ -468,7 +470,7 @@ const observerdatos = new MutationObserver(()=>{
         </div>`,
         pdf5 = `<div id="pg5">
         <head>
-            <!-- el mismo head -->
+        ${head}
         </head>
         <main>
             <div>
@@ -561,8 +563,8 @@ const observerdatos = new MutationObserver(()=>{
             </div>
         </main>
         <footer>
-            <div>
-                <!-- lo mismo que en pa pagina anterior -->
+              <div >${footer}
+                
             </div>
             <p>5</p>
             <div></div>
@@ -570,7 +572,7 @@ const observerdatos = new MutationObserver(()=>{
         </div>`,
         pdf6 = `<div id="pg6">
         <head>
-            <!-- el mismo head -->
+        ${head}
         </head>
         <main>
             <div>
@@ -631,8 +633,8 @@ const observerdatos = new MutationObserver(()=>{
             </div>
         </main>
         <footer>
-            <div>
-                <!-- lo mismo que en pa pagina anterior -->
+              <div >${footer}
+                
             </div>
             <p>6</p>
             <div></div>
@@ -640,7 +642,7 @@ const observerdatos = new MutationObserver(()=>{
         </div>`,
         pdf7 = `<div id="pg7">
         <head>
-            <!-- el mismo head -->
+        ${head}
         </head>
         <main>
             <div>
@@ -695,35 +697,47 @@ const observerdatos = new MutationObserver(()=>{
             </table>
         </main>
         <footer>
-            <div>
-                <!-- lo mismo que en pa pagina anterior -->
+              <div >${footer}
+                
             </div>
             <p>7</p>
             <div></div>
         </footer>
         </div>`;
         const setPgActual = () => {
-            const loc = location.hash;
-            const subs = loc.slice(loc.length - 4);
-            const pga = eval(subs);
-            document.getElementById("pgpdf").innerHTML = pga;
+            try {
+                const loc = location.hash;
+                const subs = loc.slice(loc.length - 4);
+                const pga = eval(subs);
+                document.getElementById("pgpdf").innerHTML = pga;
+            } catch (e){}
         }
-        document.getElementById("pgpdf").innerHTML = pdf1;
         window.addEventListener('hashchange',setPgActual);
-
-        // const navegacion = () => {
-        //     const nodos = document.querySelectorAll("nav > a");
-        //     nodos.forEach(e => {
-        //         e.addEventListener("click",() => {
-
-        //         })
-        //     })
-        // }
-
-            console.log('#/comercial/plantillapdf')      
+        document.getElementById("pgpdf").innerHTML = pdf1;
+        const navegacion = () => {
+            const location_ = ["#/comercial/createpdf1",
+                "#/comercial/createpdf2",
+                "#/comercial/createpdf3",
+                "#/comercial/createpdf4",
+                "#/comercial/createpdf5",
+                "#/comercial/createpdf6",
+                "#/comercial/createpdf7",
+                "#/comercial/createoffer"];
+            const navButtons = document.querySelectorAll("nav > button");
+            navButtons.forEach((e,i) => {
+                e.addEventListener("click",() => {
+                        location.hash = location_[i];
+                })
+            })
+            document.getElementById("btnDPDF").addEventListener("click",() => {
+                //
+            })
+        }
+        navegacion();
+        console.log('#/comercial/plantillapdf')      
         }
     
-        location.hash == '#/comercial/plantillapdf' && charge();
+        location.hash == '#/comercial/createpdf1' && charge();
     })
     const parent = document.getElementById('root');
     observerdatos.observe(parent,{childList:true})

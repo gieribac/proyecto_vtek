@@ -390,8 +390,6 @@ const
         <form id="formcreateuser">
         <fieldset>
         <div class="cols-lg-4  col-8 col-xs-12   margenusu">
-        
- 
         <div class="row">
         <div class="col">
             <input type="text" class="form-control inputsr sombra imputs_tamano" placeholder="Nombre de responsable " aria-label="usuario" id="nombreF">
@@ -402,7 +400,6 @@ const
             <input type="text" class="form-control inputsr sombra imputs_tamano"  placeholder="Correo" aria-label="usuario" id="correoF">
             <p class=" letra_formulario correoFme formulario__input-error">
               Escriba un correo válido</p>
-
         </div>
     </div>
     <div class="row">
@@ -427,18 +424,11 @@ const
                     <option value="CC">Cédula</option>
                     <option value="CE">Cédula de Extranjeria </option>
                   </select>
-
-
                   <p class=" letra_formulario tipoIDFme formulario__input-error">Seleccione tipo de Identificación</p>
-
-
-                
-    
             </div>
             <div class="col">
                 <input type="number" class="form-control inputsr sombra imputs_tamano" id="identificacionF" placeholder="Identificacion " aria-label="usuario ">
                 <p class="letra_formulario3 identificacionFme formulario__input-error">De 6 a 11 dígitos</p>
-
             </div>
         </div>
         <div>
@@ -453,12 +443,8 @@ const
                       Repita la contraseña</p>
                 </div>
             </div>
-
-
-
             <div class="naranjasinb2 acomodar">
                   <h6 class="letracargo">Cargo</h6> </div>   
-
                   <select class="form-select dropdown2 sombra " style=" width: 30% !important;" aria-label="Default select example" id="cargocliF">
                   <option selected>Seleccionar Opción</option>
                   <option value="comercial">Comercial</option>
@@ -467,75 +453,23 @@ const
                   <option value="scliente">Servicio al Cliente</option>
                   <option value="tcoordinador">Técnico Coordinador</option>
                 </select>
-
                 <p class="cargocliFme letra_formulario formulario__input-error">Seleccione el Cargo</p>  
-                  
-                  
-
                   </div>
-
-
-
-
-                      
-                    
-                
-
                   </div>
                   <div class="formulario__mensaje" id="formulario__mensaje">
                   <i class="formulario"></i>
                     <div class="avisopSave"></div>
                       <button type="button" class="btn btnguardar " id="saveF"> <h6 class="letrabtng ">Guardar</h6></button>
-                      
                   </div>
         </fieldset>
       </form>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        
-        
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    `,
+    </div>`,
     cliente_offer = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
-    
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
           <div class="infopagina">
             <div class="check-color-p"></div>
             <h4 class="letrainfo">Ofertas</h4>
-            
           </div>
       </div>
       <div class="col-lg-9 ">
@@ -911,17 +845,18 @@ const
               </fieldset>
             </form>
           </div>`,
-          comercial_createpdfnav = `<nav>
-          <a  href="#comercial_createpdf1">Page 1</a></br>
-          <a  href="#comercial_createpdf2">Page 2</a></br>
-          <a  href="#comercial_createpdf3">Page 3</a></br>
-          <a  href="#comercial_createpdf4">Page 4</a></br>
-          <a  href="#comercial_createpdf5">Page 5</a></br>
-          <a  href="#comercial_createpdf6">Page 6</a></br>
-          <a  href="#comercial_createpdf7">Page 7</a>
+          comercial_createpdf1 = `<nav>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 1</h6></button>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 2</h6></button>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 3</h6></button>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 4</h6></button>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 5</h6></button>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 6</h6></button>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 7</h6></button>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Regresar</h6></button>
           </nav>
+          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Descargar PDF</h6></button>
           <div id="pgpdf"></div>`,
-    
     comercial_createfactorie = ` <div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
@@ -933,12 +868,6 @@ const
         <form id="formcrearFabrica" autocomplete="off">
         <fieldset>
         <div class="cols-lg-4  col-8 col-xs-12   margenusu">
-
-
-
-
-
-
         <div class="row">
         <div class="col">
             <input type="text" pattern="^[a-zA-ZÀ-ÿ\s]{1,50}$" style = "width: 97%; !important" class="form-control inputsr sombra imputs_tamano" placeholder="Nombre de Compañia" aria-label="usuario" id="nombreCompaniaCF" name="nombreCompaniaCF">
@@ -1018,12 +947,8 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
   <div class="col-lg-9 ">
       <h6 class="info_de_oferta p-3">Información Oferta</h6>
       <button id="btngenPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Generar PDF</h6></button>
-<<<<<<< HEAD
-      <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">Editar</h6></button>
-=======
 
       <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button>
->>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
       <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Nuevo</h6></button>
 
 
@@ -1164,11 +1089,7 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
 <div class="row">
 <div class="col icheked">
     <!-- <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"> -->
-<<<<<<< HEAD
-    <textarea  required=""  class="form-control textareaexp form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"></textarea>
-=======
     <textarea  required=""  class="form-control textareaoffer form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"></textarea>
->>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
     <p class="ncC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
         
@@ -1182,11 +1103,7 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
 </div>
 <div class="col icheked">
 <!-- <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"> -->
-<<<<<<< HEAD
-    <textarea  required=""  class="form-control textareaexp inputsr form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"></textarea>
-=======
     <textarea  required=""  class="form-control textareaoffer inputsr form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"></textarea>
->>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
     <p class="rlC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
     </p>
@@ -1768,13 +1685,9 @@ export {
     comercial_infooffers,
     comercial_detallecliente,
     comercial_createcliente,
-<<<<<<< HEAD
-=======
-    comercial_createpdfnav,
->>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
+    comercial_createpdf1,
     comercial_createfactorie,
     comercial_createoffer,
-    comercial_createpdfnav,
     dtecnico_default,
     dtecnico_planeval,
     dtecnico_infoclient,
