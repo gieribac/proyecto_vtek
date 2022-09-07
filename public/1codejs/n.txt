@@ -1,8 +1,1 @@
-<a  href="#/comercial/createpdf1">Page 1</a></br>
-          <a  href="#/comercial/createpdf2">Page 2</a></br>
-          <a  href="#/comercial/createpdf3">Page 3</a></br>
-          <a  href="#/comercial/createpdf4">Page 4</a></br>
-          <a  href="#/comercial/createpdf5">Page 5</a></br>
-          <a  href="#/comercial/createpdf6">Page 6</a></br>
-          <a  href="#/comercial/createpdf7">Page 7</a></br>
-          <a  href="#/comercial/createoffer">Regresar</a></br>
+setAsingExpert(id, data)

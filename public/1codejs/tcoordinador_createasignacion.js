@@ -6,7 +6,7 @@ const observerdatos = new MutationObserver(()=>{
         console.log('tcoordinador_createasignacion');
         const d = document;
         const despliequeOfertas= d.getElementById('oferta_'),
-        cliente = JSON.parse(localStorage.getItem("nidsClient")),
+        cliente = JSON.parse(localStorage.getItem("offersID")),
         clientSelect = localStorage.getItem("clientSelect"),
         clientSelectid = localStorage.getItem("clientSelectid"),
         clientID = JSON.parse(localStorage.getItem("offersID")),
@@ -21,7 +21,7 @@ const observerdatos = new MutationObserver(()=>{
                 data.experto = experto;
                 console.log(id);
                 console.log(data);
-                // await setAsingExpert(id, data);
+                setAsingExpert(id, data);
             } else {
                 alert("Debe seleccionar Experto")
             }

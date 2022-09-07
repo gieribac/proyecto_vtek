@@ -282,12 +282,11 @@ export const getOfertas = async(datos)=> {
         throw e;    
     }
     }
-
-export const queryOferta = async(ref) => {
+    
+export const queryOferta = async(id) => {
     try {
-        const q = query(collection(db, "ofertas"), where("Oferta", "==", ref));
-        const querySnapshot = await getDocs(q);
-        return querySnapshot;
+        const doc_ = await getDoc(doc(db,"ofertas",id));
+        return doc_;
     } catch (e){
         throw e.message
     }
@@ -485,10 +484,58 @@ export const updateDataClient = (idClient, datos) => {
     }
 
     export const setAsingExpert = async(id, data) => {
-        
-    }
+        try{
+            await setDoc(doc(db, "oferta-experto",id), data).then().catch(e=>{throw e});
+            return 'enviado'
+        } catch (e){
+            throw e;
+        }
+    } 
+
 //</tcoorditcoordinador_createasignacion>//
 
+//// <tcoordinador_infooffers>////
+export const querySnapComOfsForm = async() => {
+    try {
+        const first = query(collection(db, "ofertas"), where("Formalizar", "==", true), orderBy("ClienteOF","asc"), limit(10));
+        const documentSnapshots = await getDocs(first);
+        
+        console.log(`documentsSnapCom: ${documentSnapshots}`)
+        return documentSnapshots
+    
+    
+        } catch (e){
+            throw e.message
+    
+        }
+    }
+    
+    export const queryNextComOfsForm= async(lastVisible) => {
+    
+        const next = query(collection(db, "ofertas"), 
+                where("Formalizar", "==", true),
+                orderBy("ClienteOF","asc"),
+                startAfter(lastVisible),
+                limit(10));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+    
+    export const queryNextntComOfsForm = async(lastVisible) => {
+    
+        const next = query(collection(db, "ofertas"), 
+                where("Formalizar", "==", true),
+                orderBy("ClienteOF","desc"),
+                startAfter(lastVisible),
+                limit(10));
+        const docs_ = await getDocs(next);
+        
+        return docs_;
+                
+    }
+//// </tcoordinador_infooffers>////
 
 export const readUser = async () => {
     const docSnap = await getDoc(doc(db, "users", auth.currentUser.uid));

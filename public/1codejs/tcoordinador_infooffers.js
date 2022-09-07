@@ -1,4 +1,4 @@
-import {querySnapComOfs, queryNextComOfs, queryNextntComOfs} from './models/post.js';
+import {querySnapComOfsForm, queryNextComOfsForm, queryNextntComOfsForm} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
    
     
@@ -18,7 +18,7 @@ const observerdatos = new MutationObserver(()=>{
         let ultimoDoc = null;
         let primerDoc = null;
 
-        querySnapComOfs().then( d => {
+        querySnapComOfsForm().then( d => {
 
             let registers = cargarDocs(d.docs);
             ultimoDoc = registers.ultimo;
@@ -26,7 +26,7 @@ const observerdatos = new MutationObserver(()=>{
 
             btnSiguiente.addEventListener('click',() => {
                 
-                    queryNextComOfs(ultimoDoc).then( d => {
+                    queryNextComOfsForm(ultimoDoc).then( d => {
 
                         registers = cargarDocs(d.docs); 
                         ultimoDoc = registers.ultimo;
@@ -37,7 +37,7 @@ const observerdatos = new MutationObserver(()=>{
 
             btnAnterior.addEventListener('click',() => {
                 
-                    queryNextntComOfs(primerDoc).then((d) => {
+                    queryNextntComOfsForm(primerDoc).then((d) => {
                 
                     registers = cargarDocs(d.docs.reverse());
                     ultimoDoc = registers.ultimo;

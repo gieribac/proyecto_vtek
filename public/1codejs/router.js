@@ -13,7 +13,7 @@ import {index,
     tcoordinador_default, tcoordinador_createasignacion, tcoordinador_asignacion
 } from "./pages.js";
 const cerrarSession = () => {
-           
+           console.log("aka")
     signOut(auth).then(() => {
         localStorage.removeItem("em");
         localStorage.removeItem("k");
@@ -62,7 +62,7 @@ export const page = (h) => {
             }
         // })
     }
-
+    console.log(h)
     if (h=='#/admin'){inner('admin',admin_default)}
     else if (h=='#/admin/createuser'){inner('admin',admin_createuser)}
     else if (h=='#/admin/infooffer'){inner('admin',admin_infooffer)}
@@ -100,13 +100,14 @@ export const page = (h) => {
     else if (h=='#/tcoordinador/createasignacion'){inner('tcoordinador',tcoordinador_createasignacion)}
     else if (h=='#/tcoordinador/asignacion'){inner('tcoordinador',tcoordinador_asignacion)}
     else if (h==''){() => window.location = ''}
-    else if (h !=='#comercial/createpdf1'){}
-    else if (h !=='#comercial/createpdf2'){}
-    else if (h !=='#comercial/createpdf3'){}
-    else if (h !=='#comercial/createpdf4'){}
-    else if (h !=='#comercial/createpdf5'){}
-    else if (h !=='#comercial/createpdf6'){}
-    else if (h !=='#comercial/createpdf7'){}
+    else if (h =='#cs'){cerrarSession()}
+    else if (h =='#comercial/createpdf1'){}
+    else if (h =='#comercial/createpdf2'){}
+    else if (h =='#comercial/createpdf3'){}
+    else if (h =='#comercial/createpdf4'){}
+    else if (h =='#comercial/createpdf5'){}
+    else if (h =='#comercial/createpdf6'){}
+    else if (h =='#comercial/createpdf7'){}
     else {document.getElementById('root').textContent = 'notFound'}
 }
 

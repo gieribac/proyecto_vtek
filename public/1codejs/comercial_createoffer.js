@@ -51,14 +51,15 @@ const observerdatos = new MutationObserver(()=>{
         (() => {
             const left = d.getElementById('cliente'),
             cliente = JSON.parse(localStorage.getItem("nclient")), 
-            idcliente = JSON.parse(localStorage.getItem("nidsClient"));      
+            list_noOf = JSON.parse(localStorage.getItem("list_noOf")),  
+            nidsClient = JSON.parse(localStorage.getItem("nidsClient"));      
             cliente.forEach((d,i)=> {  
                 left.innerHTML += `
-                <h6 class = "p-2 left margen-cliente_com letra_recuadro_info" >${idcliente[i]}</h6>`
+                <h6 id="${nidsClient[i]}" class = "p-2 left margen-cliente_com letra_recuadro_info" >${list_noOf[i]}</h6>`
             })
 
             const mostrarCliente = (clienteActual) => {              
-                const cA = cliente[idcliente.indexOf(clienteActual)];
+                const cA = cliente[list_noOf.indexOf(clienteActual)];
                 
                 selectCliente.innerHTML = `<option selected="" value="0">Cliente: ${cA.ClienteOF}</option>`;
                 selectFabrica.innerHTML = `<option selected="" value="0">Fabrica: ${cA.fabricaOF}</option>`;
@@ -81,7 +82,9 @@ const observerdatos = new MutationObserver(()=>{
                 element.addEventListener('click',()=>{
                     vinculos.forEach(s => s.removeAttribute('style','font-weight: bold'));  
                     element.setAttribute('style','font-weight: bold');  
-                    clienteActual= idcliente.find(e => e==element.textContent);
+                    clienteActual= list_noOf.find(e => e==element.textContent);
+                    const clienteActualID= nidsClient.find(e => e==element.id);
+                    localStorage.setItem("clientSelectID", clienteActualID);
                     mostrarCliente(clienteActual);                             
                 })
                 
