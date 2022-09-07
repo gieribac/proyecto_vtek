@@ -10,17 +10,26 @@ const observerdatos = new MutationObserver(()=>{
         // <a target="contents" href="#comercial_createpdf4">Page 4</a>
         // <a target="contents" hr
         // </nav><div id="pgpdf"></div>`,
-        const pdf1 = `<div id="pg1">
+        const pdf1 = `<div id="pg1 " style="margin-left: 10% ; margin-right: 10%;">
         <head>
             <div></div>
-            <div>OFERTA COMERCIAL DE CERTIFICACION</div>
+            <div >
+                <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                    <tr>
+                    <td  class="centrar_t" style="padding: 5px; "><div class="logoPDF"></div></td>
+                    <td  class="centrar_t " style="padding: 5px;" >OFERTA COMERCIAL DE CERTIFICACION</td>
+                    <td class="centrar_t" style="padding: 5px;" >GV-FC 02 v:8 <br>fecha de vigencia: <br>04/03/2022</td>
+                    </tr>
+                    </table>
+                
+                </div>
             <div>
                 <p></p>
                 <p></p>
                 </div>
         </head>
         <main>
-            <div>
+            <div class="letra1pdf" >
                 <p id="fecha"></p> 
                 <br><br>
                 <p>Señores:</p>
@@ -33,148 +42,191 @@ const observerdatos = new MutationObserver(()=>{
                 <br>
                 <p>En atención a su solicitud de certificación de producto, presentamos la siguiente oferta comercial formal donde establecemos tarifas, alcance y metodologías para el servicio de certificación.</p>
             </div>
-            <div>
-                <div>OFERTA COMERCIAL N°</div>
-                <div id="noOferta"></div>
+            <div class="margnees_elem">
+                <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                <tr>
+                <td  class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
+                <td  class="centrar_t " style="padding: 5px; position: relative;">    <p id ="noOferta" class="subrayado"> e5-dw-1384-2022 </p></td>
+                </tr>
+                </table>
             </div>
-            <div>
-                <h1>1. ALCANCE DE LA CERTIFICACIÓN</h1>    
-                <h2>1.1 Esquema de certificación</h2>
+            <div class="margnees_elem" >
+                <h1 class="letra_titulos_pdf1" >1. ALCANCE DE LA CERTIFICACIÓN</h1>    
+                <h2 class="letra_subtitulospdf">1.1 Esquema de certificación</h2>
             </div>
             <table>
-
+        
                 <tr>
-                    <td>Esquema de certificación</td>
-                    <td id="esquema"> esquema</td>
+                    <td class="centrar_t letras_blanco_fAzul">Esquema de certificación</td>
+                    <td class="centrar_t" id="esquema"> esquema</td>
                 </tr>
                 <tr>
-                    <td>Vigencia</td>
-                    <td id="vigencia"> vig</td>
+                    <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
+                    <td class=" centrar_t" id="vigencia"> vig</td>
                 </tr>
                 <tr>
-                    <td>Seguimientos</td>
-                    <td id="seguimientos"> seg</td>
+                    <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
+                    <td class="centrar_t" id="seguimientos"> seg</td>
                 </tr>
             </table>
-            <div>
-                <h2>1.2 Empresa solicitante de los servicios de certificación (Empresa pagadora de los servicios)</h2>
+            <div class="margnees_elem">
+                <h2 class="letra_subtitulospdf">1.2 Empresa solicitante de los servicios de certificación (Empresa pagadora de los servicios)</h2>
             </div>
             <table>
                 <tr>
-                    <th>DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</th>
+                    <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</td>
                 </tr>
                 <tr>
-                    <td>Nombre de la compañía
+                    <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
                         (Como aparece
                         registrada)</td>
-                    <td id="datos_nombreCliente"></td>
-                    <td>Número de NIT:</td>
-                    <td id="datos_nit"></td>
+                    <td class="letras_tabla3" id="datos_nombreCliente"></td>
+                    <td class="letras_tabla2">Número de NIT:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_nit"></td>
                 </tr>
                 <tr>
-                    <td>Representante Legal</td>
-                    <td id="datos_repLegal"></td>
-                    <td>Identificación:</td>
-                    <td id="datos_identificacion"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_repLegal"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_identificacion"></td>
                 </tr>
                 <tr>
-                    <td>Dirección comercial: </td>
-                    <td id="datos_direccion"></td>
-                    <td>Web: </td>
-                    <td id="datos_web"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Dirección comercial: </td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_direccion"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Web: </td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_web"></td>
                 </tr>
                 <tr>
-                    <td>Ciudad/Depto.:</td>
-                    <td id="datos_ciudad"></td>
-                    <td>Tel:</td>
-                    <td id="datos_tel"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_ciudad"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_tel"></td>
                 </tr>
                 <tr>
-                    <td>Nombre del
+                    <td class="letras_tabla2" style="padding: 10px;">Nombre del
                         responsable: </td>
-                    <td id="datos_nombreResponsable"></td>
-                    <td>Mail:</td>
-                    <td id="datos_mail"></td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_nombreResponsable"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_mail"></td>
                 </tr>
                 <tr>
-                    <td>Cargo:</td>
-                    <td id="datos_cargo"></td>
-                    <td>Tel/Cel. (Móvil):</td>
-                    <td id="datos_contacto"></td>
+                    <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_cargo"></td>
+                    <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_contacto"></td>
                 </tr>
             </table>
         </main>
         <footer>
             <div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="iconosPdf"></div>
             </div>
             <p>1</p>
             <div></div>
         </footer>
-        </div>`,
-        pdf2 = `<div id="pg2">
+    </div>`,
+        pdf2 = `<div id="pg2 style="margin-left: 10% ; margin-right: 10%;">
         <head>
             <!-- el mismo head -->
         </head>
         <main>
-            <div>
-            <h2>1.3 Empresa Titular del certificado de conformidad</h2>  
+            <div class="margnees_elem">
+            <h2 class="letra_subtitulospdf">1.3 Empresa Titular del certificado de conformidad</h2>  
             </div>
             <table>
-                <!-- igual a la tabla final de pa pg1 -->
-            </table>
-            <h2>1.4 Información de compañía fabricante</h2>
+            <tr>
+                <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA TITULAR DEL CERTIFICADO DE CONFORMIDAD</td>
+            </tr>
+            <tr>
+                <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
+                    (Como aparece
+                    registrada)</td>
+                <td class="letras_tabla3" id="datos_nombreCliente"></td>
+                <td class="letras_tabla2">Número de NIT:</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_nit"></td>
+            </tr>
+            <tr>
+                <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_repLegal"></td>
+                <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_identificacion"></td>
+            </tr>
+            <tr>
+                <td class="letras_tabla2" style="padding: 10px;">Dirección comercial: </td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_direccion"></td>
+                <td class="letras_tabla2" style="padding: 10px;">Web: </td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_web"></td>
+            </tr>
+            <tr>
+                <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_ciudad"></td>
+                <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_tel"></td>
+            </tr>
+            <tr>
+                <td class="letras_tabla2" style="padding: 10px;">Nombre del
+                    responsable: </td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_nombreResponsable"></td>
+                <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_mail"></td>
+            </tr>
+            <tr>
+                <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_cargo"></td>
+                <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                <td class="letras_tabla3" style="align-items: center;" id="datos_contacto"></td>
+            </tr>
+        </table>
+        <div class="margnees_elem">
+            <h2 class="letra_subtitulospdf">1.4 Información de compañía fabricante</h2>
+            </div>
             <table border="1">
                 <tr>
-                    <th  colspan="4">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
+                    <th class="letras_blanco_fAzul centrar_t"  colspan="4">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
                 </tr>
                 <tr>
-                    <td >Nombre de la Compañía
+                    <td class= "letras_tabla2" style="padding: 10px;" >Nombre de la Compañía
                         Fabricante: </td>
                     <td colspan="3" id="nombreFabrica"></td>
                 </tr>
                 <tr>
-                    <td >Dirección de la planta/s en
+                    <td class= "letras_tabla2" style="padding: 10px;"  >Dirección de la planta/s en
                         donde se fabrica el producto:</td>
                     <td colspan="3" id="direccionFabrica"></td>
                 </tr>
                 <tr>
-                    <td>Contacto:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Contacto:</td>
                     <td id="nombreresponsableFabrica"></td>
-                    <td>País:</td>
+                    <td class= "letras_tabla2" style="padding: 10px; >País:</td>
                     <td id="paisFabrica"></td>
                 </tr>
                 <tr>
-                    <td>Teléfono:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Teléfono:</td>
                     <td id="telFabrica"></td>
-                    <td>Ciudad:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Ciudad:</td>
                     <td id="ciudadFabrica"></td>
                 </tr>
                 <tr>
-                    <td>Mail:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;"  >Mail:</td>
                     <td colspan="3" id="mailFabrica"></td>
                 </tr>
             </table>
             <div>
-            <h2>1.5 Información de Productos a evaluar y Referencial técnico aplicable:</h2> 
-            <p>La información específica de los productos a certificar se encuentra detallada en el formato <b>GV-FC-01 Solicitud
+            <h2 class="letra_subtitulospdf margnees_elem">1.5 Información de Productos a evaluar y Referencial técnico aplicable:</h2> 
+            <p class="letra1pdf">La información específica de los productos a certificar se encuentra detallada en el formato <b>GV-FC-01 Solicitud
                 de servicios de certificación.</b> 
                 </p>
             </div>
             <table>
                 <tr>
-                    <th>INFORMACION GENERAL DE PRODUCTOS A
+                    <th class="letras_blanco_fAzul  centrar_t">INFORMACION GENERAL DE PRODUCTOS A
                         CERTIFICAR</th>
-                    <th>RESOLUCIÓN APLICABLE</th>
+                    <th class="letras_blanco_fAzul centrar_t">RESOLUCIÓN APLICABLE</th>
                 </tr>
                 <tr>
-                    <td>UTENSILIOS DE CERAMICA EN CONTACTO CON
+                    <td class= "letras_tabla2" style="padding: 10px;" >UTENSILIOS DE CERAMICA EN CONTACTO CON
                         ALIMENTOS</td>
-                    <td>Resolución n° 1440 del 20 de septiembre del 2021 del
+                    <td class= "letras_tabla2" style="padding: 10px;" >Resolución n° 1440 del 20 de septiembre del 2021 del
                         Ministerio de salud y protección social</td>
                 </tr>
             </table>
@@ -192,25 +244,25 @@ const observerdatos = new MutationObserver(()=>{
             <!-- el mismo head -->
         </head>
         <main>
-            <div>
-                <h1>2. PLAN DE EVALUACIÓN</h1> 
+            <div class="margnees_elem">
+                <h1 class="letra_subtitulospdf ">2. PLAN DE EVALUACIÓN</h1> 
             </div>
             <table border="1">
                 <tr>
-                    <th>ACTIVIDAD</th><th>OBSERVACIÓN</th>
+                    <th class="letras_blanco_fAzul  centrar_t">ACTIVIDAD</th ><th class="letras_blanco_fAzul  centrar_t">OBSERVACIÓN</th>
                 </tr>
                 <tr>
-                    <th colspan="2">SELECCIÓN</th>
+                    <th class="letras_blanco_fAzul  centrar_t" colspan="2">SELECCIÓN</th>
                 </tr>
                 <tr>
-                    <td>Toma de muestras:</td><td> Aplica. Se llevará a cabo toma de muestras en las
+                    <td class= "letras_tabla2" style="padding: 10px;" >Toma de muestras:</td><td> Aplica. Se llevará a cabo toma de muestras en las
                                                     instalaciones del fabricante.</td>
                 </tr>
                 <tr>
-                    <th colspan="2">DETERMINACIÓN</th>
+                    <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
                 </tr>
                 <tr>
-                    <td>Ejecución de ensayos:</td><td> plica. Se ejecutarán ensayos de laboratorio de
+                    <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td> plica. Se ejecutarán ensayos de laboratorio de
                                                         acuerdo a la siguiente clasificación de familias
                                                         FAMILIA N° 1 - CONCAVO PEQUEÑO
                                                         Determinación de Plomo y Cadmio. ISO 6486-1
@@ -222,78 +274,78 @@ const observerdatos = new MutationObserver(()=>{
                                                         Determinación de Plomo y Cadmio. ISO 8391-1</td>
                 </tr>
                 <tr>
-                    <td>Reconocimiento de tests reports:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de tests reports:</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Inspección de la producción FPE (Aplicable para esquemas 4):</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Inspección de la producción FPE (Aplicable para esquemas 3):</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Reconocimiento de informe de inspección de la producción FPE
+                    <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
                         (Aplicable para esquema 4):</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Reconocimiento de informe de inspección de la producción FPE
+                    <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
                         (Aplicable para esquema 3):</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Reconocimiento de informe de auditoría FQSA (Aplicable para
+                    <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                         esquema 5):</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Auditoría del sistema de Gestión de la calidad del fabricante
+                    <td class= "letras_tabla2" style="padding: 10px;" >Auditoría del sistema de Gestión de la calidad del fabricante
                         FQSA (Aplicable para esquema 5):</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
                     <td> Aplica. Se reconocerá el certificado ISO 9001
                         versión 2015 del fabricante Chaozhou Xincheng
                         Ceramics Co., Ltd.:</td>
                 </tr>
                 <tr>
-                    <td>Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
+                    <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                         22000 u otro sistema de gestión de inocuidad de alimentos
                         (Aplicable para esquema 3):</td>
                     <td> No Aplica</td>
                 </tr>
                 <tr>
-                    <td>Informe de Evaluación de la conformidad de acuerdo con los
+                    <td class= "letras_tabla2" style="padding: 10px;" >Informe de Evaluación de la conformidad de acuerdo con los
                         resultados obtenidos:</td>
                     <td> Aplica</td>
                 </tr>
                 <tr>
-                    <td colspan="2">REVISIÓN</td>
+                    <td class="letras_blanco_fAzul  centrar_t" colspan="2">REVISIÓN</td>
                 </tr>
                 <tr>
-                    <td>Revisión de expediente correspondiente al proceso de
+                    <td class= "letras_tabla2" style="padding: 10px;" >Revisión de expediente correspondiente al proceso de
                         certificación.:</td>
                     <td> Aplica. Acta de revisión y decisión GV-FT-09.</td>
                 </tr>
                 <tr>
-                    <td colspan="2">ATESTACIÓN</td>
+                    <td class="letras_blanco_fAzul  centrar_t" colspan="2">ATESTACIÓN</td>
                 </tr>
                 <tr>
-                    <td>Decisión sobre la certificación:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Decisión sobre la certificación:</td>
                     <td> Aplica. Acta de revisión y decisión GV-FT-09.</td>
                 </tr>
                 <tr>
-                    <td colspan="2">VIGILANCIA</td>
+                    <td class="letras_blanco_fAzul  centrar_t" colspan="2">VIGILANCIA</td>
                 </tr>
                 <tr>
-                    <td>Visita a fabrica:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Visita a fabrica:</td>
                     <td> Aplica.</td>
                 </tr>
                 <tr>
-                    <td>Ensayos:</td>
+                    <td class= "letras_tabla2" style="padding: 10px;" >Ensayos:</td>
                     <td> Aplica.</td>
                 </tr>
             </table>

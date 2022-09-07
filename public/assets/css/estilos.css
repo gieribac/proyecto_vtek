@@ -282,14 +282,14 @@ body {
 }
 
 .margenr {
-    margin-right: 41px;
+    margin-right: 17px;
 }
 .margen_recuadro_ofer{
     margin-right: 197px;
 }
 
 .margenr1 {
-    margin-right: 33px;
+    margin-right: 20px;
 }
 
 .margenr2 {
@@ -431,7 +431,7 @@ main {
 
 .temano_recuadro {
     height: 312px;
-    width: 136px;
+    width: 161px;
 }
 .temano_recuadro_offer {
     height: 312px;
@@ -740,6 +740,42 @@ resize: none;
     float:left;
     margin-top: 12px;
 
+}
+.textareaoffer{
+    resize: none;
+    width: 90%;
+    border-radius: 25px;
+    float: left;
+    margin-top: 12px;
+
+}
+.letra1pdf{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+.letra_titulos_pdf1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+.letra_subtitulospdf{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+table td{
+    width: 10em;
+
+}
+table{
+    border-collapse: collapse;
 }
 
 @media (max-width: 600px) {

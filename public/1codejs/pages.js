@@ -921,6 +921,7 @@ const
           <a  href="#comercial_createpdf7">Page 7</a>
           </nav>
           <div id="pgpdf"></div>`,
+    
     comercial_createfactorie = ` <div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
@@ -1004,7 +1005,7 @@ const
         <button type="submit" class="btn btnguardar btnsave2 " id="guardarCF"> <h6 class="letrabtng ">Guardar</h6></button></div>
       </form>
     </div>`,
-comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
+comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
 <div id="menu"></div>
 
   <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -1017,7 +1018,12 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
   <div class="col-lg-9 ">
       <h6 class="info_de_oferta p-3">Información Oferta</h6>
       <button id="btngenPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Generar PDF</h6></button>
+<<<<<<< HEAD
       <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">Editar</h6></button>
+=======
+
+      <button id="btnEdit" type="button" class="btn btn-editar-ofertas"> <h6 class="letra-editar">editar</h6></button>
+>>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
       <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Nuevo</h6></button>
 
 
@@ -1027,7 +1033,7 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
      <div class="i-azul1 centrarF"> 
       
      
-      <div class="recuadro margenr1 sombra temano_recuadro_offer p-3" id="cliente">
+      <div class="recuadro margenr1 sombra temano_recuadro_offer p-3 scroll_rec" id="cliente">
           <div  class="infocliente_oferta_admin">
         
       </div>
@@ -1158,12 +1164,16 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 <div class="row">
 <div class="col icheked">
     <!-- <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"> -->
+<<<<<<< HEAD
     <textarea  required=""  class="form-control textareaexp form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"></textarea>
+=======
+    <textarea  required=""  class="form-control textareaoffer form-control inputsr sombra imputs_tamano" id="ensayosOF" placeholder="Ensayos"></textarea>
+>>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
     <p class="ncC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
         
     </p>
-    <label class="cliente_active " style="position:relative;">
+    <label class="cliente_active " style="position: relative; margin-left: -244px; margin-top: 84px;">
     <span class="tooltip-box"> de click para desactivar el espacio</span>
         <input class="checks " type="checkbox" >
 
@@ -1172,11 +1182,15 @@ comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
 </div>
 <div class="col icheked">
 <!-- <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"> -->
+<<<<<<< HEAD
     <textarea  required=""  class="form-control textareaexp inputsr form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"></textarea>
+=======
+    <textarea  required=""  class="form-control textareaoffer inputsr form-control inputsr sombra imputs_tamano" id="muestrasOF" placeholder="Muestras"></textarea>
+>>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
     <p class="rlC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
     </p>
-    <label class="cliente_active" style="position:relative;">
+    <label class="cliente_active" style="position: relative; margin-left: -244px; margin-top: 84px;;">
                 <span class="tooltip-box"> de click para desactivar el espacio</span>
         <input class="checks" type="checkbox" >
     </label>
@@ -1754,6 +1768,10 @@ export {
     comercial_infooffers,
     comercial_detallecliente,
     comercial_createcliente,
+<<<<<<< HEAD
+=======
+    comercial_createpdfnav,
+>>>>>>> 4f8ac3eb5eb6bd13f5f4f9e57a68edaec646301c
     comercial_createfactorie,
     comercial_createoffer,
     comercial_createpdfnav,

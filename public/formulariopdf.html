@@ -4,32 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/estilos_pdf.css">
+    
     <title>Document</title>
 </head>
-
 <body>
-    <nav>
-        <a target="contents" href="pg_0001.htm">Page 1</a>
-        <a target="contents" href="pg_0001.htm">Page 1</a>
-        <a target="contents" href="pg_0001.htm">Page 1</a>
-        <a target="contents" href="pg_0001.htm">Page 1</a>
-        <a target="contents" href="pg_0001.htm">Page 1</a>
-        <a target="contents" href="pg_0001.htm">Page 1</a>
-</nav>
-
-    
-
-    <div id="pg1">
+    <div id="pg1 " style="margin-left: 10% ; margin-right: 10%;">
         <head>
             <div></div>
-            <div>OFERTA COMERCIAL DE CERTIFICACION</div>
+            <div >
+                <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                    <tr>
+                    <td  class="centrar_t" style="padding: 5px; "><div class="logoPDF"></div></td>
+                    <td  class="centrar_t " style="padding: 5px;" >OFERTA COMERCIAL DE CERTIFICACION</td>
+                    <td class="centrar_t" style="padding: 5px;" >GV-FC 02 v:8 <br>fecha de vigencia: <br>04/03/2022</td>
+                    </tr>
+                    </table>
+                
+                </div>
             <div>
                 <p></p>
                 <p></p>
                 </div>
         </head>
         <main>
-            <div>
+            <div class="letra1pdf" >
                 <p id="fecha"></p> 
                 <br><br>
                 <p>Señores:</p>
@@ -42,84 +41,84 @@
                 <br>
                 <p>En atención a su solicitud de certificación de producto, presentamos la siguiente oferta comercial formal donde establecemos tarifas, alcance y metodologías para el servicio de certificación.</p>
             </div>
-            <div>
-                <div>OFERTA COMERCIAL N°</div>
-                <div id="noOferta"></div>
+            <div class="margnees_elem">
+                <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                <tr>
+                <td  class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
+                <td  class="centrar_t " style="padding: 5px; position: relative;">    <p id ="noOferta" class="subrayado"> e5-dw-1384-2022 </p></td>
+                </tr>
+                </table>
             </div>
-            <div>
-                <h1>1. ALCANCE DE LA CERTIFICACIÓN</h1>    
-                <h2>1.1 Esquema de certificación</h2>
+            <div class="margnees_elem" >
+                <h1 class="letra_titulos_pdf1" >1. ALCANCE DE LA CERTIFICACIÓN</h1>    
+                <h2 class="letra_subtitulospdf">1.1 Esquema de certificación</h2>
             </div>
             <table>
         
                 <tr>
-                    <td>Esquema de certificación</td>
-                    <td id="esquema"> esquema</td>
+                    <td class="centrar_t letras_blanco_fAzul">Esquema de certificación</td>
+                    <td class="centrar_t" id="esquema"> esquema</td>
                 </tr>
                 <tr>
-                    <td>Vigencia</td>
-                    <td id="vigencia"> vig</td>
+                    <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
+                    <td class=" centrar_t" id="vigencia"> vig</td>
                 </tr>
                 <tr>
-                    <td>Seguimientos</td>
-                    <td id="seguimientos"> seg</td>
+                    <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
+                    <td class="centrar_t" id="seguimientos"> seg</td>
                 </tr>
             </table>
-            <div>
-                <h2>1.2 Empresa solicitante de los servicios de certificación (Empresa pagadora de los servicios)</h2>
+            <div class="margnees_elem">
+                <h2 class="letra_subtitulospdf">1.2 Empresa solicitante de los servicios de certificación (Empresa pagadora de los servicios)</h2>
             </div>
             <table>
                 <tr>
-                    <th>DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</th>
+                    <th class="letras_blanco_fAzul" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</th>
                 </tr>
                 <tr>
-                    <td>Nombre de la compañía
+                    <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
                         (Como aparece
                         registrada)</td>
-                    <td id="datos_nombreCliente"></td>
-                    <td>Número de NIT:</td>
-                    <td id="datos_nit"></td>
+                    <td class="letras_tabla3" id="datos_nombreCliente"></td>
+                    <td class="letras_tabla2">Número de NIT:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_nit"></td>
                 </tr>
                 <tr>
-                    <td>Representante Legal</td>
-                    <td id="datos_repLegal"></td>
-                    <td>Identificación:</td>
-                    <td id="datos_identificacion"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_repLegal"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_identificacion"></td>
                 </tr>
                 <tr>
-                    <td>Dirección comercial: </td>
-                    <td id="datos_direccion"></td>
-                    <td>Web: </td>
-                    <td id="datos_web"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Dirección comercial: </td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_direccion"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Web: </td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_web"></td>
                 </tr>
                 <tr>
-                    <td>Ciudad/Depto.:</td>
-                    <td id="datos_ciudad"></td>
-                    <td>Tel:</td>
-                    <td id="datos_tel"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_ciudad"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_tel"></td>
                 </tr>
                 <tr>
-                    <td>Nombre del
+                    <td class="letras_tabla2" style="padding: 10px;">Nombre del
                         responsable: </td>
-                    <td id="datos_nombreResponsable"></td>
-                    <td>Mail:</td>
-                    <td id="datos_mail"></td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_nombreResponsable"></td>
+                    <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_mail"></td>
                 </tr>
                 <tr>
-                    <td>Cargo:</td>
-                    <td id="datos_cargo"></td>
-                    <td>Tel/Cel. (Móvil):</td>
-                    <td id="datos_contacto"></td>
+                    <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_cargo"></td>
+                    <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                    <td class="letras_tabla3" style="align-items: center;" id="datos_contacto"></td>
                 </tr>
             </table>
         </main>
         <footer>
             <div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="iconosPdf"></div>
             </div>
             <p>1</p>
             <div></div>
@@ -137,7 +136,7 @@
                 <!-- igual a la tabla final de pa pg1 -->
             </table>
             <h2>1.4 Información de compañía fabricante</h2>
-            <table border="1">
+            <table >
                 <tr>
                     <th  colspan="4">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
                 </tr>
@@ -204,7 +203,7 @@
             <div>
                 <h1>2. PLAN DE EVALUACIÓN</h1> 
             </div>
-            <table border="1">
+            <table >
                 <tr>
                     <th>ACTIVIDAD</th><th>OBSERVACIÓN</th>
                 </tr>
@@ -343,7 +342,7 @@ pendientes mediante el formato GV-FC-05 Ofertas comerciales para actividades com
                 <h1>3. PRESUPUESTO ECONOMICO PARA EL OTORGAMIENTO DE LA CERTIFICACION</h1>
                 <h2>3.1 Presupuesto para el otorgamiento.</h2>
             </div>
-            <table border="1">
+            <table>
                 <tr>
                     <th colspan="4">3.1 PRESUPUESTO PARA EL OTORGAMIENTO</th>
                 </tr>
@@ -468,7 +467,7 @@ solicite cancelación anticipada.
             <div>
                 <h2>3.3 PRESUPUESTO ECONOMICO PARA LAS ACTIVIDADES DE VIGILANCIA:</h2>
             </div>
-            <table border="1">
+            <table>
                 <tr>
                     <th>3.3 PRESUPUESTO PARA EL OTORGAMIENTO</th>
                 </tr>
@@ -488,7 +487,6 @@ solicite cancelación anticipada.
                     <td></td>
                 </tr>
             </table>
-    
             <div>
                 <p><b>
                     *El presupuesto presentado es un estimado del costo de las actividades, este puede variar si los
@@ -625,7 +623,7 @@ actividades desarrolladas de manera estrictamente confidencial, y solo la utiliz
 proceso de certificación.</p>
 <p>En constancia de lo anterior, firma el representante del cliente y de GRUPO VTEK S.A.S</p>
             </div>
-            <table border="">
+            <table>
                 <tr>
                     <th colspan="2">Representante del cliente</th>
                     <th colspan="2">Representante de GRUPO VTEK S.A.S</th>
@@ -661,5 +659,8 @@ proceso de certificación.</p>
     </div>
 
 </body>
+</html>
 
+    
+</body>
 </html>
