@@ -127,7 +127,7 @@ const observer = new MutationObserver(() => {
             e.preventDefault();
             localStorage.setItem('b2','1');
             console.log(info[0].value, info[6].value, info[1].value, info[2].value, info[3].value, info[5].value, info[4].value, info[8].value)
-            newUser(info[0].value, info[6].value, info[1].value, info[2].value, info[3].value, info[5].value, info[4].value,  info[8].value)
+            newUser(info[0].value, info[6].value, info[1].value, info[2].value, info[3].value, info[5].value, info[4].value, info[8].value)
                 .then(() => {
                     console.log("then newUser  ")
                     d.getElementById('formcreateuser').reset();

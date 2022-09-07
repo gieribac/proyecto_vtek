@@ -1,0 +1,106 @@
+.letra1pdf{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+.letra_titulos_pdf1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+.letra_subtitulospdf{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+table td{
+    width: 10em;
+
+}
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table{
+    width: 100%;
+}
+
+.centrar_t{
+    text-align: center;
+}
+.margnees_elem{
+    padding: 10px;
+}
+.letras_blanco_fAzul{
+    background-color: #5b9bd5;
+    font-weight: bold;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #ffffff;
+}
+.subrayado{
+    font-weight: bold;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    z-index: 1;
+
+}
+.subrayado::after{
+    background-color:#00ffff;
+    
+    width: 40%;
+    height: 30%;
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+.logoPDF{
+    background-image: url(../img/Recurso\ 88VTEK\ RECURSOS.png);
+    height: 56px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 45px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+footer p{
+    position: absolute;
+    right: 200px;
+}
+.iconosPdf{
+    background-image: url(../imgx1/ri_2.png);
+    height: 56px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 4.49in;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 2.2in;
+
+}
+.letras_tabla2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+.letras_tabla3{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+

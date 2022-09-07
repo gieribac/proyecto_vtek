@@ -6,7 +6,7 @@ import {index,
     admin_default, admin_infooffer, admin_infooffers, admin_infoclients, admin_createuser,  
     cliente_default, cliente_offer, 
     comercial_default, comercial_infoclientes, comercial_infocerts, comercial_infooffers, comercial_detallecliente, 
-    comercial_createcliente, comercial_createfactorie, comercial_createoffer, 
+    comercial_createcliente, comercial_createfactorie, comercial_createoffer, comercial_createpdfnav,
     dtecnico_default, dtecnico_planeval, dtecnico_infoclient, dtecnico_infoprocesos,
     experto_default, experto_createoffer, experto_createeval, experto_paleval, experto_infocliente,
     scliente_default, scliente_infooffers, scliente_infooffer, scliente_certcliente, scliente_usuariocliente, scliente_infoclientes,
@@ -79,6 +79,7 @@ export const page = (h) => {
     else if (h=='#/comercial/createcliente'){inner('comercial',comercial_createcliente)}
     else if (h=='#/comercial/createfactorie'){inner('comercial',comercial_createfactorie)}
     else if (h=='#/comercial/createoffer'){inner('comercial',comercial_createoffer)}
+    else if (h=='#/comercial/plantillapdf'){inner('comercial',comercial_createpdfnav)}
     else if (h=='#/dtecnico'){inner('dtecnico',dtecnico_default)}
     else if (h=='#/dtecnico/planeval'){inner('dtecnico',dtecnico_planeval)}
     else if (h=='#/dtecnico/infoclient'){inner('dtecnico',dtecnico_infoclient)}
@@ -99,8 +100,14 @@ export const page = (h) => {
     else if (h=='#/tcoordinador/createasignacion'){inner('tcoordinador',tcoordinador_createasignacion)}
     else if (h=='#/tcoordinador/asignacion'){inner('tcoordinador',tcoordinador_asignacion)}
     else if (h==''){() => window.location = ''}
-    else if (h=='#cs'){cerrarSession()}
-    else { document.getElementById('root').textContent = 'notFound'}
+    else if (h !=='#comercial_createpdf1'){}
+    else if (h !=='#comercial_createpdf2'){}
+    else if (h !=='#comercial_createpdf3'){}
+    else if (h !=='#comercial_createpdf4'){}
+    else if (h !=='#comercial_createpdf5'){}
+    else if (h !=='#comercial_createpdf6'){}
+    else if (h !=='#comercial_createpdf7'){}
+    else {document.getElementById('root').textContent = 'notFound'}
 }
 
 

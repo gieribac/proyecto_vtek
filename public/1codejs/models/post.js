@@ -91,7 +91,7 @@ export const updateOffer = async (idOf, datos) => {
 
 export const querySnapOffClients = async() => {
     try {
-        const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc")/*, limit(3)*/);
+        const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc"));
         const documentSnapshots = await getDocs(first);
         
         return documentSnapshots    
@@ -104,7 +104,7 @@ export const querySnapOffClients = async() => {
 
     export const querySnapOffFabricas = async() => {
         try {
-            const first = query(collection(db, "fabricas"), orderBy("nombre_compania","asc")/*, limit(3)*/);
+            const first = query(collection(db, "fabricas"), orderBy("nombre_compania","asc"));
             const documentSnapshots = await getDocs(first);
 
             return documentSnapshots        
@@ -184,7 +184,7 @@ export const queryInc = async() => {
 
 export const querySnap = async() => {
 try {
-    const first = query(collection(db, "clients"), orderBy("No_Identificacion","asc"), limit(3));
+    const first = query(collection(db, "clients"), orderBy("No_Identificacion","asc"), limit(10));
     const documentSnapshots = await getDocs(first);
     
     
@@ -202,7 +202,7 @@ export const queryNext = async(lastVisible) => {
     const next = query(collection(db, "clients"),
             orderBy("No_Identificacion","asc"),
             startAfter(lastVisible),
-            limit(3));
+            limit(10));
     const docs_ = await getDocs(next);
     
     return docs_;
@@ -214,7 +214,7 @@ export const queryNextnt = async(lastVisible) => {
     const next = query(collection(db, "clients"),
             orderBy("No_Identificacion","desc"),
             startAfter(lastVisible),
-            limit(3));
+            limit(10));
     const docs_ = await getDocs(next);
     
     return docs_;
@@ -227,7 +227,7 @@ export const queryNextnt = async(lastVisible) => {
 const uidcom = localStorage.getItem("u");
 export const querySnapComCli = async() => {
     try {
-        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(3));
+        const first = query(collection(db, "clients"), where("ComercialID", "==", uidcom), orderBy("No_Identificacion","asc"), limit(10));
         const documentSnapshots = await getDocs(first);
         
         // console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -247,7 +247,7 @@ export const querySnapComCli = async() => {
         const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","asc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -259,7 +259,7 @@ export const querySnapComCli = async() => {
         const next = query(collection(db, "clients"), where("ComercialID", "==", uidcom),
                 orderBy("No_Identificacion","desc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -297,7 +297,7 @@ export const queryOferta = async(ref) => {
 ////<comercial_infooffers>////
 export const querySnapComOfs = async() => {
     try {
-        const first = query(collection(db, "ofertas"), orderBy("ClienteOF","asc"), limit(3));
+        const first = query(collection(db, "ofertas"), orderBy("ClienteOF","asc"), limit(10));
         const documentSnapshots = await getDocs(first);
         
         console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -315,7 +315,7 @@ export const querySnapComOfs = async() => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","asc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -327,12 +327,49 @@ export const querySnapComOfs = async() => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","desc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
                 
     }
+
+    export const updateFormalizarOF = async (idOf, check) => {
+        try {
+            await updateDoc(doc(db, "ofertas", idOf), {Formalizar: check});
+            return "oferta actualizada formalizada correctamente";
+        } catch (e){
+            throw e;
+        }
+    }
+
+    export async function sendNotificateEmail(email, subject, body) {
+        const collectionRef = collection(db, 'mail');
+        const emailContent = {
+            to: email,
+            message: {
+                subject: subject,
+                text: body,
+                html: `<p>${body}</p>`,
+            },
+        };
+        console.log('listo para ser enviado'+email);
+        return await addDoc(collectionRef, emailContent);
+    }
+
+    export const getTecnicoCoordinadorEmail = async () =>{
+        try {
+            const first = query(collection(db, "users"), where("Cargo", "==", "tcoordinador"));
+            const documentSnapshots = await getDocs(first);
+            return documentSnapshots        
+        
+        } catch (e){
+            console.log(e.messaje)
+                throw e.message
+        
+        }
+    }
+
 //</comercial_infooffers>//
 
 ////<comercial_editcliente>////
@@ -407,7 +444,7 @@ export const updateDataClient = (idClient, datos) => {
 
     export const querySnapTcAsignExpert = async() => {
         try {
-            const first = query(collection(db, "users"), where("Cargo", "==", "experto"), orderBy("NoIdentificacion","asc")/*, limit(3)*/);
+            const first = query(collection(db, "users"), where("Cargo", "==", "experto"), orderBy("NoIdentificacion","asc")/*, limit(10)*/);
             const documentSnapshots = await getDocs(first);
             
             // console.log(`documentsSnapCom: ${documentSnapshots}`)
@@ -428,7 +465,7 @@ export const updateDataClient = (idClient, datos) => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","asc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
@@ -440,11 +477,15 @@ export const updateDataClient = (idClient, datos) => {
         const next = query(collection(db, "ofertas"), 
                 orderBy("ClienteOF","desc"),
                 startAfter(lastVisible),
-                limit(3));
+                limit(10));
         const docs_ = await getDocs(next);
         
         return docs_;
                 
+    }
+
+    export const setAsingExpert = async(id, data) => {
+        
     }
 //</tcoorditcoordinador_createasignacion>//
 

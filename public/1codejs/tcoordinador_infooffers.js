@@ -61,36 +61,44 @@ const observerdatos = new MutationObserver(()=>{
             formalizar.innerHTML = ``;
 
             let list_id = [];
+            let esquemas = [];
 
                 ds.forEach(d => {
                     
-                    list_id.push(d.id);
-                    
+                    list_id.push(d.data().No_oferta);
+                    const esquema = d.data().esquemaOF;
+                    const st = d.data().Estado === undefined ? " - " : d.data().Estado;
+                    esquemas.push(esquema);
+                    console.log(d.id);
                     oferta.innerHTML += `
-                    <h6 class = "letra_recuadro_info2">${d.id}</h6>
+                    <h6 id="${d.id}"class = "letra_recuadro_info2">${d.data().No_oferta}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>
                     `;
                     producto.innerHTML += `
-                    <h6 >${d.data().Producto}</h6>
+                    <h6 >${d.data().productoOF}</h6>
                     `;
                     estado.innerHTML += `
-                    <h6 >${d.data().Estado}</h6>
+                    <h6 >${st}</h6>
                     `;
 
-                    if (d.data().Formalizar = "Formalizado" ) {
+                    if (d.data().Formalizar) {
                         formalizar.innerHTML += `
-                        <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">${d.data().Formalizar}</h6></div>                      
+                        <div class="listo_formalizar" style="position:relative;"></div><h6  class="formarlizar_letraL" >Formalizado</h6>                      
                         `;
+                        // formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}"checked>Formalizado</label>`;
                     } else {
                         formalizar.innerHTML += `
-                        <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >${d.data().Formalizar}</h6> </div>
-                        `;
+                        <div class="pendiente_formalizar" style="position:relative;"></div> <h6  class="formarlizar_letra" >Pendiente</h6>`;
+                        // formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}">Pendiente</label>
+                        // `;
+
                     }
 
                 });
-            localStorage.setItem("nidsClient",JSON.stringify(list_id));
+            localStorage.setItem("nidsClient",JSON.stringify(esquemas));
+            localStorage.setItem("offersID",JSON.stringify(list_id));
             listeners();
             return {primer,ultimo}
             }
@@ -100,6 +108,7 @@ const observerdatos = new MutationObserver(()=>{
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 localStorage.setItem("clientSelect",element.textContent);
+                localStorage.setItem("clientSelectid",element.id);
                 location.hash='#/tcoordinador/createasignacion';
             })
         })
