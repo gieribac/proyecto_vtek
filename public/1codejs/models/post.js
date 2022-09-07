@@ -483,6 +483,10 @@ export const updateDataClient = (idClient, datos) => {
         return docs_;
                 
     }
+
+    export const setAsingExpert = async(id, data) => {
+        
+    }
 //</tcoorditcoordinador_createasignacion>//
 
 

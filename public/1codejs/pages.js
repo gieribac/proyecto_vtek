@@ -630,7 +630,7 @@ const
         <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Cliente</h6></div>
         <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Producto</h6></div>
         <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Estado</h6></div>         
-          <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Formalizar</h6></div>
+          <div class="columnas-clasi3 alinear_ofertas2"><h6 id="titlecol5" class="letra-columna">Formalizar</h6></div>
       </div>
       <div class="col-lg-10 " style="margin-top: 20px;">
           <div> 

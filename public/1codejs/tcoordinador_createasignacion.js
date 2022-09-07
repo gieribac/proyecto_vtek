@@ -1,4 +1,4 @@
-import {querySnapTcAsignExpert} from './models/post.js';
+import {querySnapTcAsignExpert, setAsingExpert} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
    
     

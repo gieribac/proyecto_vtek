@@ -5,6 +5,7 @@ const observerdatos = new MutationObserver(()=>{
     const charge = () => {
         console.log('tcoordinador_infoofers');
         const d = document;
+        d.getElementById('titlecol5').textContent = "Asignación"
         d.getElementById('btnNuevo').remove();
         const oferta = d.getElementById('oferta'),
         cliente = d.getElementById('cliente'),
@@ -71,7 +72,7 @@ const observerdatos = new MutationObserver(()=>{
                     esquemas.push(esquema);
                     console.log(d.id);
                     oferta.innerHTML += `
-                    <h6 id="${d.id}"class = "letra_recuadro_info2">${d.data().No_oferta}</h6>
+                    <h6 class = "letra_recuadro_info2">${d.data().No_oferta}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>
@@ -83,18 +84,11 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${st}</h6>
                     `;
 
-                    if (d.data().Formalizar) {
-                        formalizar.innerHTML += `
-                        <div class="listo_formalizar" style="position:relative;"></div><h6  class="formarlizar_letraL" >Formalizado</h6>                      
-                        `;
-                        // formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}"checked>Formalizado</label>`;
-                    } else {
-                        formalizar.innerHTML += `
-                        <div class="pendiente_formalizar" style="position:relative;"></div> <h6  class="formarlizar_letra" >Pendiente</h6>`;
-                        // formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${name}" id="${id}">Pendiente</label>
-                        // `;
+                   
+                    formalizar.innerHTML += `
+                            <button id="${d.id}" name="${d.data().No_oferta}">Asignar</button>`;
 
-                    }
+                    
 
                 });
             localStorage.setItem("nidsClient",JSON.stringify(esquemas));
@@ -104,10 +98,10 @@ const observerdatos = new MutationObserver(()=>{
             }
         }
         const listeners = () => {
-            const vinculos = d.querySelectorAll('.letra_recuadro_info2');
+            const vinculos = d.querySelectorAll('button');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
-                localStorage.setItem("clientSelect",element.textContent);
+                localStorage.setItem("clientSelect",element.name);
                 localStorage.setItem("clientSelectid",element.id);
                 location.hash='#/tcoordinador/createasignacion';
             })
