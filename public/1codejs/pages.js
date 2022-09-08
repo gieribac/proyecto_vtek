@@ -845,17 +845,17 @@ const
               </fieldset>
             </form>
           </div>`,
-          comercial_createpdf1 = `<nav>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 1</h6></button>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 2</h6></button>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 3</h6></button>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 4</h6></button>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 5</h6></button>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 6</h6></button>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Página 7</h6></button>
-          <button  type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Regresar</h6></button>
+          comercial_createpdf1 = `<nav id="sidebar-container2">
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 1</h6></button>
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 2</h6></button>
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 3</h6></button>
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 4</h6></button>
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 5</h6></button>
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 6</h6></button>
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 7</h6></button>
+          <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Regresar</h6></button>
+          <button id="btnDPDF" type="button" class="btn botones_pdf"> <h6 class="letra-editar">Descargar PDF</h6></button>
           </nav>
-          <button id="btnDPDF" type="button" class="btn btn-nueva-ofertas"> <h6 class="letra-editar">Descargar PDF</h6></button>
           <div id="pgpdf"></div>`,
     comercial_createfactorie = ` <div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>

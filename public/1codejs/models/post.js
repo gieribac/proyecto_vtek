@@ -282,7 +282,7 @@ export const getOfertas = async(datos)=> {
         throw e;    
     }
     }
-
+    
 export const queryOferta = async(id) => {
     try {
         const doc_ = await getDoc(doc(db,"ofertas",id));

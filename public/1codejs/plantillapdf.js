@@ -21,7 +21,7 @@ const observerdatos = new MutationObserver(()=>{
                         const cliente_ = c.data();
                         console.log(c.data());
                         cargaDataOferta(oferta_, fabrica_, cliente_ )
-                    }).catch( );
+                    }).then( after => setLogica()).catch( );
                 }).catch(e => console.log(e));              
                 
             
@@ -35,6 +35,9 @@ const observerdatos = new MutationObserver(()=>{
         
         const cargaDataOferta = (o,f,c) => {
             
+            console.log(o);
+            console.log(f);
+            console.log(c);
             const d = document,
             fecha = new Date(),        
             year = fecha.getFullYear();
@@ -43,7 +46,7 @@ const observerdatos = new MutationObserver(()=>{
             monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][month-1];
             day < 10 && (() => day=`0${day}`)();
             month < 10 && (() => month=`0${month}`)();
-            console.log(o.vigencia)
+            console.log(o.vigenciaOF)
             let DateVig = `${day} / ${month} / ${year+o.vigenciaOF}`;
             
             const head = `<div></div>
@@ -73,7 +76,7 @@ const observerdatos = new MutationObserver(()=>{
                     <br><br>
                     <p>Señores:</p>
                     <p>${o.ClienteOF}</p>
-                    <p>${o.ClienteOF}</p>
+                    <p id="repLegal"></p>
                     <p>Representante Legal</p>
                     <p id="ciudad"></p>
                     <br>
@@ -164,7 +167,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
         </div>`,
-            pdf2 = `<div id="pg2" style="display:none; margin-left: 10% ; margin-right: 10%;">
+            pdf2 = `<div id="pg2" style="margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -278,7 +281,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf3 = `<div id="pg3" style="display:none" >
+            pdf3 = `<div id="pg3" style="display:none; margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -299,7 +302,7 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
-                    </tr>/users
+                    </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td> plica. Se ejecutarán ensayos de laboratorio de
                                                             acuerdo a la siguiente clasificación de familias
@@ -397,13 +400,13 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf4 = `<div id="pg4" style="display:none" >
+            pdf4 = `<div id="pg4" style="margin-left: 10% ; margin-right: 10%">
             <head>
             ${head}
             </head>
             <main>
                 <div>
-                    <p>
+                    <p class="letra1pdf margnees_elem" >
                         Nota: Los ensayos y actividades cotizadas son de acuerdo a la información entregada con la solicitud y están
             sujetos a cambios una vez el proceso de evaluación inicie. En el caso que la información; actividades o ensayos
             no estén completos, se procede a realizar una nueva cotización para ejecutar las actividades o ensayos
@@ -451,30 +454,32 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="p_total"></td>
                     </tr>
                     <tr>
-                        <td class="cant"></td>
-                        <td>Ensayos de Laboratorio
+                        <td class="cant letras_tabla2"></td>
+                        <td class="letras_tabla2" >Ensayos de Laboratorio
                             FAMILIA N° 1 CONCAVO PEQUEÑO</td>
-                        <td class="p_unit"></td>
+                        <td class="p_unit letras_tabla2"></td>
                         <td class="p_total"></td>
                     </tr>
                     <tr>
-                        <td class="cant"></td>
-                        <td>Ensayos de Laboratorio
+                        <td class="cant letras_tabla2"></td>
+                        <td class="letras_tabla2">Ensayos de Laboratorio
                             FAMILIA N° 2 CONCAVO GRANDE</td>
-                        <td class="p_unit"></td>
-                        <td class="p_total"></td>
+                        <td class="p_unit letras_tabla2"></td>
+                        <td class="p_total letras_tabla2"></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td class="cant"></td>
+                    <td class="letras_tabla2" >Ensayos de Laboratorio
+                        FAMILIA N° 2 CONCAVO GRANDE</td>
+                    <td class="p_unit letras_tabla2"></td>
+                    <td class="p_total letras_tabla2"></td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                    <td class="cant letras_tabla2"></td>
+                    <td class="letras_tabla2" >Ensayos de Laboratorio
+                        FAMILIA N° 2 CONCAVO GRANDE</td>
+                    <td class="p_unit letras_tabla2"></td>
+                    <td class="p_total letras_tabla2"></td>
                     </tr>
                     <tr>
                         <td colspan="2">Nota: El Laboratorio seleccionado para el Presupuesto es: CTT </td>
@@ -483,17 +488,17 @@ const observerdatos = new MutationObserver(()=>{
                         <td></td>
                     </tr>
                     <tr>
-                        <td>I.V.A</td>
+                        <td colspan="3">I.V.A</td>
                         <td id="iva"></td>
                     </tr>
                     <tr>
-                        <td>TOTAL</td>
+                        <td colspan="3">TOTAL</td>
                         <td id="total"></td>
                     </tr>
                 </table>
                 <div>
-                    <h3>3.1.1 Cancelaciones anticipadas:</h3>
-                    <p><li>Se cargará un 50% del valor del certificado en caso de que el cliente solicite una cancelación anticipada
+                    <h3 class="letra_subtitulospdf margnees_elem">3.1.1 Cancelaciones anticipadas:</h3>
+                    <p class="letra1pdf" ><li class="letra1pdf">Se cargará un 50% del valor del certificado en caso de que el cliente solicite una cancelación anticipada
                         de los servicios de certificación.</li></p>
                 </div>
             </main>
@@ -505,23 +510,23 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf5 = `<div id="pg5" style="display:none" >
+            pdf5 = `<div id="pg5" style="margin-left: 10% ; margin-right: 10%;display:none">
             <head>
             ${head}
             </head>
             <main>
                 <div>
-                    <li>
+                    <li class="letra1pdf margnees_elem">
                         Se cargará un 100% en el evento que los ensayos y las auditorías ya hayan sido ejecutadas y el cliente
             solicite cancelación anticipada.
                     </li>
-                    <h2>
+                    <h2 class="letra_subtitulospdf margnees_elem">
                         3.2 TIEMPOS DE EJECUCIÓN PARA EL OTORGAMIENTO
                     </h2>
                 </div>
-                <table>
+                <table class="margnees_elem">
                     <tr>
-                        <th>Actividad</th><th>Tiempo estimado (días hábiles)</th>
+                        <th class="letras_blanco_fAzul centrar_t" >Actividad</th><th class="letras_blanco_fAzul centrar_t">Tiempo estimado (días hábiles)</th>
                     </tr>
                     <tr>
                         <td>Ejecución de ensayos</td><td>10 días</td>
@@ -548,51 +553,66 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                 </table>
                 <div>
-                    <h2>3.3 PRESUPUESTO ECONOMICO PARA LAS ACTIVIDADES DE VIGILANCIA:</h2>
+                    <h2 class="letra_subtitulospdf margnees_elem">3.3 PRESUPUESTO ECONOMICO PARA LAS ACTIVIDADES DE VIGILANCIA:</h2>
                 </div>
-                <table border="1">
+                <table border="1" class= "margnees_elem">
                     <tr>
-                        <th>3.3 PRESUPUESTO PARA EL OTORGAMIENTO</th>
+                        <th COLSPAN="4" class="letras_blanco_fAzul centrar_t " >3.3 PRESUPUESTO PARA EL OTORGAMIENTO</th>
                     </tr>
                     <tr>
-                        <th>CANTIDAD</th><th>DESCRIPCIÓN / ACTIVIDAD</th><th>PRECIO UNIT</th><th>PRECIO TOTAL</th>
+                        <th class="letras_blanco_fAzul centrar_t" >CANTIDAD</th><th class="letras_blanco_fAzul centrar_t" >DESCRIPCIÓN / ACTIVIDAD</th><th class="letras_blanco_fAzul centrar_t" >PRECIO UNIT</th><th class="letras_blanco_fAzul centrar_t" >PRECIO TOTAL</th>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>1</td>
+                        <td>certificacion esquema5</td>
+                        <td>80000000</td>
+                        <td>80000000</td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>2</td>
+                        <td>ensayos</td>
+                        <td>80000000</td>
+                        <td>80000000</td>
                     </tr>
+                    <tr>
+                    <td colspan= "2"> Nota: El Laboratorio seleccionado para el Presupuesto es:
+                    Pendiente de definir</td>
+                    <td>SUB-TOTAL SIN
+                    IVA</td>
+                    <td>80000000</td>
+                </tr>
+                <tr>
+                <td colspan="3" class="centrar_t">I.V.A</td>
+                <td id="iva"></td>
+            </tr>
+            <tr>
+                <td colspan="3" class="centrar_t">TOTAL</td>
+                <td id="total"></td>
+            </tr>
                 </table>
 
                 <div>
-                    <p><b>
+                    <p class="letra1pdf margnees_elem"><b>
                         *El presupuesto presentado es un estimado del costo de las actividades, este puede variar si los
             laboratorios contratados actualizan tarifas
                     </b></p>
-                    <p><b>
+                    <p class="letra1pdf><b>
                         GRUPO VTEK S.A.S
                     </b>
                 informará y alertará al cliente con 3 meses de anticipación para la ejecución de las
             actividades de seguimiento. El cliente es responsable de la ejecución de estas actividades de manera anticipada
             con el objetivo de mantener su certificado de conformidad vigente.
                     </p>
-                    <h1>
+                    <h1 letra_titulos_pdf1>
                         4. CONDICIONES COMERCIALES DEL SERVICIO DE CERTIFICACIÓN
                     </h1>
-                    <p><b>
+                    <p class="letra1pdf><b>
                         60 días para el pago de los servicios de certificación.
                     </b></p>
-                    <p>
+                    <p class="letra1pdf>
                     Favor consignar al GRUPO VTEK S.A.S., NIT 901.293.797-6   
                     </p>
-                    <p><b>
+                    <p class="letra1pdf><b>
                     Cuenta de Ahorros del Banco de Bogotá  
                     </b>N°012668570. No somos objeto de retención de la Fuente Ley
             1429 de 29de Dic. 2010, Art. 4 - Parágrafo 2. ACTIVIDAD ECONOMICA CIIU: 7120 / IVA REGIMEN COMUN.
@@ -607,22 +627,22 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf6 = `<div id="pg6" style="display:none" >
+            pdf6 = `<div id="pg6" style="margin-left: 10% ; margin-right: 10%; display:none ">
             <head>
             ${head}
             </head>
             <main>
                 <div>
-                    <p>
+                    <p class="letra1pdf">
                         <b>
                             Cuenta de Ahorros Bancolombia
                         </b>N°207-000003-54. No somos objeto de retención de la Fuente Ley 1429
             de 29de Dic. 2010, Art. 4 - Parágrafo 2. ACTIVIDAD ECONOMICA CIIU: 7120 / IVA REGIMEN COMUN.
                     </p>
-                    <h1>
+                    <h1 class="letra_titulos_pdf1 margnees_elem">
                         5. TÉRMINOS Y CONDICIONES
                     </h1>
-                    <p>
+                    <p class="letra1pdf">
                         Los términos y condiciones del esquema de certificación acordado, se encuentran descritos en el documento
                         del 
                         <b>
@@ -633,7 +653,7 @@ const observerdatos = new MutationObserver(()=>{
             CONDICIONES DE GRUPO VTEK.
                         </a>   
                     </p>
-                    <p>
+                    <p class="letra1pdf">
                         El cliente se comprometerá a dar cumplimiento a lo estipulado en dicho documento. De igual manera 
                         <b>
             GRUPO
@@ -642,30 +662,30 @@ const observerdatos = new MutationObserver(()=>{
                         <a href=""> www.grupovtek.com                        
                         </a>
                     </p>
-                    <h1>
+                    <h1 class="letra_titulos_pdf1 margnees_elem">
                     6. RESPONSABILIDADES 
                     </h1>
-                    <h2>
+                    <h2 class="letra_subtitulospdf margnees_elem">
                         6.1. Responsabilidades DE GRUPO VTEK S.A.S 
                     </h2>
-                    <p>Las obligaciones vigentes en Colombia, para los Organismos de Evaluación de la conformidad descritas en la
+                    <p class="letra1pdf">Las obligaciones vigentes en Colombia, para los Organismos de Evaluación de la conformidad descritas en la
             Ley 1480 de 2011, Decreto 1595 de 2015, Resolución 41713 de 2014, las cuales son:</p>
-                    <p>El organismo de evaluación de la conformidad: Sera responsable frente a los consumidores cuando por el
+                    <p class="letra1pdf">El organismo de evaluación de la conformidad: Sera responsable frente a los consumidores cuando por el
             servicio de evaluación de la de la conformidad respecto de un producto sujeto a reglamento técnico cuando
             haya obrado con dolo o culpa grave.</p>
-                    <p>El evaluado será responsable cual haya modificado los elementos, procesos, sistemas o demás condiciones
+                    <p class="letra1pdf">El evaluado será responsable cual haya modificado los elementos, procesos, sistemas o demás condiciones
             evaluadas y exista nexo causal entre dichas variaciones y el daño ocasionado.</p>
-                    <p>Sera responsable por el proceso de evaluación de la conformidad cumpla con los requisitos de los reglamentos
+                    <p class="letra1pdf">Sera responsable por el proceso de evaluación de la conformidad cumpla con los requisitos de los reglamentos
             técnicos indicados en el contrato.</p>
-                    <p>Revisar y validar que las etiquetas de los productos objeto de la evaluación de la conformidad se incluya el
+                    <p class="letra1pdf">Revisar y validar que las etiquetas de los productos objeto de la evaluación de la conformidad se incluya el
             alcance de la evaluación, el nombre de GRUPO VTEK S.A.S, el nombre del ONAC. Así como los demás
             requisitos de etiquetado que contenga el reglamento técnico aplicable a los productos objeto de la evaluación.</p>
-                    <p>Subir al sistema SICERCO los certificados de conformidad emitidos en el proceso de evaluación de la
+                    <p class="letra1pdf">Subir al sistema SICERCO los certificados de conformidad emitidos en el proceso de evaluación de la
             conformidad, bajo el marco del presente acuerdo. Resoluciones 61971 de 2014 y Resolución 41713 del 1 de
             julio de 2014 de la Superintendencia de Industria y Comercio.</p>
-                    <p>Cumplir con todas las obligaciones contendías en el Artículo 2.2.1.7.8.3. Del Decreto No. 1595 de 2015 Emitido
+                    <p class="letra1pdf">Cumplir con todas las obligaciones contendías en el Artículo 2.2.1.7.8.3. Del Decreto No. 1595 de 2015 Emitido
             por el Ministerio de Comercio, Industria y Turismo.</p>
-                    <p>Cumplir con toda la normatividad vigente sobre las obligaciones y responsabilidades de las entidades de
+                    <p class="letra1pdf">Cumplir con toda la normatividad vigente sobre las obligaciones y responsabilidades de las entidades de
             evaluación de la conformidad en Colombia.</p>
                 </div>
             </main>
@@ -677,25 +697,25 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf7 = `<div id="pg7" style="display:none" >
+            pdf7 = `<div id="pg7" style="margin-left: 10% ; margin-right: 10%; display:none">
             <head>
             ${head}
             </head>
             <main>
                 <div>
-                    <h1>6.2 Responsabilidades de PANAMERICANA (cliente)</h1>
-                    <p>PANAMERICANA como importador de productos sujetos a reglamentos técnicos serán responsables por el
+                    <h1 class= "letra_subtitulospdf margnees_elem">6.2 Responsabilidades de PANAMERICANA (cliente)</h1>
+                    <p class= "letra1pdf">PANAMERICANA como importador de productos sujetos a reglamentos técnicos serán responsables por el
                         cumplimiento de la totalidad de los requisitos exigidos por los reglamentos técnicos o las condiciones técnicas,
                         independientemente que haya sido certificadas, sin perjuicio de la responsabilidad de los organismos de
                         certificación que evaluaron dichos productos, de acuerdo con el tipo de certificación emitida.</p>
-                    <p>Lo anterior se establece según el artículo 2.2.1.7.17.2 Responsabilidad de productores e importadores del
+                    <p class= "letra1pdf">Lo anterior se establece según el artículo 2.2.1.7.17.2 Responsabilidad de productores e importadores del
             DECRETO 1595 del 2015.</p>
-                    <p>Adicional, el cliente debe de realizar las actividades complementarias de verificación (si aplica), de no
+                    <p class= "letra1pdf">Adicional, el cliente debe de realizar las actividades complementarias de verificación (si aplica), de no
             ser así, inmediatamente se hará retiro de la certificación en caso de ser otorgada.</p>
-                    <h1>
+                    <h1 class= "letra_titulos_pdf1 margnees_elem">
                     7. ACEPTACIÓN DE LA OFERTA COMERCIAL Y TERMINOS Y CONDICIONES  
                     </h1>
-                    <p>Manifestamos conocer y aceptar la información suministrada por GRUPO VTEK S.A.S, hemos revisado y
+                    <p class= "letra1pdf">Manifestamos conocer y aceptar la información suministrada por GRUPO VTEK S.A.S, hemos revisado y
             comprendido los términos y condiciones establecidos en el GV-MC-01 “términos y condiciones” y la presente
             oferta comercial de certificación, de igual manera autorizamos los costos cotizados y los laboratorios aquí
             indicados y asociados al proceso de certificación. Mediante la firma de la presente oferta comercial se da
@@ -705,31 +725,31 @@ const observerdatos = new MutationObserver(()=>{
             <b>GRUPO VTEK S.A.S </b>garantiza el tratamiento de la información y de los documentos obtenidos en las
             actividades desarrolladas de manera estrictamente confidencial, y solo la utilizará con fines relacionados con el
             proceso de certificación.</p>
-            <p>En constancia de lo anterior, firma el representante del cliente y de GRUPO VTEK S.A.S</p>
+            <p class= "letra1pdf margnees_elem">En constancia de lo anterior, firma el representante del cliente y de GRUPO VTEK S.A.S</p>
                 </div>
                 <table border="">
                     <tr>
-                        <th colspan="2">Representante del cliente</th>
-                        <th colspan="2">Representante de GRUPO VTEK S.A.S</th>
+                        <th colspan="2" class="letras_blanco_fAzul centrar_t">Representante del cliente</th>
+                        <th colspan="2" class="letras_blanco_fAzul centrar_t">Representante de GRUPO VTEK S.A.S</th>
 
                     </tr>
                     <tr>
-                        <td>Nombre </td>
-                        <td>Carlos Alberto Franco Rios </td>
-                        <td>Nombre</td>
-                        <td>Diana Ostos</td>
+                        <td class="letras_tabla2 centrar_t">Nombre </td>
+                        <td class="letras_tabla2 centrar_t">Carlos Alberto Franco Rios </td>
+                        <td class="letras_tabla2 centrar_t">Nombre</td>
+                        <td class="letras_tabla2 centrar_t">Diana Ostos</td>
                     </tr>
                     <tr>
-                        <td>FECHA</td>
-                        <td></td>
-                        <td>FECHA</td>
-                        <td></td>
+                        <td class="letras_tabla2 centrar_t">FECHA</td>
+                        <td class="letras_tabla2 centrar_t"></td>
+                        <td class="letras_tabla2 centrar_t">FECHA</td>
+                        <td class="letras_tabla2 centrar_t"></td>
                     </tr>
                     <tr>
-                        <td>FIRMA</td>
-                        <td></td>
-                        <td>FIRMA</td>
-                        <td></td>
+                        <td class="letras_tabla2 centrar_t">FIRMA</td>
+                        <td ></td>
+                        <td class="letras_tabla2 centrar_t">FIRMA</td>
+                        <td ></td>
                     </tr>
                 </table>
             </main>
@@ -741,11 +761,22 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`;
+            const cargaInicial = () => {
+                for (let i = 1; i < 8; i++){
+                    const loc = `pdf${i}`;
+                    const pga = eval(loc);
+                    d.getElementById("pgpdf").innerHTML += pga;
+                }
+            }
+            cargaInicial();    
 
+        }
+
+        const setLogica = () => {
             const setPgActual = (pg) => {
                 try {
-                        const btnmenos = d.getElementById("menos");
-                        const btnmas = d.getElementById("mas");
+                        const btnmenos = document.getElementById("menos");
+                        const btnmas = document.getElementById("mas");
 
                         btnmenos.addEventListener('click',menos) 
                         btnmas.addEventListener('click',mas) 
@@ -754,50 +785,36 @@ const observerdatos = new MutationObserver(()=>{
                         let loc;
                         for (let i = 1; i < 8; i++){
                             loc = `pg${i}`;
-                            d.getElementById(loc).setAttribute('style','display:none')
+                            let oculto = document.getElementById(loc);
+                            oculto.setAttribute('style','display:none')
                             
                         }
                         loc = `pg${pg}`;
-                        d.getElementById(loc).removeAttribute('style','display:none')
+                        document.getElementById(loc).removeAttribute('style','display:none')
                     } else {
                         location.hash = "#/comercial/createoffer";
 
                     }
                 } catch (e){console.log(e)}
             }
-            setPgActual(1);
-
-            const cargaInicial = () => {
-                for (let i = 1; i < 8; i++){
-                    const loc = `pdf${i}`;
-                    const pga = eval(loc);
-                    d.getElementById("pgpdf").innerHTML += pga;
-                }
-            }
-            cargaInicial();
-
-
-
-
+            setPgActual(1); 
             const navegacion = () => {
-                const navButtons = d.querySelectorAll("nav > button");
+                const navButtons = document.querySelectorAll("nav > .vinc");
                 navButtons.forEach((e,i) => {
                     e.addEventListener("click",() => {
                             setPgActual(i+1);
                     })
                 })
-                d.getElementById("btnDPDF").addEventListener("click",() => {
+                document.getElementById("btnDPDF").addEventListener("click",() => {
                     //
                 })
             }
             navegacion();
-            console.log('#/comercial/plantillapdf')      
-
         }
-        
+        console.log('#/comercial/plantillapdf')     
         }
     
-        (location.hash == '#/comercial/createpdf1') && charge();
+        location.hash == '#/comercial/createpdf1' && charge();
     })
     const parent = document.getElementById('root');
     observerdatos.observe(parent,{childList:true})
