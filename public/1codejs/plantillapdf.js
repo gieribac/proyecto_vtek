@@ -1,4 +1,5 @@
-import { queryOferta } from "./models/post.js";
+import { queryOferta, queryFabrica, queryCliente} from "./models/post.js";
+import { menos, mas } from "./helpers.js";
 
 const observerdatos = new MutationObserver(()=>{ 
 
@@ -6,23 +7,45 @@ const observerdatos = new MutationObserver(()=>{
 
         const clientSelectID = localStorage.getItem("clientSelectID");
         Boolean(clientSelectID) && (() => {
-            queryOferta(clientSelectID).then(t => cargaDataOferta(t.data())).catch(e => console.log(e))
+            queryOferta(clientSelectID).then(t => {  
+                const fabrica = t.data().fabricaOF;
+                const cliente = t.data().ClienteOF;
+                const oferta_ = t.data();
+                console.log(cliente)
+                console.log(fabrica)
+                queryFabrica(fabrica).then(f => {
+                    const fabrica_ = f.data();
+
+                    console.log(f.data())
+                    queryCliente(cliente).then(c => {
+                        const cliente_ = c.data();
+                        console.log(c.data());
+                        cargaDataOferta(oferta_, fabrica_, cliente_ )
+                    }).catch( );
+                }).catch(e => console.log(e));              
+                
+            
+            }).catch(e => console.log(e))
+            let promises = [];
+            let resp = queryOferta(clientSelectID);
+            promises.push(resp);
+            //fabricas: nombre_compania     ofertas:fabricaOF
+
         })()
         
-        const cargaDataOferta = (data) => {
+        const cargaDataOferta = (o,f,c) => {
             
             const d = document,
             fecha = new Date(),        
             year = fecha.getFullYear();
             let day = fecha.getDate(),
             month = fecha.getMonth()+1,
-            monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"].indexOf(month-1);
+            monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][month-1];
             day < 10 && (() => day=`0${day}`)();
-            let DateVig="";
-            // month < 10 && (() => month=`0${month}`)();
+            month < 10 && (() => month=`0${month}`)();
+            console.log(o.vigencia)
+            let DateVig = `${day} / ${month} / ${year+o.vigenciaOF}`;
             
-
-            // const DateVig = `${day_} / ${month_} / ${year_}`;
             const head = `<div></div>
             <div >
                 <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
@@ -40,7 +63,7 @@ const observerdatos = new MutationObserver(()=>{
                 </div>`,
             footer = `<div class="iconosPdf"></div>`;
 
-            const pdf1 = `<div id="pg1 " style="margin-left: 10% ; margin-right: 10%;">
+            const pdf1 = `<div id="pg1" style="margin-left: 10% ; margin-right: 10%;">
             <head>${head}
                 
             </head>
@@ -49,8 +72,8 @@ const observerdatos = new MutationObserver(()=>{
                     <p id="fecha"><b>Bogotá, ${day} de ${monthletra} del ${year} </b></p> 
                     <br><br>
                     <p>Señores:</p>
-                    <p>${data.ClienteOF}</p>
-                    <p id="repLegal"></p>
+                    <p>${o.ClienteOF}</p>
+                    <p>${o.ClienteOF}</p>
                     <p>Representante Legal</p>
                     <p id="ciudad"></p>
                     <br>
@@ -141,7 +164,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
         </div>`,
-            pdf2 = `<div id="pg2 style="margin-left: 10% ; margin-right: 10%;">
+            pdf2 = `<div id="pg2" style="display:none; margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -255,7 +278,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf3 = `<div id="pg3">
+            pdf3 = `<div id="pg3" style="display:none" >
             <head>
             ${head}
             </head>
@@ -276,7 +299,7 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
-                    </tr>
+                    </tr>/users
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td> plica. Se ejecutarán ensayos de laboratorio de
                                                             acuerdo a la siguiente clasificación de familias
@@ -374,7 +397,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf4 = `<div id="pg4">
+            pdf4 = `<div id="pg4" style="display:none" >
             <head>
             ${head}
             </head>
@@ -410,20 +433,20 @@ const observerdatos = new MutationObserver(()=>{
                         <th>CANTIDAD</th><th>DESCRIPCIÓN / ACTIVIDAD</th><th>PRECIO UNIT</th><th>PRECIO TOTAL</th>
                     </tr>
                     <tr>
-                        <td class="cant">
+                        <td class="cant" id="contadorcant">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default" id="menos" type="button">-</button> 
                             </span> 
-                            <input type="number" style="width:50px;text-align: center;" id="contador" class="form-control" value="1">
+                            <input type="text" style="width:50px;text-align: center;" id="contadorc" class="form-control" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default" id="mas" type="button">+</button> 
+                                <button class="btn btn-default" id="mas" type="button">+</button>
                             </span> 
                         </td>
                         <td>
                             Certificación Esquema 5
                         </td>
                         <td class="p_unit">
-                            <input type="number" style="width:50px;text-align: center;" id="contador" class="form-control" value="1">
+                            <input type="text" style="width:50px;text-align: center;" id="contadorp" class="form-control" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
@@ -482,7 +505,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf5 = `<div id="pg5">
+            pdf5 = `<div id="pg5" style="display:none" >
             <head>
             ${head}
             </head>
@@ -584,7 +607,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf6 = `<div id="pg6">
+            pdf6 = `<div id="pg6" style="display:none" >
             <head>
             ${head}
             </head>
@@ -654,7 +677,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf7 = `<div id="pg7">
+            pdf7 = `<div id="pg7" style="display:none" >
             <head>
             ${head}
             </head>
@@ -718,29 +741,49 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`;
-            const setPgActual = () => {
+
+            const setPgActual = (pg) => {
                 try {
-                    const loc = location.hash;
-                    const subs = loc.slice(loc.length - 4);
-                    const pga = eval(subs);
-                    d.getElementById("pgpdf").innerHTML = pga;
-                } catch (e){}
+                        const btnmenos = d.getElementById("menos");
+                        const btnmas = d.getElementById("mas");
+
+                        btnmenos.addEventListener('click',menos) 
+                        btnmas.addEventListener('click',mas) 
+
+                    if (pg < 8) {
+                        let loc;
+                        for (let i = 1; i < 8; i++){
+                            loc = `pg${i}`;
+                            d.getElementById(loc).setAttribute('style','display:none')
+                            
+                        }
+                        loc = `pg${pg}`;
+                        d.getElementById(loc).removeAttribute('style','display:none')
+                    } else {
+                        location.hash = "#/comercial/createoffer";
+
+                    }
+                } catch (e){console.log(e)}
             }
-            window.addEventListener('hashchange',setPgActual);
-            d.getElementById("pgpdf").innerHTML = pdf1;
+            setPgActual(1);
+
+            const cargaInicial = () => {
+                for (let i = 1; i < 8; i++){
+                    const loc = `pdf${i}`;
+                    const pga = eval(loc);
+                    d.getElementById("pgpdf").innerHTML += pga;
+                }
+            }
+            cargaInicial();
+
+
+
+
             const navegacion = () => {
-                const location_ = ["#/comercial/createpdf1",
-                    "#/comercial/createpdf2",
-                    "#/comercial/createpdf3",
-                    "#/comercial/createpdf4",
-                    "#/comercial/createpdf5",
-                    "#/comercial/createpdf6",
-                    "#/comercial/createpdf7",
-                    "#/comercial/createoffer"];
                 const navButtons = d.querySelectorAll("nav > button");
                 navButtons.forEach((e,i) => {
                     e.addEventListener("click",() => {
-                            location.hash = location_[i];
+                            setPgActual(i+1);
                     })
                 })
                 d.getElementById("btnDPDF").addEventListener("click",() => {
@@ -754,7 +797,7 @@ const observerdatos = new MutationObserver(()=>{
         
         }
     
-        location.hash == '#/comercial/createpdf1' && charge();
+        (location.hash == '#/comercial/createpdf1') && charge();
     })
     const parent = document.getElementById('root');
     observerdatos.observe(parent,{childList:true})

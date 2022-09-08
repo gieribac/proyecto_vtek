@@ -1,4 +1,17 @@
 
+export function mas() {
+    var contador = document.getElementById("contadorc").value;
+    var int = parseInt(contador, 10);
+    document.getElementById("contadorc").value = int +1;    
+}
+    
+export function menos() {
+    var cont = document.getElementById("contadorc").value;
+    var counterValue = parseInt(cont,10);
+    var NewCont = counterValue > 1 ? counterValue - 1: 1;
+    document.getElementById("contadorc").value = NewCont;
+}
+
    
    
    

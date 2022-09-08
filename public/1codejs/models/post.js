@@ -282,7 +282,7 @@ export const getOfertas = async(datos)=> {
         throw e;    
     }
     }
-    
+
 export const queryOferta = async(id) => {
     try {
         const doc_ = await getDoc(doc(db,"ofertas",id));
@@ -291,6 +291,32 @@ export const queryOferta = async(id) => {
         throw e.message
     }
 }
+
+export const queryFabrica = async (fabrica) => {
+    try {
+        const q = query(collection(db,"fabricas"), where("nombre_compania", "==", fabrica), limit(1));  
+        const docs_ = await getDocs(q);
+        const d = docs_.docs[0];
+        return d;
+    } catch (e){
+        throw e.message
+    }
+
+};
+
+export const queryCliente = async (Nombre_Compania) => {
+    try {
+        const q = query(collection(db,"clients"), where("Nombre_Compania", "==", Nombre_Compania), limit(1));  
+        const docs_ = await getDocs(q);
+        const d = docs_.docs[0];
+        return d;
+    } catch (e){
+        throw e.message
+    }
+
+    
+};
+
 ////</comercial_createoffer////
 
 ////<comercial_infooffers>////

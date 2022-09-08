@@ -3,7 +3,7 @@ import {page} from "./router.js";
 import {auth} from './firebase.js';
 import {loguearse}  from "./index.js";
 import {index} from "./pages.js";
-import{readUser} from "./models/post.js"
+import{readUser} from "./models/post.js";
 
 
 window.addEventListener('DOMContentLoaded',(e)=> {
