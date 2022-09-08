@@ -101,13 +101,13 @@ export const page = (h) => {
     else if (h=='#/tcoordinador/asignacion'){inner('tcoordinador',tcoordinador_asignacion)}
     else if (h==''){() => window.location = ''}
     else if (h =='#cs'){cerrarSession()}
-    else if (h =='#comercial/createpdf1'){}
-    else if (h =='#comercial/createpdf2'){}
-    else if (h =='#comercial/createpdf3'){}
-    else if (h =='#comercial/createpdf4'){}
-    else if (h =='#comercial/createpdf5'){}
-    else if (h =='#comercial/createpdf6'){}
-    else if (h =='#comercial/createpdf7'){}
+    else if (h =='#/comercial/createpdf1'){}
+    else if (h =='#/comercial/createpdf2'){}
+    else if (h =='#/comercial/createpdf3'){}
+    else if (h =='#/comercial/createpdf4'){}
+    else if (h =='#/comercial/createpdf5'){}
+    else if (h =='#/comercial/createpdf6'){}
+    else if (h =='#/comercial/createpdf7'){}
     else {document.getElementById('root').textContent = 'notFound'}
 }
 
