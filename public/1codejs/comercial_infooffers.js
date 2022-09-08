@@ -66,19 +66,21 @@ const observerdatos = new MutationObserver(()=>{
             formalizar.innerHTML = ``;
 
             let listC = [];
-            let list_id = [];
+            let list_noOf = [];
+            let listIds = [];
 
                 ds.forEach(d => {
                     
-                    list_id.push(d.data().No_oferta);
+                    list_noOf.push(d.data().No_oferta);
                     listC.push(d.data());
                     const id = d.id; 
                     console.log(id) ;
+                    listIds.push(id);
                     const n_oferta = d.data().No_oferta;
                     const st = d.data().Estado === undefined ? " - " : d.data().Estado;
                     
                     oferta.innerHTML += `
-                    <h6 class = "letra_recuadro_info2">${n_oferta}</h6>
+                    <h6 id="${id}" class = "letra_recuadro_info2">${n_oferta}</h6>
                     `;
                     cliente.innerHTML += `
                     <h6 >${d.data().ClienteOF}</h6>
@@ -104,8 +106,10 @@ const observerdatos = new MutationObserver(()=>{
                     }
 
                 });
-            localStorage.setItem("nidsClient",JSON.stringify(list_id));
+            localStorage.setItem("list_noOf",JSON.stringify(list_noOf));
             localStorage.setItem("nclient", JSON.stringify(listC));
+            localStorage.setItem("nidsClient", JSON.stringify(listIds));
+
             listeners();
             return {primer,ultimo}
             }
@@ -116,6 +120,7 @@ const observerdatos = new MutationObserver(()=>{
             vinculos.forEach(element => {
                 element.addEventListener('click',()=>{
                     localStorage.setItem("clientSelect",element.textContent);
+                    localStorage.setItem("clientSelectID",element.id);
                     location.hash='#/comercial/createoffer';
                 })            
             })
