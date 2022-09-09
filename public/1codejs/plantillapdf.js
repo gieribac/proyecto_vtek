@@ -11,20 +11,13 @@ const observerdatos = new MutationObserver(()=>{
                 const fabrica = t.data().fabricaOF;
                 const cliente = t.data().ClienteOF;
                 const oferta_ = t.data();
-                console.log(cliente)
-                console.log(fabrica)
                 queryFabrica(fabrica).then(f => {
                     const fabrica_ = f.data();
-
-                    console.log(f.data())
                     queryCliente(cliente).then(c => {
                         const cliente_ = c.data();
-                        console.log(c.data());
                         cargaDataOferta(oferta_, fabrica_, cliente_ )
                     }).then( after => setLogica()).catch( );
-                }).catch(e => console.log(e));              
-                
-            
+                }).catch(e => console.log(e));  
             }).catch(e => console.log(e))
             let promises = [];
             let resp = queryOferta(clientSelectID);
@@ -46,7 +39,6 @@ const observerdatos = new MutationObserver(()=>{
             monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][month-1];
             day < 10 && (() => day=`0${day}`)();
             month < 10 && (() => month=`0${month}`)();
-            console.log(o.vigenciaOF)
             let DateVig = `${day} / ${month} / ${year+o.vigenciaOF}`;
             
             const head = `<div></div>
@@ -68,17 +60,16 @@ const observerdatos = new MutationObserver(()=>{
 
             const pdf1 = `<div id="pg1" style="margin-left: 10% ; margin-right: 10%;">
             <head>${head}
-                
             </head>
             <main>
                 <div class="letra1pdf" >
                     <p id="fecha"><b>Bogotá, ${day} de ${monthletra} del ${year} </b></p> 
                     <br><br>
                     <p>Señores:</p>
-                    <p>${o.ClienteOF}</p>
-                    <p id="repLegal"></p>
+                    <p>${c.Nombre_Compania}</p>
+                    <p>${f.representante_legal}</p>
                     <p>Representante Legal</p>
-                    <p id="ciudad"></p>
+                    <p>${c.Ciudad}</p>
                     <br>
                     <p>Respetados Señores,</p>
                     <br>
@@ -87,8 +78,8 @@ const observerdatos = new MutationObserver(()=>{
                 <div class="margnees_elem">
                     <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
                     <tr>
-                    <td  class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
-                    <td  class="centrar_t " style="padding: 5px; position: relative;">    <p id ="noOferta" class="subrayado"> e5-dw-1384-2022 </p></td>
+                    <td class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
+                    <td class="centrar_t " style="padding: 5px; position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
                     </tr>
                     </table>
                 </div>
@@ -97,18 +88,17 @@ const observerdatos = new MutationObserver(()=>{
                     <h2 class="letra_subtitulospdf">1.1 Esquema de certificación</h2>
                 </div>
                 <table>
-            
                     <tr>
                         <td class="centrar_t letras_blanco_fAzul">Esquema de certificación</td>
-                        <td class="centrar_t" id="esquema"> esquema</td>
+                        <td class="centrar_t" id="esquema">${o.esquemaOF}</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
-                        <td class=" centrar_t" id="vigencia"> vig</td>
+                        <td class=" centrar_t" id="vigencia">${o.vigenciaOF} AÑOS</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
-                        <td class="centrar_t" id="seguimientos"> seg</td>
+                        <td class="centrar_t" id="seguimientos">Cada 12 meses</td>
                     </tr>
                 </table>
                 <div class="margnees_elem">
@@ -122,40 +112,40 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
-                        <td class="letras_tabla3" id="datos_nombreCliente"></td>
+                        <td class="letras_tabla3">${c.Nombre_Compania}</td>
                         <td class="letras_tabla2">Número de NIT:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_nit"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_repLegal"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
                         <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_identificacion"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial: </td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_direccion"></td>
-                        <td class="letras_tabla2" style="padding: 10px;">Web: </td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_web"></td>
+                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_ciudad"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
                         <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_tel"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;">Nombre del
                             responsable: </td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_nombreResponsable"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
                         <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_mail"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_cargo"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
                         <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto"></td>
+                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
                     </tr>
                 </table>
             </main>
@@ -176,49 +166,49 @@ const observerdatos = new MutationObserver(()=>{
                 <h2 class="letra_subtitulospdf">1.3 Empresa Titular del certificado de conformidad</h2>  
                 </div>
                 <table>
-                <tr>
-                    <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA TITULAR DEL CERTIFICADO DE CONFORMIDAD</td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
-                        (Como aparece
-                        registrada)</td>
-                    <td class="letras_tabla3" id="datos_nombreCliente"></td>
-                    <td class="letras_tabla2">Número de NIT:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_nit"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_repLegal"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_identificacion"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Dirección comercial: </td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_direccion"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Web: </td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_web"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_ciudad"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_tel"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Nombre del
-                        responsable: </td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_nombreResponsable"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_mail"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_cargo"></td>
-                    <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_contacto"></td>
-                </tr>
-            </table>
+                    <tr>
+                        <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
+                            (Como aparece
+                            registrada)</td>
+                        <td class="letras_tabla3">${c.Nombre_Compania}</td>
+                        <td class="letras_tabla2">Número de NIT:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Nombre del
+                            responsable: </td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
+                        <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
+                    </tr>
+                </table>
             <div class="margnees_elem">
                 <h2 class="letra_subtitulospdf">1.4 Información de compañía fabricante</h2>
                 </div>
@@ -229,28 +219,28 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Nombre de la Compañía
                             Fabricante: </td>
-                        <td colspan="3" id="nombreFabrica"></td>
+                        <td colspan="3">${f.nombre_compania}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;"  >Dirección de la planta/s en
                             donde se fabrica el producto:</td>
-                        <td colspan="3" id="direccionFabrica"></td>
+                        <td colspan="3">${f.direccion}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Contacto:</td>
-                        <td id="nombreresponsableFabrica"></td>
+                        <td>${f.contacto}</td>
                         <td class= "letras_tabla2" style="padding: 10px; >País:</td>
-                        <td id="paisFabrica"></td>
+                        <td>${f.pais}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Teléfono:</td>
-                        <td id="telFabrica"></td>
+                        <td>${f.telefono}</td>
                         <td class= "letras_tabla2" style="padding: 10px;" >Ciudad:</td>
-                        <td id="ciudadFabrica"></td>
+                        <td id="ciudadFabrica">${f.ciudad}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;"  >Mail:</td>
-                        <td colspan="3" id="mailFabrica"></td>
+                        <td class= "letras_tabla2" style="padding: 10px;" >Mail:</td>
+                        <td colspan="3">${f.email}</td>
                     </tr>
                 </table>
                 <div>
@@ -266,8 +256,7 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">RESOLUCIÓN APLICABLE</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >UTENSILIOS DE CERAMICA EN CONTACTO CON
-                            ALIMENTOS</td>
+                        <td class= "letras_tabla2" style="padding: 10px;" >${o.productoOF}</td>
                         <td class= "letras_tabla2" style="padding: 10px;" >Resolución n° 1440 del 20 de septiembre del 2021 del
                             Ministerio de salud y protección social</td>
                     </tr>
@@ -400,7 +389,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf4 = `<div id="pg4" style="margin-left: 10% ; margin-right: 10%">
+            pdf4 = `<div id="pg4" style="margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -412,88 +401,139 @@ const observerdatos = new MutationObserver(()=>{
             no estén completos, se procede a realizar una nueva cotización para ejecutar las actividades o ensayos
             pendientes mediante el formato GV-FC-05 Ofertas comerciales para actividades complementarias.
                     </p>
-                    <h2>2.1 Evaluación de Riesgo</h2>
-                    <p>Dentro de la evaluación realizada a nuestro cliente y al esquema elegido para la certificación detallada en la
+                    <h2 class="letra_subtitulospdf margnees_elem" >2.1 Evaluación de Riesgo</h2>
+                    <p class="letra1pdf" >Dentro de la evaluación realizada a nuestro cliente y al esquema elegido para la certificación detallada en la
                         presente oferta comercial, se determina la siguiente calificación de riesgo:</p>
                 </div>
-                <table>
+                <table class= "margnees_elem">
                     <tr>
-                        <th>Esquema de certificación</th><th>Calificación</th>
+                        <th class="letras_blanco_fAzul centrar_t">Esquema de certificación</th><th class="letras_blanco_fAzul centrar_t">Calificación</th>
                     </tr>
                     <tr>
-                        <td>Esquema 5</td><td>4.6</td>
+                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${o.calificacion}</td>
                     </tr>
                 </table>
                 <div>
-                    <h1>3. PRESUPUESTO ECONOMICO PARA EL OTORGAMIENTO DE LA CERTIFICACION</h1>
-                    <h2>3.1 Presupuesto para el otorgamiento.</h2>
+                    <h1 class= "letra_titulos_pdf1 margnees_elem ">3. PRESUPUESTO ECONOMICO PARA EL OTORGAMIENTO DE LA CERTIFICACION</h1>
+                    <h2 class="letra_subtitulospdf margnees_elem">3.1 Presupuesto para el otorgamiento.</h2>
                 </div>
-                <table border="1">
+                <table border="1" class= "margnees_elem">
                     <tr>
-                        <th colspan="4">3.1 PRESUPUESTO PARA EL OTORGAMIENTO</th>
+                        <th class="letras_blanco_fAzul centrar_t" colspan="4">3.1 PRESUPUESTO PARA EL OTORGAMIENTO<button class="ocultar" id="removefilest31">-</button><button class="ocultar" id="addfilest31">+</button></th>
                     </tr>
                     <tr>
-                        <th>CANTIDAD</th><th>DESCRIPCIÓN / ACTIVIDAD</th><th>PRECIO UNIT</th><th>PRECIO TOTAL</th>
+                        <th class="letras_blanco_fAzul">CANTIDAD</th><th class="letras_blanco_fAzul" >DESCRIPCIÓN / ACTIVIDAD</th>
+                        <th class="letras_blanco_fAzul" >PRECIO UNIT</th><th class="letras_blanco_fAzul">PRECIO TOTAL</th>
                     </tr>
+                </table >
+                    <table id="table31" class= "margnees_elem">
                     <tr>
-                        <td class="cant" id="contadorcant">
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default" id="menos" type="button">-</button> 
-                            </span> 
-                            <input type="text" style="width:50px;text-align: center;" id="contadorc" class="form-control" value="1">
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default" id="mas" type="button">+</button>
-                            </span> 
-                        </td>
-                        <td>
-                            Certificación Esquema 5
-                        </td>
-                        <td class="p_unit">
-                            <input type="text" style="width:50px;text-align: center;" id="contadorp" class="form-control" value="1">
-                        </td>
-                        <td class="p_total"></td>
-                    </tr>
-                    <tr>
-                        <td class="cant letras_tabla2"></td>
-                        <td class="letras_tabla2" >Ensayos de Laboratorio
-                            FAMILIA N° 1 CONCAVO PEQUEÑO</td>
-                        <td class="p_unit letras_tabla2"></td>
-                        <td class="p_total"></td>
-                    </tr>
-                    <tr>
-                        <td class="cant letras_tabla2"></td>
-                        <td class="letras_tabla2">Ensayos de Laboratorio
-                            FAMILIA N° 2 CONCAVO GRANDE</td>
-                        <td class="p_unit letras_tabla2"></td>
-                        <td class="p_total letras_tabla2"></td>
-                    </tr>
-                    <tr>
-                    <td class="cant"></td>
+                    <td class="cant letras_tabla2">
+                        <span class="input-group-btn"> 
+                            <button class="btn btn-default menos" type="button">-</button> 
+                        </span> 
+                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                        <span class="input-group-btn"> 
+                            <button class="btn btn-default mas" type="button">+</button> 
+                        </span> 
+                    </td>
+                    <td class="letras_tabla2">
+                        Certificación Esquema 5
+                    </td>
+                    <td class="p_unit letras_tabla2">$ 
+                        <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                    </td>
+                    <td class="p_total"></td>
+                </tr>
+                <tr>
+                    <td class="cant letras_tabla2">
+                        <span class="input-group-btn"> 
+                            <button class="btn btn-default menos" type="button">-</button> 
+                        </span> 
+                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                        <span class="input-group-btn"> 
+                            <button class="btn btn-default mas" type="button">+</button> 
+                        </span> 
+                    </td>
                     <td class="letras_tabla2" >Ensayos de Laboratorio
+                        FAMILIA N° 1 CONCAVO PEQUEÑO</td>
+                    <td class="p_unit letras_tabla2">$ 
+                        <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                    </td>
+                    <td class="p_total"></td>
+                </tr>
+                <tr>
+                    <td class="cant letras_tabla2">
+                    <span class="input-group-btn"> 
+                            <button class="btn btn-default menos" type="button">-</button> 
+                        </span> 
+                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                        <span class="input-group-btn"> 
+                            <button class="btn btn-default mas" type="button">+</button> 
+                        </span> 
+                    </td>
+                    <td class="letras_tabla2">Ensayos de Laboratorio
                         FAMILIA N° 2 CONCAVO GRANDE</td>
-                    <td class="p_unit letras_tabla2"></td>
+                    <td class="p_unit letras_tabla2">$ 
+                        <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                    </td>
                     <td class="p_total letras_tabla2"></td>
-                    </tr>
-                    <tr>
-                    <td class="cant letras_tabla2"></td>
-                    <td class="letras_tabla2" >Ensayos de Laboratorio
-                        FAMILIA N° 2 CONCAVO GRANDE</td>
-                    <td class="p_unit letras_tabla2"></td>
-                    <td class="p_total letras_tabla2"></td>
-                    </tr>
+                </tr>
+                <tr>
+                <td class="cant">
+                <span class="input-group-btn"> 
+                            <button class="btn btn-default menos" type="button">-</button> 
+                        </span> 
+                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                        <span class="input-group-btn"> 
+                            <button class="btn btn-default mas" type="button">+</button> 
+                        </span> 
+                </td>
+                <td class="letras_tabla2" >Ensayos de Laboratorio
+                FAMILIA N° 3 ALMACENAMIENTO</td>
+                <td class="p_unit letras_tabla2">$ 
+                    <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                </td>
+                <td class="p_total letras_tabla2"></td>
+                </tr>
+                <tr>
+                <td class="cant letras_tabla2">
+                    <span class="input-group-btn"> 
+                            <button class="btn btn-default menos" type="button">-</button> 
+                        </span> 
+                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                        <span class="input-group-btn"> 
+                            <button class="btn btn-default mas" type="button">+</button> 
+                    </span> 
+                </td>
+                <td class="letras_tabla2" >Ensayos de Laboratorio
+                FAMILIA N° 4 COCCION</td>
+                <td class="p_unit letras_tabla2">$ 
+                    <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                </td>
+                <td class="p_total letras_tabla2"></td>
+                </tr>
+                    </table>
+                <table class= "margnees_elem">
                     <tr>
                         <td colspan="2">Nota: El Laboratorio seleccionado para el Presupuesto es: CTT </td>
                         <td> SUB-TOTAL SIN
                             IVA </td>
+                        <td id="stsi"></td>
+                    </tr>
+                    <tr> 
+                        <td ></td>
+                        <td ></td>
+
+                        <td>I.V.A</td>
+                        <td><input style="width:50px;text-align: center;" class="contadoru form-control" id="table31iva" value="1"></td>
+                        
+                    </tr>
+                    <tr><td></td>
                         <td></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">I.V.A</td>
-                        <td id="iva"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">TOTAL</td>
-                        <td id="total"></td>
+                  
+                        <td >TOTAL</td>
+                        <td id="table31total"></td>
                     </tr>
                 </table>
                 <div>
@@ -761,6 +801,8 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`;
+            
+
             const cargaInicial = () => {
                 for (let i = 1; i < 8; i++){
                     const loc = `pdf${i}`;
@@ -773,13 +815,112 @@ const observerdatos = new MutationObserver(()=>{
         }
 
         const setLogica = () => {
+            const filatabla31 = `<td class="cant letras_tabla2">
+            <span class="input-group-btn"> 
+                <button class="btn btn-default menos" type="button">-</button> 
+            </span> 
+            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+            <span class="input-group-btn"> 
+                <button class="btn btn-default mas" type="button">+</button> 
+            </span> 
+            </td>
+            <td class="letras_tabla2 tddescripcion">
+            <input style="width:50px;text-align: center;" class="form-control inputdescripcion" type="text">
+            </td>
+            <td class="p_unit letras_tabla2">$ 
+                <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+            </td>
+            <td class="p_total"></td>`;
+
+            const listeners = () => {
+                        const d=document,
+                        vinculosmas = d.querySelectorAll('.mas'),
+                        vinculosmenos = d.querySelectorAll('.menos'),
+                        inputsc = d.querySelectorAll('.contadorc'),
+                        inputsu = d.querySelectorAll('.contadoru'),
+                        total = d.querySelectorAll('.p_total'),
+                        table31 = d.getElementById('table31'),
+                        btnAddFiles = d.getElementById('addfilest31'),
+                        btnRemoveFiles = d.getElementById('removefilest31'),
+                        table31iva = d.getElementById('table31iva'),
+                        table31total = d.getElementById('table31total'),
+                        subtotalsi = d.getElementById('stsi');
+
+                        const totalparcial = (i) => {
+                            total[i].textContent =`$ ${inputsc[i].value * inputsu[i].value}`;
+                        }
+
+                        const subtotal  = () => {
+                            let st = 0, num;
+                            total.forEach((e,i)=>{
+                                num = e.textContent
+                                num = parseInt(num.substring(2,num.length), 10);
+                                console.log(num)
+                                st = st+num;
+
+                            })
+                            subtotalsi.textContent = `$ ${st}`;
+                        }
+                        
+                        const totalizar = () => {
+                            let sumatoria = subtotalsi.textContent;
+                            sumatoria = parseInt(sumatoria.substring(2, sumatoria.length), 10);
+    
+                            let iva = parseInt(table31iva.value, 10);
+                            console.log(iva)
+                            sumatoria = (iva/100+1)*sumatoria;
+                            console.log(sumatoria)
+                            table31total.textContent = sumatoria;
+                        }
+
+                        vinculosmas.forEach((e,i)=> {
+                            inputsc[i].id=`contadorc${i}`;
+                            // inputsu[i].id=`contadoru${i}`;
+                            e.addEventListener('click',() => {
+                                mas(`contadorc${i}`);
+                                totalparcial(i);
+                            })
+                        })
+                        
+                        vinculosmenos.forEach((e,i) => {
+                            e.addEventListener('click',() => {
+                                menos(`contadorc${i}`);
+                                totalparcial(i);
+                            });
+                        })
+                        
+                        total.forEach((e,i) => {
+                            e.addEventListener('click', () => totalparcial(i));
+                        })
+
+                        inputsu.forEach((e,i) => {
+                            e.addEventListener('keyup', () => totalparcial(i));
+                        })
+
+                        btnAddFiles.addEventListener('click',()=>{
+                            table31.innerHTML += filatabla31;
+                            console.log(table31);
+                        })
+
+                        btnRemoveFiles.addEventListener('click',()=>{
+                            if (table31.lastChild){
+                            table31.removeChild(table31.lastChild);
+                            }
+                        
+                        })
+
+                        table31iva.addEventListener('keyup',() => totalizar());
+                        table31total.addEventListener('click',() => totalizar());
+                        subtotalsi.addEventListener('click',() => subtotal());
+
+
+            }
+
+            listeners();
+
             const setPgActual = (pg) => {
                 try {
-                        const btnmenos = document.getElementById("menos");
-                        const btnmas = document.getElementById("mas");
-
-                        btnmenos.addEventListener('click',menos) 
-                        btnmas.addEventListener('click',mas) 
+                        
 
                     if (pg < 8) {
                         let loc;
