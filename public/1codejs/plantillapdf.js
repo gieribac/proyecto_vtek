@@ -1,5 +1,6 @@
 import { queryOferta, queryFabrica, queryCliente} from "./models/post.js";
 import { menos, mas } from "./helpers.js";
+// import './html2canvas.js';
 
 const observerdatos = new MutationObserver(()=>{ 
 
@@ -611,23 +612,23 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td>2</td>
                         <td>ensayos</td>
-                        <td>80000000</td>
-                        <td>80000000</td>
+                        <td>275000</td>
+                        <td>550000</td>
                     </tr>
                     <tr>
                     <td colspan= "2"> Nota: El Laboratorio seleccionado para el Presupuesto es:
                     Pendiente de definir</td>
                     <td>SUB-TOTAL SIN
                     IVA</td>
-                    <td>80000000</td>
+                    <td>1350000</td>
                 </tr>
                 <tr>
                 <td colspan="3" class="centrar_t">I.V.A</td>
-                <td id="iva"></td>
+                <td id="iva">256500</td>
             </tr>
             <tr>
                 <td colspan="3" class="centrar_t">TOTAL</td>
-                <td id="total"></td>
+                <td id="total">1606500</td>
             </tr>
                 </table>
 
@@ -801,13 +802,14 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`;
-            
 
             const cargaInicial = () => {
                 for (let i = 1; i < 8; i++){
                     const loc = `pdf${i}`;
                     const pga = eval(loc);
-                    d.getElementById("pgpdf").innerHTML += pga;
+                    const contenedor = d.getElementById("pgpdf")
+                    contenedor.setAttribute('style','border: 2px solid blue' )
+                    contenedor.innerHTML += pga;
                 }
             }
             cargaInicial();    
@@ -912,11 +914,30 @@ const observerdatos = new MutationObserver(()=>{
                         table31iva.addEventListener('keyup',() => totalizar());
                         table31total.addEventListener('click',() => totalizar());
                         subtotalsi.addEventListener('click',() => subtotal());
-
-
             }
 
-            listeners();
+            const generarPDF = () => {
+                const contenedor = document.getElementById("pgpdf");
+                window.jsPDF = window.jspdf.jsPDF;
+                var doc = new jsPDF("p","pt","letter");
+                const margin = 10;
+                console.log(contenedor)
+                var scale = (doc.internal.pageSize.width-2*margin)/contenedor.scrollWidth;
+                // doc.addPage("letter");
+                // doc.text("hello word pdf", 25,15);
+                
+                // doc.save("dsdsa.pdf");
+                doc.html(contenedor, {
+                    x: margin,
+                    y: margin,
+                    html2canvas:{
+                        scale: scale
+                    },
+                    callback: function (doc) {
+                      doc.output('darurlnewwindows',{filename: 'reporte-pdf.pdf'});
+                    }
+                 });
+            };
 
             const setPgActual = (pg) => {
                 try {
@@ -938,19 +959,23 @@ const observerdatos = new MutationObserver(()=>{
                     }
                 } catch (e){console.log(e)}
             }
-            setPgActual(1); 
             const navegacion = () => {
-                const navButtons = document.querySelectorAll("nav > .vinc");
-                navButtons.forEach((e,i) => {
-                    e.addEventListener("click",() => {
-                            setPgActual(i+1);
-                    })
-                })
-                document.getElementById("btnDPDF").addEventListener("click",() => {
-                    //
-                })
+                            const navButtons = document.querySelectorAll("nav > .vinc");
+                            navButtons.forEach((e,i) => {
+                                e.addEventListener("click",() => {
+                                        setPgActual(i+1);
+                                })
+                            })
+                            document.getElementById("btnDPDF").addEventListener("click",() => {
+                                generarPDF();
+                            })
             }
+            listeners();
+            setPgActual(1);             
             navegacion();
+
+            
+            
         }
         console.log('#/comercial/plantillapdf')     
         }
