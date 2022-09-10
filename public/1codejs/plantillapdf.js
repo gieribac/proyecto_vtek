@@ -422,114 +422,203 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul">CANTIDAD</th><th class="letras_blanco_fAzul" >DESCRIPCIÓN / ACTIVIDAD</th>
                         <th class="letras_blanco_fAzul" >PRECIO UNIT</th><th class="letras_blanco_fAzul">PRECIO TOTAL</th>
                     </tr>
-                </table >
-                    <table id="table31" class= "margnees_elem">
-                    <tr>
-                    <td class="cant letras_tabla2">
-                        <span class="input-group-btn"> 
-                            <button class="btn btn-default menos" type="button">-</button> 
-                        </span> 
-                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
-                        <span class="input-group-btn"> 
-                            <button class="btn btn-default mas" type="button">+</button> 
-                        </span> 
-                    </td>
-                    <td class="letras_tabla2">
-                        Certificación Esquema 5
-                    </td>
-                    <td class="p_unit letras_tabla2">$ 
-                        <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
-                    </td>
-                    <td class="p_total"></td>
-                </tr>
-                <tr>
-                    <td class="cant letras_tabla2">
-                        <span class="input-group-btn"> 
-                            <button class="btn btn-default menos" type="button">-</button> 
-                        </span> 
-                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
-                        <span class="input-group-btn"> 
-                            <button class="btn btn-default mas" type="button">+</button> 
-                        </span> 
-                    </td>
-                    <td class="letras_tabla2" >Ensayos de Laboratorio
-                        FAMILIA N° 1 CONCAVO PEQUEÑO</td>
-                    <td class="p_unit letras_tabla2">$ 
-                        <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
-                    </td>
-                    <td class="p_total"></td>
-                </tr>
-                <tr>
-                    <td class="cant letras_tabla2">
-                    <span class="input-group-btn"> 
-                            <button class="btn btn-default menos" type="button">-</button> 
-                        </span> 
-                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
-                        <span class="input-group-btn"> 
-                            <button class="btn btn-default mas" type="button">+</button> 
-                        </span> 
-                    </td>
-                    <td class="letras_tabla2">Ensayos de Laboratorio
-                        FAMILIA N° 2 CONCAVO GRANDE</td>
-                    <td class="p_unit letras_tabla2">$ 
-                        <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
-                    </td>
-                    <td class="p_total letras_tabla2"></td>
-                </tr>
-                <tr>
-                <td class="cant">
-                <span class="input-group-btn"> 
-                            <button class="btn btn-default menos" type="button">-</button> 
-                        </span> 
-                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
-                        <span class="input-group-btn"> 
-                            <button class="btn btn-default mas" type="button">+</button> 
-                        </span> 
-                </td>
-                <td class="letras_tabla2" >Ensayos de Laboratorio
-                FAMILIA N° 3 ALMACENAMIENTO</td>
-                <td class="p_unit letras_tabla2">$ 
-                    <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
-                </td>
-                <td class="p_total letras_tabla2"></td>
-                </tr>
-                <tr>
-                <td class="cant letras_tabla2">
-                    <span class="input-group-btn"> 
-                            <button class="btn btn-default menos" type="button">-</button> 
-                        </span> 
-                        <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
-                        <span class="input-group-btn"> 
-                            <button class="btn btn-default mas" type="button">+</button> 
-                    </span> 
-                </td>
-                <td class="letras_tabla2" >Ensayos de Laboratorio
-                FAMILIA N° 4 COCCION</td>
-                <td class="p_unit letras_tabla2">$ 
-                    <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
-                </td>
-                <td class="p_total letras_tabla2"></td>
-                </tr>
-                    </table>
-                <table class= "margnees_elem">
+                
+                    <tr class="tr31">
+                        <td  class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
                     <tr>
                         <td colspan="2">Nota: El Laboratorio seleccionado para el Presupuesto es: CTT </td>
                         <td> SUB-TOTAL SIN
                             IVA </td>
-                        <td id="stsi"></td>
+                        <td id="stsi31"></td>
                     </tr>
                     <tr> 
-                        <td ></td>
-                        <td ></td>
+                        
 
-                        <td>I.V.A</td>
-                        <td><input style="width:50px;text-align: center;" class="contadoru form-control" id="table31iva" value="1"></td>
+                        <td colspan="3">I.V.A</td>
+                        <td><input style="width:50px;text-align: center;" class="form-control" id="table31iva" value="1"> %</td>
                         
                     </tr>
-                    <tr><td></td>
-                        <td></td>
+                    <tr>
                   
-                        <td >TOTAL</td>
+                        <td colspan="3">TOTAL</td>
                         <td id="table31total"></td>
                     </tr>
                 </table>
@@ -592,39 +681,208 @@ const observerdatos = new MutationObserver(()=>{
                 <div>
                     <h2 class="letra_subtitulospdf margnees_elem">3.3 PRESUPUESTO ECONOMICO PARA LAS ACTIVIDADES DE VIGILANCIA:</h2>
                 </div>
-                <table border="1" class= "margnees_elem">
+                <table border="1" id="table33" class= "margnees_elem">
                     <tr>
-                        <th COLSPAN="4" class="letras_blanco_fAzul centrar_t " >3.3 PRESUPUESTO PARA EL OTORGAMIENTO</th>
+                        <th COLSPAN="4" class="letras_blanco_fAzul centrar_t " >3.3 PRESUPUESTO PARA EL OTORGAMIENTO 
+                            <button class="ocultar" id="removefilest33">-</button><button class="ocultar" id="addfilest33">+</button>
+                        </th>                       
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul centrar_t" >CANTIDAD</th><th class="letras_blanco_fAzul centrar_t" >DESCRIPCIÓN / ACTIVIDAD</th><th class="letras_blanco_fAzul centrar_t" >PRECIO UNIT</th><th class="letras_blanco_fAzul centrar_t" >PRECIO TOTAL</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>certificacion esquema5</td>
-                        <td>80000000</td>
-                        <td>80000000</td>
+                    <tr class="tr33">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ensayos</td>
-                        <td>275000</td>
-                        <td>550000</td>
+                    <tr class="tr33">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
                     </tr>
-                    <tr>
+                    <tr class="tr33">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                        </td>
+                        <td class="p_unit letras_tabla2">$ 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
                     <td colspan= "2"> Nota: El Laboratorio seleccionado para el Presupuesto es:
                     Pendiente de definir</td>
                     <td>SUB-TOTAL SIN
                     IVA</td>
-                    <td>1350000</td>
+                    <td id="stsi33">1350000</td>
                 </tr>
                 <tr>
                 <td colspan="3" class="centrar_t">I.V.A</td>
-                <td id="iva">256500</td>
+                <td><input style="width:50px;text-align: center;" class="form-control" id="table33iva" value="1"> %</td>
             </tr>
             <tr>
                 <td colspan="3" class="centrar_t">TOTAL</td>
-                <td id="total">1606500</td>
+                <td id="table33total">1606500</td>
             </tr>
                 </table>
 
@@ -812,26 +1070,12 @@ const observerdatos = new MutationObserver(()=>{
         }
 
         const setLogica = () => {
-            const filatabla31 = `<td class="cant letras_tabla2">
-            <span class="input-group-btn"> 
-                <button class="btn btn-default menos" type="button">-</button> 
-            </span> 
-            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
-            <span class="input-group-btn"> 
-                <button class="btn btn-default mas" type="button">+</button> 
-            </span> 
-            </td>
-            <td class="letras_tabla2 tddescripcion">
-            <input style="width:50px;text-align: center;" class="form-control inputdescripcion" type="text">
-            </td>
-            <td class="p_unit letras_tabla2">$ 
-                <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
-            </td>
-            <td class="p_total"></td>`;
+            
 
             const listeners = () => {
-                        const d=document,
-                        vinculosmas = d.querySelectorAll('.mas'),
+                const d=document;
+                (() =>{//table31                    
+                        const vinculosmas = d.querySelectorAll('.mas'),
                         vinculosmenos = d.querySelectorAll('.menos'),
                         inputsc = d.querySelectorAll('.contadorc'),
                         inputsu = d.querySelectorAll('.contadoru'),
@@ -841,33 +1085,32 @@ const observerdatos = new MutationObserver(()=>{
                         btnRemoveFiles = d.getElementById('removefilest31'),
                         table31iva = d.getElementById('table31iva'),
                         table31total = d.getElementById('table31total'),
-                        subtotalsi = d.getElementById('stsi');
+                        subtotalsi31 = d.getElementById('stsi31'),
+                        filas31 = d.querySelectorAll('.tr31');
 
-                        const totalparcial = (i) => {
+                        const totalparcial = i => {
                             total[i].textContent =`$ ${inputsc[i].value * inputsu[i].value}`;
                         }
 
-                        const subtotal  = () => {
+                        const subtotal = () => {
                             let st = 0, num;
-                            total.forEach((e,i)=>{
-                                num = e.textContent
-                                num = parseInt(num.substring(2,num.length), 10);
-                                console.log(num)
-                                st = st+num;
-
+                            total.forEach(e=>{
+                                let hasAtrSDN = e.parentElement.hasAttribute("style","display:none");
+                                if (!hasAtrSDN){
+                                    num = e.textContent;
+                                    num = parseInt(num.substring(2,num.length), 10);
+                                    st = st+num;
+                                }
                             })
-                            subtotalsi.textContent = `$ ${st}`;
+                            subtotalsi31.textContent = `$ ${st}`;
                         }
                         
                         const totalizar = () => {
-                            let sumatoria = subtotalsi.textContent;
+                            let sumatoria = subtotalsi31.textContent;
                             sumatoria = parseInt(sumatoria.substring(2, sumatoria.length), 10);
-    
                             let iva = parseInt(table31iva.value, 10);
-                            console.log(iva)
                             sumatoria = (iva/100+1)*sumatoria;
-                            console.log(sumatoria)
-                            table31total.textContent = sumatoria;
+                            table31total.textContent = `$ ${sumatoria}`;
                         }
 
                         vinculosmas.forEach((e,i)=> {
@@ -895,20 +1138,138 @@ const observerdatos = new MutationObserver(()=>{
                         })
 
                         btnAddFiles.addEventListener('click',()=>{
-                            table31.innerHTML += filatabla31;
-                            console.log(table31);
+                            const BreakError = {};
+                            try {
+                            filas31.forEach(e => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    e.removeAttribute("style","display:none");
+                                    throw BreakError;
+                                };
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
+                            }
                         })
 
                         btnRemoveFiles.addEventListener('click',()=>{
-                            if (table31.lastChild){
-                            table31.removeChild(table31.lastChild);
+                            const BreakError = {};
+                            try {
+                            filas31.forEach((e,i) => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    filas31[i-1].setAttribute("style","display:none");
+                                    throw BreakError;
+                                };
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
                             }
-                        
                         })
 
                         table31iva.addEventListener('keyup',() => totalizar());
                         table31total.addEventListener('click',() => totalizar());
-                        subtotalsi.addEventListener('click',() => subtotal());
+                        subtotalsi31.addEventListener('click',() => subtotal());
+                })();
+                (() =>{//table33
+                        const vinculosmas5 = d.querySelectorAll('.mas5'),
+                        vinculosmenos5 = d.querySelectorAll('.menos5'),
+                        inputsc5 = d.querySelectorAll('.contadorc5'),
+                        inputsu5 = d.querySelectorAll('.contadoru5'),
+                        total5 = d.querySelectorAll('.p_total5'),
+                        table33 = d.getElementById('table33'),
+                        btnAddFiles5 = d.getElementById('addfilest33'),
+                        btnRemoveFiles5 = d.getElementById('removefilest33'),
+                        table33iva = d.getElementById('table33iva'),
+                        table33total = d.getElementById('table33total'),
+                        subtotalsi33 = d.getElementById('stsi33'),
+                        filas33 = d.querySelectorAll('.tr33');
+
+                        const totalparcial5 = i => {
+                            total5[i].textContent =`$ ${inputsc5[i].value * inputsu5[i].value}`;
+                        }
+
+                        const subtotal5 = () => {
+                            let st = 0, num;
+                            total5.forEach((e,i)=>{
+                                let hasAtrSDN = e.parentElement.hasAttribute("style","display:none");
+                                if (!hasAtrSDN){
+                                    num = e.textContent;
+                                    num = parseInt(num.substring(2,num.length), 10);
+                                    st = st+num;
+                                }
+                            })                   
+
+                            subtotalsi33.textContent = `$ ${st}`;
+                        }
+                        
+                        const totalizar5 = () => {
+                            let sumatoria = subtotalsi33.textContent;
+                            sumatoria = parseInt(sumatoria.substring(2, sumatoria.length), 10);
+                            let iva = parseInt(table33iva.value, 10);
+                            sumatoria = (iva/100+1)*sumatoria;
+                            table33total.textContent = `$ ${sumatoria}`;
+                        }
+
+                        vinculosmas5.forEach((e,i)=> {
+                            inputsc5[i].id=`contadorc5${i}`;
+                            // inputsu[i].id=`contadoru${i}`;
+                            e.addEventListener('click',() => {
+                                mas(`contadorc5${i}`);
+                                totalparcial5(i);
+                            })
+                        })
+                        
+                        vinculosmenos5.forEach((e,i) => {
+                            e.addEventListener('click',() => {
+                                menos(`contadorc5${i}`);
+                                totalparcial5(i);
+                            });
+                        })
+                        
+                        total5.forEach((e,i) => {
+                            e.addEventListener('click', () => totalparcial5(i));
+                        })
+
+                        inputsu5.forEach((e,i) => {
+                            e.addEventListener('keyup', () => totalparcial5(i));
+                        })
+
+                        btnAddFiles5.addEventListener('click',()=>{
+                            const BreakError = {};
+                            try {
+                            filas33.forEach(e => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    e.removeAttribute("style","display:none");
+                                    throw BreakError;
+                                };
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
+                            }
+                        })
+
+                        btnRemoveFiles5.addEventListener('click',()=>{
+                            const BreakError = {};
+                            try {
+                            filas33.forEach((e,i) => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    filas33[i-1].setAttribute("style","display:none");
+                                    throw BreakError;
+                                }
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
+                            };
+                        })
+
+                        table33iva.addEventListener('keyup',() => totalizar5());
+                        table33total.addEventListener('click',() => totalizar5());
+                        subtotalsi33.addEventListener('click',() => subtotal5());
+                })();
+                        
             }
 
             const generarPDF = () => {
@@ -945,10 +1306,8 @@ const observerdatos = new MutationObserver(()=>{
                     loc = `pg${i}`;
                     oculto = document.getElementById(loc);
                     oculto.removeAttribute('style','display:none')
-                    
                 }
-                const $elementoParaConvertir = document.getElementById("pgpdf"); // <-- Aquí puedes elegir cualquier elemento del DOM
-                // var scale = (doc.internal.pageSize.width-2*10)/$elementoParaConvertir.scrollWidth;
+                const container = document.getElementById("pgpdf"); 
                 html2pdf()
                     .set({
                         margin: 0,
@@ -967,36 +1326,30 @@ const observerdatos = new MutationObserver(()=>{
                             orientation: 'portrait' // landscape o portrait
                         }
                     })
-                    .from($elementoParaConvertir)
+                    .from(container)
                     .save()
-                    .catch(err => console.log(err));
-                
-                // for (let i = 1; i < 8; i++){
-                //     loc = `pg${i}`;
-                //     oculto = document.getElementById(loc);
-                //     oculto.removeAttribute('style','display:none')
-                    
-                // }
+                    .then(() => {
+                        for (let i = 2; i < 8; i++){
+                            loc = `pg${i}`;
+                            oculto = document.getElementById(loc);
+                            oculto.setAttribute('style','display:none')
+                        }
+                    })
+                    .catch(err => console.log(err));                
             }
-
-
             const setPgActual = (pg) => {
                 try {
-                        
-
                     if (pg < 8) {
                         let loc;
                         for (let i = 1; i < 8; i++){
                             loc = `pg${i}`;
                             let oculto = document.getElementById(loc);
-                            oculto.setAttribute('style','display:none')
-                            
+                            oculto.setAttribute('style','display:none')       
                         }
                         loc = `pg${pg}`;
                         document.getElementById(loc).removeAttribute('style','display:none')
                     } else {
                         location.hash = "#/comercial/createoffer";
-
                     }
                 } catch (e){console.log(e)}
             }
@@ -1014,13 +1367,9 @@ const observerdatos = new MutationObserver(()=>{
             listeners();
             setPgActual(1);             
             navegacion();
-
-            
-            
         }
         console.log('#/comercial/plantillapdf')     
         }
-    
         location.hash == '#/comercial/createpdf1' && charge();
     })
     const parent = document.getElementById('root');

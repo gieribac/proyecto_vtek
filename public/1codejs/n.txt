@@ -1,1 +1,0 @@
- <input style="width:50px;text-align: center;" class="contadoru form-control" id="table31iva"value="1">
