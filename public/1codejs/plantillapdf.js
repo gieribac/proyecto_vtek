@@ -1345,6 +1345,12 @@ const observerdatos = new MutationObserver(()=>{
                             oculto = document.getElementById(loc);
                             oculto.setAttribute('style','display:none')
                         }
+                        botones.forEach(e => {
+                            e.removeAttribute('style','display:none');
+                        });                
+                        inputs.forEach(e => {
+                            e.removeAttribute('style','border:0');                    
+                        });
                     })
                     .catch(err => console.log(err));                
             }
