@@ -1,1 +1,1 @@
-{"type":"module","dependencies":{"sweetalert2":"^11.4.29"}}
+{"type":"module","dependencies":{"html2canvas":"https://github.com/Yogoort/html2canvas/tarball/master","sweetalert2":"^11.4.29"}}

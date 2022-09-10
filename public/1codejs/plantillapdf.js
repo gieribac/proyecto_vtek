@@ -23,15 +23,11 @@ const observerdatos = new MutationObserver(()=>{
             let promises = [];
             let resp = queryOferta(clientSelectID);
             promises.push(resp);
-            //fabricas: nombre_compania     ofertas:fabricaOF
 
         })()
         
         const cargaDataOferta = (o,f,c) => {
             
-            console.log(o);
-            console.log(f);
-            console.log(c);
             const d = document,
             fecha = new Date(),        
             year = fecha.getFullYear();
@@ -91,15 +87,15 @@ const observerdatos = new MutationObserver(()=>{
                 <table>
                     <tr>
                         <td class="centrar_t letras_blanco_fAzul">Esquema de certificación</td>
-                        <td class="centrar_t" id="esquema">${o.esquemaOF}</td>
+                        <td class="centrar_t">${o.esquemaOF}</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
-                        <td class=" centrar_t" id="vigencia">${o.vigenciaOF} AÑOS</td>
+                        <td class=" centrar_t">${o.vigenciaOF} AÑOS</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
-                        <td class="centrar_t" id="seguimientos">Cada 12 meses</td>
+                        <td class="centrar_t">Cada 12 meses</td>
                     </tr>
                 </table>
                 <div class="margnees_elem">
@@ -807,8 +803,7 @@ const observerdatos = new MutationObserver(()=>{
                 for (let i = 1; i < 8; i++){
                     const loc = `pdf${i}`;
                     const pga = eval(loc);
-                    const contenedor = d.getElementById("pgpdf")
-                    contenedor.setAttribute('style','border: 2px solid blue' )
+                    const contenedor = d.getElementById("pgpdf");
                     contenedor.innerHTML += pga;
                 }
             }
@@ -928,16 +923,62 @@ const observerdatos = new MutationObserver(()=>{
                 
                 // doc.save("dsdsa.pdf");
                 doc.html(contenedor, {
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
                     x: margin,
                     y: margin,
                     html2canvas:{
                         scale: scale
                     },
                     callback: function (doc) {
-                      doc.output('darurlnewwindows',{filename: 'reporte-pdf.pdf'});
+                      doc.output('dataurlnewwindow',{filename: 'reporte-pdf.pdf'});
                     }
-                 });
+                    }
+                    
+                    );
             };
+            const convtoPDF = () => {
+                let loc, oculto;
+                for (let i = 1; i < 8; i++){
+                    loc = `pg${i}`;
+                    oculto = document.getElementById(loc);
+                    oculto.removeAttribute('style','display:none')
+                    
+                }
+                const $elementoParaConvertir = document.getElementById("pgpdf"); // <-- Aquí puedes elegir cualquier elemento del DOM
+                // var scale = (doc.internal.pageSize.width-2*10)/$elementoParaConvertir.scrollWidth;
+                html2pdf()
+                    .set({
+                        margin: 0,
+                        filename: 'documento.pdf',
+                        image: {
+                            type: 'jpeg',
+                            quality: 0.98
+                        },
+                        html2canvas: {
+                            scale: 2, // A mayor escala, mejores gráficos, pero más peso
+                            letterRendering: true,
+                        },
+                        jsPDF: {
+                            unit: "mm",
+                            format: "letter",
+                            orientation: 'portrait' // landscape o portrait
+                        }
+                    })
+                    .from($elementoParaConvertir)
+                    .save()
+                    .catch(err => console.log(err));
+                
+                // for (let i = 1; i < 8; i++){
+                //     loc = `pg${i}`;
+                //     oculto = document.getElementById(loc);
+                //     oculto.removeAttribute('style','display:none')
+                    
+                // }
+            }
+
 
             const setPgActual = (pg) => {
                 try {
@@ -967,7 +1008,7 @@ const observerdatos = new MutationObserver(()=>{
                                 })
                             })
                             document.getElementById("btnDPDF").addEventListener("click",() => {
-                                generarPDF();
+                                convtoPDF();
                             })
             }
             listeners();
