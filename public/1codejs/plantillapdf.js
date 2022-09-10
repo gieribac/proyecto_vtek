@@ -434,7 +434,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -452,7 +452,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -470,7 +470,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -488,7 +488,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -506,7 +506,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -524,7 +524,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -542,7 +542,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -560,7 +560,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -578,7 +578,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -596,7 +596,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <input style="width:50px;text-align: center;"  class="desc form-control" value="1">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
@@ -701,7 +701,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -719,7 +719,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -737,7 +737,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -755,7 +755,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -773,7 +773,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -791,7 +791,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -809,7 +809,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -827,7 +827,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -845,7 +845,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
@@ -863,7 +863,7 @@ const observerdatos = new MutationObserver(()=>{
                             </span>
                         </td>
                         <td>
-                            <input style="width:50px;text-align: center;" class="form-control desc5" type="text">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
                         </td>
                         <td class="p_unit letras_tabla2">$ 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
