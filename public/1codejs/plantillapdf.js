@@ -1064,13 +1064,16 @@ const observerdatos = new MutationObserver(()=>{
                     const contenedor = d.getElementById("pgpdf");
                     contenedor.innerHTML += pga;
                 }
+                const textsarea = d.querySelectorAll("textarea");
+                textsarea.forEach(e => {
+                    e.setAttribute('style','border:0');
+                    
+                });
             }
             cargaInicial();    
-
         }
 
-        const setLogica = () => {
-            
+        const setLogica = () => {            
 
             const listeners = () => {
                 const d=document;
@@ -1305,8 +1308,16 @@ const observerdatos = new MutationObserver(()=>{
                 for (let i = 1; i < 8; i++){
                     loc = `pg${i}`;
                     oculto = document.getElementById(loc);
-                    oculto.removeAttribute('style','display:none')
+                    oculto.removeAttribute('style','display:none');
                 }
+                const botones = document.querySelectorAll("table button");                
+                const inputs = document.querySelectorAll("table input");
+                botones.forEach(e => {
+                    e.setAttribute('style','display:none');
+                });                
+                inputs.forEach(e => {
+                    e.setAttribute('style','border:0');                    
+                });
                 const container = document.getElementById("pgpdf"); 
                 html2pdf()
                     .set({
