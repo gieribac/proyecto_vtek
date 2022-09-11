@@ -68,7 +68,7 @@ const observerdatos = new MutationObserver(()=>{
             let listC = [];
             let list_noOf = [];
             let listIds = [];
-
+            
                 ds.forEach(d => {
                     
                     list_noOf.push(d.data().No_oferta);

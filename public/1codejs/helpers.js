@@ -1,4 +1,19 @@
 
+export function mas(id) {
+    console.log("+")
+    var contador = document.getElementById(id).value;
+    var int = parseInt(contador, 10);
+    console.log(int)
+    document.getElementById(id).value = int +1;    
+}
+    
+export function menos(id) {
+    var cont = document.getElementById(id).value;
+    var counterValue = parseInt(cont,10);
+    var NewCont = counterValue > 1 ? counterValue - 1: 1;
+    document.getElementById(id).value = NewCont;
+}
+
    
    
    

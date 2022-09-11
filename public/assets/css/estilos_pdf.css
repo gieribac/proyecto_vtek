@@ -1,21 +1,21 @@
 .letra1pdf{
     font-style: normal;
     font-weight: normal;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letra_titulos_pdf1{
     font-style: normal;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letra_subtitulospdf{
     font-style: normal;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #000000;
 }
@@ -35,18 +35,18 @@ table{
     text-align: center;
 }
 .margnees_elem{
-    padding: 10px;
+    padding: 5px;
 }
 .letras_blanco_fAzul{
     background-color: #5b9bd5;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #ffffff;
 }
 .subrayado{
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     z-index: 1;
 
@@ -92,14 +92,21 @@ footer p{
 .letras_tabla2{
     font-style: normal;
     font-weight: normal;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letras_tabla3{
     font-style: normal;
     font-weight: normal;
-    font-size: 11pt;
+    font-size: 9pt;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+.letras_tabla4{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #000000;
 }
@@ -117,6 +124,23 @@ footer p{
     background-color: rgba(250, 250, 250, 0);
     position: absolute;
     left: 0;
+}
+.mas_menos{
+    float: left;
+}
+.altura_textarea{
+    border: 0px;
+    height: 38px;
+}
+.tamanopg{
+    height:11in;
+     width: 8,5
+}
+.inputpdf{
+    width: 37px !important;
+}
+.inputpdf2{
+    width: 90px !important;
 }
 
 

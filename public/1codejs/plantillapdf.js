@@ -1,4 +1,6 @@
-import { queryOferta } from "./models/post.js";
+import { queryOferta, queryFabrica, queryCliente} from "./models/post.js";
+import { menos, mas } from "./helpers.js";
+//import './html2canvas.js';
 
 const observerdatos = new MutationObserver(()=>{ 
 
@@ -6,25 +8,38 @@ const observerdatos = new MutationObserver(()=>{
 
         const clientSelectID = localStorage.getItem("clientSelectID");
         Boolean(clientSelectID) && (() => {
-            queryOferta(clientSelectID).then(t => cargaDataOferta(t.data())).catch(e => console.log(e))
+            queryOferta(clientSelectID).then(t => {  
+                const fabrica = t.data().fabricaOF;
+                const cliente = t.data().ClienteOF;
+                const oferta_ = t.data();
+                queryFabrica(fabrica).then(f => {
+                    const fabrica_ = f.data();
+                    queryCliente(cliente).then(c => {
+                        const cliente_ = c.data();
+                        cargaDataOferta(oferta_, fabrica_, cliente_ )
+                    }).then( after => setLogica()).catch( );
+                }).catch(e => console.log(e));  
+            }).catch(e => console.log(e))
+            let promises = [];
+            let resp = queryOferta(clientSelectID);
+            promises.push(resp);
+
         })()
         
-        const cargaDataOferta = (data) => {
+        const cargaDataOferta = (o,f,c) => {
             
             const d = document,
             fecha = new Date(),        
             year = fecha.getFullYear();
             let day = fecha.getDate(),
             month = fecha.getMonth()+1,
-            monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"].indexOf(month-1);
+            monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][month-1];
             day < 10 && (() => day=`0${day}`)();
-            let DateVig="";
-            // month < 10 && (() => month=`0${month}`)();
+            month < 10 && (() => month=`0${month}`)();
+            let DateVig = `${day} / ${month} / ${year+o.vigenciaOF}`;
             
-
-            // const DateVig = `${day_} / ${month_} / ${year_}`;
             const head = `<div></div>
-            <div >
+            <div>
                 <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
                     <tr>
                     <td  class="centrar_t" style="padding: 5px; "><div class="logoPDF"></div></td>
@@ -40,19 +55,18 @@ const observerdatos = new MutationObserver(()=>{
                 </div>`,
             footer = `<div class="iconosPdf"></div>`;
 
-            const pdf1 = `<div id="pg1 " style="margin-left: 10% ; margin-right: 10%;">
+            const pdf1 = `<div id="pg1" class= "tamanopg">
             <head>${head}
-                
             </head>
             <main>
                 <div class="letra1pdf" >
                     <p id="fecha"><b>Bogotá, ${day} de ${monthletra} del ${year} </b></p> 
                     <br><br>
                     <p>Señores:</p>
-                    <p>${data.ClienteOF}</p>
-                    <p id="repLegal"></p>
+                    <p>${c.Nombre_Compania}</p>
+                    <p>${f.representante_legal}</p>
                     <p>Representante Legal</p>
-                    <p id="ciudad"></p>
+                    <p>${c.Ciudad}</p>
                     <br>
                     <p>Respetados Señores,</p>
                     <br>
@@ -61,8 +75,8 @@ const observerdatos = new MutationObserver(()=>{
                 <div class="margnees_elem">
                     <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
                     <tr>
-                    <td  class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
-                    <td  class="centrar_t " style="padding: 5px; position: relative;">    <p id ="noOferta" class="subrayado"> e5-dw-1384-2022 </p></td>
+                    <td class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
+                    <td class="centrar_t " style="padding: 5px; position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
                     </tr>
                     </table>
                 </div>
@@ -71,18 +85,17 @@ const observerdatos = new MutationObserver(()=>{
                     <h2 class="letra_subtitulospdf">1.1 Esquema de certificación</h2>
                 </div>
                 <table>
-            
                     <tr>
                         <td class="centrar_t letras_blanco_fAzul">Esquema de certificación</td>
-                        <td class="centrar_t" id="esquema"> esquema</td>
+                        <td class="centrar_t">${o.esquemaOF}</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
-                        <td class=" centrar_t" id="vigencia"> vig</td>
+                        <td class=" centrar_t">${o.vigenciaOF} AÑOS</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
-                        <td class="centrar_t" id="seguimientos"> seg</td>
+                        <td class="centrar_t">Cada 12 meses</td>
                     </tr>
                 </table>
                 <div class="margnees_elem">
@@ -96,40 +109,40 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
-                        <td class="letras_tabla3" id="datos_nombreCliente"></td>
+                        <td class="letras_tabla3">${c.Nombre_Compania}</td>
                         <td class="letras_tabla2">Número de NIT:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_nit"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_repLegal"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
                         <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_identificacion"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial: </td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_direccion"></td>
-                        <td class="letras_tabla2" style="padding: 10px;">Web: </td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_web"></td>
+                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_ciudad"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
                         <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_tel"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;">Nombre del
                             responsable: </td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_nombreResponsable"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
                         <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_mail"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_cargo"></td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
                         <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto"></td>
+                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
                     </tr>
                 </table>
             </main>
@@ -141,7 +154,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
         </div>`,
-            pdf2 = `<div id="pg2" style="margin-left: 10% ; margin-right: 10%;">
+            pdf2 = `<div id="pg2" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -150,81 +163,81 @@ const observerdatos = new MutationObserver(()=>{
                 <h2 class="letra_subtitulospdf">1.3 Empresa Titular del certificado de conformidad</h2>  
                 </div>
                 <table>
-                <tr>
-                    <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA TITULAR DEL CERTIFICADO DE CONFORMIDAD</td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
-                        (Como aparece
-                        registrada)</td>
-                    <td class="letras_tabla3" id="datos_nombreCliente"></td>
-                    <td class="letras_tabla2">Número de NIT:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_nit"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_repLegal"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_identificacion"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Dirección comercial: </td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_direccion"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Web: </td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_web"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_ciudad"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_tel"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;">Nombre del
-                        responsable: </td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_nombreResponsable"></td>
-                    <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_mail"></td>
-                </tr>
-                <tr>
-                    <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_cargo"></td>
-                    <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
-                    <td class="letras_tabla3" style="align-items: center;" id="datos_contacto"></td>
-                </tr>
-            </table>
+                    <tr>
+                        <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
+                            (Como aparece
+                            registrada)</td>
+                        <td class="letras_tabla3">${c.Nombre_Compania}</td>
+                        <td class="letras_tabla2">Número de NIT:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;">Nombre del
+                            responsable: </td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
+                        <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
+                    </tr>
+                    <tr>
+                        <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                        <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
+                        <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
+                    </tr>
+                </table>
             <div class="margnees_elem">
                 <h2 class="letra_subtitulospdf">1.4 Información de compañía fabricante</h2>
                 </div>
                 <table border="1">
                     <tr>
-                        <th class="letras_blanco_fAzul centrar_t"  colspan="4">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
+                        <th class="letras_blanco_fAzul centrar_t"  colspan="6">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Nombre de la Compañía
                             Fabricante: </td>
-                        <td colspan="3" id="nombreFabrica"></td>
+                        <td colspan="6">${f.nombre_compania}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;"  >Dirección de la planta/s en
                             donde se fabrica el producto:</td>
-                        <td colspan="3" id="direccionFabrica"></td>
+                        <td colspan="6">${f.direccion}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Contacto:</td>
-                        <td id="nombreresponsableFabrica"></td>
+                        <td>${f.contacto}</td>
                         <td class= "letras_tabla2" style="padding: 10px; >País:</td>
-                        <td id="paisFabrica"></td>
+                        <td>${f.pais}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Teléfono:</td>
-                        <td id="telFabrica"></td>
+                        <td>${f.telefono}</td>
                         <td class= "letras_tabla2" style="padding: 10px;" >Ciudad:</td>
-                        <td id="ciudadFabrica"></td>
+                        <td id="ciudadFabrica">${f.ciudad}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;"  >Mail:</td>
-                        <td colspan="3" id="mailFabrica"></td>
+                        <td class= "letras_tabla2" style="padding: 10px;" >Mail:</td>
+                        <td colspan="3">${f.email}</td>
                     </tr>
                 </table>
                 <div>
@@ -240,8 +253,7 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">RESOLUCIÓN APLICABLE</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >UTENSILIOS DE CERAMICA EN CONTACTO CON
-                            ALIMENTOS</td>
+                        <td class= "letras_tabla2" style="padding: 10px;" >${o.productoOF}</td>
                         <td class= "letras_tabla2" style="padding: 10px;" >Resolución n° 1440 del 20 de septiembre del 2021 del
                             Ministerio de salud y protección social</td>
                     </tr>
@@ -255,7 +267,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf3 = `<div id="pg3" style="margin-left: 10% ; margin-right: 10%;">
+            pdf3 = `<div id="pg3" style="display:none;" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -271,14 +283,14 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">SELECCIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Toma de muestras:</td><td> Aplica. Se llevará a cabo toma de muestras en las
+                        <td class= "letras_tabla2" style="padding: 10px;" >Toma de muestras:</td><td class= "letras_tabla2"> Aplica. Se llevará a cabo toma de muestras en las
                                                         instalaciones del fabricante.</td>
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td> plica. Se ejecutarán ensayos de laboratorio de
+                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td class= "letras_tabla2"> plica. Se ejecutarán ensayos de laboratorio de
                                                             acuerdo a la siguiente clasificación de familias
                                                             FAMILIA N° 1 - CONCAVO PEQUEÑO
                                                             Determinación de Plomo y Cadmio. ISO 6486-1
@@ -291,39 +303,39 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de tests reports:</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 4):</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 3):</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                             esquema 5):</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Auditoría del sistema de Gestión de la calidad del fabricante
                             FQSA (Aplicable para esquema 5):</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
-                        <td> Aplica. Se reconocerá el certificado ISO 9001
+                        <td class= "letras_tabla2"> Aplica. Se reconocerá el certificado ISO 9001
                             versión 2015 del fabricante Chaozhou Xincheng
                             Ceramics Co., Ltd.:</td>
                     </tr>
@@ -331,12 +343,12 @@ const observerdatos = new MutationObserver(()=>{
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                             22000 u otro sistema de gestión de inocuidad de alimentos
                             (Aplicable para esquema 3):</td>
-                        <td> No Aplica</td>
+                        <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Informe de Evaluación de la conformidad de acuerdo con los
                             resultados obtenidos:</td>
-                        <td> Aplica</td>
+                        <td class= "letras_tabla2"> Aplica</td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">REVISIÓN</td>
@@ -344,25 +356,25 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Revisión de expediente correspondiente al proceso de
                             certificación.:</td>
-                        <td> Aplica. Acta de revisión y decisión GV-FT-09.</td>
+                        <td class= "letras_tabla2"> Aplica. Acta de revisión y decisión GV-FT-09.</td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">ATESTACIÓN</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Decisión sobre la certificación:</td>
-                        <td> Aplica. Acta de revisión y decisión GV-FT-09.</td>
+                        <td class= "letras_tabla2"> Aplica. Acta de revisión y decisión GV-FT-09.</td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">VIGILANCIA</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Visita a fabrica:</td>
-                        <td> Aplica.</td>
+                        <td class= "letras_tabla2"> Aplica.</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Ensayos:</td>
-                        <td> Aplica.</td>
+                        <td class= "letras_tabla2"> Aplica.</td>
                     </tr>
                 </table>
             </main>
@@ -374,7 +386,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf4 = `<div id="pg4" style="margin-left: 10% ; margin-right: 10%;">
+            pdf4 = `<div id="pg4" class= "tamanopg" >
             <head>
             ${head}
             </head>
@@ -395,7 +407,7 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">Esquema de certificación</th><th class="letras_blanco_fAzul centrar_t">Calificación</th>
                     </tr>
                     <tr>
-                        <td class="centrar_t">Esquema 5</td><td class="centrar_t">4.6</td>
+                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${o.calificacion}</td>
                     </tr>
                 </table>
                 <div>
@@ -404,70 +416,210 @@ const observerdatos = new MutationObserver(()=>{
                 </div>
                 <table border="1" class= "margnees_elem">
                     <tr>
-                        <th class="letras_blanco_fAzul centrar_t" colspan="4">3.1 PRESUPUESTO PARA EL OTORGAMIENTO</th>
+                        <th class="letras_blanco_fAzul centrar_t" colspan="4">3.1 PRESUPUESTO PARA EL OTORGAMIENTO<button class="ocultar" id="removefilest31">-</button><button class="ocultar" id="addfilest31">+</button></th>
                     </tr>
                     <tr>
-                        <th class="letras_blanco_fAzul">CANTIDAD</th><th class="letras_blanco_fAzul" >DESCRIPCIÓN / ACTIVIDAD</th><th class="letras_blanco_fAzul" >PRECIO UNIT</th><th class="letras_blanco_fAzul">PRECIO TOTAL</th>
+                        <th class="letras_blanco_fAzul">CANTIDAD</th><th class="letras_blanco_fAzul" >DESCRIPCIÓN / ACTIVIDAD</th>
+                        <th class="letras_blanco_fAzul" >PRECIO UNIT</th><th class="letras_blanco_fAzul">PRECIO TOTAL</th>
                     </tr>
-                    <tr>
-                        <td class="cant letras_tabla2">
+                
+                    <tr class="tr31">
+                        <td  class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default" id="menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input type="number" style="width:50px;text-align: center;" id="contador" class="form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default" id="mas" type="button">+</button> 
+                                <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            Certificación Esquema 5
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">
-                            <input type="number" style="width:50px;text-align: center;" id="contador" class="form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total"></td>
+                    </tr>
+                    <tr class="tr31" style="display:none">
+                        <td class="cant letras_tabla2">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas" type="button">+</button> 
+                            </span> 
+                        </td>
+                        <td class="letras_tabla2">
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr>
-                        <td class="cant letras_tabla2"></td>
-                        <td class="letras_tabla2" >Ensayos de Laboratorio
-                            FAMILIA N° 1 CONCAVO PEQUEÑO</td>
-                        <td class="p_unit letras_tabla2"></td>
-                        <td class="p_total"></td>
-                    </tr>
-                    <tr>
-                        <td class="cant letras_tabla2"></td>
-                        <td class="letras_tabla2">Ensayos de Laboratorio
-                            FAMILIA N° 2 CONCAVO GRANDE</td>
-                        <td class="p_unit letras_tabla2"></td>
-                        <td class="p_total letras_tabla2"></td>
-                    </tr>
-                    <tr>
-                    <td class="cant"></td>
-                    <td class="letras_tabla2" >Ensayos de Laboratorio
-                        FAMILIA N° 2 CONCAVO GRANDE</td>
-                    <td class="p_unit letras_tabla2"></td>
-                    <td class="p_total letras_tabla2"></td>
-                    </tr>
-                    <tr>
-                    <td class="cant letras_tabla2"></td>
-                    <td class="letras_tabla2" >Ensayos de Laboratorio
-                        FAMILIA N° 2 CONCAVO GRANDE</td>
-                    <td class="p_unit letras_tabla2"></td>
-                    <td class="p_total letras_tabla2"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Nota: El Laboratorio seleccionado para el Presupuesto es: CTT </td>
-                        <td> SUB-TOTAL SIN
+                        <td colspan="2" class="letras_tabla4">Nota: El Laboratorio seleccionado para el Presupuesto es: CTT </td>
+                        <td class="letras_tabla4"> SUB-TOTAL SIN
                             IVA </td>
-                        <td></td>
+                        <td id="stsi31"></td>
                     </tr>
-                    <tr>
+                    <tr> 
+                        
+
                         <td colspan="3">I.V.A</td>
-                        <td id="iva"></td>
+                        <td><input style="width:50px;text-align: center;" class="form-control mas_menos inputpdf2" id="table31iva" value="1"> %</td>
+                        
                     </tr>
                     <tr>
+                  
                         <td colspan="3">TOTAL</td>
-                        <td id="total"></td>
+                        <td id="table31total"></td>
                     </tr>
                 </table>
                 <div>
@@ -484,7 +636,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf5 = `<div id="pg5" style="margin-left: 10% ; margin-right: 10%;">
+            pdf5 = `<div id="pg5" style="display:none" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -529,39 +681,208 @@ const observerdatos = new MutationObserver(()=>{
                 <div>
                     <h2 class="letra_subtitulospdf margnees_elem">3.3 PRESUPUESTO ECONOMICO PARA LAS ACTIVIDADES DE VIGILANCIA:</h2>
                 </div>
-                <table border="1" class= "margnees_elem">
+                <table border="1" id="table33" class= "margnees_elem">
                     <tr>
-                        <th COLSPAN="4" class="letras_blanco_fAzul centrar_t " >3.3 PRESUPUESTO PARA EL OTORGAMIENTO</th>
+                        <th COLSPAN="4" class="letras_blanco_fAzul centrar_t " >3.3 PRESUPUESTO PARA EL OTORGAMIENTO 
+                            <button class="ocultar" id="removefilest33">-</button><button class="ocultar" id="addfilest33">+</button>
+                        </th>                       
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul centrar_t" >CANTIDAD</th><th class="letras_blanco_fAzul centrar_t" >DESCRIPCIÓN / ACTIVIDAD</th><th class="letras_blanco_fAzul centrar_t" >PRECIO UNIT</th><th class="letras_blanco_fAzul centrar_t" >PRECIO TOTAL</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>certificacion esquema5</td>
-                        <td>80000000</td>
-                        <td>80000000</td>
+                    <tr class="tr33">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"> <p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>ensayos</td>
-                        <td>80000000</td>
-                        <td>80000000</td>
+                    <tr class="tr33">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
                     </tr>
-                    <tr>
-                    <td colspan= "2"> Nota: El Laboratorio seleccionado para el Presupuesto es:
+                    <tr class="tr33">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <td colspan= "2" class = "letras_tabla4"> Nota: El Laboratorio seleccionado para el Presupuesto es:
                     Pendiente de definir</td>
-                    <td>SUB-TOTAL SIN
+                    <td class = "letras_tabla4">SUB-TOTAL SIN
                     IVA</td>
-                    <td>80000000</td>
+                    <td id="stsi33">1350000</td>
                 </tr>
                 <tr>
                 <td colspan="3" class="centrar_t">I.V.A</td>
-                <td id="iva"></td>
+                <td><input style="width:50px;text-align: center;" class="form-control mas_menos inputpdf2" id="table33iva" value="1"> %</td>
             </tr>
             <tr>
                 <td colspan="3" class="centrar_t">TOTAL</td>
-                <td id="total"></td>
+                <td id="table33total">1606500</td>
             </tr>
                 </table>
 
@@ -601,7 +922,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf6 = `<div id="pg6" style="margin-left: 10% ; margin-right: 10%;">
+            pdf6 = `<div id="pg6" style="display:none " class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -671,7 +992,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf7 = `<div id="pg7" style="margin-left: 10% ; margin-right: 10%;">
+            pdf7 = `<div id="pg7" style=" display:none" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -735,42 +1056,337 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`;
-            const setPgActual = () => {
-                try {
-                    const loc = location.hash;
-                    const subs = loc.slice(loc.length - 4);
-                    const pga = eval(subs);
-                    d.getElementById("pgpdf").innerHTML = pga;
-                } catch (e){}
-            }
-            window.addEventListener('hashchange',setPgActual);
-            d.getElementById("pgpdf").innerHTML = pdf1;
-            const navegacion = () => {
-                const location_ = ["#/comercial/createpdf1",
-                    "#/comercial/createpdf2",
-                    "#/comercial/createpdf3",
-                    "#/comercial/createpdf4",
-                    "#/comercial/createpdf5",
-                    "#/comercial/createpdf6",
-                    "#/comercial/createpdf7",
-                    "#/comercial/createoffer"];
-                const navButtons = d.querySelectorAll("nav > button");
-                navButtons.forEach((e,i) => {
-                    e.addEventListener("click",() => {
-                            location.hash = location_[i];
-                    })
-                })
-                d.getElementById("btnDPDF").addEventListener("click",() => {
-                    //
-                })
-            }
-            navegacion();
-            console.log('#/comercial/plantillapdf')      
 
+            const cargaInicial = () => {
+                for (let i = 1; i < 8; i++){
+                    const loc = `pdf${i}`;
+                    const pga = eval(loc);
+                    const contenedor = d.getElementById("pgpdf");
+                    contenedor.innerHTML += pga;
+                }
+                const textsarea = d.querySelectorAll("textarea");
+                textsarea.forEach(e => {
+                    e.setAttribute('style','border:0');
+                    
+                });
+            }
+            cargaInicial();    
         }
-        
+
+        const setLogica = () => {            
+
+            const listeners = () => {
+                const d=document;
+                (() =>{//table31                    
+                        const vinculosmas = d.querySelectorAll('.mas'),
+                        vinculosmenos = d.querySelectorAll('.menos'),
+                        inputsc = d.querySelectorAll('.contadorc'),
+                        inputsu = d.querySelectorAll('.contadoru'),
+                        total = d.querySelectorAll('.p_total'),
+                        table31 = d.getElementById('table31'),
+                        btnAddFiles = d.getElementById('addfilest31'),
+                        btnRemoveFiles = d.getElementById('removefilest31'),
+                        table31iva = d.getElementById('table31iva'),
+                        table31total = d.getElementById('table31total'),
+                        subtotalsi31 = d.getElementById('stsi31'),
+                        filas31 = d.querySelectorAll('.tr31');
+
+                        const totalparcial = i => {
+                            total[i].textContent =`$ ${inputsc[i].value * inputsu[i].value}`;
+                        }
+
+                        const subtotal = () => {
+                            let st = 0, num;
+                            total.forEach(e=>{
+                                let hasAtrSDN = e.parentElement.hasAttribute("style","display:none");
+                                if (!hasAtrSDN){
+                                    num = e.textContent;
+                                    num = parseInt(num.substring(2,num.length), 10);
+                                    st = st+num;
+                                }
+                            })
+                            subtotalsi31.textContent = `$ ${st}`;
+                        }
+                        
+                        const totalizar = () => {
+                            let sumatoria = subtotalsi31.textContent;
+                            sumatoria = parseInt(sumatoria.substring(2, sumatoria.length), 10);
+                            let iva = parseInt(table31iva.value, 10);
+                            sumatoria = (iva/100+1)*sumatoria;
+                            table31total.textContent = `$ ${sumatoria}`;
+                        }
+
+                        vinculosmas.forEach((e,i)=> {
+                            inputsc[i].id=`contadorc${i}`;
+                            // inputsu[i].id=`contadoru${i}`;
+                            e.addEventListener('click',() => {
+                                mas(`contadorc${i}`);
+                                totalparcial(i);
+                            })
+                        })
+                        
+                        vinculosmenos.forEach((e,i) => {
+                            e.addEventListener('click',() => {
+                                menos(`contadorc${i}`);
+                                totalparcial(i);
+                            });
+                        })
+                        
+                        total.forEach((e,i) => {
+                            e.addEventListener('click', () => totalparcial(i));
+                        })
+
+                        inputsu.forEach((e,i) => {
+                            e.addEventListener('keyup', () => totalparcial(i));
+                        })
+
+                        btnAddFiles.addEventListener('click',()=>{
+                            const BreakError = {};
+                            try {
+                            filas31.forEach(e => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    e.removeAttribute("style","display:none");
+                                    throw BreakError;
+                                };
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
+                            }
+                        })
+
+                        btnRemoveFiles.addEventListener('click',()=>{
+                            const BreakError = {};
+                            try {
+                            filas31.forEach((e,i) => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    filas31[i-1].setAttribute("style","display:none");
+                                    throw BreakError;
+                                };
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
+                            }
+                        })
+
+                        table31iva.addEventListener('keyup',() => totalizar());
+                        table31total.addEventListener('click',() => totalizar());
+                        subtotalsi31.addEventListener('click',() => subtotal());
+                })();
+                (() =>{//table33
+                        const vinculosmas5 = d.querySelectorAll('.mas5'),
+                        vinculosmenos5 = d.querySelectorAll('.menos5'),
+                        inputsc5 = d.querySelectorAll('.contadorc5'),
+                        inputsu5 = d.querySelectorAll('.contadoru5'),
+                        total5 = d.querySelectorAll('.p_total5'),
+                        table33 = d.getElementById('table33'),
+                        btnAddFiles5 = d.getElementById('addfilest33'),
+                        btnRemoveFiles5 = d.getElementById('removefilest33'),
+                        table33iva = d.getElementById('table33iva'),
+                        table33total = d.getElementById('table33total'),
+                        subtotalsi33 = d.getElementById('stsi33'),
+                        filas33 = d.querySelectorAll('.tr33');
+
+                        const totalparcial5 = i => {
+                            total5[i].textContent =`$ ${inputsc5[i].value * inputsu5[i].value}`;
+                        }
+
+                        const subtotal5 = () => {
+                            let st = 0, num;
+                            total5.forEach((e,i)=>{
+                                let hasAtrSDN = e.parentElement.hasAttribute("style","display:none");
+                                if (!hasAtrSDN){
+                                    num = e.textContent;
+                                    num = parseInt(num.substring(2,num.length), 10);
+                                    st = st+num;
+                                }
+                            })                   
+
+                            subtotalsi33.textContent = `$ ${st}`;
+                        }
+                        
+                        const totalizar5 = () => {
+                            let sumatoria = subtotalsi33.textContent;
+                            sumatoria = parseInt(sumatoria.substring(2, sumatoria.length), 10);
+                            let iva = parseInt(table33iva.value, 10);
+                            sumatoria = (iva/100+1)*sumatoria;
+                            table33total.textContent = `$ ${sumatoria}`;
+                        }
+
+                        vinculosmas5.forEach((e,i)=> {
+                            inputsc5[i].id=`contadorc5${i}`;
+                            // inputsu[i].id=`contadoru${i}`;
+                            e.addEventListener('click',() => {
+                                mas(`contadorc5${i}`);
+                                totalparcial5(i);
+                            })
+                        })
+                        
+                        vinculosmenos5.forEach((e,i) => {
+                            e.addEventListener('click',() => {
+                                menos(`contadorc5${i}`);
+                                totalparcial5(i);
+                            });
+                        })
+                        
+                        total5.forEach((e,i) => {
+                            e.addEventListener('click', () => totalparcial5(i));
+                        })
+
+                        inputsu5.forEach((e,i) => {
+                            e.addEventListener('keyup', () => totalparcial5(i));
+                        })
+
+                        btnAddFiles5.addEventListener('click',()=>{
+                            const BreakError = {};
+                            try {
+                            filas33.forEach(e => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    e.removeAttribute("style","display:none");
+                                    throw BreakError;
+                                };
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
+                            }
+                        })
+
+                        btnRemoveFiles5.addEventListener('click',()=>{
+                            const BreakError = {};
+                            try {
+                            filas33.forEach((e,i) => {
+                                const hasAtrSDN = e.hasAttribute("style","display:none");
+                                if (hasAtrSDN){
+                                    filas33[i-1].setAttribute("style","display:none");
+                                    throw BreakError;
+                                }
+                            });
+                            } catch (er){
+                                if (er !== BreakError) throw er;
+                            };
+                        })
+
+                        table33iva.addEventListener('keyup',() => totalizar5());
+                        table33total.addEventListener('click',() => totalizar5());
+                        subtotalsi33.addEventListener('click',() => subtotal5());
+                })();
+                        
+            }
+
+            const generarPDF = () => {
+                const contenedor = document.getElementById("pgpdf");
+                window.jsPDF = window.jspdf.jsPDF;
+                var doc = new jsPDF("p","pt","letter");
+                const margin = 10;
+                console.log(contenedor)
+                var scale = (doc.internal.pageSize.width-2*margin)/contenedor.scrollWidth;
+                // doc.addPage("letter");
+                // doc.text("hello word pdf", 25,15);
+                
+                // doc.save("dsdsa.pdf");
+                doc.html(contenedor, {
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    x: margin,
+                    y: margin,
+                    html2canvas:{
+                        scale: scale
+                    },
+                    callback: function (doc) {
+                      doc.output('dataurlnewwindow',{filename: 'reporte-pdf.pdf'});
+                    }
+                    }
+                    
+                    );
+            };
+            const convtoPDF = () => {
+                let loc, oculto;
+                for (let i = 1; i < 8; i++){
+                    loc = `pg${i}`;
+                    oculto = document.getElementById(loc);
+                    oculto.removeAttribute('style','display:none');
+                }
+                const botones = document.querySelectorAll("table button");                
+                const inputs = document.querySelectorAll("table input");
+                botones.forEach(e => {
+                    e.setAttribute('style','display:none');
+                });                
+                inputs.forEach(e => {
+                    e.setAttribute('style','border:0');                    
+                });
+                const container = document.getElementById("pgpdf"); 
+                html2pdf()
+                    .set({
+                        margin: 0,
+                        filename: 'documento.pdf',
+                        image: {
+                            type: 'jpeg',
+                            quality: 0.98
+                        },
+                        html2canvas: {
+                            scale: 2, // A mayor escala, mejores gráficos, pero más peso
+                            letterRendering: true,
+                        },
+                        jsPDF: {
+                            unit: "mm",
+                            format: "letter",
+                            orientation: 'portrait' // landscape o portrait
+                        }
+                    })
+                    .from(container)
+                    .save()
+                    .then(() => {
+                        for (let i = 2; i < 8; i++){
+                            loc = `pg${i}`;
+                            oculto = document.getElementById(loc);
+                            oculto.setAttribute('style','display:none')
+                        }
+                        botones.forEach(e => {
+                            e.removeAttribute('style','display:none');
+                        });                
+                        inputs.forEach(e => {
+                            e.removeAttribute('style','border:0');                    
+                        });
+                    })
+                    .catch(err => console.log(err));                
+             }
+            const setPgActual = (pg) => {
+                try {
+                    if (pg < 8) {
+                        let loc;
+                        for (let i = 1; i < 8; i++){
+                            loc = `pg${i}`;
+                            let oculto = document.getElementById(loc);
+                            oculto.setAttribute('style','display:none')       
+                        }
+                        loc = `pg${pg}`;
+                        document.getElementById(loc).removeAttribute('style','display:none')
+                    } else {
+                        location.hash = "#/comercial/createoffer";
+                    }
+                } catch (e){console.log(e)}
+            }
+            const navegacion = () => {
+                            const navButtons = document.querySelectorAll("nav > .vinc");
+                            navButtons.forEach((e,i) => {
+                                e.addEventListener("click",() => {
+                                        setPgActual(i+1);
+                                })
+                            })
+                            document.getElementById("btnDPDF").addEventListener("click",() => {
+                                convtoPDF();
+                            })
+            }
+            listeners();
+            setPgActual(1);             
+            navegacion();
         }
-    
+        console.log('#/comercial/plantillapdf')     
+        }
         location.hash == '#/comercial/createpdf1' && charge();
     })
     const parent = document.getElementById('root');
