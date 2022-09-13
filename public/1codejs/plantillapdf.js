@@ -1,5 +1,6 @@
 import { queryOferta, queryFabrica, queryCliente} from "./models/post.js";
 import { menos, mas } from "./helpers.js";
+import { ress } from "./pages.js";
 // import './html2canvas.js';
 
 const observerdatos = new MutationObserver(()=>{ 
@@ -38,7 +39,8 @@ const observerdatos = new MutationObserver(()=>{
             month < 10 && (() => month=`0${month}`)();
             const yearsVig = parseInt(o.vigenciaOF, 10), 
             condicionesPago = parseInt(o.condicionespagoOF, 10),         
-            DateVig = `${day} / ${month} / ${year+yearsVig}`;
+            DateVig = `${day} / ${month} / ${year+yearsVig}`,
+            resolucion = ress[o.productoOF];
             
             const head = `<div></div>
             <div >
@@ -156,7 +158,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
         </div>`,
-            pdf2 =  `<div id="pg2" style="margin-left: 10% ; margin-right: 10%;">
+            pdf2 = `<div id="pg2" style="margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -256,8 +258,7 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >${o.productoOF}</td>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Resolución n° 1440 del 20 de septiembre del 2021 del
-                            Ministerio de salud y protección social</td>
+                        <td class= "letras_tabla2" style="padding: 10px;" >${resolucion}</td>
                     </tr>
                 </table>
             </main>
@@ -269,7 +270,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf3 =`<div id="pg3" style="display:none; margin-left: 10% ; margin-right: 10%;">
+            pdf3 = `<div id="pg3" style="display:none; margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -277,7 +278,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div class="margnees_elem">
                     <h1 class="letra_subtitulospdf ">2. PLAN DE EVALUACIÓN</h1> 
                 </div>
-                <table border="1">
+                <table id="planEval" border="1">
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t">ACTIVIDAD</th ><th class="letras_blanco_fAzul  centrar_t">OBSERVACIÓN</th>
                     </tr>
@@ -285,77 +286,96 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">SELECCIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Toma de muestras:</td><td> Aplica. Se llevará a cabo toma de muestras en las
-                                                        instalaciones del fabricante.</td>
+                        <td class= "letras_tabla2" style="padding: 10px;" >Toma de muestras:</td>
+                        <td> 
+                        <textarea style="width:50px;text-align: center;"  class="desc form-control">${o.muestrasOF}</textarea>
+                            
+                        </td>
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td>
-                        <select required=""  class="form-select dropdown1 sombra" id="productoOF">
-        <option selected value="">Producto a certificar</option>
-          <option value='Juguetes'>Juguetes</option> </select>>   
+                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td>
+                        <td>
+                        <textarea style="width:50px;text-align: center;"  class="desc form-control">${o.ensayosOF}</textarea>
                         
-                        plica. Se ejecutarán ensayos de laboratorio de
-                                                            acuerdo a la siguiente clasificación de familias
-                                                            FAMILIA N° 1 - CONCAVO PEQUEÑO
-                                                            Determinación de Plomo y Cadmio. ISO 6486-1
-                                                            FAMILIA N° 2 - CONCAVO GRANDE
-                                                            Determinación de Plomo y Cadmio. ISO 6486-1
-                                                            FAMILIA N° 3 - ALMACENAMIENTO
-                                                            Determinación de Plomo y Cadmio. ISO 6486-1
-                                                            FAMILIA N° 4 - ARTICULOS DE COCCION
-                                                            Determinación de Plomo y Cadmio. ISO 8391-1</td>
+                        </td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de tests reports:</td>
-                        <td> No Aplica</td>
+                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select>
+                        </td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
-                        <td> No Aplica</td>
+                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
-                        <td> No Aplica</td>
+                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 4):</td>
-                        <td> No Aplica</td>
+                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 3):</td>
-                        <td> No Aplica</td>
+                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                             esquema 5):</td>
-                        <td> No Aplica</td>
+                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Auditoría del sistema de Gestión de la calidad del fabricante
                             FQSA (Aplicable para esquema 5):</td>
-                        <td> No Aplica</td>
+                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
-                        <td> Aplica. Se reconocerá el certificado ISO 9001
-                            versión 2015 del fabricante Chaozhou Xincheng
-                            Ceramics Co., Ltd.:</td>
+                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control">${o.homologacionOF}</textarea></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                             22000 u otro sistema de gestión de inocuidad de alimentos
                             (Aplicable para esquema 3):</td>
-                        <td> No Aplica</td>
+                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Informe de Evaluación de la conformidad de acuerdo con los
                             resultados obtenidos:</td>
-                        <td> Aplica</td>
+                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">REVISIÓN</td>
@@ -370,18 +390,24 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Decisión sobre la certificación:</td>
-                        <td> Aplica. Acta de revisión y decisión GV-FT-09.</td>
+                        <td> <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">VIGILANCIA</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Visita a fabrica:</td>
-                        <td> Aplica.</td>
+                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Ensayos:</td>
-                        <td> Aplica.</td>
+                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                 </table>
             </main>
@@ -662,27 +688,27 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t" >Actividad</th><th class="letras_blanco_fAzul centrar_t">Tiempo estimado (días hábiles)</th>
                     </tr>
                     <tr>
-                        <td>Ejecución de ensayos</td><td>10 días</td>
+                        <td>Ejecución de ensayos</td><td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>Aceptación de ensayos</td>
-                        <td>N/A</td>
+                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>Auditoria en fabrica</td>
-                        <td>N/A</td>
+                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>Evaluación de resultados</td>
-                        <td>3 dìas</td>
+                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>Revisión y decisión</td>
-                        <td>2 días</td>
+                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td>Total (días hábiles)</td>
-                        <td>15 días</td>
+                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                 </table>
                 <div>
