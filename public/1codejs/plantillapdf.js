@@ -1307,34 +1307,6 @@ const observerdatos = new MutationObserver(()=>{
                         
             }
 
-            const generarPDF = () => {
-                const contenedor = document.getElementById("pgpdf");
-                window.jsPDF = window.jspdf.jsPDF;
-                var doc = new jsPDF("p","pt","letter");
-                const margin = 10;
-                console.log(contenedor)
-                var scale = (doc.internal.pageSize.width-2*margin)/contenedor.scrollWidth;
-                // doc.addPage("letter");
-                // doc.text("hello word pdf", 25,15);
-                
-                // doc.save("dsdsa.pdf");
-                doc.html(contenedor, {
-                    image: {
-                        type: 'jpeg',
-                        quality: 0.98
-                    },
-                    x: margin,
-                    y: margin,
-                    html2canvas:{
-                        scale: scale
-                    },
-                    callback: function (doc) {
-                      doc.output('dataurlnewwindow',{filename: 'reporte-pdf.pdf'});
-                    }
-                    }
-                    
-                    );
-            };
             const convtoPDF = () => {
                 let loc, oculto;
                 for (let i = 1; i < 8; i++){
