@@ -17,6 +17,7 @@ import './tcoordinador_createasignacion.js';
 import './plantillapdf.js';
 // import './models/pruebacloudfunctions.js';
 
+//documento de resoluciones: ofertas id VvJziqtMHCUHg2k2bnZo. para consultar resolucion hace falta utilizar el producto (cambiando espacios, puntos y "-" por "_")
 const setLC = (co, cl, u, rol) => {
     localStorage.setItem("em", co);
     localStorage.setItem("k", cl);

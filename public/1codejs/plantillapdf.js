@@ -36,7 +36,9 @@ const observerdatos = new MutationObserver(()=>{
             monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][month-1];
             day < 10 && (() => day=`0${day}`)();
             month < 10 && (() => month=`0${month}`)();
-            let DateVig = `${day} / ${month} / ${year+o.vigenciaOF}`;
+            const yearsVig = parseInt(o.vigenciaOF, 10), 
+            condicionesPago = parseInt(o.condicionespagoOF, 10),         
+            DateVig = `${day} / ${month} / ${year+yearsVig}`;
             
             const head = `<div></div>
             <div >
@@ -91,7 +93,7 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
-                        <td class=" centrar_t">${o.vigenciaOF} AÑOS</td>
+                        <td class=" centrar_t">${yearsVig} AÑOS</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
@@ -154,7 +156,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
         </div>`,
-            pdf2 = `<div id="pg2" style="margin-left: 10% ; margin-right: 10%;">
+            pdf2 =  `<div id="pg2" style="margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -226,7 +228,7 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" style="padding: 10px;" >Contacto:</td>
                         <td>${f.contacto}</td>
-                        <td class= "letras_tabla2" style="padding: 10px; >País:</td>
+                        <td class= "letras_tabla2" style="padding: 10px;" >País:</td>
                         <td>${f.pais}</td>
                     </tr>
                     <tr>
@@ -267,7 +269,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div></div>
             </footer>
             </div>`,
-            pdf3 = `<div id="pg3" style="display:none; margin-left: 10% ; margin-right: 10%;">
+            pdf3 =`<div id="pg3" style="display:none; margin-left: 10% ; margin-right: 10%;">
             <head>
             ${head}
             </head>
@@ -290,7 +292,12 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td> plica. Se ejecutarán ensayos de laboratorio de
+                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td>
+                        <select required=""  class="form-select dropdown1 sombra" id="productoOF">
+        <option selected value="">Producto a certificar</option>
+          <option value='Juguetes'>Juguetes</option> </select>>   
+                        
+                        plica. Se ejecutarán ensayos de laboratorio de
                                                             acuerdo a la siguiente clasificación de familias
                                                             FAMILIA N° 1 - CONCAVO PEQUEÑO
                                                             Determinación de Plomo y Cadmio. ISO 6486-1
@@ -1216,7 +1223,6 @@ const observerdatos = new MutationObserver(()=>{
 
                         vinculosmas5.forEach((e,i)=> {
                             inputsc5[i].id=`contadorc5${i}`;
-                            // inputsu[i].id=`contadoru${i}`;
                             e.addEventListener('click',() => {
                                 mas(`contadorc5${i}`);
                                 totalparcial5(i);
