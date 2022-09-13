@@ -414,7 +414,7 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">Esquema de certificación</th><th class="letras_blanco_fAzul centrar_t">Calificación</th>
                     </tr>
                     <tr>
-                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${o.calificacion}</td>
+                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${c.Calificacion}</td>
                     </tr>
                 </table>
                 <div>
