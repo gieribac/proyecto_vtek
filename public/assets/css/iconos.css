@@ -320,6 +320,20 @@
 
 
 }
+.casa-blanca{
+    background-image: url("../imgx1/Recurso\ 37VTEK\ RECURSOS.png");
+    height: 25px;
+    width: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+    background-position: center;
+    position: absolute;
+    left: 13px;
+    top: 15px;
+
+
+}
 .columnas-clasi{
     background-image: url(../img/Recurso\ 41VTEK\ RECURSOS.png) !important;
     background-size: contain;
@@ -593,4 +607,52 @@ border-top-right-radius: 50px;
     background-position: center;
     margin-left: 40px;
 }
+.btnblancodash{
+
+    background-image: url(../img/Recurso\ 18VTEK\ RECURSOS.png);
+    height: 300px;
+    width: 300px;
+    margin-top: 171px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    float: left;
+}
+.btdashcliente{
+    background-image: url(../img/Recurso\ 12VTEK\ RECURSOS.png);
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+
+}
+.btndashoferta{
+    background-image: url("../img/Recurso\ 30VTEK\ RECURSOS.png");
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+.btndashfabrica{
+    background-image: url("../img/Recurso\ 55VTEK\ RECURSOS.png");
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    
+}
+
 

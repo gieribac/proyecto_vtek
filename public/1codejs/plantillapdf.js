@@ -40,9 +40,9 @@ const observerdatos = new MutationObserver(()=>{
             
             const head = `<div></div>
             <div>
-                <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                <table style="width: 80% !important; margin-left: 2cm; margin-top: 0.1cm;">
                     <tr>
-                    <td  class="centrar_t" style="padding: 5px; "><div class="logoPDF"></div></td>
+                    <td  class="centrar_t"><div class="logoPDF"></div></td>
                     <td  class="centrar_t " style="padding: 5px;" >OFERTA COMERCIAL DE CERTIFICACION</td>
                     <td class="centrar_t" style="padding: 5px;" >GV-FC 02 v:8 <br>fecha de vigencia: <br>${DateVig}</td>
                     </tr>
@@ -53,7 +53,7 @@ const observerdatos = new MutationObserver(()=>{
                 <p></p>
                 <p></p>
                 </div>`,
-            footer = `<div class="iconosPdf"></div>`;
+            footer = `<div class="iconosPdf" style= "position: absolute; bottom: 0px"></div>`;
 
             const pdf1 = `<div id="pg1" class= "tamanopg">
             <head>${head}
@@ -61,7 +61,7 @@ const observerdatos = new MutationObserver(()=>{
             <main>
                 <div class="letra1pdf" >
                     <p id="fecha"><b>Bogotá, ${day} de ${monthletra} del ${year} </b></p> 
-                    <br><br>
+                    <br>
                     <p>Señores:</p>
                     <p>${c.Nombre_Compania}</p>
                     <p>${f.representante_legal}</p>
@@ -73,10 +73,10 @@ const observerdatos = new MutationObserver(()=>{
                     <p>En atención a su solicitud de certificación de producto, presentamos la siguiente oferta comercial formal donde establecemos tarifas, alcance y metodologías para el servicio de certificación.</p>
                 </div>
                 <div class="margnees_elem">
-                    <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                    <table style="width: 16cm;">
                     <tr>
                     <td class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
-                    <td class="centrar_t " style="padding: 5px; position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
+                    <td class="centrar_t " style="position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
                     </tr>
                     </table>
                 </div>
@@ -87,15 +87,15 @@ const observerdatos = new MutationObserver(()=>{
                 <table>
                     <tr>
                         <td class="centrar_t letras_blanco_fAzul">Esquema de certificación</td>
-                        <td class="centrar_t">${o.esquemaOF}</td>
+                        <td class="centrar_t letras_tabla2">${o.esquemaOF}</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
-                        <td class=" centrar_t">${o.vigenciaOF} AÑOS</td>
+                        <td class=" centrar_t letras_tabla2">${o.vigenciaOF} AÑOS</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
-                        <td class="centrar_t">Cada 12 meses</td>
+                        <td class="centrar_t letras_tabla2">Cada 12 meses</td>
                     </tr>
                 </table>
                 <div class="margnees_elem">
@@ -106,7 +106,7 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
+                        <td class="letras_tabla2 ">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
                         <td class="letras_tabla3">${c.Nombre_Compania}</td>
@@ -114,34 +114,34 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                        <td class="letras_tabla2">Representante Legal</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                        <td class="letras_tabla2">Identificación:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla2">Dirección comercial:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla2">Web:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                        <td class="letras_tabla2">Ciudad/Depto.:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                        <td class="letras_tabla2">Tel:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Nombre del
+                        <td class="letras_tabla2">Nombre del
                             responsable: </td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                        <td class="letras_tabla2">Mail:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                        <td class="letras_tabla2" >Cargo:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
-                        <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                        <td class="letras_tabla2" >Tel/Cel. (Móvil):</td>
                         <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
                     </tr>
                 </table>
@@ -150,7 +150,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>1</p>
+                <p class ="letra1pdf" >1</p>
                 <div></div>
             </footer>
         </div>`,
@@ -167,7 +167,7 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
+                        <td class="letras_tabla2 ">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
                         <td class="letras_tabla3">${c.Nombre_Compania}</td>
@@ -175,34 +175,34 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                        <td class="letras_tabla2">Representante Legal</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                        <td class="letras_tabla2">Identificación:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla2">Dirección comercial:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla2">Web:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                        <td class="letras_tabla2">Ciudad/Depto.:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                        <td class="letras_tabla2">Tel:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Nombre del
+                        <td class="letras_tabla2">Nombre del
                             responsable: </td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                        <td class="letras_tabla2">Mail:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                        <td class="letras_tabla2" >Cargo:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
-                        <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                        <td class="letras_tabla2" >Tel/Cel. (Móvil):</td>
                         <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
                     </tr>
                 </table>
@@ -214,29 +214,29 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t"  colspan="6">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Nombre de la Compañía
+                        <td class= "letras_tabla2" >Nombre de la Compañía
                             Fabricante: </td>
                         <td colspan="6">${f.nombre_compania}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;"  >Dirección de la planta/s en
+                        <td class= "letras_tabla2"  >Dirección de la planta/s en
                             donde se fabrica el producto:</td>
                         <td colspan="6">${f.direccion}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Contacto:</td>
+                        <td class= "letras_tabla2" >Contacto:</td>
                         <td>${f.contacto}</td>
-                        <td class= "letras_tabla2" style="padding: 10px; >País:</td>
+                        <td class= "letras_tabla2">País:</td>
                         <td>${f.pais}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Teléfono:</td>
+                        <td class= "letras_tabla2" >Teléfono:</td>
                         <td>${f.telefono}</td>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ciudad:</td>
+                        <td class= "letras_tabla2" >Ciudad:</td>
                         <td id="ciudadFabrica">${f.ciudad}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Mail:</td>
+                        <td class= "letras_tabla2" >Mail:</td>
                         <td colspan="3">${f.email}</td>
                     </tr>
                 </table>
@@ -253,8 +253,8 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">RESOLUCIÓN APLICABLE</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >${o.productoOF}</td>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Resolución n° 1440 del 20 de septiembre del 2021 del
+                        <td class= "letras_tabla2" >${o.productoOF}</td>
+                        <td class= "letras_tabla2" >Resolución n° 1440 del 20 de septiembre del 2021 del
                             Ministerio de salud y protección social</td>
                     </tr>
                 </table>
@@ -263,7 +263,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>2</p>
+                <p class ="letra1pdf">2</p>
                 <div></div>
             </footer>
             </div>`,
@@ -283,14 +283,14 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">SELECCIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Toma de muestras:</td><td class= "letras_tabla2"> Aplica. Se llevará a cabo toma de muestras en las
+                        <td class= "letras_tabla2" >Toma de muestras:</td><td class= "letras_tabla2"> Aplica. Se llevará a cabo toma de muestras en las
                                                         instalaciones del fabricante.</td>
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td><td class= "letras_tabla2"> plica. Se ejecutarán ensayos de laboratorio de
+                        <td class= "letras_tabla2" >Ejecución de ensayos:</td><td class= "letras_tabla2"> plica. Se ejecutarán ensayos de laboratorio de
                                                             acuerdo a la siguiente clasificación de familias
                                                             FAMILIA N° 1 - CONCAVO PEQUEÑO
                                                             Determinación de Plomo y Cadmio. ISO 6486-1
@@ -302,51 +302,51 @@ const observerdatos = new MutationObserver(()=>{
                                                             Determinación de Plomo y Cadmio. ISO 8391-1</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de tests reports:</td>
+                        <td class= "letras_tabla2" >Reconocimiento de tests reports:</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
+                        <td class= "letras_tabla2" >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
+                        <td class= "letras_tabla2" >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
+                        <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 4):</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
+                        <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 3):</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de auditoría FQSA (Aplicable para
+                        <td class= "letras_tabla2" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                             esquema 5):</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Auditoría del sistema de Gestión de la calidad del fabricante
+                        <td class= "letras_tabla2" >Auditoría del sistema de Gestión de la calidad del fabricante
                             FQSA (Aplicable para esquema 5):</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
+                        <td class= "letras_tabla2" >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
                         <td class= "letras_tabla2"> Aplica. Se reconocerá el certificado ISO 9001
                             versión 2015 del fabricante Chaozhou Xincheng
                             Ceramics Co., Ltd.:</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
+                        <td class= "letras_tabla2" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                             22000 u otro sistema de gestión de inocuidad de alimentos
                             (Aplicable para esquema 3):</td>
                         <td class= "letras_tabla2"> No Aplica</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Informe de Evaluación de la conformidad de acuerdo con los
+                        <td class= "letras_tabla2" >Informe de Evaluación de la conformidad de acuerdo con los
                             resultados obtenidos:</td>
                         <td class= "letras_tabla2"> Aplica</td>
                     </tr>
@@ -354,7 +354,7 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">REVISIÓN</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Revisión de expediente correspondiente al proceso de
+                        <td class= "letras_tabla2" >Revisión de expediente correspondiente al proceso de
                             certificación.:</td>
                         <td class= "letras_tabla2"> Aplica. Acta de revisión y decisión GV-FT-09.</td>
                     </tr>
@@ -362,18 +362,18 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">ATESTACIÓN</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Decisión sobre la certificación:</td>
+                        <td class= "letras_tabla2" >Decisión sobre la certificación:</td>
                         <td class= "letras_tabla2"> Aplica. Acta de revisión y decisión GV-FT-09.</td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">VIGILANCIA</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Visita a fabrica:</td>
+                        <td class= "letras_tabla2" >Visita a fabrica:</td>
                         <td class= "letras_tabla2"> Aplica.</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ensayos:</td>
+                        <td class= "letras_tabla2" >Ensayos:</td>
                         <td class= "letras_tabla2"> Aplica.</td>
                     </tr>
                 </table>
@@ -382,7 +382,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>3</p>
+                <p class ="letra1pdf">3</p>
                 <div></div>
             </footer>
             </div>`,
@@ -632,7 +632,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>4</p>
+                <p class ="letra1pdf">4</p>
                 <div></div>
             </footer>
             </div>`,
@@ -918,7 +918,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>5</p>
+                <p class ="letra1pdf">5</p>
                 <div></div>
             </footer>
             </div>`,
@@ -988,7 +988,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>6</p>
+                <p class ="letra1pdf">6</p>
                 <div></div>
             </footer>
             </div>`,
@@ -1052,7 +1052,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>7</p>
+                <p class = "letra1pdf">7</p>
                 <div></div>
             </footer>
             </div>`;
@@ -1305,6 +1305,12 @@ const observerdatos = new MutationObserver(()=>{
             };
             const convtoPDF = () => {
                 let loc, oculto;
+                document.getElementById('pg1').removeAttribute('style','display:none');
+                for (let i = 2; i < 8; i++){
+                    loc = `pg${i}`;
+                    oculto = document.getElementById(loc);
+                    oculto.setAttribute('style','display:none');
+                }
                 for (let i = 1; i < 8; i++){
                     loc = `pg${i}`;
                     oculto = document.getElementById(loc);
@@ -1318,7 +1324,7 @@ const observerdatos = new MutationObserver(()=>{
                 inputs.forEach(e => {
                     e.setAttribute('style','border:0');                    
                 });
-                const container = document.getElementById("pgpdf"); 
+                const container = document.getElementById("pgpdf");
                 html2pdf()
                     .set({
                         margin: 0,

@@ -112,13 +112,13 @@ const observermenu = new MutationObserver(()=>{
                 </a>
                     <a href="#/comercial" class="d-block text-light p-2 menuopciones menu_hover1">
                     <div class="bola-blanco img_dominante1">
-                        <div class="audifonos-azul"></div>
+                        <div class="casa-azul"></div>
                     </div>
                         <p class = "letra_menu5 letra_menu img_recesivo1"  >
-                        Ver perfil
+                        Inicio
                     </p>
                     <div class="bola-blanco img_recesivo1">
-                        <div class="audifonos-blanco"></div>
+                        <div class="casa-blanco"></div>
                     </div>
                 </a>           
                 <a href="#" id="on" class="d-block text-light p-2 menuopciones menu_hover1">
