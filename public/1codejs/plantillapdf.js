@@ -1319,13 +1319,17 @@ const observerdatos = new MutationObserver(()=>{
                     oculto = document.getElementById(loc);
                     oculto.removeAttribute('style','display:none');
                 }
-                const botones = document.querySelectorAll("table button");                
+                const botones = document.querySelectorAll("table button"); 
+                const selects = document.querySelectorAll("table select");               
                 const inputs = document.querySelectorAll("table input");
                 botones.forEach(e => {
                     e.setAttribute('style','display:none');
                 });                
                 inputs.forEach(e => {
                     e.setAttribute('style','border:0');                    
+                });
+                selects.forEach(e => {
+                    e.setAttribute('style','border:0');
                 });
                 const container = document.getElementById("pgpdf");
                 html2pdf()
@@ -1359,6 +1363,9 @@ const observerdatos = new MutationObserver(()=>{
                         });                
                         inputs.forEach(e => {
                             e.removeAttribute('style','border:0');                    
+                        });
+                        selects.forEach(e => {
+                            e.setAttribute('style','border:0');
                         });
                     })
                     .catch(err => console.log(err));                
