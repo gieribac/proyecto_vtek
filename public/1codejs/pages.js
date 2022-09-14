@@ -597,8 +597,9 @@ const
           <div class=" p-3 recuadro margenr sombra temano_recuadro" id="estado">
             <div class="p-3""></div>
           </div>
-          <div class=" p-3 recuadro margenr sombra temano_recuadro" id="formalizar">
+          <div class=" p-3 recuadro margenr temano_recuadro" style = "background-color: rgba(225,225,255,0) !important;" >
               <div class="p-3 recuadro_formalizar">
+              <div class ="btnformalizar" id="formalizar"></div>
             </div>
       </div>
       </div>
