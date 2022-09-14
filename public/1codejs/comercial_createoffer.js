@@ -207,20 +207,42 @@ const observerdatos = new MutationObserver(()=>{
                     updateOffer(clienteActualID, data).then(
                         recargar()                        
                     ).then(m => 
-                        alert(m)
+                        Swal.fire(
+                            '¡Bien!',
+                            'Oferta creada satisfactoriamente',
+                            'success'
+                          )
                     ).catch(
                         recargar()                        
                     ).catch(e => 
-                        alert(`Error: ${e.message}`)
+                    
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'no se pudo crear la oferta',
+                            
+                          })
                     );
                 }
             }
             if (estado){
                 (lenghtData < 10) ? (() => {
-                    alert('Debe llenar todos los acampos');                            
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Debe llenar todos los acampos',
+                        
+                      })
+                                               
                 })() : sigue();
             } else {
                 (lenghtData < 1) ? (() => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Debe editar al menos un campo',
+                        
+                      })
                     alert('Debe editar al menos un campo');                            
                 })() : sigue();                
             }

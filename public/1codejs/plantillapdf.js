@@ -1,7 +1,6 @@
 import { queryOferta, queryFabrica, queryCliente} from "./models/post.js";
 import { menos, mas } from "./helpers.js";
 import { ress } from "./pages.js";
-// import './html2canvas.js';
 
 const observerdatos = new MutationObserver(()=>{ 
 
@@ -43,10 +42,10 @@ const observerdatos = new MutationObserver(()=>{
             resolucion = ress[o.productoOF];
             
             const head = `<div></div>
-            <div >
-                <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+            <div>
+                <table style="width: 80% !important; margin-left: 2cm; margin-top: 0.1cm;">
                     <tr>
-                    <td  class="centrar_t" style="padding: 5px; "><div class="logoPDF"></div></td>
+                    <td  class="centrar_t"><div class="logoPDF"></div></td>
                     <td  class="centrar_t " style="padding: 5px;" >OFERTA COMERCIAL DE CERTIFICACION</td>
                     <td class="centrar_t" style="padding: 5px;" >GV-FC 02 v:8 <br>fecha de vigencia: <br>${DateVig}</td>
                     </tr>
@@ -57,15 +56,15 @@ const observerdatos = new MutationObserver(()=>{
                 <p></p>
                 <p></p>
                 </div>`,
-            footer = `<div class="iconosPdf"></div>`;
+            footer = `<div class="iconosPdf" style= "position: absolute; bottom: 0px"></div>`;
 
-            const pdf1 = `<div id="pg1" style="margin-left: 10% ; margin-right: 10%;">
+            const pdf1 = `<div id="pg1" class= "tamanopg">
             <head>${head}
             </head>
             <main>
                 <div class="letra1pdf" >
                     <p id="fecha"><b>Bogotá, ${day} de ${monthletra} del ${year} </b></p> 
-                    <br><br>
+                    <br>
                     <p>Señores:</p>
                     <p>${c.Nombre_Compania}</p>
                     <p>${f.representante_legal}</p>
@@ -77,10 +76,10 @@ const observerdatos = new MutationObserver(()=>{
                     <p>En atención a su solicitud de certificación de producto, presentamos la siguiente oferta comercial formal donde establecemos tarifas, alcance y metodologías para el servicio de certificación.</p>
                 </div>
                 <div class="margnees_elem">
-                    <table style="width: 70% !important; margin-left: 15%; margin-right: 15%;">
+                    <table style="width: 16cm;">
                     <tr>
                     <td class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
-                    <td class="centrar_t " style="padding: 5px; position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
+                    <td class="centrar_t " style="position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
                     </tr>
                     </table>
                 </div>
@@ -91,15 +90,15 @@ const observerdatos = new MutationObserver(()=>{
                 <table>
                     <tr>
                         <td class="centrar_t letras_blanco_fAzul">Esquema de certificación</td>
-                        <td class="centrar_t">${o.esquemaOF}</td>
+                        <td class="centrar_t letras_tabla2">${o.esquemaOF}</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
-                        <td class=" centrar_t">${yearsVig} AÑOS</td>
+                        <td class=" centrar_t letras_tabla2">${yearsVig} AÑOS</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
-                        <td class="centrar_t">Cada 12 meses</td>
+                        <td class="centrar_t letras_tabla2">Cada 12 meses</td>
                     </tr>
                 </table>
                 <div class="margnees_elem">
@@ -110,7 +109,7 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
+                        <td class="letras_tabla2 ">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
                         <td class="letras_tabla3">${c.Nombre_Compania}</td>
@@ -118,34 +117,34 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                        <td class="letras_tabla2">Representante Legal</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                        <td class="letras_tabla2">Identificación:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla2">Dirección comercial:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla2">Web:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                        <td class="letras_tabla2">Ciudad/Depto.:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                        <td class="letras_tabla2">Tel:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Nombre del
+                        <td class="letras_tabla2">Nombre del
                             responsable: </td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                        <td class="letras_tabla2">Mail:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                        <td class="letras_tabla2" >Cargo:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
-                        <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                        <td class="letras_tabla2" >Tel/Cel. (Móvil):</td>
                         <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
                     </tr>
                 </table>
@@ -154,11 +153,11 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>1</p>
+                <p class ="letra1pdf" >1</p>
                 <div></div>
             </footer>
         </div>`,
-            pdf2 = `<div id="pg2" style="margin-left: 10% ; margin-right: 10%;">
+            pdf2 = `<div id="pg2" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -171,7 +170,7 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul centrar_t" colspan="4">DATOS DE LA EMPRESA SOLICITANTE DEL SERVICIO DE CERTIFICACIÓN</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2 " style="padding: 10px;">Nombre de la compañía
+                        <td class="letras_tabla2 ">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
                         <td class="letras_tabla3">${c.Nombre_Compania}</td>
@@ -179,34 +178,34 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Representante Legal</td>
+                        <td class="letras_tabla2">Representante Legal</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Identificación:</td>
+                        <td class="letras_tabla2">Identificación:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Dirección comercial:</td>
+                        <td class="letras_tabla2">Dirección comercial:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Web:</td>
+                        <td class="letras_tabla2">Web:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Ciudad/Depto.:</td>
+                        <td class="letras_tabla2">Ciudad/Depto.:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Tel:</td>
+                        <td class="letras_tabla2">Tel:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;">Nombre del
+                        <td class="letras_tabla2">Nombre del
                             responsable: </td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
-                        <td class="letras_tabla2" style="padding: 10px;">Mail:</td>
+                        <td class="letras_tabla2">Mail:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
                     </tr>
                     <tr>
-                        <td class="letras_tabla2" style="padding: 10px;" >Cargo:</td>
+                        <td class="letras_tabla2" >Cargo:</td>
                         <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
-                        <td class="letras_tabla2" style="padding: 10px;" >Tel/Cel. (Móvil):</td>
+                        <td class="letras_tabla2" >Tel/Cel. (Móvil):</td>
                         <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
                     </tr>
                 </table>
@@ -215,32 +214,32 @@ const observerdatos = new MutationObserver(()=>{
                 </div>
                 <table border="1">
                     <tr>
-                        <th class="letras_blanco_fAzul centrar_t"  colspan="4">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
+                        <th class="letras_blanco_fAzul centrar_t"  colspan="6">INFORMACION DE LA COMPAÑÍA FABRICANTE</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Nombre de la Compañía
+                        <td class= "letras_tabla2" >Nombre de la Compañía
                             Fabricante: </td>
-                        <td colspan="3">${f.nombre_compania}</td>
+                        <td colspan="6">${f.nombre_compania}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;"  >Dirección de la planta/s en
+                        <td class= "letras_tabla2"  >Dirección de la planta/s en
                             donde se fabrica el producto:</td>
-                        <td colspan="3">${f.direccion}</td>
+                        <td colspan="6">${f.direccion}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Contacto:</td>
+                        <td class= "letras_tabla2" >Contacto:</td>
                         <td>${f.contacto}</td>
-                        <td class= "letras_tabla2" style="padding: 10px;" >País:</td>
+                        <td class= "letras_tabla2">País:</td>
                         <td>${f.pais}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Teléfono:</td>
+                        <td class= "letras_tabla2" >Teléfono:</td>
                         <td>${f.telefono}</td>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ciudad:</td>
+                        <td class= "letras_tabla2" >Ciudad:</td>
                         <td id="ciudadFabrica">${f.ciudad}</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Mail:</td>
+                        <td class= "letras_tabla2" >Mail:</td>
                         <td colspan="3">${f.email}</td>
                     </tr>
                 </table>
@@ -257,8 +256,8 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">RESOLUCIÓN APLICABLE</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >${o.productoOF}</td>
-                        <td class= "letras_tabla2" style="padding: 10px;" >${resolucion}</td>
+                        <td class= "letras_tabla2" >${o.productoOF}</td>
+                        <td class= "letras_tabla2" >${resolucion}</td>
                     </tr>
                 </table>
             </main>
@@ -266,11 +265,11 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>2</p>
+                <p class ="letra1pdf">2</p>
                 <div></div>
             </footer>
             </div>`,
-            pdf3 = `<div id="pg3" style="display:none; margin-left: 10% ; margin-right: 10%;">
+            pdf3 = `<div id="pg3" style="display:none;" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -286,7 +285,7 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">SELECCIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Toma de muestras:</td>
+                        <td class= "letras_tabla2">Toma de muestras:</td>
                         <td> 
                         <textarea style="width:50px;text-align: center;"  class="desc form-control">${o.muestrasOF}</textarea>
                             
@@ -296,14 +295,14 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ejecución de ensayos:</td>
+                        <td class= "letras_tabla2"  >Ejecución de ensayos:</td>
                         <td>
                         <textarea style="width:50px;text-align: center;"  class="desc form-control">${o.ensayosOF}</textarea>
                         
                         </td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de tests reports:</td>
+                        <td class= "letras_tabla2"  >Reconocimiento de tests reports:</td>
                         <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
@@ -311,21 +310,21 @@ const observerdatos = new MutationObserver(()=>{
                         </td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
+                        <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
                         <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
+                        <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
                         <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
+                        <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 4):</td>
                         <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
@@ -333,7 +332,7 @@ const observerdatos = new MutationObserver(()=>{
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de inspección de la producción FPE
+                        <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 3):</td>
                         <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
@@ -341,7 +340,7 @@ const observerdatos = new MutationObserver(()=>{
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de informe de auditoría FQSA (Aplicable para
+                        <td class= "letras_tabla2" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                             esquema 5):</td>
                         <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
@@ -349,30 +348,30 @@ const observerdatos = new MutationObserver(()=>{
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Auditoría del sistema de Gestión de la calidad del fabricante
+                        <td class= "letras_tabla2" >Auditoría del sistema de Gestión de la calidad del fabricante
                             FQSA (Aplicable para esquema 5):</td>
-                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td class= "letras_tabla2"><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
-                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control">${o.homologacionOF}</textarea></td>
+                        <td class= "letras_tabla2"  >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
+                        <td> class= "letras_tabla2"<textarea style="width:50px;text-align: center;"  class="desc form-control">${o.homologacionOF}</textarea></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
+                        <td class= "letras_tabla2" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                             22000 u otro sistema de gestión de inocuidad de alimentos
                             (Aplicable para esquema 3):</td>
-                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown1 sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Informe de Evaluación de la conformidad de acuerdo con los
+                        <td class= "letras_tabla2" >Informe de Evaluación de la conformidad de acuerdo con los
                             resultados obtenidos:</td>
-                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown1 sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -381,30 +380,30 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">REVISIÓN</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Revisión de expediente correspondiente al proceso de
+                        <td class= "letras_tabla2" >Revisión de expediente correspondiente al proceso de
                             certificación.:</td>
-                        <td> Aplica. Acta de revisión y decisión GV-FT-09.</td>
+                        <td class= "letras_tabla2"> Aplica. Acta de revisión y decisión GV-FT-09.</td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">ATESTACIÓN</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Decisión sobre la certificación:</td>
-                        <td> <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class= "letras_tabla2"  >Decisión sobre la certificación:</td>
+                        <td class= "letras_tabla2"> <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">VIGILANCIA</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Visita a fabrica:</td>
-                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td class= "letras_tabla2"  >Visita a fabrica:</td>
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" style="padding: 10px;" >Ensayos:</td>
-                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td class= "letras_tabla2"  >Ensayos:</td>
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -415,11 +414,11 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>3</p>
+                <p class ="letra1pdf">3</p>
                 <div></div>
             </footer>
             </div>`,
-            pdf4 = `<div id="pg4" style="margin-left: 10% ; margin-right: 10%;">
+            pdf4 = `<div id="pg4" class= "tamanopg" >
             <head>
             ${head}
             </head>
@@ -459,186 +458,186 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr31">
                         <td  class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31" style="display:none">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31" style="display:none">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31" style="display:none">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31" style="display:none">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr class="tr31" style="display:none">
                         <td class="cant letras_tabla2">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos" type="button">-</button> 
+                                <button class="btn btn-default menos mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
                                 <button class="btn btn-default mas" type="button">+</button> 
                             </span> 
                         </td>
                         <td class="letras_tabla2">
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control altura_textarea letras_trabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru form-control" value="1">
+                        <td class="p_unit letras_tabla2"><p class="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total"></td>
                     </tr>
                     <tr>
-                        <td colspan="2">Nota: El Laboratorio seleccionado para el Presupuesto es: CTT </td>
-                        <td> SUB-TOTAL SIN
+                        <td colspan="2" class="letras_tabla4">Nota: El Laboratorio seleccionado para el Presupuesto es: CTT </td>
+                        <td class="letras_tabla4"> SUB-TOTAL SIN
                             IVA </td>
                         <td id="stsi31"></td>
                     </tr>
@@ -646,7 +645,7 @@ const observerdatos = new MutationObserver(()=>{
                         
 
                         <td colspan="3">I.V.A</td>
-                        <td><input style="width:50px;text-align: center;" class="form-control" id="table31iva" value="1"> %</td>
+                        <td><input style="width:50px;text-align: center;" class="form-control mas_menos inputpdf2" id="table31iva" value="1"> %</td>
                         
                     </tr>
                     <tr>
@@ -665,11 +664,11 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>4</p>
+                <p class ="letra1pdf">4</p>
                 <div></div>
             </footer>
             </div>`,
-            pdf5 = `<div id="pg5" style="margin-left: 10% ; margin-right: 10%;display:none">
+            pdf5 = `<div id="pg5" style="display:none" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -726,192 +725,192 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr33">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"> <p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p>  
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
                             </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control" value="1">
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
                         </td>
-                        <td class="p_unit letras_tabla2">$ 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control" value="1">
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
                         </td>
                         <td class="p_total5"></td>
                     </tr>
-                    <td colspan= "2"> Nota: El Laboratorio seleccionado para el Presupuesto es:
+                    <td colspan= "2" class = "letras_tabla4"> Nota: El Laboratorio seleccionado para el Presupuesto es:
                     Pendiente de definir</td>
-                    <td>SUB-TOTAL SIN
+                    <td class = "letras_tabla4">SUB-TOTAL SIN
                     IVA</td>
                     <td id="stsi33">1350000</td>
                 </tr>
                 <tr>
                 <td colspan="3" class="centrar_t">I.V.A</td>
-                <td><input style="width:50px;text-align: center;" class="form-control" id="table33iva" value="1"> %</td>
+                <td><input style="width:50px;text-align: center;" class="form-control mas_menos inputpdf2" id="table33iva" value="1"> %</td>
             </tr>
             <tr>
                 <td colspan="3" class="centrar_t">TOTAL</td>
@@ -951,11 +950,11 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>5</p>
+                <p class ="letra1pdf">5</p>
                 <div></div>
             </footer>
             </div>`,
-            pdf6 = `<div id="pg6" style="margin-left: 10% ; margin-right: 10%; display:none ">
+            pdf6 = `<div id="pg6" style="display:none " class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -1021,11 +1020,11 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>6</p>
+                <p class ="letra1pdf">6</p>
                 <div></div>
             </footer>
             </div>`,
-            pdf7 = `<div id="pg7" style="margin-left: 10% ; margin-right: 10%; display:none">
+            pdf7 = `<div id="pg7" style=" display:none" class= "tamanopg">
             <head>
             ${head}
             </head>
@@ -1085,7 +1084,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div >${footer}
                     
                 </div>
-                <p>7</p>
+                <p class = "letra1pdf">7</p>
                 <div></div>
             </footer>
             </div>`;
@@ -1309,6 +1308,12 @@ const observerdatos = new MutationObserver(()=>{
 
             const convtoPDF = () => {
                 let loc, oculto;
+                document.getElementById('pg1').removeAttribute('style','display:none');
+                for (let i = 2; i < 8; i++){
+                    loc = `pg${i}`;
+                    oculto = document.getElementById(loc);
+                    oculto.setAttribute('style','display:none');
+                }
                 for (let i = 1; i < 8; i++){
                     loc = `pg${i}`;
                     oculto = document.getElementById(loc);
@@ -1322,7 +1327,7 @@ const observerdatos = new MutationObserver(()=>{
                 inputs.forEach(e => {
                     e.setAttribute('style','border:0');                    
                 });
-                const container = document.getElementById("pgpdf"); 
+                const container = document.getElementById("pgpdf");
                 html2pdf()
                     .set({
                         margin: 0,

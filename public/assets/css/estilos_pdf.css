@@ -1,21 +1,21 @@
 .letra1pdf{
     font-style: normal;
     font-weight: normal;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letra_titulos_pdf1{
     font-style: normal;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 9pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letra_subtitulospdf{
     font-style: normal;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 0.3cm;
     font-family: Arial Narrow;
     color: #000000;
 }
@@ -35,18 +35,18 @@ table{
     text-align: center;
 }
 .margnees_elem{
-    padding: 10px;
+    /* padding: 5px; */
 }
 .letras_blanco_fAzul{
     background-color: #5b9bd5;
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 0.3cm;
     font-family: Arial Narrow;
     color: #ffffff;
 }
 .subrayado{
     font-weight: bold;
-    font-size: 11pt;
+    font-size: 0.3cm;
     font-family: Arial Narrow;
     z-index: 1;
 
@@ -67,39 +67,46 @@ table{
 }
 .logoPDF{
     background-image: url(../img/Recurso\ 88VTEK\ RECURSOS.png);
-    height: 56px;
+    height: 2cm;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 45px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-left: 0.5cm;
 }
-footer p{
+footer p {
     position: absolute;
-    right: 200px;
+    bottom: 0;
+    right: 1.5cm;
+    bottom: 20px;
 }
 .iconosPdf{
     background-image: url(../imgx1/ri_2.png);
     height: 56px;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-left: 4.57in;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     width: 2.2in;
-
+    margin-left: 8cm;
 }
+
+
 .letras_tabla2{
     font-style: normal;
     font-weight: normal;
-    font-size: 11pt;
+    font-size: 0.3cm;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letras_tabla3{
     font-style: normal;
     font-weight: normal;
-    font-size: 11pt;
+    font-size: 0.3cm;
+    font-family: Arial Narrow;
+    color: #000000;
+}
+.letras_tabla4{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.3cm;
     font-family: Arial Narrow;
     color: #000000;
 }
@@ -116,7 +123,26 @@ footer p{
     min-height: 100vh;
     background-color: rgba(250, 250, 250, 0);
     position: absolute;
-    left: 0;
+    right: 0;
+}
+.mas_menos{
+    float: left;
+}
+.altura_textarea{
+    border: 0px;
+    height: 38px;
+}
+.tamanopg{
+    height: 11in;
+    width: 8.5in;
+    
+    position: relative;
+}
+.inputpdf{
+    width: 37px !important;
+}
+.inputpdf2{
+    width: 90px !important;
 }
 
 
