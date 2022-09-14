@@ -1062,9 +1062,9 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class="letras_tabla2 centrar_t">Nombre </td>
-                        <td class="letras_tabla2 centrar_t">Carlos Alberto Franco Rios </td>
+                        <td class="letras_tabla2 centrar_t">${c.Nombre_Responsable}</td>
                         <td class="letras_tabla2 centrar_t">Nombre</td>
-                        <td class="letras_tabla2 centrar_t">Diana Ostos</td>
+                        <td class="letras_tabla2 centrar_t">Nombre responsable pendiente</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2 centrar_t">FECHA</td>
@@ -1365,7 +1365,7 @@ const observerdatos = new MutationObserver(()=>{
                             e.removeAttribute('style','border:0');                    
                         });
                         selects.forEach(e => {
-                            e.setAttribute('style','border:0');
+                            e.removeAttribute('style','border:0');
                         });
                     })
                     .catch(err => console.log(err));                
