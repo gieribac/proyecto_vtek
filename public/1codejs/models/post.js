@@ -80,6 +80,15 @@ export const setOffer = async(datos) => {
     }
 } 
 
+export const setProduct = async(datos) => {
+    try{
+        await addDoc(collection(db, "ofertas"), datos).then().catch(e=>{throw e});
+        return 'resolucion asociada'
+    } catch (e){
+        throw e;
+    }
+} 
+
 export const updateOffer = async (idOf, datos) => {
     try {
         await updateDoc(doc(db, "ofertas", idOf), datos);
@@ -91,7 +100,7 @@ export const updateOffer = async (idOf, datos) => {
 
 export const querySnapOffClients = async() => {
     try {
-        const first = query(collection(db, "clients"), where("estado", "==", true), orderBy("Nit","asc"));
+        const first = query(collection(db, "clients"), where("Estado", "==", true), orderBy("Nit","asc"));
         const documentSnapshots = await getDocs(first);
         
         return documentSnapshots    

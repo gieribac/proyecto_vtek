@@ -31,7 +31,10 @@ const observerdatos = new MutationObserver(()=>{
                 nombre_responsable: datosForm.get("nombreRespCF"),
                 cargo: datosForm.get("cargoCF"),
                 contacto: datosForm.get("contactoCF"),
-                telefono: datosForm.get("telefonoCF")   
+                telefono: datosForm.get("telefonoCF"),
+                email: datosForm.get("correoCF"),
+                ciudad: datosForm.get("ciudadCF"),
+                pais: datosForm.get("paisCF")
             }
             return datos;
         }

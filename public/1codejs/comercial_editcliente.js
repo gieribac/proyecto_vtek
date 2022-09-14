@@ -21,7 +21,7 @@ const observer = new MutationObserver(() => {
 
         const inputscheked = Array.prototype.slice.apply(d.getElementsByClassName('icheked'));
 
-        const checks = d.querySelectorAll('p + label > input');
+        const checks = d.getElementsByClassName('checkb');
         d.getElementById('getBeforeEmail').setAttribute('style', 'display:none');
         d.getElementById('getBeforeClave').setAttribute('style', 'display:none');
 
@@ -58,6 +58,8 @@ const observer = new MutationObserver(() => {
             })
         })
 
+        
+
         const getCredenciales = () => {
             d.getElementById('getBeforeEmail').removeAttribute('style', 'display:none');
             d.getElementById('getBeforeClave').removeAttribute('style', 'display:none');
@@ -67,7 +69,6 @@ const observer = new MutationObserver(() => {
             d.getElementById('getBeforeClave_p').classList.remove('formulario__input-error');
         }
         const getCredencialesnt = () => {
-            console.log("getcredencialesnt")
             d.getElementById('getBeforeEmail').setAttribute('style', 'display:none');
             d.getElementById('getBeforeClave').setAttribute('style', 'display:none');
             d.getElementById('bclaveC').removeAttribute('required', '');
@@ -75,7 +76,19 @@ const observer = new MutationObserver(() => {
             d.getElementById('getBeforeEmail_p').classList.add('formulario__input-error');
             d.getElementById('getBeforeClave_p').classList.add('formulario__input-error');
         }
-        getCredenciales();
+        getCredencialesnt();
+
+        checks.forEach((c, i) => {
+            inputscheked[i].classList.add(`campo${i}`);
+            const child = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} > input`)); //inputs
+            const fies = Array.prototype.slice.apply(d.querySelectorAll(`.campo${i} > p`)); //mensajes
+            child[0].removeAttribute('required', '');
+            child[0].disabled = true;
+            fies[0].classList.add('formulario__input-error');
+        })
+        d.getElementById('rclaveC').removeAttribute('required', '');
+        d.getElementById('rclaveC').disabled = true;
+        d.getElementsByClassName('rclavecli')[0].classList.add('formulario__input-error');
 
         d.getElementById('guardarC').disabled = true;
         let info = [];
@@ -102,12 +115,18 @@ const observer = new MutationObserver(() => {
 
         const fenable = () => {
             const d = document;            
-            let val = true;
+            let val = true,
+            vali;
             for (let v of infov){
-                v.hasAttribute('required') && (val = val && v.value.length > 0);
+                // v.hasAttribute('required') && (val = val && v.value.length > 0);
+                // vali = v.hasAttribute('required') && v.value.length > 0 ;
+                vali = !v.hasAttribute('required') ? true : v.value.length > 0 ;
+                console.log(v.id)
+                console.log(vali)
+                val = val && vali;
             }
             d.getElementById('guardarC').disabled = !val;
-            console.log(!val)
+            console.log(val)
         }
 
         const validator1 = () => {
@@ -317,7 +336,7 @@ const observer = new MutationObserver(() => {
 
         const getData_ = () => {
             let datos = {
-                Estado: d.getElementById("checkb").checked
+                Estado: d.getElementById("checkCA").checked
             }
             let Clave, Email, bClave, bEmail;
             info[1].hasAttribute("required") && (() => datos.Nombre_Compania = info[1].value)();
@@ -353,42 +372,55 @@ const observer = new MutationObserver(() => {
         }
 
         d.getElementById('guardarC').addEventListener('click', e => {
-            e.preventDefault();
-            localStorage.setItem('b2','1');
-            const { datos, Email, Clave, bClave, bEmail } = getData_();
-            const idClient = get_idc();
-            console.log(`datos: ${datos.Email}, email: ${Email} Clave: ${Clave}, bClave: ${bClave}, bEmail: ${bEmail}`);
-            if (datos && (Clave || Email)) {
-                console.log('updateUserClient then updateDataClient');
+            let checksTrue = [];
+            checks.forEach(c => {
+                if (c.checked){checksTrue.push(1)} 
+            })
+            console.log(checksTrue)
+            if (checksTrue.length > 12){
+                Swal.fire(
+                    'Alerta!',
+                    'Debe editar al menos un campo',
+                    'error'
+                  )
+            } else {
+                e.preventDefault();
+                localStorage.setItem('b2','1');
+                const { datos, Email, Clave, bClave, bEmail } = getData_();
+                const idClient = get_idc();
+                console.log(`datos: ${datos.Email}, email: ${Email} Clave: ${Clave}, bClave: ${bClave}, bEmail: ${bEmail}`);
+                if (datos && (Clave || Email)) {
+                    console.log('updateUserClient then updateDataClient');
+                        updateUserClient(bEmail, bClave, Clave, Email).then(
+                            
+                            updateDataClient(idClient, datos)     
+                            
+                        ).catch(
+                            Swal.fire(
+                                'error',
+                                'no se han actualizado los datos',
+                                'success'
+                            )
+                            
+                        );
+                    // updateUserClient(bEmail, bClave, Clave, Email)
+                    // updateDataClient(idClient, datos) 
+                } else if (datos && !(Clave || Email)) {
+                    console.log('updateDataClient')
+
+                    updateDataClient(idClient, datos)
+                    
+
+                } else if (!datos && (Clave || Email)) {
+                    console.log('updateUserClient')
                     updateUserClient(bEmail, bClave, Clave, Email).then(
                         
-                        updateDataClient(idClient, datos)     
-                        
                     ).catch(
-                        Swal.fire(
-                            'Good job!',
-                            'se han actualizado lso datos',
-                            'success'
-                          )
                         
                     );
-                // updateUserClient(bEmail, bClave, Clave, Email)
-                // updateDataClient(idClient, datos) 
-            } else if (datos && !(Clave || Email)) {
-                console.log('updateDataClient')
+                } else {
 
-                updateDataClient(idClient, datos)
-                
-
-            } else if (!datos && (Clave || Email)) {
-                console.log('updateUserClient')
-                updateUserClient(bEmail, bClave, Clave, Email).then(
-                    
-                ).catch(
-                    
-                );
-            } else {
-
+                }
             }
         });
     }

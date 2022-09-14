@@ -243,7 +243,7 @@ const
         <div class="btnblancodash"> 
 
     
-        <div class="btdashcliente">
+        <div class="mas-color">
     
         </div>
 
@@ -667,8 +667,8 @@ const
                 
             </p>
               
-            <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <label><input class="checkb " type="checkbox" >
+            <span class="tooltip-box "> de click para desactivar el espacio</span>
+                <label class="cliente_active"><input  checked class="checkb " type="checkbox" >
 
               </label>
         </div>
@@ -679,7 +679,7 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checkb" type="checkbox" >
+                <input  checked class="checkb" type="checkbox" >
             </label>
         </div>
     </div>
@@ -691,7 +691,7 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checkb" type="checkbox" >
+                <input  checked class="checkb" type="checkbox" >
               </label>
         </div>
         <div class="col icheked">
@@ -701,7 +701,7 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checkb" type="checkbox" >
+                <input  checked class="checkb" type="checkbox" >
             </label>
         </div>
     </div>
@@ -714,7 +714,7 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checkb" type="checkbox" >
+                <input  checked class="checkb" type="checkbox" >
               </label>
         </div>
         <div class="col icheked">
@@ -724,7 +724,7 @@ const
             </p>
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
-                <input class="checkb" type="checkbox" >
+                <input  checked class="checkb" type="checkbox" >
             </label>
         </div>
     </div>
@@ -747,7 +747,7 @@ const
                 </p>
                 <label class="cliente_active" style="position:relative;">
                             <span class="tooltip-box"> de click para desactivar el espacio</span>
-                    <input class="checkb" type="checkbox" >
+                    <input  checked class="checkb" type="checkbox" >
                   </label>
             </div>
         </div>
@@ -760,7 +760,7 @@ const
                     </p>
                     <label class="cliente_active" style="position:relative;">
                                 <span class="tooltip-box"> de click para desactivar el espacio</span>
-                        <input class="checkb" type="checkbox" >
+                        <input  checked class="checkb" type="checkbox" >
                       </label>
                 </div>
                 <div class="col icheked">
@@ -770,7 +770,7 @@ const
                     </p>
                     <label class="cliente_active" style="position:relative;">
                                 <span class="tooltip-box"> de click para desactivar el espacio</span>
-                        <input class="checkb" type="checkbox" >
+                        <input  checked class="checkb" type="checkbox" >
                     </label>
                 </div>
             </div>
@@ -782,7 +782,7 @@ const
                     </p>
                     <label class="cliente_active" style="position:relative;">
                                 <span class="tooltip-box"> de click para desactivar el espacio</span>
-                        <input class="checkb" type="checkbox" >
+                        <input  checked class="checkb" type="checkbox" >
                       </label>
                 </div>
                 <div class="col icheked">
@@ -792,7 +792,7 @@ const
                     </p>
                     <label class="cliente_active" style="position:relative;">
                                 <span class="tooltip-box"> de click para desactivar el espacio</span>
-                        <input id="checkEmail" class="checkb" type="checkbox" >
+                        <input id="checkEmail"  checked class="checkb" type="checkbox" >
                     </label>
                 </div>
             </div>
@@ -804,7 +804,7 @@ const
                     </p>
                     <label class="cliente_active" style="position:relative;">
                                 <span class="tooltip-box"> de click para desactivar el espacio</span>
-                        <input id="checkRclave" class="checkb" type="checkbox" >
+                        <input id="checkRclave"  checked class="checkb" type="checkbox" >
                       </label>
                 </div>
                 <div class="col">
@@ -837,15 +837,19 @@ const
             <div class = "row">
 
 
-            <div class= "col" > 
+            <div class= "icheked col" > 
             <input required="" type="text" class="form-control inputsr sombra imputs_tamano " style= "width: 45%;" placeholder="Puntaje" aria-label="usuario" id="calificacionC">
 
-            <p class="calC letra_formulario2 formulario__input-error"></p>   
+            <p class="calC letra_formulario2 formulario__input-error"></p>  
+            <label class="cliente_active" style="position:relative;">
+                                <span class="tooltip-box"> de click para desactivar el espacio</span>
+                        <input checked="" class="checkb" type="checkbox">
+                      </label> 
 
 
             </div>
             <label class="cliente_active"   >
-            <input class="checkb" id="checkb" type="checkbox" >Cliente activo</label>
+            <input class="" id="checkCA" type="checkbox" checked>Cliente activo</label>
 
            </div>
                   </div>
@@ -891,6 +895,13 @@ const
 
               </label>
         </div>
+        <div class="col">
+      <input type="text" class="form-control inputsr sombra imputs_tamano" id="paisCF"  placeholder="Pais" aria-label="usuario" name="paisCF">
+      <div class="ncC formulario__input-error letra_formulario" >
+          Letras, tildes y espacios
+      </div>
+
+  </div>
     </div>
         <div class="row">
         <div class="col">
@@ -925,21 +936,38 @@ const
     </div>
 </div>
 <div class="row">
-<div class="col">
-    <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC"  placeholder="Contacto" aria-label="usuario" name="contactoCF">
-    <div class="ncC formulario__input-error letra_formulario" >
-        Letras, tildes y espacios
-    </div>
+  <div class="col">
+      <input type="text" class="form-control inputsr sombra imputs_tamano" id="nombreCompaniaC"  placeholder="Contacto" aria-label="usuario" name="contactoCF">
+      <div class="ncC formulario__input-error letra_formulario" >
+          Letras, tildes y espacios
+      </div>
 
-</div>
-<div class="col">
-    <input type="text"  class="form-control inputsr sombra imputs_tamano" id="repLegalC"placeholder="Telefono" aria-label="usuario" name="telefonoCF">
-    <div class="rlC formulario__input-error letra_formulario" >
-        Letras, tildes y espacios
-    </div>
+  </div>
+  <div class="col">
+      <input type="text"  class="form-control inputsr sombra imputs_tamano" id="repLegalC"placeholder="Telefono" aria-label="usuario" name="telefonoCF">
+      <div class="rlC formulario__input-error letra_formulario" >
+          Letras, tildes y espacios
+      </div>
 
+  </div>
 </div>
+<div class="row">
+  <div class="col">
+      <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadCF"  placeholder="Ciudad" aria-label="usuario" name="ciudadCF">
+      <div class="ncC formulario__input-error letra_formulario" >
+          Letras, tildes y espacios
+      </div>
+
+  </div>
+  <div class="col">
+      <input type="text"  class="form-control inputsr sombra imputs_tamano" id="correoCF" placeholder="Correo" aria-label="usuario" name="correoCF">
+      <div class="rlC formulario__input-error letra_formulario" >
+          Letras, tildes y espacios
+      </div>
+
+  </div>
 </div>
+
         <i class="formulario"></i>
         </fieldset>
         <div class="col-lg-9   col-xs-12">
@@ -983,10 +1011,8 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
     <div class="row">
     <div class="col icheked">
         <select required=""  class="form-select dropdown1 sombra" id="ClienteOF">
-            <option selected value = "0" >Nombre del cliente</option>
-            <option value="TI">1</option>
-            <option value="CC">2</option>
-            <option value="CE">3 </option>
+            <option selected value = "" >Nombre del cliente</option>
+
           </select>
         <p class="ncC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
@@ -1019,9 +1045,6 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
           <option value='Tubos Led'>Tubos Led</option>
           <option value='Luminarias De Uso Exterior'>Luminarias De Uso Exterior</option>
           <option value='Luminarias De Uso Interior'>Luminarias De Uso Interior </option>
-          <option value='Luminarias Decorativas'>Luminarias Decorativas</option>
-          <option value='Luminarias Decorativas'>Luminarias Decorativas</option>
-          <option value='Luminarias Decorativas'>Luminarias Decorativas</option>
           <option value='Luminarias Decorativas'>Luminarias Decorativas</option>
           <option value='Fuentes Led'>Fuentes Led</option>
           <option value='Proyectores'>Proyectores </option>
@@ -1060,7 +1083,7 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
           </label>
     </div>
     <div class="col icheked">
-        <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="vigencia">
+        <input type="number" required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="vigenciaOF" placeholder="vigencia (días)">
         <p class="rlC formulario__input-error letra_formulario" >
             Letras, tildes y espacios
         </p>
@@ -1073,10 +1096,8 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
 <div class="row">
 <div class="col icheked">
     <select required=""  class="form-select dropdown1 sombra" id="fabricaOF">
-        <option selected value="0">Auditoria en fábrica</option>
-        <option value="TI">1</option>
-        <option value="CC">2</option>
-        <option value="CE">3 </option>
+        <option selected value="" >Auditoria en fábrica</option>
+
       </select>
     
 
@@ -1129,9 +1150,8 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
 
 <div class="row">
 <div class="col icheked">
-    <!--<input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="homo_restOF" placeholder="Homologacion de test report"> -->
-    <select required=""  class="form-select dropdown1 sombra" id="homo_restOF">
-        <option selected value="0">Homologación test report</option>
+    <select required=""  class="form-select dropdown1 sombra" id="homo_testReportOF">
+        <option selected value="">Homologación test report</option>
         <option value="aplica">Aplica: Se reconocerán los test report aportados por el cliente</option>
         <option value="no aplica">No aplica</option>
       </select>
@@ -1147,7 +1167,7 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
       
 </div>
 <div class="col icheked">
-    <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="condicionespagoOF" placeholder="condiciones de pago">
+    <input required=""  type="number" class="form-control inputsr sombra imputs_tamano" id="condicionespagoOF" placeholder="condiciones de pago (años)">
     <p class="rlC formulario__input-error letra_formulario" >
         Letras, tildes y espacios
     </p>
@@ -1681,7 +1701,40 @@ comercial_createoffer =`<div class="d-flex align-items-stretch flex-column">
       </div>
         </div>
         </div>
-`;
+`, ress =  {Juguetes:'Resolución 0686 de 2018 Por la cual se expide el reglamento técnico que deben cumplir los juguetes y sus accesorios, que se fabriquen, importen y comercialicen en el territorio nacional',
+Baterias_Alcalinas:'Resolución 0721 de 2018 por la cual se expide el Reglamento Técnico para Pilas Zinc-Carbón y Alcalinas que se importen o fabrique  nacionalmente para su comercialización en Colombia y Resolución No. 2271 de 2019 Por la cual se modifica parcialmente la Resolución No. 0721 de 2018',
+Baterias_Zinc_Carbon:'Resolución 0721 de 2018 por la cual se expide el Reglamento Técnico para Pilas Zinc-Carbón y Alcalinas que se importen o fabriquen nacionalmente para su comercialización en Colombia y Resolución No. 2271 de 2019 Por la cual se modifica parcialmente la Resolución No. 0721 de 2018',
+Cintas_Aislante_Electricas:'Numerales 20 y 20.9.1 de  la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Clavijas:'Numerales 20 y 20.10.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Adaptador_3_A_2:'Numerales 20 y 20.10.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Tomacorrientes:'Numerales 20 y 20.10.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Interruptor_Automatico_De_Baja_Tension:'Numerales 20 y 20.16.2.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Rele_Termico:'Numerales 20 y 20.16.2.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Interruptor_Manual:'Numerales 20 y 20.16.3.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Multitoma:'Numerales 20 y 20.18.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Motores_Electricos:'Numerales 20 y 20.21.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Generadores_Electricos__Plantas_Electricas__Grupos_Electrogenos:'Numerales 20 y 20.21.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Electrobomba:'Numerales 20 y 20.21.1 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Paneles_Solares_Fotovoltaicos:'Numerales 20 y 20.22 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Fuentes_Led:'Numerales 300 y 310.9 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2016',
+Tubos_Led:'Numerales 300 y 310.9 de lla Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2016',
+Luminarias_De_Uso_Exterior:'Numerales 300, 320 y 321 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2017',
+Luminarias_De_Uso_Interior:'Numerales 300 y 320 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2018',
+Luminarias_Decorativas:'Numerales 300 y 322 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2019',
+Proyectores:'Numerales 300, 320 y 321 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024',
+Portalamparas:'Numerales 20 y 20.29 de la Resolución 90708 de agosto 30 de 2013 con sus ajustes',
+Fotocontroles:'Numerales 300 y 370 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024',
+Lamparas_Fluorescentes_Compactas_Con_Balasto_Incorporado:'Numerales 300 y 310.5 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024',
+Utensilios_De_Vidrio_En_Contacto_Con_Alimentos:'Resolución n° 1440 del 20 de septiembre del 2021 del Ministerio de salud y protección social',
+Utensilios_De_Ceramica_En_Contacto_Con_Alimentos:'Resolución n° 1440 del 20 de septiembre del 2021 del Ministerio de salud y protección social',
+Utensilios_De_Ceramica_Utilizados_En_Coccion_De_Alimentos:'Resolución n° 1440 del 20 de septiembre del 2021 del Ministerio de salud y protección social',
+Sensores_Infrarojos:'Resolución n° 1440 del 20 de septiembre del 2021 del Ministerio de salud y protección social',
+Panel_Led:'Numerales 300 y 395 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024',
+Proyector_Led:'Numerales 300 y 320 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024',
+Exteriores_Y_Alumbrado_Publico:'Numerales 300 y 320 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024',
+Lineal_Led:'Numerales 300 y 320 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024',
+Lineal_Hermetica_Led:'Numerales 300 y 320 de la Resolución 180540 de 2010, marzo 30 de 2010. ANEXO GENERAL REGLAMENTO TÉCNICO DE ILUMINACIÓN Y ALUMBRADO PÚBLICO (RETILAP) y sus modificaciones con la Resolución 181568 del 1 de septiembre de 2010, Resolución 182544 del 29 de diciembre de 2010, Resolución 180173 del 14 de febrero de 2011, Resolución 91872 del 28 de diciembre de 2012, Resolución 90980 del 15 de noviembre de 2013. Resolución 40122 del 8 de febrero de 2024'};
+
 
 export {
     index,
@@ -1718,5 +1771,6 @@ export {
     scliente_infoclientes,
     tcoordinador_default,
     tcoordinador_createasignacion,
-    tcoordinador_asignacion
+    tcoordinador_asignacion,
+    ress
 }

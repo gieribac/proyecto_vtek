@@ -1,4 +1,4 @@
-import {setOffer} from './post.js';
+import {setOffer, setProduct} from './post.js';
 
 const observerdatos = new MutationObserver(()=>{ 
 const charge = () => {
@@ -9,38 +9,64 @@ const charge = () => {
 
         return result1;
     }
-    const repetirSet = (cantidad) => {
-        for (let i=0; i < cantidad; i++) {
-            setTimeout ((() => {
-                let data = generarData();
-                setOffer(data);
-            })(),
-                4000
-            )
-        }
-    }
-
-    const generarData = () => {
-            cuenta++;
-        const data = { 
-            productoOF: "producto", 
-            esquemaOF: "esquema "+generateRandomString()+cuenta, 
-            vigenciaOF: "vigencia "+generateRandomString()+cuenta, 
-            homologacionOF: "homologacionISO "+generateRandomString()+cuenta, 
-            ensayosOF: "esayosf "+generateRandomString()+cuenta, 
-            muestrasOF: "muestras "+generateRandomString()+cuenta, 
-            condicionespagoOF: "condicionesPAgo "+generateRandomString()+cuenta, 
-            ClienteOF: "cliente "+generateRandomString()+cuenta, 
-            fabricaOF: "factory "+generateRandomString()+cuenta, 
-            homo_restOF: "no aplica",
-            No_oferta: "No_"+generateRandomString()+cuenta
-        };
-        return data;
-    }
 
 
-    let cantidad = Number(prompt("ingrese cantidad de sets a enviar: "));
-    cantidad > 0 && repetirSet(cantidad);
+    // const repetirSet = (cantidad) => {
+        
+    //     for (let i=0; i < cantidad; i++) {
+    //         setTimeout ((() => {
+    //             let data = generarData();
+    //             let prod = (prompt("ingrese prod: "));
+    //     let resp = (prompt("ingrese res: "));
+    //     const data = {producto: prod, resolucion: resp}
+    //             setProduct(data);
+    //         })(),
+    //             2000
+    //         )
+    //     }
+    // }
+
+    setProduct(data);
+
+    // const generarData = () => {
+    //         cuenta++;
+    //     const data = { 
+    //         productoOF: "producto", 
+    //         esquemaOF: "esquema "+generateRandomString()+cuenta, 
+    //         vigenciaOF: "vigencia "+generateRandomString()+cuenta, 
+    //         homologacionOF: "homologacionISO "+generateRandomString()+cuenta, 
+    //         ensayosOF: "esayosf "+generateRandomString()+cuenta, 
+    //         muestrasOF: "muestras "+generateRandomString()+cuenta, 
+    //         condicionespagoOF: "condicionesPAgo "+generateRandomString()+cuenta, 
+    //         ClienteOF: "cliente "+generateRandomString()+cuenta, 
+    //         fabricaOF: "factory "+generateRandomString()+cuenta, 
+    //         homo_restOF: "no aplica",
+    //         No_oferta: "No_"+generateRandomString()+cuenta
+    //     };
+    //     return data;
+    // }
+
+//     const generarData = () => {
+//         cuenta++;
+//     const data = { 
+//         productoOF: "producto", 
+//         esquemaOF: "esquema "+generateRandomString()+cuenta, 
+//         vigenciaOF: "vigencia "+generateRandomString()+cuenta, 
+//         homologacionOF: "homologacionISO "+generateRandomString()+cuenta, 
+//         ensayosOF: "esayosf "+generateRandomString()+cuenta, 
+//         muestrasOF: "muestras "+generateRandomString()+cuenta, 
+//         condicionespagoOF: "condicionesPAgo "+generateRandomString()+cuenta, 
+//         ClienteOF: "cliente "+generateRandomString()+cuenta, 
+//         fabricaOF: "factory "+generateRandomString()+cuenta, 
+//         homo_restOF: "no aplica",
+//         No_oferta: "No_"+generateRandomString()+cuenta
+//     };
+//     return data;
+// }
+
+    
+
+    // repetirSet(71);
 }
 location.hash == '#/comercial/createoffer' && charge();
 })

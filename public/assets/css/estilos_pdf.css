@@ -1,14 +1,14 @@
 .letra1pdf{
     font-style: normal;
     font-weight: normal;
-    font-size: 9pt;
+    font-size: 0.3cm;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letra_titulos_pdf1{
     font-style: normal;
     font-weight: bold;
-    font-size: 9pt;
+    font-size: 0.3cm;
     font-family: Arial Narrow;
     color: #000000;
 }
@@ -33,9 +33,6 @@ table{
 
 .centrar_t{
     text-align: center;
-}
-.margnees_elem{
-    /* padding: 5px; */
 }
 .letras_blanco_fAzul{
     background-color: #5b9bd5;
@@ -130,7 +127,7 @@ footer p {
 }
 .altura_textarea{
     border: 0px;
-    height: 38px;
+    height: 15px !important;
 }
 .tamanopg{
     height: 11in;

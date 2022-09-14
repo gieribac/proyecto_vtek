@@ -1,6 +1,6 @@
 import { queryOferta, queryFabrica, queryCliente} from "./models/post.js";
 import { menos, mas } from "./helpers.js";
-//import './html2canvas.js';
+import { ress } from "./pages.js";
 
 const observerdatos = new MutationObserver(()=>{ 
 
@@ -36,7 +36,10 @@ const observerdatos = new MutationObserver(()=>{
             monthletra = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"][month-1];
             day < 10 && (() => day=`0${day}`)();
             month < 10 && (() => month=`0${month}`)();
-            let DateVig = `${day} / ${month} / ${year+o.vigenciaOF}`;
+            const yearsVig = parseInt(o.vigenciaOF, 10), 
+            condicionesPago = parseInt(o.condicionespagoOF, 10),         
+            DateVig = `${day} / ${month} / ${year+yearsVig}`,
+            resolucion = ress[o.productoOF];
             
             const head = `<div></div>
             <div>
@@ -91,7 +94,7 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Vigencia</td>
-                        <td class=" centrar_t letras_tabla2">${o.vigenciaOF} AÑOS</td>
+                        <td class=" centrar_t letras_tabla2">${yearsVig} AÑOS</td>
                     </tr>
                     <tr>
                         <td class=" letras_blanco_fAzul centrar_t">Seguimientos</td>
@@ -254,8 +257,7 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >${o.productoOF}</td>
-                        <td class= "letras_tabla2" >Resolución n° 1440 del 20 de septiembre del 2021 del
-                            Ministerio de salud y protección social</td>
+                        <td class= "letras_tabla2" >${resolucion}</td>
                     </tr>
                 </table>
             </main>
@@ -275,7 +277,7 @@ const observerdatos = new MutationObserver(()=>{
                 <div class="margnees_elem">
                     <h1 class="letra_subtitulospdf ">2. PLAN DE EVALUACIÓN</h1> 
                 </div>
-                <table border="1">
+                <table id="planEval" border="1">
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t">ACTIVIDAD</th ><th class="letras_blanco_fAzul  centrar_t">OBSERVACIÓN</th>
                     </tr>
@@ -283,72 +285,96 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">SELECCIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Toma de muestras:</td><td class= "letras_tabla2"> Aplica. Se llevará a cabo toma de muestras en las
-                                                        instalaciones del fabricante.</td>
+                        <td class= "letras_tabla2">Toma de muestras:</td>
+                        <td> 
+                        <textarea  class="desc form-control altura_textarea letras_tabla2">${o.muestrasOF}</textarea>
+                            
+                        </td>
                     </tr>
                     <tr>
                         <th class="letras_blanco_fAzul  centrar_t" colspan="2">DETERMINACIÓN</th>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Ejecución de ensayos:</td><td class= "letras_tabla2"> plica. Se ejecutarán ensayos de laboratorio de
-                                                            acuerdo a la siguiente clasificación de familias
-                                                            FAMILIA N° 1 - CONCAVO PEQUEÑO
-                                                            Determinación de Plomo y Cadmio. ISO 6486-1
-                                                            FAMILIA N° 2 - CONCAVO GRANDE
-                                                            Determinación de Plomo y Cadmio. ISO 6486-1
-                                                            FAMILIA N° 3 - ALMACENAMIENTO
-                                                            Determinación de Plomo y Cadmio. ISO 6486-1
-                                                            FAMILIA N° 4 - ARTICULOS DE COCCION
-                                                            Determinación de Plomo y Cadmio. ISO 8391-1</td>
+                        <td class= "letras_tabla2"  >Ejecución de ensayos:</td>
+                        <td>
+                        <textarea  class="desc form-control altura_textarea letras_tabla2">${o.ensayosOF}</textarea>
+                        
+                        </td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Reconocimiento de tests reports:</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td class= "letras_tabla2"  >Reconocimiento de tests reports:</td>
+                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select>
+                        </td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
+                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
+                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 4):</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 3):</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                             esquema 5):</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Auditoría del sistema de Gestión de la calidad del fabricante
                             FQSA (Aplicable para esquema 5):</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td class= "letras_tabla2"><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
-                        <td class= "letras_tabla2"> Aplica. Se reconocerá el certificado ISO 9001
-                            versión 2015 del fabricante Chaozhou Xincheng
-                            Ceramics Co., Ltd.:</td>
+                        <td class= "letras_tabla2"  >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
+                        <td class= "letras_tabla2"> <textarea   class="desc form-control altura_textarea letras_tabla2">${o.homologacionOF}</textarea></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                             22000 u otro sistema de gestión de inocuidad de alimentos
                             (Aplicable para esquema 3):</td>
-                        <td class= "letras_tabla2"> No Aplica</td>
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2 letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Informe de Evaluación de la conformidad de acuerdo con los
                             resultados obtenidos:</td>
-                        <td class= "letras_tabla2"> Aplica</td>
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2 letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">REVISIÓN</td>
@@ -362,19 +388,25 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">ATESTACIÓN</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Decisión sobre la certificación:</td>
-                        <td class= "letras_tabla2"> Aplica. Acta de revisión y decisión GV-FT-09.</td>
+                        <td class= "letras_tabla2"  >Decisión sobre la certificación:</td>
+                        <td class= "letras_tabla2"> <textarea   class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">VIGILANCIA</td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Visita a fabrica:</td>
-                        <td class= "letras_tabla2"> Aplica.</td>
+                        <td class= "letras_tabla2"  >Visita a fabrica:</td>
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                     <tr>
-                        <td class= "letras_tabla2" >Ensayos:</td>
-                        <td class= "letras_tabla2"> Aplica.</td>
+                        <td class= "letras_tabla2"  >Ensayos:</td>
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                            <option value="Aplica" selected>Aplica</option>
+                            <option value="No Aplica">No Aplica</option>                        
+                        </select></td>
                     </tr>
                 </table>
             </main>
@@ -407,7 +439,7 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">Esquema de certificación</th><th class="letras_blanco_fAzul centrar_t">Calificación</th>
                     </tr>
                     <tr>
-                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${o.calificacion}</td>
+                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${c.Calificacion}</td>
                     </tr>
                 </table>
                 <div>
@@ -655,27 +687,27 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t" >Actividad</th><th class="letras_blanco_fAzul centrar_t">Tiempo estimado (días hábiles)</th>
                     </tr>
                     <tr>
-                        <td>Ejecución de ensayos</td><td>10 días</td>
+                        <td class=  "letras_tabla2">Ejecución de ensayos</td><td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Aceptación de ensayos</td>
-                        <td>N/A</td>
+                        <td class=  "letras_tabla2">Aceptación de ensayos</td>
+                        <td><textarea class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Auditoria en fabrica</td>
-                        <td>N/A</td>
+                        <td class=  "letras_tabla2">Auditoria en fabrica</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Evaluación de resultados</td>
-                        <td>3 dìas</td>
+                        <td class=  "letras_tabla2">Evaluación de resultados</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Revisión y decisión</td>
-                        <td>2 días</td>
+                        <td class=  "letras_tabla2">Revisión y decisión</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Total (días hábiles)</td>
-                        <td>15 días</td>
+                        <td class=  "letras_tabla2">Total (días hábiles)</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                 </table>
                 <div>
@@ -891,23 +923,23 @@ const observerdatos = new MutationObserver(()=>{
                         *El presupuesto presentado es un estimado del costo de las actividades, este puede variar si los
             laboratorios contratados actualizan tarifas
                     </b></p>
-                    <p class="letra1pdf><b>
+                    <p class="letra1pdf"><b>
                         GRUPO VTEK S.A.S
                     </b>
                 informará y alertará al cliente con 3 meses de anticipación para la ejecución de las
             actividades de seguimiento. El cliente es responsable de la ejecución de estas actividades de manera anticipada
             con el objetivo de mantener su certificado de conformidad vigente.
                     </p>
-                    <h1 letra_titulos_pdf1>
+                    <h1 class="letra_titulos_pdf1">
                         4. CONDICIONES COMERCIALES DEL SERVICIO DE CERTIFICACIÓN
                     </h1>
-                    <p class="letra1pdf><b>
+                    <p class="letra1pdf"><b>
                         60 días para el pago de los servicios de certificación.
                     </b></p>
-                    <p class="letra1pdf>
+                    <p class="letra1pdf">
                     Favor consignar al GRUPO VTEK S.A.S., NIT 901.293.797-6   
                     </p>
-                    <p class="letra1pdf><b>
+                    <p class="letra1pdf"><b >
                     Cuenta de Ahorros del Banco de Bogotá  
                     </b>N°012668570. No somos objeto de retención de la Fuente Ley
             1429 de 29de Dic. 2010, Art. 4 - Parágrafo 2. ACTIVIDAD ECONOMICA CIIU: 7120 / IVA REGIMEN COMUN.
@@ -1216,7 +1248,6 @@ const observerdatos = new MutationObserver(()=>{
 
                         vinculosmas5.forEach((e,i)=> {
                             inputsc5[i].id=`contadorc5${i}`;
-                            // inputsu[i].id=`contadoru${i}`;
                             e.addEventListener('click',() => {
                                 mas(`contadorc5${i}`);
                                 totalparcial5(i);
@@ -1275,34 +1306,6 @@ const observerdatos = new MutationObserver(()=>{
                         
             }
 
-            const generarPDF = () => {
-                const contenedor = document.getElementById("pgpdf");
-                window.jsPDF = window.jspdf.jsPDF;
-                var doc = new jsPDF("p","pt","letter");
-                const margin = 10;
-                console.log(contenedor)
-                var scale = (doc.internal.pageSize.width-2*margin)/contenedor.scrollWidth;
-                // doc.addPage("letter");
-                // doc.text("hello word pdf", 25,15);
-                
-                // doc.save("dsdsa.pdf");
-                doc.html(contenedor, {
-                    image: {
-                        type: 'jpeg',
-                        quality: 0.98
-                    },
-                    x: margin,
-                    y: margin,
-                    html2canvas:{
-                        scale: scale
-                    },
-                    callback: function (doc) {
-                      doc.output('dataurlnewwindow',{filename: 'reporte-pdf.pdf'});
-                    }
-                    }
-                    
-                    );
-            };
             const convtoPDF = () => {
                 let loc, oculto;
                 document.getElementById('pg1').removeAttribute('style','display:none');
@@ -1316,13 +1319,17 @@ const observerdatos = new MutationObserver(()=>{
                     oculto = document.getElementById(loc);
                     oculto.removeAttribute('style','display:none');
                 }
-                const botones = document.querySelectorAll("table button");                
+                const botones = document.querySelectorAll("table button"); 
+                const selects = document.querySelectorAll("table select");               
                 const inputs = document.querySelectorAll("table input");
                 botones.forEach(e => {
                     e.setAttribute('style','display:none');
                 });                
                 inputs.forEach(e => {
                     e.setAttribute('style','border:0');                    
+                });
+                selects.forEach(e => {
+                    e.setAttribute('style','border:0');
                 });
                 const container = document.getElementById("pgpdf");
                 html2pdf()
@@ -1357,9 +1364,12 @@ const observerdatos = new MutationObserver(()=>{
                         inputs.forEach(e => {
                             e.removeAttribute('style','border:0');                    
                         });
+                        selects.forEach(e => {
+                            e.removeAttribute('style','border:0');
+                        });
                     })
                     .catch(err => console.log(err));                
-             }
+            }
             const setPgActual = (pg) => {
                 try {
                     if (pg < 8) {

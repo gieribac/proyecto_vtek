@@ -102,7 +102,7 @@ const observerdatos = new MutationObserver(()=>{
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 localStorage.setItem("clientSelect",element.name);
-                localStorage.setItem("clientSelectid",element.id);
+                localStorage.setItem("clientSelectID",element.id);
                 location.hash='#/tcoordinador/createasignacion';
             })
         })

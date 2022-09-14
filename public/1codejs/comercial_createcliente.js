@@ -249,8 +249,8 @@ const observer = new MutationObserver(()=>{
                 d.getElementById('guardarC').disabled = true;
                 
                 Swal.fire(
-                    '¡Muy Bien!',
-                    '¡La fabrica fue creada con Exito!',
+                    '¡Muy Bién!',
+                    '¡Perfil cliente creado con éxito!',
                     'success'
                   )
 
