@@ -50,7 +50,7 @@ const observerdatos = new MutationObserver(()=>{
                 })
                 
             })
-        }).then ((e) => console.log(e))
+        }).catch (e => console.log(e))
         
         const cargarDocs = ds => {
             
@@ -77,6 +77,8 @@ const observerdatos = new MutationObserver(()=>{
                     console.log(id) ;
                     listIds.push(id);
                     const n_oferta = d.data().No_oferta;
+                    console.log(n_oferta)
+                    if (!n_oferta) {console.log(id)}
                     const st = d.data().Estado === undefined ? " - " : d.data().Estado;
                     
                     oferta.innerHTML += `

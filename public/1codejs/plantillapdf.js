@@ -12,6 +12,7 @@ const observerdatos = new MutationObserver(()=>{
                 const fabrica = t.data().fabricaOF;
                 const cliente = t.data().ClienteOF;
                 const oferta_ = t.data();
+                console.log(t.id);
                 queryFabrica(fabrica).then(f => {
                     const fabrica_ = f.data();
                     queryCliente(cliente).then(c => {
@@ -39,7 +40,9 @@ const observerdatos = new MutationObserver(()=>{
             const yearsVig = parseInt(o.vigenciaOF, 10), 
             condicionesPago = parseInt(o.condicionespagoOF, 10),         
             DateVig = `${day} / ${month} / ${year+yearsVig}`,
-            resolucion = ress[o.productoOF];
+            producto = o.productoOF.replace(/-/g, "_").replace(/ /g, "_"),
+            resolucion = ress[producto];
+
             
             const head = `<div></div>
             <div>
