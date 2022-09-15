@@ -409,7 +409,6 @@ export const querySnapComOfs = async() => {
 ////<comercial_editcliente>////
 export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = null) => {
     /*iniciar sesion como cliente*/
-    console.log(`bcorreo: ${bcorreo}; bClave ${bclave}`)
     signInWithEmailAndPassword(auth,bcorreo,bclave)
     .then(() => {
         /*update email si aplica*/
@@ -418,7 +417,9 @@ export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = nu
             await updateEmail(auth.currentUser, Email).then(() => {
                 return "Email updated!";
             }).catch((error) => {
+                console.log(error);
                 throw error.message;
+                
             });
         })();    
         /*update clave si aplica*/      
@@ -430,6 +431,7 @@ export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = nu
             await updatePassword(user, Clave).then(() => {
                 return "Email updated!";
             }).catch((error) => {
+                console.log(error);
                 throw error.message;
             });
         })();
@@ -459,7 +461,7 @@ export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = nu
     })
     .catch((error) => {console.log(error.code);
         console.log(error.message);
-        throw error.messaje;
+        throw error;
     })
 }
 

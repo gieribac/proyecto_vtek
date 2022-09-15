@@ -24,7 +24,7 @@ const observerdatos = new MutationObserver(()=>{
             mcElements[0].textContent = clienteActual.Nombre_Compania;
             mcElements[1].textContent = clienteActual.Representante_Legal;
             mcElements[2].textContent = clienteActual.Direccion;
-            mcElements[3].textContent = clienteActual.Cuidad;
+            mcElements[3].textContent = clienteActual.Ciudad;
             mcElements[4].textContent = clienteActual.Nombre_Responsable;
             mcElements[5].textContent = clienteActual.Cargo;
             mcElements[6].textContent = clienteActual.Tipo_Identificacion;

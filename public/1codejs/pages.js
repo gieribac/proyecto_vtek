@@ -839,7 +839,7 @@ const
 
 
             <div class= "icheked col" > 
-            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " style= "width: 45%;" placeholder="Puntaje" aria-label="usuario" id="calificacionC">
+            <input required="" type="number" class="form-control inputsr sombra imputs_tamano " style= "width: 45%;" placeholder="Puntaje" aria-label="usuario" id="calificacionC">
 
             <p class="calC letra_formulario2 formulario__input-error"></p>  
             <label class="cliente_active" style="position:relative;">
