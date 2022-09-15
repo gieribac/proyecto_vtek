@@ -218,7 +218,7 @@ const observerdatos = new MutationObserver(()=>{
                 } else {
                     clienteActualID = localStorage.getItem("clientSelectID");
                     updateOffer(clienteActualID, data).then( m => 
-                        {location.hash = '#/comercial/infooffers';}                                                
+                        {location.hash = '#/comercial/infooffers'}                                                
                     ).then(m => 
                         Swal.fire(
                             '¡Bien!',

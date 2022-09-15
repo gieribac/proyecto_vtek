@@ -770,6 +770,17 @@ resize: none;
     font-family: Arial Narrow;
     color: #000000;
 }
+.btnformalizar{
+    height: 321px;
+      width: 53px;
+      margin-top: -18px;
+      margin-left: 23px;
+}
+.btnazul{
+    background: linear-gradient(90deg, rgba(61,109,159,1) 0%, rgba(137,206,192,1) 100%) !important;
+    --bs-btn-disabled-opacity: 1 !important;
+    border-color: rgb(30, 6, 247) !important;
+}
 table td{
     width: 10em;
 

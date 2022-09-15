@@ -26,6 +26,18 @@
 
 
 }
+.mas-color{
+    background-image: url(../imgx1/plataforma\ CRM-47.png);
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+
+}
 .estrella-blanco{
     background-image: url("../imgx1/Recurso\ 2VTEK\ RECURSOS.png");
     height: 22px;
@@ -67,6 +79,9 @@
     font-style: italic !important;
     font-size: 13px !important;
 }
+.letra_menu_sc1{top: 219px !important;}
+.letra_menu_sc2{top: 300px !important;}
+.letra_menu_sc3{top: 463px !important;}
 .letra_menu2{
     top: 219px !important;
 
@@ -283,6 +298,16 @@
     position: relative;
 
 }
+.bola-azul{
+    background-image: url("../imgx1/plataforma\ CRM-51.png");
+    height: 58px;
+    width: 46px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}
 .p-azul-login{
     background-image: url("../imgx1/Recurso\ 22VTEK\ RECURSOS.png");
     height: 28px;
@@ -320,7 +345,7 @@
 
 
 }
-.casa-blanca{
+.casa-blanco{
     background-image: url("../imgx1/Recurso\ 37VTEK\ RECURSOS.png");
     height: 25px;
     width: 20px;

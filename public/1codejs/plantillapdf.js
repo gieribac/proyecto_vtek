@@ -287,7 +287,7 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2">Toma de muestras:</td>
                         <td> 
-                        <textarea style="width:50px;text-align: center;"  class="desc form-control">${o.muestrasOF}</textarea>
+                        <textarea  class="desc form-control altura_textarea letras_tabla2">${o.muestrasOF}</textarea>
                             
                         </td>
                     </tr>
@@ -297,13 +297,13 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2"  >Ejecución de ensayos:</td>
                         <td>
-                        <textarea style="width:50px;text-align: center;"  class="desc form-control">${o.ensayosOF}</textarea>
+                        <textarea  class="desc form-control altura_textarea letras_tabla2">${o.ensayosOF}</textarea>
                         
                         </td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Reconocimiento de tests reports:</td>
-                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select>
@@ -311,14 +311,14 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
-                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
-                        <td> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -326,7 +326,7 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 4):</td>
-                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -334,7 +334,7 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 3):</td>
-                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -342,7 +342,7 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                             esquema 5):</td>
-                        <td><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -350,20 +350,20 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" >Auditoría del sistema de Gestión de la calidad del fabricante
                             FQSA (Aplicable para esquema 5):</td>
-                        <td class= "letras_tabla2"><select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td class= "letras_tabla2"><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Reconocimiento de ISO 9001 Versión 2015 del fabricante:</td>
-                        <td> class= "letras_tabla2"<textarea style="width:50px;text-align: center;"  class="desc form-control">${o.homologacionOF}</textarea></td>
+                        <td class= "letras_tabla2"> <textarea   class="desc form-control altura_textarea letras_tabla2">${o.homologacionOF}</textarea></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                             22000 u otro sistema de gestión de inocuidad de alimentos
                             (Aplicable para esquema 3):</td>
-                        <td><select required="" class="form-select dropdown1 sombra letras_tabla2"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2 letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -371,7 +371,7 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" >Informe de Evaluación de la conformidad de acuerdo con los
                             resultados obtenidos:</td>
-                        <td><select required="" class="form-select dropdown1 sombra letras_tabla2"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown sombra letras_tabla2 letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -389,21 +389,21 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Decisión sobre la certificación:</td>
-                        <td class= "letras_tabla2"> <textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class= "letras_tabla2"> <textarea   class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
                         <td class="letras_blanco_fAzul  centrar_t" colspan="2">VIGILANCIA</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Visita a fabrica:</td>
-                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Ensayos:</td>
-                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown1 sombra"  aria-label="Default select example">
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
                         </select></td>
@@ -687,27 +687,27 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t" >Actividad</th><th class="letras_blanco_fAzul centrar_t">Tiempo estimado (días hábiles)</th>
                     </tr>
                     <tr>
-                        <td>Ejecución de ensayos</td><td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class=  "letras_tabla2">Ejecución de ensayos</td><td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Aceptación de ensayos</td>
-                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class=  "letras_tabla2">Aceptación de ensayos</td>
+                        <td><textarea class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Auditoria en fabrica</td>
-                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class=  "letras_tabla2">Auditoria en fabrica</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Evaluación de resultados</td>
-                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class=  "letras_tabla2">Evaluación de resultados</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Revisión y decisión</td>
-                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class=  "letras_tabla2">Revisión y decisión</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                     <tr>
-                        <td>Total (días hábiles)</td>
-                        <td><textarea style="width:50px;text-align: center;"  class="desc form-control"></textarea></td>
+                        <td class=  "letras_tabla2">Total (días hábiles)</td>
+                        <td><textarea  class="desc form-control altura_textarea letras_tabla2"></textarea></td>
                     </tr>
                 </table>
                 <div>
@@ -923,23 +923,23 @@ const observerdatos = new MutationObserver(()=>{
                         *El presupuesto presentado es un estimado del costo de las actividades, este puede variar si los
             laboratorios contratados actualizan tarifas
                     </b></p>
-                    <p class="letra1pdf><b>
+                    <p class="letra1pdf"><b>
                         GRUPO VTEK S.A.S
                     </b>
                 informará y alertará al cliente con 3 meses de anticipación para la ejecución de las
             actividades de seguimiento. El cliente es responsable de la ejecución de estas actividades de manera anticipada
             con el objetivo de mantener su certificado de conformidad vigente.
                     </p>
-                    <h1 letra_titulos_pdf1>
+                    <h1 class="letra_titulos_pdf1">
                         4. CONDICIONES COMERCIALES DEL SERVICIO DE CERTIFICACIÓN
                     </h1>
-                    <p class="letra1pdf><b>
+                    <p class="letra1pdf"><b>
                         60 días para el pago de los servicios de certificación.
                     </b></p>
-                    <p class="letra1pdf>
+                    <p class="letra1pdf">
                     Favor consignar al GRUPO VTEK S.A.S., NIT 901.293.797-6   
                     </p>
-                    <p class="letra1pdf><b>
+                    <p class="letra1pdf"><b >
                     Cuenta de Ahorros del Banco de Bogotá  
                     </b>N°012668570. No somos objeto de retención de la Fuente Ley
             1429 de 29de Dic. 2010, Art. 4 - Parágrafo 2. ACTIVIDAD ECONOMICA CIIU: 7120 / IVA REGIMEN COMUN.

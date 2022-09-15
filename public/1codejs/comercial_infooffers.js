@@ -93,15 +93,22 @@ const observerdatos = new MutationObserver(()=>{
                     `;
                     if (d.data().Formalizar) {
                         // formalizar.innerHTML += `
-                        // <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">Formalizado</h6></div>                      
+                        // <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">Formalizado</h6></div>     
+
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${n_oferta}" id="${id}"checked>Formalizado</label>`;
+                        formalizar.innerHTML += `<span><button type="button" class="checkb btn btnazul" style="margin-bottom: 9px; margin-top: 5px;" disabled="true"></button>Formalizado</span>`;
+                        
+
+                        // <label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${n_oferta}" id="${id}"checked>Formalizado</label>
                     } else {
                         // formalizar.innerHTML += `
                         // <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >No formalizado</h6>  </div>
                         // `;
-                        formalizar.innerHTML += `<label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${n_oferta}" id="${id}">Pendiente</label>
+                        // 
+                        formalizar.innerHTML += ` <span><button  name="${n_oferta}" id="${id}" type="button" class="checkb btn btn_degrade" style="margin-bottom: 9px; margin-top: 5px;"></button>Pendiente</span>
+                        
                         `;
+                        
 
                     }
 
@@ -126,27 +133,29 @@ const observerdatos = new MutationObserver(()=>{
             })
             checks.forEach(check => {
                 check.addEventListener('click', async ()=>{
-                    const formalizado = check.checked;
                     const idoferta = check.id;
                     const name = check.name;
                     try {
-                        await updateFormalizarOF(idoferta,formalizado); 
+                        await updateFormalizarOF(idoferta,true); 
                     } catch (e){console.log(e)} ;
                     
-                    if (formalizado){
                         const subject = 'VTEK Oferta Formalizada';
                         const body = `Oferta con Esquema = "${name}", formalizada y pendiente por asignar`;     
                         getTecnicoCoordinadorEmail().then( el => {
                             const docs = el.docs;
                             if (docs.length > 0) {
-                                docs.forEach( async e => {
+                                docs.forEach(e => {
                                     const email = e.data().Email;
                                     console.log(email)
-                                    await sendNotificateEmail(email, subject, body);
+                                    sendNotificateEmail(email, subject, body).then(t => {
+                                        check.disabled = true;
+                                        check.classList.add('btnazul');
+                                        check.classList.remove('btn_degrade');
+                                        check.nextSibling.textContent = 'Formalizado';
+                                    }).catch(e => {console.log(e)});
                                 })
                             }
                         }).catch(e => console.log(e));                               
-                    }
                 })   
             })
         }        
