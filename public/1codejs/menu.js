@@ -147,7 +147,7 @@ const observermenu = new MutationObserver(()=>{
                         <div class="persona-azul"></div>
                     </div>
                         <p class = "letra_menu4 letra_menu img_recesivo1"  >
-                        Cliente
+                        Clientes
                     </p>
                     <div class="bola-azul img_recesivo1">
                         <div class="persona-blanco"></div>

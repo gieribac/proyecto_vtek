@@ -219,28 +219,28 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" >Nombre de la Compañía
                             Fabricante: </td>
-                        <td colspan="6">${f.nombre_compania}</td>
+                        <td class="letras_tabla2" colspan="6">${f.nombre_compania}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Dirección de la planta/s en
                             donde se fabrica el producto:</td>
-                        <td colspan="6">${f.direccion}</td>
+                        <td class="letras_tabla2" colspan="6">${f.direccion}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Contacto:</td>
-                        <td>${f.contacto}</td>
+                        <td class="letras_tabla2">${f.contacto}</td>
                         <td class= "letras_tabla2">País:</td>
-                        <td>${f.pais}</td>
+                        <td class="letras_tabla2">${f.pais}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Teléfono:</td>
-                        <td>${f.telefono}</td>
+                        <td class="letras_tabla2">${f.telefono}</td>
                         <td class= "letras_tabla2" >Ciudad:</td>
-                        <td id="ciudadFabrica">${f.ciudad}</td>
+                        <td class="letras_tabla2" id="ciudadFabrica">${f.ciudad}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Mail:</td>
-                        <td colspan="3">${f.email}</td>
+                        <td class="letras_tabla2" colspan="3">${f.email}</td>
                     </tr>
                 </table>
                 <div>
