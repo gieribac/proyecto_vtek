@@ -68,13 +68,13 @@ const observerdatos = new MutationObserver(()=>{
                 selectProducto.textContent = `Producto: ${cA.productoOF}`;
                 
                 traerClientesFabricas();
-                
-                inputs[0].placeholder = `Esquema: ${cA.esquemaOF}`;
-                inputs[1].placeholder = `Vigencia (años): ${cA.vigenciaOF}`;
-                inputs[2].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
-                inputs[3].placeholder = `Ensayos: ${cA.ensayosOF}`;
-                inputs[4].placeholder = `Muestras: ${cA.muestrasOF}`;
-                inputs[5].placeholder = `Condiciones pago (días): ${cA.condicionespagoOF}`;         
+                inputs[0].placeholder = `No. de oferta: ${cA.No_oferta}`;
+                inputs[1].placeholder = `Esquema: ${cA.esquemaOF}`;
+                inputs[2].placeholder = `Vigencia (años): ${cA.vigenciaOF}`;
+                inputs[3].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
+                inputs[4].placeholder = `Ensayos: ${cA.ensayosOF}`;
+                inputs[5].placeholder = `Muestras: ${cA.muestrasOF}`;
+                inputs[6].placeholder = `Condiciones pago (días): ${cA.condicionespagoOF}`;         
             }
         
             const vinculos = Array.prototype.slice.apply(d.querySelectorAll('.left'));
@@ -111,13 +111,13 @@ const observerdatos = new MutationObserver(()=>{
                 selectHtestReport.textContent = `Homologación test report`;
                 selectProducto.textContent = `Producto a certificar`;
                 traerClientesFabricas();
-                
-                inputs[0].placeholder = `Esquema de certificación`;
-                inputs[1].placeholder = `Vigencia (años)`;
-                inputs[2].placeholder = `Homologación ISO 9001`;
-                inputs[3].placeholder = `Ensayos`;
-                inputs[4].placeholder = `Muestras`;
-                inputs[5].placeholder = `Condiciones de pago (días)`;  
+                inputs[0].placeholder = `No. de oferta`;
+                inputs[1].placeholder = `Esquema de certificación`;
+                inputs[2].placeholder = `Vigencia (años)`;
+                inputs[3].placeholder = `Homologación ISO 9001`;
+                inputs[4].placeholder = `Ensayos`;
+                inputs[5].placeholder = `Muestras`;
+                inputs[6].placeholder = `Condiciones de pago (días)`;  
 
                 d.getElementById("guardarO").disabled = false;
                 d.getElementById("adjuntar").disabled = false;
@@ -195,33 +195,44 @@ const observerdatos = new MutationObserver(()=>{
                 Array.prototype.slice.apply(d.getElementsByClassName('inputsr')).forEach (e => {
                     e.value=""
                 })
+                console.log(`estado_ ${estado}`)
                 if (estado){
                     console.log(data)
                     setOffer(data).then(m => 
-                        alert(m)
-                    ).catch(e => 
-                        alert(`Error: ${e.message}`)
-                    );
-                } else {
-                    clienteActualID = localStorage.getItem("clientSelectID");
-                    updateOffer(clienteActualID, data).then(
-                        recargar()                        
-                    ).then(m => 
+                        { location.hash = '#/comercial/infooffers'}                          
+                    ).then( m => 
                         Swal.fire(
                             '¡Bien!',
                             'Oferta creada satisfactoriamente',
                             'success'
-                          )
+                        )
                     ).catch(
                         recargar()                        
                     ).catch(e => 
-                    
+                        Swal.fire(
+                            'Error!',
+                            `Error al crear la oferta: ${e.message}`,
+                            'error'
+                        )
+                    );
+                } else {
+                    clienteActualID = localStorage.getItem("clientSelectID");
+                    updateOffer(clienteActualID, data).then( m => 
+                        {location.hash = '#/comercial/infooffers'}                                                
+                    ).then(m => 
+                        Swal.fire(
+                            '¡Bien!',
+                            'Oferta actualizada satisfactoriamente',
+                            'success'
+                          )
+                    ).catch(
+                        recargar()                        
+                    ).catch(e =>                     
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
-                            text: 'no se pudo crear la oferta',
-                            
-                          })
+                            text: 'no se pudo actualizar la oferta'                            
+                        })
                     );
                 }
             }

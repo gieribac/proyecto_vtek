@@ -745,14 +745,52 @@ resize: none;
 }
 .btnformalizar{
     height: 321px;
-      width: 53px;
-      margin-top: -18px;
-      margin-left: 23px;
+    width: 118px;
+    margin-top: -18px;
+    margin-left: -13px;
 }
 .btnazul{
     background: linear-gradient(90deg, rgba(61,109,159,1) 0%, rgba(137,206,192,1) 100%) !important;
     --bs-btn-disabled-opacity: 1 !important;
     border-color: rgb(30, 6, 247) !important;
+}
+.dashletra1{
+    position: absolute;
+    color: #121212 !important;
+    font-style: italic !important;
+    font-size: 40px !important;
+    left: 10%;
+    bottom: 0;
+    margin-bottom: -35px;
+    font-weight: bold;
+
+}
+.dashletra2{
+    position: absolute;
+    color: #121212 !important;
+    font-style: italic !important;
+    font-size: 40px !important;
+    left: 30%;
+    bottom: 0;
+    margin-bottom: -30px;
+    font-weight: bold;
+}
+.dashletra3{
+    position: absolute;
+    color: #121212 !important;
+    font-style: italic !important;
+    font-size: 40px !important;
+    left: 10%;
+    bottom: 0;
+    margin-bottom: -30px;
+    font-weight: bold;
+}
+.letra_recuadro_info3{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 112px !important;
 }
 table td{
     width: 10em;
