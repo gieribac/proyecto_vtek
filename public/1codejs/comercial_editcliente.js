@@ -375,6 +375,11 @@ const observer = new MutationObserver(() => {
             let checksTrue = [];
             checks.forEach(c => {
                 if (c.checked){checksTrue.push(1)} 
+                Swal.fire(
+                    'muy bien!',
+                    'cliente actualizado satisfactoriamente',
+                    'success'
+                  )
             })
             console.log(checksTrue)
             if (checksTrue.length > 12){
@@ -399,7 +404,7 @@ const observer = new MutationObserver(() => {
                             Swal.fire(
                                 'error',
                                 'no se han actualizado los datos',
-                                'success'
+                                'error'
                             )
                             
                         );

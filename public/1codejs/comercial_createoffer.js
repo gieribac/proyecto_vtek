@@ -153,7 +153,12 @@ const observerdatos = new MutationObserver(()=>{
                         })();              
                     })
                 }
-                mapcheck.includes(true) ? continuar() : alert("debe editar al menos un campo");                
+                mapcheck.includes(true) ? continuar() : Swal.fire(
+                    'error',
+                    'debe editar al menos un campo',
+                    'error'
+                )
+                // alert("debe editar al menos un campo");                
             }
         } 
 
@@ -241,7 +246,7 @@ const observerdatos = new MutationObserver(()=>{
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: 'Debe llenar todos los acampos',
+                        text: 'Debe llenar todos los campos',
                         
                       })
                                                
@@ -254,7 +259,7 @@ const observerdatos = new MutationObserver(()=>{
                         text: 'Debe editar al menos un campo',
                         
                       })
-                    alert('Debe editar al menos un campo');                            
+                    // alert('Debe editar al menos un campo');                            
                 })() : sigue();                
             }
         })

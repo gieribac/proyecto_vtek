@@ -20,221 +20,271 @@ const
         </div>
         </div>`,
   tcoordinador_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:25%">
+
+
+
+  <a href="#/tcoordinador/infooffers">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
       </div>
-  </div>`,
+
+
+  
+  </a>
+
+
+
+  <a href="#/tcoordinador/asignacion">
+      <div class="btnblancodash"> 
+      <div class="btndasheval">
+
+      </div>
+      <h1 class="dashletra2">Plan</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   dtecnico_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:12%">
+  <a href="#/comercial/createcliente">
+      <div class="btnblancodash"> 
+
+  
+      <div class="mas-color ">
+  
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <p class="dashletra1 ">Crear cliente</p>
+
       </div>
-  </div>`,
+
+
+
+  </a>
+
+
+
+  <a href="#/comercial/createoffer">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
+      </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
+      </div>
+
+
+  
+  </a>
+
+
+
+  <a href="#/comercial/createfactorie">
+      <div class="btnblancodash"> 
+      <div class="btndashfabrica">
+
+      </div>
+      <h1 class="dashletra3">Crear fabrica</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   experto_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:12%">
+  <a href="#/experto/createeval">
+      <div class="btnblancodash"> 
+
+  
+      <div class="mas-color ">
+  
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <p class="dashletra1 ">evaluacion</p>
+
       </div>
-  </div>`,
+
+
+
+  </a>
+
+
+
+  <a href="#/experto/paleval">
+      <div class="btnblancodash"> 
+      <div class="btndasheval">
+
+      </div>
+      <h1 class="dashletra2">Plan</h1>
+
+      </div>
+
+
+  
+  </a>
+
+
+
+  <a href="#/experto/infocliente">
+      <div class="btnblancodash"> 
+      <div class="btndashclientes">
+
+      </div>
+      <h1 class="dashletra2">Clientes</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   admin_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:12%">
+  <a href="#/admin/createuser">
+      <div class="btnblancodash"> 
+
+  
+      <div class="mas-color ">
+  
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <p class="dashletra1 ">Crear usuario</p>
+
       </div>
-  </div>`,
+
+
+
+  </a>
+
+
+
+  <a href="#/admin/infooffer">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
+      </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
+      </div>
+
+
+  
+  </a>
+
+
+
+  <a href="#/admin/infoclients">
+      <div class="btnblancodash"> 
+      <div class="btndashclientes">
+
+      </div>
+      <h1 class="dashletra2">clientes</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   cliente_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:45%">
+
+
+
+
+  <a href="#/cliente/offer">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
       </div>
-  </div>`,
+
+
+  
+  </a>
+
+
+
+
+
+
+  </div>
+</div>`,
   scliente_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:25%">
+
+
+
+
+  <a href="#/scliente/infooffers">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
       </div>
-  </div>`,
+
+
+  
+  </a>
+
+
+
+  <a href="#/scliente/infoclientes">
+      <div class="btnblancodash"> 
+      <div class="btndashclientes">
+
+      </div>
+      <h1 class="dashletra2">Cliente</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   comercial_default = `<div class="d-flex align-items-stretch flex-column">
   <div id="menu"></div>
   <div class="col-lg-10 ">
@@ -869,6 +919,7 @@ const
             </form>
           </div>`,
   comercial_createpdf1 = `<nav id="sidebar-container2">
+  <button id="btnDPDF" type="button" class="btn botones_pdf"> <h6 class="letra-editar">Descargar PDF</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 1</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 2</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 3</h6></button>
@@ -877,7 +928,7 @@ const
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 6</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 7</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Regresar</h6></button>
-          <button id="btnDPDF" type="button" class="btn botones_pdf"> <h6 class="letra-editar">Descargar PDF</h6></button>
+
           </nav>
           <div id="pgpdf"></div>`,
   comercial_createfactorie = ` <div class="d-flex align-items-stretch flex-column">

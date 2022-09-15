@@ -679,5 +679,27 @@ border-top-right-radius: 50px;
     left: 30%;
     
 }
+.btndashclientes{
+    background-image: url("../img/Recurso\ 31VTEK\ RECURSOS.png");
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+.btndasheval{
+    background-image: url("../img/Recurso\ 20VTEK\ RECURSOS.png");
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
 
 

@@ -17,7 +17,7 @@ const observermenu = new MutationObserver(()=>{
                 <div class="check-blanco"></div>
                 </div>
                 </a>
-                <a href="#/comercial/infoclientes" class="d-block text-light p-2 menuopciones menu_hover1">
+                <a href="#/admin/infoclients" class="d-block text-light p-2 menuopciones menu_hover1">
                     <div class="bola-blanco img_dominante1">
                         <div class="persona-azul"></div>
                     </div>
@@ -215,8 +215,8 @@ const observermenu = new MutationObserver(()=>{
             <div class="bola-blanco img_dominante1">
                 <div class="mas-azul"></div>
             </div>
-            <p class = "letra_menu letra_menu img_recesivo1"  >
-                Crear cliente
+            <p class = "letra_menu letra_menu img_recesivo1" style="left: 16px !important;" >
+                crear evaluacion
             </p>
             <div class="bola-azul img_recesivo1">
                 <div class="mas-blanco"></div>
@@ -311,7 +311,7 @@ const observermenu = new MutationObserver(()=>{
             <div class="logov">
             </div>
             <div class="menu">
-            <a href="#/tcoordinador/asignacion" class="d-block text-light p-2 mr menuopciones menu_hover1 ">
+            <a href="#/tcoordinador/infooffers" class="d-block text-light p-2 mr menuopciones menu_hover1 ">
             <div class="bola-blanco img_dominante1">
                 <div class="check-azul"></div>
             </div>
