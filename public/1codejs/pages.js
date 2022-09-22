@@ -1135,8 +1135,15 @@ const
                 </label>
               </div>
               <div class="col icheked">
-                <input required="" type="number" class="form-control inputsr sombra imputs_tamano"
-                  id="condicionespagoOF" placeholder="condiciones de pago (dias)">
+                
+                  <select required="" class="form-select dropdown1 sombra" id="condicionespagoOF">
+                  <option selected value="">Producto a certificar</option>
+                  <option value="anticipado 50% 50%">anticipado 50% 50%</option>
+                  <option value="anticipado 100%">anticipado 100%</option>
+                  <option value="30 días">30 días</option>
+                  <option value="60 días">60 días</option>
+                  </select>
+
                 <p class="rlC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>

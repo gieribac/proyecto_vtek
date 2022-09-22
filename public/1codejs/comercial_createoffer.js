@@ -17,10 +17,12 @@ const observerdatos = new MutationObserver(()=>{
         selectCliente = d.getElementById('ClienteOF'),
         selectClienteSol = d.getElementById('ClienteOFs'),
         selectFabrica = d.getElementById('fabricaOF'),
+        selectCP = d.getElementById('condicionespagoOF').firstElementChild,
         selectHtestReport = d.getElementById('homo_testReportOF').firstElementChild,
         selectProducto = d.getElementById('productoOF').firstElementChild,
         enviar = d.getElementById("guardarO"),
         inputFile = d.getElementById("adjuntar"),
+        btnGenPDF= d.getElementById("btngenPDF"),
         data = {};
 
         const recargar = () => {
@@ -34,7 +36,7 @@ const observerdatos = new MutationObserver(()=>{
                 if (docs.length > 0) {
                     docs.forEach (d => {
                         selectCliente.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`;
-                        selectClienteSol.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`
+                        selectClienteSol.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`;
                     })
                 }
             }).catch(e => console.log(e));
@@ -43,8 +45,7 @@ const observerdatos = new MutationObserver(()=>{
                 const docs = d.docs;
                 if (docs.length > 0) {
                     docs.forEach (d => {
-                        selectFabrica.innerHTML += `<option value="${d.data().nombre_compania}">${d.data().nombre_compania}</option>`
-
+                        selectFabrica.innerHTML += `<option value="${d.data().nombre_compania}">${d.data().nombre_compania}</option>`;
                     })
                 }
             }).catch (e => console.log(e));
@@ -52,6 +53,7 @@ const observerdatos = new MutationObserver(()=>{
         }
 
         const cargaDetalleCliente = () => {
+            btnGenPDF.removeAttribute('style','display:none');
             const left = d.getElementById('cliente'),
             cliente = JSON.parse(localStorage.getItem("nclient")), 
             list_noOf = JSON.parse(localStorage.getItem("list_noOf")),  
@@ -69,6 +71,7 @@ const observerdatos = new MutationObserver(()=>{
                 selectFabrica.innerHTML = `<option selected="" value="">Fabrica: ${cA.fabricaOF}</option>`;
                 selectHtestReport.textContent = `Homologación test report: ${cA.homo_restOF}`;
                 selectProducto.textContent = `Producto: ${cA.productoOF}`;
+                selectCP.textContent = `C. Pago: ${cA.condicionespagoOF}`;
                 
                 traerClientesFabricas();
                 
@@ -76,9 +79,8 @@ const observerdatos = new MutationObserver(()=>{
                 inputs[1].placeholder = `Vigencia (años): ${cA.vigenciaOF}`;
                 inputs[2].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
                 inputs[3].placeholder = `Ensayos: ${cA.ensayosOF}`;
-                inputs[4].placeholder = `Muestras: ${cA.muestrasOF}`;
-                inputs[5].placeholder = `Condiciones pago (días): ${cA.condicionespagoOF}`;    
-                inputs[6].placeholder = `No. de oferta: ${cA.No_oferta}`;     
+                inputs[4].placeholder = `Muestras: ${cA.muestrasOF}`; 
+                inputs[5].placeholder = `No. de oferta: ${cA.No_oferta}`;     
             }
         
             const vinculos = Array.prototype.slice.apply(d.querySelectorAll('.left'));
@@ -100,11 +102,16 @@ const observerdatos = new MutationObserver(()=>{
             mostrarCliente(clienteActual);     
             const selected = vinculos.find(e => e.textContent == clienteActual)
             selected.setAttribute('style','font-weight: bold'); 
-            d.getElementById("btngenPDF").addEventListener('click',() => location.hash = "#/comercial/createpdf1");
+            btnGenPDF.addEventListener('click',() => location.hash = "#/comercial/createpdf1");
            
         };
 
         const formNew = () => {
+            try{
+                if (nidsClient){btnGenPDF.setAttribute('style','display:none')};
+            } catch (e){
+                if (e.name === 'ReferenceError' ) {btnGenPDF.setAttribute('style','display:none')}
+            }
             if (localStorage.getItem('b1')){localStorage.removeItem('b1')};
             estado=true;
             if (b1 == false){
@@ -115,14 +122,14 @@ const observerdatos = new MutationObserver(()=>{
                 selectFabrica.innerHTML = `<option selected="" value="">Auditoria en Fábrica</option>`;
                 selectHtestReport.textContent = `Homologación test report`;
                 selectProducto.textContent = `Producto a certificar`;
+                selectCP.textContent = `Condiciones de Pago`;
                 traerClientesFabricas();                
                 inputs[0].placeholder = `Esquema de certificación`;
                 inputs[1].placeholder = `Vigencia (años)`;
                 inputs[2].placeholder = `Homologación ISO 9001`;
                 inputs[3].placeholder = `Ensayos`;
                 inputs[4].placeholder = `Muestras`;
-                inputs[5].placeholder = `Condiciones de pago (días)`;  
-                inputs[6].placeholder = `No. de oferta`;
+                inputs[5].placeholder = `No. de oferta`;
 
                 d.getElementById("guardarO").disabled = false;
                 d.getElementById("adjuntar").disabled = false;
@@ -158,7 +165,11 @@ const observerdatos = new MutationObserver(()=>{
                         })();              
                     })
                 }
-                mapcheck.includes(true) ? continuar() : alert("debe editar al menos un campo");                
+                mapcheck.includes(true) ? continuar() : Swal.fire(
+                    'Error!',
+                    `¡Debe editar al menos un campo!`,
+                    'error'
+                );                
             }
         } 
 
@@ -171,6 +182,7 @@ const observerdatos = new MutationObserver(()=>{
             selectFabrica.value.length > 0 && (() => data.fabricaOF = selectFabrica.value)();
             selectHtestReport.parentNode.value.length > 0 && (() => data.homo_restOF = selectHtestReport.parentNode.value)();
             selectProducto.parentNode.value.length > 0 && (() => data.productoOF = selectProducto.parentNode.value)();
+            selectCP.parentNode.value.length > 0 && (() => data.condicionespagoOF = selectCP.parentNode.value)();
 
         }
 
