@@ -1,14 +1,14 @@
-import {setOffer, setProduct} from './post.js';
+// import {setOffer, setProduct} from './post.js';
 
-const observerdatos = new MutationObserver(()=>{ 
-const charge = () => {
-    let cuenta = 0;
-    const  generateRandomString = () => {
-        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012345689 _';
-        let result1= Math.random().toString(36).substring(0,5);       
+// const observerdatos = new MutationObserver(()=>{ 
+// const charge = () => {
+//     let cuenta = 0;
+//     const  generateRandomString = () => {
+//         const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012345689 _';
+//         let result1= Math.random().toString(36).substring(0,5);       
 
-        return result1;
-    }
+//         return result1;
+//     }
 
 
     // const repetirSet = (cantidad) => {
@@ -26,7 +26,7 @@ const charge = () => {
     //     }
     // }
 
-    setProduct(data);
+    // setProduct(data);
 
     // const generarData = () => {
     //         cuenta++;
@@ -67,8 +67,11 @@ const charge = () => {
     
 
     // repetirSet(71);
-}
-location.hash == '#/comercial/createoffer' && charge();
-})
-const parent = document.getElementById('root');
-observerdatos.observe(parent,{childList:true})
+// }
+// location.hash == '#/comercial/createoffer' && charge();
+// })
+// const parent = document.getElementById('root');
+// observerdatos.observe(parent,{childList:true})
+
+
+const jeison = fetch(`https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json`).then(d => d.json()).then(j => console.log(j))

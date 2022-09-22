@@ -998,17 +998,11 @@ const
     <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas">
       <h6 class="letra-editar">Nuevo</h6>
     </button>
-
-
-
   </div>
   <div class="col-lg-9 ">
     <div class="i-azul1 centrarF">
-
-
       <div class="recuadro margenr1 sombra temano_recuadro_offer p-3 scroll_rec" id="cliente">
         <div class="infocliente_oferta_admin">
-
         </div>
       </div>
       <div class="recuadro  sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
@@ -1018,7 +1012,7 @@ const
             <div class="row">
               <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="ClienteOF">
-                  <option selected value="">Nombre del cliente</option>
+                  <option selected value="">Cliente Titular</option>
 
                 </select>
                 <p class="ncC formulario__input-error letra_formulario">
@@ -1031,17 +1025,21 @@ const
                 </label>
               </div>
               <div class="col icheked">
-                <input required="" type="text" class="form-control inputsr sombra imputs_tamano"
-                  id="No_oferta" placeholder="Número de oferta">
-                <p class="rlC formulario__input-error letra_formulario">
+                <select required="" class="form-select dropdown1 sombra" id="ClienteOFs">
+                  <option selected value="">Cliente Solicitante</option>
+
+                </select>
+                <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
-                <label class="cliente_active" style="position:relative;">
+                <label class="cliente_active " style="position:relative;">
                   <span class="tooltip-box"> de click para desactivar el espacio</span>
                   <input class="checks" type="checkbox">
+
                 </label>
+
               </div>
-              
+
             </div>
             <div class="row">
               <div class="col icheked">
@@ -1149,7 +1147,7 @@ const
               </div>
             </div>
             <div class="row">
-            <div class="col icheked">
+              <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="productoOF">
                   <option selected value="">Producto a certificar</option>
                   <option value='Juguetes'>Juguetes</option>
@@ -1201,7 +1199,18 @@ const
                   <input class="checks" type="checkbox">
                 </label>
               </div>
-              
+              <div class="col icheked">
+                <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="No_oferta"
+                  placeholder="Número de oferta">
+                <p class="rlC formulario__input-error letra_formulario">
+                  Letras, tildes y espacios
+                </p>
+                <label class="cliente_active" style="position:relative;">
+                  <span class="tooltip-box"> de click para desactivar el espacio</span>
+                  <input class="checks" type="checkbox">
+                </label>
+              </div>
+
             </div>
             <div>
               <div id="estilo_adjuntar">
