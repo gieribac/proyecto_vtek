@@ -84,7 +84,7 @@ const observerdatos = new MutationObserver(()=>{
                     <table style="width: 16cm;">
                     <tr>
                     <td class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
-                    <td class="centrar_t " style="position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>/u/0/project/vtek-4acd8/overview
+                    <td class="centrar_t " style="position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
                     </tr>
                     </table>
                 </div>
