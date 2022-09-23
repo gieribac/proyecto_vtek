@@ -1,21 +1,23 @@
 .letra1pdf{
     font-style: normal;
     font-weight: normal;
-    font-size: 0.3cm;
+    font-size: 11pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letra_titulos_pdf1{
+    margin-top: 10px;
     font-style: normal;
     font-weight: bold;
-    font-size: 0.3cm;
+    font-size: 11pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letra_subtitulospdf{
+    margin-top: 10px;
     font-style: normal;
     font-weight: bold;
-    font-size: 0.3cm;
+    font-size: 11pt;
     font-family: Arial Narrow;
     color: #000000;
 }
@@ -64,7 +66,7 @@ table{
 }
 .logoPDF{
     background-image: url(../img/Recurso\ 88VTEK\ RECURSOS.png);
-    height: 2cm;
+    height: 1.5cm;
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: 0.5cm;
@@ -77,33 +79,33 @@ footer p {
 }
 .iconosPdf{
     background-image: url(../imgx1/ri_2.png);
-    height: 56px;
+    height: 33px;
     background-repeat: no-repeat;
     background-size: contain;
     margin-bottom: 20px;
-    width: 2.2in;
-    margin-left: 8cm;
+    width: 1.5in;
+    margin-left: 8.8cm;
 }
 
 
 .letras_tabla2{
     font-style: normal;
     font-weight: normal;
-    font-size: 0.3cm;
+    font-size: 11pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letras_tabla3{
     font-style: normal;
     font-weight: normal;
-    font-size: 0.3cm;
+    font-size: 11pt;
     font-family: Arial Narrow;
     color: #000000;
 }
 .letras_tabla4{
     font-style: normal;
     font-weight: normal;
-    font-size: 0.3cm;
+    font-size: 11pt;
     font-family: Arial Narrow;
     color: #000000;
 }
@@ -124,10 +126,16 @@ footer p {
 }
 .mas_menos{
     float: left;
+    height: 22px !important;
+}
+.letra_masm{
+    font-size: 10px;
+    margin-top: -5px;
 }
 .altura_textarea{
     border: 0px;
     height: 15px !important;
+    min-height: 23px !important;
 }
 .tamanopg{
     height: 11in;
@@ -140,6 +148,14 @@ footer p {
 }
 .inputpdf2{
     width: 90px !important;
+    height: 35px !important;
 }
-
+.dropdown_pdf{
+    width: 90px;
+    float: left;
+}
+.text_area_drop{
+    width: 73.2% !important;
+    margin-top: 7px !important;
+}
 

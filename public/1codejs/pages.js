@@ -1034,12 +1034,10 @@ const
     </div>`,
   comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
   <div id="menu"></div>
-
   <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
     <div class="infopagina">
       <div class="check-color-p"></div>
       <h4 class="letrainfo">Ofertas</h4>
-
     </div>
   </div>
   <div class="col-lg-9 ">
@@ -1047,35 +1045,26 @@ const
     <button id="btngenPDF" type="button" class="btn btn-nueva-ofertas">
       <h6 class="letra-editar">Generar PDF</h6>
     </button>
-
     <button id="btnEdit" type="button" class="btn btn-editar-ofertas">
       <h6 class="letra-editar">editar</h6>
     </button>
     <button id="btnNuevo" type="button" class="btn btn-nueva-ofertas">
       <h6 class="letra-editar">Nuevo</h6>
     </button>
-
-
-
   </div>
   <div class="col-lg-9 ">
     <div class="i-azul1 centrarF">
-
-
       <div class="recuadro margenr1 sombra temano_recuadro_offer p-3 scroll_rec" id="cliente">
         <div class="infocliente_oferta_admin">
-
         </div>
       </div>
       <div class="recuadro  sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
         <div style="margin-left: 30px; margin-top: 20px;">
           <div id="inputs">
-
             <div class="row">
               <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="ClienteOF">
-                  <option selected value="">Nombre del cliente</option>
-
+                  <option selected value="">Cliente Titular</option>
                 </select>
                 <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
@@ -1083,21 +1072,20 @@ const
                 <label class="cliente_active " style="position:relative;">
                   <span class="tooltip-box"> de click para desactivar el espacio</span>
                   <input class="checks" type="checkbox">
-
                 </label>
               </div>
               <div class="col icheked">
-                <input required="" type="text" class="form-control inputsr sombra imputs_tamano"
-                  id="No_oferta" placeholder="Número de oferta">
-                <p class="rlC formulario__input-error letra_formulario">
+                <select required="" class="form-select dropdown1 sombra" id="ClienteOFs">
+                  <option selected value="">Cliente Solicitante</option>
+                </select>
+                <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
-                <label class="cliente_active" style="position:relative;">
+                <label class="cliente_active " style="position:relative;">
                   <span class="tooltip-box"> de click para desactivar el espacio</span>
                   <input class="checks" type="checkbox">
                 </label>
               </div>
-              
             </div>
             <div class="row">
               <div class="col icheked">
@@ -1127,10 +1115,7 @@ const
               <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="fabricaOF">
                   <option selected value="">Auditoria en fábrica</option>
-
                 </select>
-
-
                 <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
@@ -1157,7 +1142,6 @@ const
                   id="ensayosOF" placeholder="Ensayos"></textarea>
                 <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
-
                 </p>
                 <label class="cliente_active " style="position: relative; margin-left: -244px; margin-top: 84px;">
                   <span class="tooltip-box"> de click para desactivar el espacio</span>
@@ -1193,8 +1177,14 @@ const
                 </label>
               </div>
               <div class="col icheked">
-                <input required="" type="number" class="form-control inputsr sombra imputs_tamano"
-                  id="condicionespagoOF" placeholder="condiciones de pago (dias)">
+                
+                  <select required="" class="form-select dropdown1 sombra" id="condicionespagoOF">
+                  <option selected value="">Producto a certificar</option>
+                  <option value="anticipado 50% 50%">anticipado 50% 50%</option>
+                  <option value="anticipado 100%">anticipado 100%</option>
+                  <option value="30 días">30 días</option>
+                  <option value="60 días">60 días</option>
+                  </select>
                 <p class="rlC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
@@ -1205,7 +1195,7 @@ const
               </div>
             </div>
             <div class="row">
-            <div class="col icheked">
+              <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="productoOF">
                   <option selected value="">Producto a certificar</option>
                   <option value='Juguetes'>Juguetes</option>
@@ -1248,7 +1238,6 @@ const
                   <option value='Lineal Led'>Lineal Led</option>
                   <option value='Lineal Hermetica Led'>Lineal Hermetica Led</option>
                 </select>
-
                 <p class="rlC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
@@ -1257,7 +1246,17 @@ const
                   <input class="checks" type="checkbox">
                 </label>
               </div>
-              
+              <div class="col icheked">
+                <input required="" type="text" class="form-control inputsr sombra imputs_tamano" id="No_oferta"
+                  placeholder="Número de oferta">
+                <p class="rlC formulario__input-error letra_formulario">
+                  Letras, tildes y espacios
+                </p>
+                <label class="cliente_active" style="position:relative;">
+                  <span class="tooltip-box"> de click para desactivar el espacio</span>
+                  <input class="checks" type="checkbox">
+                </label>
+              </div>
             </div>
             <div>
               <div id="estilo_adjuntar">

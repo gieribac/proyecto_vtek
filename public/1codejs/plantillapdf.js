@@ -43,11 +43,11 @@ const observerdatos = new MutationObserver(()=>{
             
             const head = `<div></div>
             <div>
-                <table style="width: 80% !important; margin-left: 2cm; margin-top: 0.1cm;">
+                <table style="width: 80% !important; margin-left: 2cm;">
                     <tr>
                     <td  class="centrar_t"><div class="logoPDF"></div></td>
-                    <td  class="centrar_t " style="padding: 5px;" >OFERTA COMERCIAL DE CERTIFICACION</td>
-                    <td class="centrar_t" style="padding: 5px;" >GV-FC 02 v:8 <br>fecha de vigencia: <br>${DateVig}</td>
+                    <td  class="centrar_t " >OFERTA COMERCIAL DE CERTIFICACION</td>
+                    <td class="centrar_t" >GV-FC 02 v:8 <br>fecha de vigencia: <br>${DateVig}</td>
                     </tr>
                     </table>
                 
@@ -303,56 +303,62 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Reconocimiento de tests reports:</td>
-                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td> <select required="" class="form-select dropdown letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
-                        </select>
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 4):</td>
-                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td> <select required="" class="form-select dropdown letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Inspección de la producción FPE (Aplicable para esquemas 3):</td>
-                        <td> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td> <select required="" class="form-select dropdown letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 4):</td>
-                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de inspección de la producción FPE
                             (Aplicable para esquema 3):</td>
-                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Reconocimiento de informe de auditoría FQSA (Aplicable para
                             esquema 5):</td>
-                        <td><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Auditoría del sistema de Gestión de la calidad del fabricante
                             FQSA (Aplicable para esquema 5):</td>
-                        <td class= "letras_tabla2"><select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td class= "letras_tabla2"><select required="" class="form-select dropdown letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
@@ -363,17 +369,19 @@ const observerdatos = new MutationObserver(()=>{
                         <td class= "letras_tabla2" >Reconocimiento de certificado ISO 22000 versión 2018 / FSSC
                             22000 u otro sistema de gestión de inocuidad de alimentos
                             (Aplicable para esquema 3):</td>
-                        <td><select required="" class="form-select dropdown sombra letras_tabla2 letras_tabla2"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown letras_tabla2 letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Informe de Evaluación de la conformidad de acuerdo con los
                             resultados obtenidos:</td>
-                        <td><select required="" class="form-select dropdown sombra letras_tabla2 letras_tabla2"  aria-label="Default select example">
+                        <td><select required="" class="form-select dropdown letras_tabla2 letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
@@ -396,16 +404,18 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Visita a fabrica:</td>
-                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Ensayos:</td>
-                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2"  aria-label="Default select example">
+                        <td class= "letras_tabla2"> <select required="" class="form-select dropdown sombra letras_tabla2 dropdown_pdf"  aria-label="Default select example">
                             <option value="Aplica" selected>Aplica</option>
                             <option value="No Aplica">No Aplica</option>                        
+                        </select><textarea class="desc form-control altura_textarea letras_tabla2 text_area_drop"></textarea>                        
                         </select></td>
                     </tr>
                 </table>
@@ -715,7 +725,7 @@ const observerdatos = new MutationObserver(()=>{
                 </div>
                 <table border="1" id="table33" class= "margnees_elem">
                     <tr>
-                        <th COLSPAN="4" class="letras_blanco_fAzul centrar_t " >3.3 PRESUPUESTO PARA EL OTORGAMIENTO 
+                        <th COLSPAN="4" class="letras_blanco_fAzul centrar_t " >3.3 PRESUPUESTO PARA LA VIGILANCIA
                             <button class="ocultar" id="removefilest33">-</button><button class="ocultar" id="addfilest33">+</button>
                         </th>                       
                     </tr>
@@ -725,11 +735,11 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr33">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
                             </span> 
                             <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
                             </span>
                         </td>
                         <td>
@@ -743,15 +753,15 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr33">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
                             </span> 
                             <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
                         </td>
                         <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
@@ -761,83 +771,11 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr33">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
                             </span> 
                             <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
-                            </span>
-                        </td>
-                        <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
-                        </td>
-                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
-                        </td>
-                        <td class="p_total5"></td>
-                    </tr>
-                    <tr class="tr33" style="display:none">
-                        <td>
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
-                            </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
-                            </span>
-                        </td>
-                        <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
-                        </td>
-                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
-                        </td>
-                        <td class="p_total5"></td>
-                    </tr>
-                    <tr class="tr33" style="display:none">
-                        <td>
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
-                            </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
-                            </span>
-                        </td>
-                        <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
-                        </td>
-                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
-                        </td>
-                        <td class="p_total5"></td>
-                    </tr>
-                    <tr class="tr33" style="display:none">
-                        <td>
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
-                            </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
-                            </span>
-                        </td>
-                        <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
-                        </td>
-                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
-                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
-                        </td>
-                        <td class="p_total5"></td>
-                    </tr>
-                    <tr class="tr33" style="display:none">
-                        <td>
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
-                            </span> 
-                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
-                            <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
                             </span>
                         </td>
                         <td>
@@ -851,15 +789,15 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
                             </span> 
                             <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
                         </td>
                         <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
@@ -869,15 +807,87 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
                             </span> 
                             <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea altura_textarea"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
+                        </td>
+                        <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
+                            <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
+                        </td>
+                        <td class="p_total5"></td>
+                    </tr>
+                    <tr class="tr33" style="display:none">
+                        <td>
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
+                            </span> 
+                            <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
+                            </span>
+                        </td>
+                        <td>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
                         </td>
                         <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p>  
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">
@@ -887,15 +897,15 @@ const observerdatos = new MutationObserver(()=>{
                     <tr class="tr33" style="display:none">
                         <td>
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default menos5 mas_menos" type="button">-</button> 
+                                <button class="btn btn-default menos5 mas_menos" type="button"><p class="letra_masm">-</p></button> 
                             </span> 
                             <input style="width:50px;text-align: center;" class="contadorc5 form-control mas_menos inputpdf" value="1">
                             <span class="input-group-btn"> 
-                                <button class="btn btn-default mas5 mas_menos" type="button">+</button> 
+                                <button class="btn btn-default mas5 mas_menos" type="button"><p class="letra_masm">+</p></button> 
                             </span>
                         </td>
                         <td>
-                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4"></textarea>
+                            <textarea style="width:50px;text-align: center;"  class="desc form-control letras_tabla4 altura_textarea"></textarea>
                         </td>
                         <td class="p_unit letras_tabla4"><p class ="mas_menos">$</p> 
                             <input style="width:50px;text-align: center;"  class="contadoru5 form-control inputpdf2" value="1">

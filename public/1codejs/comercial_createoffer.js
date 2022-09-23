@@ -15,11 +15,14 @@ const observerdatos = new MutationObserver(()=>{
         listcheck = Array.prototype.slice.apply(d.getElementsByClassName('checks')),
         inputs = d.getElementsByClassName('inputsr'),
         selectCliente = d.getElementById('ClienteOF'),
+        selectClienteSol = d.getElementById('ClienteOFs'),
         selectFabrica = d.getElementById('fabricaOF'),
+        selectCP = d.getElementById('condicionespagoOF').firstElementChild,
         selectHtestReport = d.getElementById('homo_testReportOF').firstElementChild,
         selectProducto = d.getElementById('productoOF').firstElementChild,
         enviar = d.getElementById("guardarO"),
         inputFile = d.getElementById("adjuntar"),
+        btnGenPDF= d.getElementById("btngenPDF"),
         data = {};
 
         const recargar = () => {
@@ -32,7 +35,8 @@ const observerdatos = new MutationObserver(()=>{
                 const docs = d.docs;
                 if (docs.length > 0) {
                     docs.forEach (d => {
-                        selectCliente.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`
+                        selectCliente.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`;
+                        selectClienteSol.innerHTML += `<option value="${d.data().Nombre_Compania}">${d.data().Nombre_Compania}</option>`;
                     })
                 }
             }).catch(e => console.log(e));
@@ -41,8 +45,7 @@ const observerdatos = new MutationObserver(()=>{
                 const docs = d.docs;
                 if (docs.length > 0) {
                     docs.forEach (d => {
-                        selectFabrica.innerHTML += `<option value="${d.data().nombre_compania}">${d.data().nombre_compania}</option>`
-
+                        selectFabrica.innerHTML += `<option value="${d.data().nombre_compania}">${d.data().nombre_compania}</option>`;
                     })
                 }
             }).catch (e => console.log(e));
@@ -50,6 +53,7 @@ const observerdatos = new MutationObserver(()=>{
         }
 
         const cargaDetalleCliente = () => {
+            btnGenPDF.removeAttribute('style','display:none');
             const left = d.getElementById('cliente'),
             cliente = JSON.parse(localStorage.getItem("nclient")), 
             list_noOf = JSON.parse(localStorage.getItem("list_noOf")),  
@@ -62,19 +66,21 @@ const observerdatos = new MutationObserver(()=>{
             const mostrarCliente = (clienteActual) => {              
                 const cA = cliente[list_noOf.indexOf(clienteActual)];
                 
-                selectCliente.innerHTML = `<option selected="" value="">Cliente: ${cA.ClienteOF}</option>`;
+                selectCliente.innerHTML = `<option selected="" value="">C. Titular: ${cA.ClienteOF}</option>`;
+                selectClienteSol.innerHTML = `<option selected="" value="">C. Solicitante: ${cA.ClienteOF}</option>`;
                 selectFabrica.innerHTML = `<option selected="" value="">Fabrica: ${cA.fabricaOF}</option>`;
                 selectHtestReport.textContent = `Homologación test report: ${cA.homo_restOF}`;
                 selectProducto.textContent = `Producto: ${cA.productoOF}`;
+                selectCP.textContent = `C. Pago: ${cA.condicionespagoOF}`;
                 
                 traerClientesFabricas();
-                inputs[0].placeholder = `No. de oferta: ${cA.No_oferta}`;
-                inputs[1].placeholder = `Esquema: ${cA.esquemaOF}`;
-                inputs[2].placeholder = `Vigencia (años): ${cA.vigenciaOF}`;
-                inputs[3].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
-                inputs[4].placeholder = `Ensayos: ${cA.ensayosOF}`;
-                inputs[5].placeholder = `Muestras: ${cA.muestrasOF}`;
-                inputs[6].placeholder = `Condiciones pago (días): ${cA.condicionespagoOF}`;         
+                
+                inputs[0].placeholder = `Esquema: ${cA.esquemaOF}`;
+                inputs[1].placeholder = `Vigencia (años): ${cA.vigenciaOF}`;
+                inputs[2].placeholder = `Homologación ISO9001: ${cA.homologacionOF}`;
+                inputs[3].placeholder = `Ensayos: ${cA.ensayosOF}`;
+                inputs[4].placeholder = `Muestras: ${cA.muestrasOF}`; 
+                inputs[5].placeholder = `No. de oferta: ${cA.No_oferta}`;     
             }
         
             const vinculos = Array.prototype.slice.apply(d.querySelectorAll('.left'));
@@ -96,28 +102,34 @@ const observerdatos = new MutationObserver(()=>{
             mostrarCliente(clienteActual);     
             const selected = vinculos.find(e => e.textContent == clienteActual)
             selected.setAttribute('style','font-weight: bold'); 
-            d.getElementById("btngenPDF").addEventListener('click',() => location.hash = "#/comercial/createpdf1");
+            btnGenPDF.addEventListener('click',() => location.hash = "#/comercial/createpdf1");
            
         };
 
         const formNew = () => {
+            try{
+                if (nidsClient){btnGenPDF.setAttribute('style','display:none')};
+            } catch (e){
+                if (e.name === 'ReferenceError' ) {btnGenPDF.setAttribute('style','display:none')}
+            }
             if (localStorage.getItem('b1')){localStorage.removeItem('b1')};
             estado=true;
             if (b1 == false){
                 recargar();
             } else { 
-                selectCliente.innerHTML = `<option selected="" value="">Cliente</option>`;
+                selectCliente.innerHTML = `<option selected="" value="">Cliente Titular</option>`;
+                selectClienteSol.innerHTML = `<option selected="" value="">Cliente Solicitante</option>`;
                 selectFabrica.innerHTML = `<option selected="" value="">Auditoria en Fábrica</option>`;
                 selectHtestReport.textContent = `Homologación test report`;
                 selectProducto.textContent = `Producto a certificar`;
-                traerClientesFabricas();
-                inputs[0].placeholder = `No. de oferta`;
-                inputs[1].placeholder = `Esquema de certificación`;
-                inputs[2].placeholder = `Vigencia (años)`;
-                inputs[3].placeholder = `Homologación ISO 9001`;
-                inputs[4].placeholder = `Ensayos`;
-                inputs[5].placeholder = `Muestras`;
-                inputs[6].placeholder = `Condiciones de pago (días)`;  
+                selectCP.textContent = `Condiciones de Pago`;
+                traerClientesFabricas();                
+                inputs[0].placeholder = `Esquema de certificación`;
+                inputs[1].placeholder = `Vigencia (años)`;
+                inputs[2].placeholder = `Homologación ISO 9001`;
+                inputs[3].placeholder = `Ensayos`;
+                inputs[4].placeholder = `Muestras`;
+                inputs[5].placeholder = `No. de oferta`;
 
                 d.getElementById("guardarO").disabled = false;
                 d.getElementById("adjuntar").disabled = false;
@@ -154,11 +166,10 @@ const observerdatos = new MutationObserver(()=>{
                     })
                 }
                 mapcheck.includes(true) ? continuar() : Swal.fire(
-                    'error',
-                    'debe editar al menos un campo',
+                    'Error!',
+                    `¡Debe editar al menos un campo!`,
                     'error'
-                )
-                // alert("debe editar al menos un campo");                
+                );                
             }
         } 
 
@@ -167,9 +178,11 @@ const observerdatos = new MutationObserver(()=>{
                 e.value.length > 0 && (() => data[e.id] = e.value)();
             })  
             selectCliente.value.length > 0 && (() => data.ClienteOF = selectCliente.value)();
+            selectClienteSol.value.length > 0 && (() => data.ClienteOFSol = selectClienteSol.value)();
             selectFabrica.value.length > 0 && (() => data.fabricaOF = selectFabrica.value)();
             selectHtestReport.parentNode.value.length > 0 && (() => data.homo_restOF = selectHtestReport.parentNode.value)();
             selectProducto.parentNode.value.length > 0 && (() => data.productoOF = selectProducto.parentNode.value)();
+            selectCP.parentNode.value.length > 0 && (() => data.condicionespagoOF = selectCP.parentNode.value)();
 
         }
 
@@ -246,7 +259,7 @@ const observerdatos = new MutationObserver(()=>{
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: 'Debe llenar todos los campos',
+                        text: 'Debe llenar todos los acampos',
                         
                       })
                                                
@@ -259,7 +272,7 @@ const observerdatos = new MutationObserver(()=>{
                         text: 'Debe editar al menos un campo',
                         
                       })
-                    // alert('Debe editar al menos un campo');                            
+                    alert('Debe editar al menos un campo');                            
                 })() : sigue();                
             }
         })

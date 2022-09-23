@@ -333,109 +333,94 @@ export const querySnapComOfs = async() => {
     try {
         const first = query(collection(db, "ofertas"), orderBy("ClienteOF","asc"), limit(10));
         const documentSnapshots = await getDocs(first);
-        
         console.log(`documentsSnapCom: ${documentSnapshots}`)
         return documentSnapshots
-    
-    
         } catch (e){
             throw e.message
-    
         }
     }
     
-    export const queryNextComOfs= async(lastVisible) => {
+export const queryNextComOfs= async(lastVisible) => {
+    const next = query(collection(db, "ofertas"), 
+            orderBy("ClienteOF","asc"),
+            startAfter(lastVisible),
+            limit(10));
+    const docs_ = await getDocs(next);
+    return docs_;        
+}
     
-        const next = query(collection(db, "ofertas"), 
-                orderBy("ClienteOF","asc"),
-                startAfter(lastVisible),
-                limit(10));
-        const docs_ = await getDocs(next);
-        
-        return docs_;
-                
+export const queryNextntComOfs = async(lastVisible) => {
+    const next = query(collection(db, "ofertas"), 
+            orderBy("ClienteOF","desc"),
+            startAfter(lastVisible),
+            limit(10));
+    const docs_ = await getDocs(next);
+    return docs_;
+}
+
+export const updateFormalizarOF = async (idOf, check) => {
+    try {
+        await updateDoc(doc(db, "ofertas", idOf), {Formalizar: check});
+        return "oferta actualizada formalizada correctamente";
+    } catch (e){
+        throw e;
     }
+}
+
+export async function sendNotificateEmail(email, subject, body) {
+    const collectionRef = collection(db, 'mail');
+    const emailContent = {
+        to: email,
+        message: {
+            subject: subject,
+            text: body,
+            html: `<p>${body}</p>`,
+        },
+    };
+    console.log('listo para ser enviado'+email);
+    return await addDoc(collectionRef, emailContent);
+}
+
+export const getTecnicoCoordinadorEmail = async () =>{
+    try {
+        const first = query(collection(db, "users"), where("Cargo", "==", "tcoordinador"));
+        const documentSnapshots = await getDocs(first);
+        return documentSnapshots        
     
-    export const queryNextntComOfs = async(lastVisible) => {
-    
-        const next = query(collection(db, "ofertas"), 
-                orderBy("ClienteOF","desc"),
-                startAfter(lastVisible),
-                limit(10));
-        const docs_ = await getDocs(next);
-        
-        return docs_;
-                
+    } catch (e){
+        console.log(e.messaje)
+        throw e.message
     }
-
-    export const updateFormalizarOF = async (idOf, check) => {
-        try {
-            await updateDoc(doc(db, "ofertas", idOf), {Formalizar: check});
-            return "oferta actualizada formalizada correctamente";
-        } catch (e){
-            throw e;
-        }
-    }
-
-    export async function sendNotificateEmail(email, subject, body) {
-        const collectionRef = collection(db, 'mail');
-        const emailContent = {
-            to: email,
-            message: {
-                subject: subject,
-                text: body,
-                html: `<p>${body}</p>`,
-            },
-        };
-        console.log('listo para ser enviado'+email);
-        return await addDoc(collectionRef, emailContent);
-    }
-
-    export const getTecnicoCoordinadorEmail = async () =>{
-        try {
-            const first = query(collection(db, "users"), where("Cargo", "==", "tcoordinador"));
-            const documentSnapshots = await getDocs(first);
-            return documentSnapshots        
-        
-        } catch (e){
-            console.log(e.messaje)
-                throw e.message
-        
-        }
-    }
+}
 
 //</comercial_infooffers>//
 
 ////<comercial_editcliente>////
 export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = null) => {
     /*iniciar sesion como cliente*/
-    console.log(`bcorreo: ${bcorreo}; bClave ${bclave}`)
     signInWithEmailAndPassword(auth,bcorreo,bclave)
     .then(() => {
-        /*update email si aplica*/
-      
+        /*update email si aplica*/     
         Email && (async() => {
             await updateEmail(auth.currentUser, Email).then(() => {
                 return "Email updated!";
             }).catch((error) => {
+                console.log(error);
                 throw error.message;
             });
         })();    
-        /*update clave si aplica*/      
-    
-       
+        /*update clave si aplica*/        
     }).then (()=>{
         Clave && (async() => {
             const user = auth.currentUser;
             await updatePassword(user, Clave).then(() => {
                 return "Email updated!";
             }).catch((error) => {
+                console.log(error);
                 throw error.message;
             });
         })();
-         /*cerrar sesion del cliente y volver a cargar sesion del comercial*/
-
-             
+         /*cerrar sesion del cliente y volver a cargar sesion del comercial*/     
     }).then (()=>{
         signOut(auth).then(() => {
             const correo = localStorage.getItem("em");
@@ -459,11 +444,9 @@ export const updateUserClient = async (bcorreo, bclave, Clave = null, Email = nu
     })
     .catch((error) => {console.log(error.code);
         console.log(error.message);
-        throw error.messaje;
+        throw error;
     })
 }
-
-
 
 export const updateDataClient = (idClient, datos) => {
     try {
@@ -476,66 +459,14 @@ export const updateDataClient = (idClient, datos) => {
 
 ////</tcoordinador_createasignacion>////
 
-    export const querySnapTcAsignExpert = async() => {
-        try {
-            const first = query(collection(db, "users"), where("Cargo", "==", "experto"), orderBy("NoIdentificacion","asc")/*, limit(10)*/);
-            const documentSnapshots = await getDocs(first);
-            
-            // console.log(`documentsSnapCom: ${documentSnapshots}`)
-            // console.dir(documentSnapshots);
-            // console.info(documentSnapshots);
-            return documentSnapshots
-        
-        
-            } catch (e){
-                throw e.message
-        
-            }
-        }
-
-    
-    export const queryNextTcAsignExpert= async(lastVisible) => {
-    
-        const next = query(collection(db, "ofertas"), 
-                orderBy("ClienteOF","asc"),
-                startAfter(lastVisible),
-                limit(10));
-        const docs_ = await getDocs(next);
-        
-        return docs_;
-                
-    }
-    
-    export const queryNextntTcAsignExpert = async(lastVisible) => {
-    
-        const next = query(collection(db, "ofertas"), 
-                orderBy("ClienteOF","desc"),
-                startAfter(lastVisible),
-                limit(10));
-        const docs_ = await getDocs(next);
-        
-        return docs_;
-                
-    }
-
-    export const setAsingExpert = async(id, data) => {
-        try{
-            await setDoc(doc(db, "oferta-experto",id), data).then().catch(e=>{throw e});
-            return 'enviado'
-        } catch (e){
-            throw e;
-        }
-    } 
-
-//</tcoorditcoordinador_createasignacion>//
-
-//// <tcoordinador_infooffers>////
-export const querySnapComOfsForm = async() => {
+export const querySnapTcAsignExpert = async() => {
     try {
-        const first = query(collection(db, "ofertas"), where("Formalizar", "==", true), orderBy("ClienteOF","asc"), limit(10));
+        const first = query(collection(db, "users"), where("Cargo", "==", "experto"), orderBy("NoIdentificacion","asc")/*, limit(10)*/);
         const documentSnapshots = await getDocs(first);
         
-        console.log(`documentsSnapCom: ${documentSnapshots}`)
+        // console.log(`documentsSnapCom: ${documentSnapshots}`)
+        // console.dir(documentSnapshots);
+        // console.info(documentSnapshots);
         return documentSnapshots
     
     
@@ -544,32 +475,67 @@ export const querySnapComOfsForm = async() => {
     
         }
     }
+export const queryNextTcAsignExpert= async(lastVisible) => {
+    const next = query(collection(db, "ofertas"), 
+            orderBy("ClienteOF","asc"),
+            startAfter(lastVisible),
+            limit(10));
+    const docs_ = await getDocs(next);    
+    return docs_;            
+}
+
+export const queryNextntTcAsignExpert = async(lastVisible) => {
+    const next = query(collection(db, "ofertas"), 
+            orderBy("ClienteOF","desc"),
+            startAfter(lastVisible),
+            limit(10));
+    const docs_ = await getDocs(next);    
+    return docs_;            
+}
+
+export const setAsingExpert = async(id, data) => {
+    try{
+        await setDoc(doc(db, "oferta-experto",id), data).then().catch(e=>{throw e});
+        return 'enviado'
+    } catch (e){
+        throw e;
+    }
+} 
+
+//</tcoorditcoordinador_createasignacion>//
+
+//// <tcoordinador_infooffers>////
+export const querySnapComOfsForm = async() => {
+    try {
+        const first = query(collection(db, "ofertas"), where("Formalizar", "==", true), orderBy("ClienteOF","asc"), limit(10));
+        const documentSnapshots = await getDocs(first);        
+        console.log(`documentsSnapCom: ${documentSnapshots}`)
+        return documentSnapshots    
     
-    export const queryNextComOfsForm= async(lastVisible) => {
-    
-        const next = query(collection(db, "ofertas"), 
-                where("Formalizar", "==", true),
-                orderBy("ClienteOF","asc"),
-                startAfter(lastVisible),
-                limit(10));
-        const docs_ = await getDocs(next);
-        
-        return docs_;
-                
+        } catch (e){
+            throw e.message    
+        }
     }
     
-    export const queryNextntComOfsForm = async(lastVisible) => {
-    
-        const next = query(collection(db, "ofertas"), 
-                where("Formalizar", "==", true),
-                orderBy("ClienteOF","desc"),
-                startAfter(lastVisible),
-                limit(10));
-        const docs_ = await getDocs(next);
-        
-        return docs_;
-                
-    }
+export const queryNextComOfsForm= async(lastVisible) => {    
+    const next = query(collection(db, "ofertas"), 
+            where("Formalizar", "==", true),
+            orderBy("ClienteOF","asc"),
+            startAfter(lastVisible),
+            limit(10));
+    const docs_ = await getDocs(next);        
+    return docs_;                
+}
+
+export const queryNextntComOfsForm = async(lastVisible) => {    
+    const next = query(collection(db, "ofertas"), 
+            where("Formalizar", "==", true),
+            orderBy("ClienteOF","desc"),
+            startAfter(lastVisible),
+            limit(10));
+    const docs_ = await getDocs(next);        
+    return docs_;          
+}
 //// </tcoordinador_infooffers>////
 
 export const readUser = async () => {
