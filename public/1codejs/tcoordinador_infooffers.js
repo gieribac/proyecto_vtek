@@ -101,7 +101,7 @@ const observerdatos = new MutationObserver(()=>{
             }
         }
         const listeners = () => {
-            const vinculos = d.querySelectorAll('button');
+            const vinculos = d.querySelectorAll('#formalizar > span');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 localStorage.setItem("clientSelect",element.name);

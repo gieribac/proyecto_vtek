@@ -22,8 +22,17 @@ const observerdatos = new MutationObserver(()=>{
                 console.log(id);
                 console.log(data);
                 setAsingExpert(id, data);
+                Swal.fire(
+                    'Bien',
+                    'Evaluador asignado',
+                    'success'
+                  )
             } else {
-                alert("Debe seleccionar Experto")
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Debe seleccionar Experto',
+                  })
             }
         })
         

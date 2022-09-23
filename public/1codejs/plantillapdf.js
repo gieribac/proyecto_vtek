@@ -10,13 +10,16 @@ const observerdatos = new MutationObserver(()=>{
         Boolean(clientSelectID) && (() => {
             queryOferta(clientSelectID).then(t => {  
                 const fabrica = t.data().fabricaOF;
-                const cliente = t.data().ClienteOF;
+                const cliente = t.data().ClienteOF; //cliente titular
+                const clienteSol = t.data().ClienteOFSol; //cliente solicitante
                 const oferta_ = t.data();
-                queryFabrica(fabrica).then(f => {
+                console.log(t.id);
+                queryFabrica(fabrica).then( f => {
                     const fabrica_ = f.data();
-                    queryCliente(cliente).then(c => {
+                    queryCliente(cliente).then( async c => {
                         const cliente_ = c.data();
-                        cargaDataOferta(oferta_, fabrica_, cliente_ )
+                        const clienteSol_ = clienteSol == cliente ? cliente_ : await queryCliente(clienteSol);
+                        cargaDataOferta(oferta_, fabrica_, cliente_, clienteSol_);
                     }).then( after => setLogica()).catch( );
                 }).catch(e => console.log(e));  
             }).catch(e => console.log(e))
@@ -26,7 +29,7 @@ const observerdatos = new MutationObserver(()=>{
 
         })()
         
-        const cargaDataOferta = (o,f,c) => {
+        const cargaDataOferta = (o,f,ct,cs) => {
             
             const d = document,
             fecha = new Date(),        
@@ -39,7 +42,9 @@ const observerdatos = new MutationObserver(()=>{
             const yearsVig = parseInt(o.vigenciaOF, 10), 
             condicionesPago = parseInt(o.condicionespagoOF, 10),         
             DateVig = `${day} / ${month} / ${year+yearsVig}`,
-            resolucion = ress[o.productoOF];
+            producto = o.productoOF.replace(/-/g, "_").replace(/ /g, "_"),
+            resolucion = ress[producto];
+
             
             const head = `<div></div>
             <div>
@@ -47,7 +52,7 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                     <td  class="centrar_t"><div class="logoPDF"></div></td>
                     <td  class="centrar_t " >OFERTA COMERCIAL DE CERTIFICACION</td>
-                    <td class="centrar_t" >GV-FC 02 v:8 <br>fecha de vigencia: <br>${DateVig}</td>
+                    <td class="centrar_t" >GV-FC 02 v:8 <br>fecha de vigencia: <br>04/03/2022</td>
                     </tr>
                     </table>
                 
@@ -66,10 +71,10 @@ const observerdatos = new MutationObserver(()=>{
                     <p id="fecha"><b>Bogotá, ${day} de ${monthletra} del ${year} </b></p> 
                     <br>
                     <p>Señores:</p>
-                    <p>${c.Nombre_Compania}</p>
+                    <p>${cs.Nombre_Compania}</p>
                     <p>${f.representante_legal}</p>
                     <p>Representante Legal</p>
-                    <p>${c.Ciudad}</p>
+                    <p>${cs.Ciudad}</p>
                     <br>
                     <p>Respetados Señores,</p>
                     <br>
@@ -79,7 +84,7 @@ const observerdatos = new MutationObserver(()=>{
                     <table style="width: 16cm;">
                     <tr>
                     <td class="centrar_t letras_blanco_fAzul" style="padding: 5px; ">OFERTA COMERCIAL N°</td>
-                    <td class="centrar_t " style="position: relative;"> <p class="subrayado"> ${o.No_oferta}</p></td>
+                    <td class="centrar_t " style="position: relative;"> <p class="subrayado"> ${o.No_oferta}</p>
                     </tr>
                     </table>
                 </div>
@@ -112,40 +117,40 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla2 ">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
-                        <td class="letras_tabla3">${c.Nombre_Compania}</td>
+                        <td class="letras_tabla3">${cs.Nombre_Compania}</td>
                         <td class="letras_tabla2">Número de NIT:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Nit}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Representante Legal</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Representante_Legal}</td>
                         <td class="letras_tabla2">Identificación:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.No_Identificacion}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Dirección comercial:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Direccion}</td>
                         <td class="letras_tabla2">Web:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Web}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Ciudad/Depto.:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Ciudad}</td>
                         <td class="letras_tabla2">Tel:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Numero_Contacto}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Nombre del
                             responsable: </td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Nombre_Responsable}</td>
                         <td class="letras_tabla2">Mail:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Email}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" >Cargo:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${cs.Cargo}</td>
                         <td class="letras_tabla2" >Tel/Cel. (Móvil):</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
+                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${cs.Numero_Contacto}</td>
                     </tr>
                 </table>
             </main>
@@ -173,40 +178,40 @@ const observerdatos = new MutationObserver(()=>{
                         <td class="letras_tabla2 ">Nombre de la compañía
                             (Como aparece
                             registrada)</td>
-                        <td class="letras_tabla3">${c.Nombre_Compania}</td>
+                        <td class="letras_tabla3">${ct.Nombre_Compania}</td>
                         <td class="letras_tabla2">Número de NIT:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Nit}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Nit}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Representante Legal</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Representante_Legal}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Representante_Legal}</td>
                         <td class="letras_tabla2">Identificación:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.No_Identificacion}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.No_Identificacion}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Dirección comercial:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Direccion}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Direccion}</td>
                         <td class="letras_tabla2">Web:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Web}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Web}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Ciudad/Depto.:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Ciudad}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Ciudad}</td>
                         <td class="letras_tabla2">Tel:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Numero_Contacto}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Numero_Contacto}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2">Nombre del
                             responsable: </td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Nombre_Responsable}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Nombre_Responsable}</td>
                         <td class="letras_tabla2">Mail:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Email}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Email}</td>
                     </tr>
                     <tr>
                         <td class="letras_tabla2" >Cargo:</td>
-                        <td class="letras_tabla3" style="align-items: center;">${c.Cargo}</td>
+                        <td class="letras_tabla3" style="align-items: center;">${ct.Cargo}</td>
                         <td class="letras_tabla2" >Tel/Cel. (Móvil):</td>
-                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${c.Numero_Contacto}</td>
+                        <td class="letras_tabla3" style="align-items: center;" id="datos_contacto">${ct.Numero_Contacto}</td>
                     </tr>
                 </table>
             <div class="margnees_elem">
@@ -219,12 +224,12 @@ const observerdatos = new MutationObserver(()=>{
                     <tr>
                         <td class= "letras_tabla2" >Nombre de la Compañía
                             Fabricante: </td>
-                        <td class="letras_tabla2" colspan="6">${f.nombre_compania}</td>
+                        <td colspan="6" class="letras_tabla2">${f.nombre_compania}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2"  >Dirección de la planta/s en
                             donde se fabrica el producto:</td>
-                        <td class="letras_tabla2" colspan="6">${f.direccion}</td>
+                        <td colspan="6 "class="letras_tabla2">${f.direccion}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Contacto:</td>
@@ -236,11 +241,11 @@ const observerdatos = new MutationObserver(()=>{
                         <td class= "letras_tabla2" >Teléfono:</td>
                         <td class="letras_tabla2">${f.telefono}</td>
                         <td class= "letras_tabla2" >Ciudad:</td>
-                        <td class="letras_tabla2" id="ciudadFabrica">${f.ciudad}</td>
+                        <td id="ciudadFabrica" class="letras_tabla2">${f.ciudad}</td>
                     </tr>
                     <tr>
                         <td class= "letras_tabla2" >Mail:</td>
-                        <td class="letras_tabla2" colspan="3">${f.email}</td>
+                        <td colspan="3" class="letras_tabla2">${f.email}</td>
                     </tr>
                 </table>
                 <div>
@@ -449,7 +454,7 @@ const observerdatos = new MutationObserver(()=>{
                         <th class="letras_blanco_fAzul centrar_t">Esquema de certificación</th><th class="letras_blanco_fAzul centrar_t">Calificación</th>
                     </tr>
                     <tr>
-                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${c.Calificacion}</td>
+                        <td class="centrar_t">${o.esquemaOF}</td><td class="centrar_t">${ct.Calificacion}</td>
                     </tr>
                 </table>
                 <div>
@@ -920,7 +925,7 @@ const observerdatos = new MutationObserver(()=>{
                 </tr>
                 <tr>
                 <td colspan="3" class="centrar_t">I.V.A</td>
-                <td><input style="width:50px;text-align: center;" class="form-control mas_menos inputpdf2" id="table33iva" value="1"> %</td>
+                <td><input style="width:50px;text-align: center;" class="form-control mas_menos inputpdf2" id="table33iva" value="19"> %</td>
             </tr>
             <tr>
                 <td colspan="3" class="centrar_t">TOTAL</td>
@@ -1072,7 +1077,7 @@ const observerdatos = new MutationObserver(()=>{
                     </tr>
                     <tr>
                         <td class="letras_tabla2 centrar_t">Nombre </td>
-                        <td class="letras_tabla2 centrar_t">${c.Nombre_Responsable}</td>
+                        <td class="letras_tabla2 centrar_t">${ct.Nombre_Responsable}</td>
                         <td class="letras_tabla2 centrar_t">Nombre</td>
                         <td class="letras_tabla2 centrar_t">Nombre responsable pendiente</td>
                     </tr>
