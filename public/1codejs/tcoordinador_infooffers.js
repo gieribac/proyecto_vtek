@@ -78,7 +78,7 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${d.data().ClienteOF}</h6>
                     `;
                     producto.innerHTML += `
-                    <h6 >${d.data().productoOF}</h6>
+                    <h6 class="letra_recuadro_info3" >${d.data().productoOF}</h6>
                     `;
                     estado.innerHTML += `
                     <h6 >${st}</h6>
@@ -86,7 +86,10 @@ const observerdatos = new MutationObserver(()=>{
 
                    
                     formalizar.innerHTML += `
-                            <button id="${d.id}" name="${d.data().No_oferta}">Asignar</button>`;
+                    <span> <button id="${d.id}" name="${d.data().No_oferta}" type="button" class="btn btn_degrade" style="margin-bottom: 9px; margin-top: 5px;"></button>‎ ‎ ‎ ‎ asignar‎ </span>`;
+                            
+                        
+                        
 
                     
 
@@ -98,7 +101,7 @@ const observerdatos = new MutationObserver(()=>{
             }
         }
         const listeners = () => {
-            const vinculos = d.querySelectorAll('#formalizar > button');
+            const vinculos = d.querySelectorAll('#formalizar > span');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 localStorage.setItem("clientSelect",element.name);

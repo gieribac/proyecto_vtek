@@ -88,7 +88,7 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${d.data().ClienteOF}</h6>
                     `;
                     producto.innerHTML += `
-                    <h6 >${d.data().productoOF}</h6>
+                    <h6 class="letra_recuadro_info3" >${d.data().productoOF}</h6>
                     `;
                     estado.innerHTML += `
                     <h6 >${st}</h6>

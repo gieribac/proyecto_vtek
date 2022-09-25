@@ -20,268 +20,323 @@ const
         </div>
         </div>`,
   tcoordinador_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:25%">
+
+
+
+  <a href="#/tcoordinador/infooffers">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
       </div>
-  </div>`,
+
+
+  
+  </a>
+
+
+
+  <a href="#/tcoordinador/asignacion">
+      <div class="btnblancodash"> 
+      <div class="btndasheval">
+
+      </div>
+      <h1 class="dashletra2">Plan</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   dtecnico_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:12%">
+  <a href="#/comercial/createcliente">
+      <div class="btnblancodash"> 
+
+  
+      <div class="mas-color ">
+  
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <p class="dashletra1 ">Crear cliente</p>
+
       </div>
-  </div>`,
+
+
+
+  </a>
+
+
+
+  <a href="#/comercial/createoffer">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
+      </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
+      </div>
+
+
+  
+  </a>
+
+
+
+  <a href="#/comercial/createfactorie">
+      <div class="btnblancodash"> 
+      <div class="btndashfabrica">
+
+      </div>
+      <h1 class="dashletra3">Crear fabrica</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   experto_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:12%">
+  <a href="#/experto/createeval">
+      <div class="btnblancodash"> 
+
+  
+      <div class="mas-color ">
+  
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <p class="dashletra1 ">evaluacion</p>
+
       </div>
-  </div>`,
+
+
+
+  </a>
+
+
+
+  <a href="#/experto/paleval">
+      <div class="btnblancodash"> 
+      <div class="btndasheval">
+
+      </div>
+      <h1 class="dashletra2">Plan</h1>
+
+      </div>
+
+
+  
+  </a>
+
+
+
+  <a href="#/experto/infocliente">
+      <div class="btnblancodash"> 
+      <div class="btndashclientes">
+
+      </div>
+      <h1 class="dashletra2">Clientes</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   admin_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:12%">
+  <a href="#/admin/createuser">
+      <div class="btnblancodash"> 
+
+  
+      <div class="mas-color ">
+  
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <p class="dashletra1 ">Crear usuario</p>
+
       </div>
-  </div>`,
+
+
+
+  </a>
+
+
+
+  <a href="#/admin/infooffer">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
+      </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
+      </div>
+
+
+  
+  </a>
+
+
+
+  <a href="#/admin/infoclients">
+      <div class="btnblancodash"> 
+      <div class="btndashclientes">
+
+      </div>
+      <h1 class="dashletra2">clientes</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   cliente_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:45%">
+
+
+
+
+  <a href="#/cliente/offer">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
       </div>
-  </div>`,
+
+
+  
+  </a>
+
+
+
+
+
+
+  </div>
+</div>`,
   scliente_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12 ">
-          <div class="infousuario ">
-              <div class="persona-color2"></div>
-              <h4 class="letrausuario">Nombre usuario</h4>
-          </div>
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:25%">
+
+
+
+
+  <a href="#/scliente/infooffers">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
+
       </div>
-      <div class="cols-lg-9  col--6 col-xs-12   margenusu">
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="Direccíon" aria-label="usuario" id="direccionU"  disabled></div>
-              <div class="inputsdivi"> <input type="text" class="form-control inputsr sombra" placeholder="Ciudad" aria-label="usuario" id="ciudadU" disabled></div>
-          </div>
-          <div class="input-group  input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="nombre responsable" aria-label="usuario" id="nombreU" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="cargo" aria-label="usuario" id="cargoU" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3">
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="tipo de identificacion" aria-label="usuario" id="tipoIDu" disabled></div>
-              <div class="inputsdivi">
-                  <input type="text" class="form-control inputsr sombra" placeholder="identificacíon" aria-label="usuario" id="IDu" disabled></div>
-          </div>
-          <div class="input-group input-group_main p-3 ">
-              <div class="inputsdivi ">
-                  <input type="text " class="form-control inputsr sombra" id="numeroContactoU" placeholder="numero de contácto " aria-label="usuario " disabled></div>
-              <div class="inputsdivi "> <input type="text " id="NumeroClientesU" class="form-control inputsr sombra " placeholder="Numero de cliente" aria-label="usuario " disabled></div>
-          </div>
-          <div>
-              <button type="button " class="btn btnguardar2 " id="editarinfoU"> <h6 class="letrabtng "> Editar</h6></button>
-          </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
       </div>
-  </div>`,
+
+
+  
+  </a>
+
+
+
+  <a href="#/scliente/infoclientes">
+      <div class="btnblancodash"> 
+      <div class="btndashclientes">
+
+      </div>
+      <h1 class="dashletra2">Cliente</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
+</div>`,
   comercial_default = `<div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-    <div class="col-lg-10 ">
-    <div style="margin-left:12%">
-    <a href="#/comercial/createcliente">
-        <div class="btnblancodash"> 
+  <div id="menu"></div>
+  <div class="col-lg-10 ">
+  <div style="margin-left:12%">
+  <a href="#/comercial/createcliente">
+      <div class="btnblancodash"> 
 
-    
-        <div class="mas-color">
-    
-        </div>
+  
+      <div class="mas-color ">
+  
+      </div>
+      <p class="dashletra1 ">Crear cliente</p>
 
-        </div>
-
-    </a>
-
-
-
-    <a href="#/comercial/createoffer">
-        <div class="btnblancodash"> 
-        <div class="btndashoferta">
-
-        </div>
-
-        </div>
-
-
-    
-    </a>
+      </div>
 
 
 
-    <a href="#/comercial/createfactorie">
-        <div class="btnblancodash"> 
-        <div class="btndashfabrica">
-
-        </div>
-        </div>
-
-
-    
-    </a>
+  </a>
 
 
 
+  <a href="#/comercial/createoffer">
+      <div class="btnblancodash"> 
+      <div class="btndashoferta">
 
-    </div>
+      </div>
+      <h1 class="dashletra2">Ofertas</h1>
+
+      </div>
+
+
+  
+  </a>
+
+
+
+  <a href="#/comercial/createfactorie">
+      <div class="btnblancodash"> 
+      <div class="btndashfabrica">
+
+      </div>
+      <h1 class="dashletra3">Crear fabrica</h1>
+      </div>
+
+
+  
+  </a>
+
+
+
+
+  </div>
 </div>`
   ,
   admin_infooffer = `<div class="d-flex align-items-stretch flex-column">
@@ -597,7 +652,7 @@ const
           <div class=" p-3 recuadro margenr sombra temano_recuadro" id="estado">
             <div class="p-3""></div>
           </div>
-          <div class=" p-3 recuadro margenr temano_recuadro" style = "background-color: rgba(225,225,255,0) !important;" >
+          <div class=" p-3 recuadro margenr sombra temano_recuadro"  >
               <div class="p-3 recuadro_formalizar">
               <div class ="btnformalizar" id="formalizar"></div>
             </div>
@@ -696,10 +751,14 @@ const
               </label>
         </div>
         <div class="col icheked">
-            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad"><ul class="autocomplete-results"></ul>
             <p class="ciudadC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
+
+            
+
+
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <input  checked class="checkb" type="checkbox" >
@@ -864,6 +923,7 @@ const
             </form>
           </div>`,
   comercial_createpdf1 = `<nav id="sidebar-container2">
+  <button id="btnDPDF" type="button" class="btn botones_pdf"> <h6 class="letra-editar">Descargar PDF</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 1</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 2</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 3</h6></button>
@@ -872,7 +932,7 @@ const
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 6</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Página 7</h6></button>
           <button type="button" class="vinc btn botones_pdf"> <h6 class="letra-editar">Regresar</h6></button>
-          <button id="btnDPDF" type="button" class="btn botones_pdf"> <h6 class="letra-editar">Descargar PDF</h6></button>
+
           </nav>
           <div id="pgpdf"></div>`,
   comercial_createfactorie = ` <div class="d-flex align-items-stretch flex-column">
@@ -897,7 +957,7 @@ const
               </label>
         </div>
         <div class="col">
-      <input type="text" class="form-control inputsr sombra imputs_tamano" id="paisCF"  placeholder="Pais" aria-label="usuario" name="paisCF">
+      <input type="text" class="form-control inputsr sombra imputs_tamano" id="paisCF"  placeholder="Pais" aria-label="usuario" name="paisCF"><ul class="autocomplete-results"></ul>
       <div class="ncC formulario__input-error letra_formulario" >
           Letras, tildes y espacios
       </div>
@@ -954,7 +1014,7 @@ const
 </div>
 <div class="row">
   <div class="col">
-      <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadCF"  placeholder="Ciudad" aria-label="usuario" name="ciudadCF">
+      <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadCF"  placeholder="Ciudad" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results"></ul>
       <div class="ncC formulario__input-error letra_formulario" >
           Letras, tildes y espacios
       </div>
@@ -978,12 +1038,10 @@ const
     </div>`,
   comercial_createoffer = `<div class="d-flex align-items-stretch flex-column">
   <div id="menu"></div>
-
   <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
     <div class="infopagina">
       <div class="check-color-p"></div>
       <h4 class="letrainfo">Ofertas</h4>
-
     </div>
   </div>
   <div class="col-lg-9 ">
@@ -991,7 +1049,6 @@ const
     <button id="btngenPDF" type="button" class="btn btn-nueva-ofertas">
       <h6 class="letra-editar">Generar PDF</h6>
     </button>
-
     <button id="btnEdit" type="button" class="btn btn-editar-ofertas">
       <h6 class="letra-editar">editar</h6>
     </button>
@@ -1008,12 +1065,10 @@ const
       <div class="recuadro  sombra scroll_rec" id="legal" style="width: 600px;height: 312px;">
         <div style="margin-left: 30px; margin-top: 20px;">
           <div id="inputs">
-
             <div class="row">
               <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="ClienteOF">
                   <option selected value="">Cliente Titular</option>
-
                 </select>
                 <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
@@ -1021,13 +1076,11 @@ const
                 <label class="cliente_active " style="position:relative;">
                   <span class="tooltip-box"> de click para desactivar el espacio</span>
                   <input class="checks" type="checkbox">
-
                 </label>
               </div>
               <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="ClienteOFs">
                   <option selected value="">Cliente Solicitante</option>
-
                 </select>
                 <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
@@ -1035,11 +1088,8 @@ const
                 <label class="cliente_active " style="position:relative;">
                   <span class="tooltip-box"> de click para desactivar el espacio</span>
                   <input class="checks" type="checkbox">
-
                 </label>
-
               </div>
-
             </div>
             <div class="row">
               <div class="col icheked">
@@ -1069,10 +1119,7 @@ const
               <div class="col icheked">
                 <select required="" class="form-select dropdown1 sombra" id="fabricaOF">
                   <option selected value="">Auditoria en fábrica</option>
-
                 </select>
-
-
                 <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
@@ -1099,7 +1146,6 @@ const
                   id="ensayosOF" placeholder="Ensayos"></textarea>
                 <p class="ncC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
-
                 </p>
                 <label class="cliente_active " style="position: relative; margin-left: -244px; margin-top: 84px;">
                   <span class="tooltip-box"> de click para desactivar el espacio</span>
@@ -1143,7 +1189,6 @@ const
                   <option value="30 días">30 días</option>
                   <option value="60 días">60 días</option>
                   </select>
-
                 <p class="rlC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
@@ -1197,7 +1242,6 @@ const
                   <option value='Lineal Led'>Lineal Led</option>
                   <option value='Lineal Hermetica Led'>Lineal Hermetica Led</option>
                 </select>
-
                 <p class="rlC formulario__input-error letra_formulario">
                   Letras, tildes y espacios
                 </p>
@@ -1217,7 +1261,6 @@ const
                   <input class="checks" type="checkbox">
                 </label>
               </div>
-
             </div>
             <div>
               <div id="estilo_adjuntar">

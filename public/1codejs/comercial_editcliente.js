@@ -1,11 +1,12 @@
 import {updateUserClient} from './models/post.js';
 import {updateDataClient} from './models/post.js';
+import { inputAutocompleteCyties } from './helpers.js';
 
 const observer = new MutationObserver(() => {
 
     const charge = () => {
         const d = document;
-
+        inputAutocompleteCyties('#ciudadC');
         const check = d.getElementsByClassName('cliente_active');
         for (let v of check) {
             v.classList.remove('editar_cliente_comercial');
@@ -371,6 +372,11 @@ const observer = new MutationObserver(() => {
             let checksTrue = [];
             checks.forEach(c => {
                 if (c.checked){checksTrue.push(1)} 
+                Swal.fire(
+                    'muy bien!',
+                    'cliente actualizado satisfactoriamente',
+                    'success'
+                  )
             })
             if (checksTrue.length > 12){
                 Swal.fire(

@@ -637,7 +637,7 @@ border-top-right-radius: 50px;
     background-image: url(../img/Recurso\ 18VTEK\ RECURSOS.png);
     height: 300px;
     width: 300px;
-    margin-top: 171px;
+    margin-top: 110px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -678,6 +678,28 @@ border-top-right-radius: 50px;
     top: 30%;
     left: 30%;
     
+}
+.btndashclientes{
+    background-image: url("../img/Recurso\ 31VTEK\ RECURSOS.png");
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
+}
+.btndasheval{
+    background-image: url("../img/Recurso\ 20VTEK\ RECURSOS.png");
+    height: 125px;
+    width: 125px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 30%;
+    left: 30%;
 }
 
 

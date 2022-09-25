@@ -74,4 +74,3 @@
 // observerdatos.observe(parent,{childList:true})
 
 
-const jeison = fetch(`https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json`).then(d => d.json()).then(j => console.log(j))

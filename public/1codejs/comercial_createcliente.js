@@ -1,4 +1,5 @@
 import {saveClient} from './models/post.js';
+import { inputAutocompleteCyties } from './helpers.js';
 
 const observer = new MutationObserver(()=>{
     
@@ -18,6 +19,8 @@ const observer = new MutationObserver(()=>{
         d.getElementById('getBeforeClave').setAttribute('style','display:none'); //para que desaparesca en esta ejecucion
 
         d.getElementById('guardarC').disabled = true;
+
+        inputAutocompleteCyties('#ciudadC');
         let info = [];
             info.push(d.getElementById('guardarC'));//boton de guardar 0
             info.push(d.getElementById('nombreCompaniaC'));//1

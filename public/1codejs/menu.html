@@ -5,15 +5,157 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+   
+    <style>
+        /* body {
+  background-color: blue;
+  font-family: sans-serif;
+}
+
+.autocomplete {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: top;
+  padding-top: 100px;
+}
+
+input {
+  font-size: 2em;
+  width: 300px;
+} */
+
+.autocomplete-results {
+  width: 300px;
+  margin-top: -2px;
+  font-size: 1.3em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+  .autocomplete-results li {
+
+    margin: 0;
+    padding: 0;
+    padding: 10px 0 10px 10px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+  }
+
+  .autocomplete-results li:hover {
+    background-color: rgb(210,210,210);
+    color: #000;
+    cursor: pointer;
+  }
+
+
+
+    </style>
 </head>
 <body>
-    <div class="root"></div>
-    <script>
-        const f1 = () => {
-            document.getElementById('root').innerHTML
+    <div class="autocomplete">
+        <input type="text" autofocus="true"  placeholder="Ciudad" id="autocomplete-input"></input>
+        <ul id="autocomplete-results" class="autocomplete-results">
+        </ul>
+      </div>
+      <script>
+
+const inputAutocompleteCyties = (selectori) => {
+    const search = key => {
+        const jeison = fetch(`https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json`).then(d => d.json())
+        .then(j => {
+    
+            //destructurar y extraer ciudades
+    
+            let cyties = j.map(e => {return e.ciudades}).flat().sort();
+            
+            //Eiminar repetidos
+            let arr = cyties.filter((item,index)=>{
+                return cyties.indexOf(item) === index;
+              })
+    
+            let c;
+            let indiceMax = key.length;
+    
+            //filtrar coincidencias con key
+            arr = arr.filter(e => {return key === e.substr(0, indiceMax)})
+    
+            build_list(arr);
+        })
+    }
+    
+    let input = document.querySelector(selectori);
+    let autocomplete_results = document.getElementById('autocomplete-results');
+    let b1, b2 = false;
+    const mouseOut = () => {
+        document.querySelectorAll('.autocomplete-results').forEach( e => e.style.display = 'none');
+    }
+    const mouseOver = () => {
+        document.querySelectorAll('.autocomplete-results').forEach( e => e.style.display = 'block');
+    }
+    const act = (b1,b2) => b1 || b2 ? mouseOver() : mouseOut();
+    input.addEventListener("focus", () => {b1 = true; act(b1,b2)});
+    input.addEventListener("blur", () => {b1 = false; act(b1,b2)});
+    autocomplete_results.addEventListener("mouseover", () => {b2 = true; act(b1,b2)});
+    autocomplete_results.addEventListener("mouseout", () => {b2 = false; act(b1,b2)});
+
+    
+
+    
+    
+    input.addEventListener('keyup',  (event) =>  {
+        // autocomplete_results.style.display = 'block';
+        // document.querySelectorAll('.autocomplete-results').forEach( e => e.style.display = 'none');
+        
+    
+        //garantizar primera letra en mayuscula 
+        const capitalCase = str => {
+        const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+        return str2;
         }
-        window.hash=""
-    </script>
-    <script src="./menuc.js"></script>
+    
+        let key = capitalCase(event.target.value);
+        
+        console.log(key)
+        
+        if(key.length > 0) {
+            search(key);
+        }
+        else {
+            build_list();
+        }
+    })
+    
+    const build_list = (items) => {
+      
+      if(items === undefined) {
+        items = [];
+      }
+      
+      autocomplete_results.innerHTML = '';
+      
+      items.slice(0,10).map(item =>  {
+        autocomplete_results.innerHTML += `<li>${item}</li>`;
+                          })
+    }
+    
+    document
+      .getElementById("autocomplete-results")
+      .addEventListener("click", e => {
+        if (e.target && e.target.nodeName == "LI") {
+     
+          input.value = e.target.innerHTML;
+          build_list()
+        }
+      });
+
+      input.addEventListener('mouseover', (event) => {})
+}
+          inputAutocompleteCyties('#autocomplete-input');
+
+      </script>
 </body>
 </html>
