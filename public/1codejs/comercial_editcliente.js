@@ -1,11 +1,12 @@
 import {updateUserClient} from './models/post.js';
 import {updateDataClient} from './models/post.js';
+import { inputAutocompleteCyties } from './helpers.js';
 
 const observer = new MutationObserver(() => {
 
     const charge = () => {
         const d = document;
-
+        inputAutocompleteCyties('#ciudadC');
         const check = d.getElementsByClassName('cliente_active');
         for (let v of check) {
             v.classList.remove('editar_cliente_comercial');
@@ -118,15 +119,11 @@ const observer = new MutationObserver(() => {
             let val = true,
             vali;
             for (let v of infov){
-                // v.hasAttribute('required') && (val = val && v.value.length > 0);
-                // vali = v.hasAttribute('required') && v.value.length > 0 ;
                 vali = !v.hasAttribute('required') ? true : v.value.length > 0 ;
-                console.log(v.id)
-                console.log(vali)
                 val = val && vali;
+                val = val && d.getElementById('tipoIDC').value.length > 0;
             }
             d.getElementById('guardarC').disabled = !val;
-            console.log(val)
         }
 
         const validator1 = () => {
@@ -349,15 +346,15 @@ const observer = new MutationObserver(() => {
             info[9].hasAttribute("required") && (() => datos.Nit = info[9].value)();
             info[10].hasAttribute("required") && (() => datos.Numero_Contacto = info[10].value)();
             info[11].hasAttribute("required") && (() => datos.Web = info[11].value)();
-            info[12].hasAttribute("required") && (() => {Email = info[12].value; datos.Email = Email});
+            info[12].hasAttribute("required") && (() => Email = info[12].value)();
             info[14].hasAttribute("required") && (Clave = info[14].value);
-            (info[7].value.length < 3) && (() => datos.Tipo_Identificacion = info[7].value)();
-            (info[13].value.length < 3) && (() => datos.Tipo_Identificacion = info[13].value)();
-            info.push(d.getElementById('bemailC')); //16
-            info.push(d.getElementById('bclaveC')); //17
+            (info[7].value.length > 0) && (() => datos.Tipo_Identificacion = info[7].value)();
+            (info[13].hasAttribute("required")) && (() => datos.Calificacion = info[13].value)();
+            info.push(d.getElementById('bemailC')); 
+            info.push(d.getElementById('bclaveC')); 
             info[17].hasAttribute("required") && (() => bClave = info[17].value)();
             info[16].hasAttribute("required") && (() => bEmail = info[16].value)();
-
+            datos.Email = Email;
 
             const getCredentials = (info[14].value.length > 0 || info[11].value.length > 0);
 
@@ -381,7 +378,6 @@ const observer = new MutationObserver(() => {
                     'success'
                   )
             })
-            console.log(checksTrue)
             if (checksTrue.length > 12){
                 Swal.fire(
                     'Alerta!',
@@ -390,37 +386,68 @@ const observer = new MutationObserver(() => {
                   )
             } else {
                 e.preventDefault();
-                localStorage.setItem('b2','1');
                 const { datos, Email, Clave, bClave, bEmail } = getData_();
                 const idClient = get_idc();
-                console.log(`datos: ${datos.Email}, email: ${Email} Clave: ${Clave}, bClave: ${bClave}, bEmail: ${bEmail}`);
+                
+                if (Clave || Email){localStorage.setItem('b2','1');}
                 if (datos && (Clave || Email)) {
                     console.log('updateUserClient then updateDataClient');
-                        updateUserClient(bEmail, bClave, Clave, Email).then(
-                            
-                            updateDataClient(idClient, datos)     
-                            
+                        updateUserClient(bEmail, bClave, Clave, Email).then( 
+                            updateDataClient(idClient, datos).then(
+                                Swal.fire(
+                                    '¡Buen trabajo!',
+                                    'Se han actualizado los datos',
+                                    'success'
+                                )
+                            ).catch(
+
+                                Swal.fire(
+                                    '¡Error!!',
+                                    `¡No se han actualizado los datos, error`,
+                                    'error'
+                                )
+                            )    
+                        
                         ).catch(
                             Swal.fire(
                                 'error',
-                                'no se han actualizado los datos',
+                                `No se han actualizado los datos`,
                                 'error'
-                            )
                             
+                            )
                         );
-                    // updateUserClient(bEmail, bClave, Clave, Email)
-                    // updateDataClient(idClient, datos) 
                 } else if (datos && !(Clave || Email)) {
-                    console.log('updateDataClient')
 
-                    updateDataClient(idClient, datos)
+                    updateDataClient(idClient, datos).then(
+                        Swal.fire(
+                            '¡Buen trabajo!',
+                            'Se han actualizado los datos',
+                            'success'
+                        )
+                    ).catch(
+                        Swal.fire(
+                            '¡Error!',
+                            `No se han actualizado los datos!`,
+                            'error'
+                        )
+                    )
                     
 
                 } else if (!datos && (Clave || Email)) {
                     console.log('updateUserClient')
                     updateUserClient(bEmail, bClave, Clave, Email).then(
+                        Swal.fire(
+                            '¡Buen trabajo!',
+                            'Se han actualizado los datos!',
+                            'success'
+                        )
                         
                     ).catch(
+                        Swal.fire(
+                            '¡¡Error!',
+                            `No se han actualizado los datos!`,
+                            'error'
+                        )
                         
                     );
                 } else {

@@ -1,4 +1,5 @@
 import { setFabrica } from "./models/post.js";
+import { inputAutocompleteCyties, inputAutocompleteCountry  } from './helpers.js';
 
 const observerdatos = new MutationObserver(()=>{ 
     
@@ -39,6 +40,9 @@ const observerdatos = new MutationObserver(()=>{
             return datos;
         }
         
+        inputAutocompleteCyties('#ciudadCF');
+        inputAutocompleteCountry('#paisCF');
+
         const habilitar = () => {       
             
             save.addEventListener("click", e => {

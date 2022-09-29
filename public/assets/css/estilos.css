@@ -494,8 +494,8 @@ main {
 
 .recuadro_asignacion {
     background-color: white;
-    border-radius: 25px;
-    width: 136px;
+    border-radius: 20px;
+    width: 163px;
 }
 
 .div_recuadros_asignacion {
@@ -798,6 +798,12 @@ table td{
 }
 table{
     border-collapse: collapse;
+}
+.estiloautocomp{
+    background: white;
+    position: absolute;
+    border-radius: 10px;
+    width: 261px;
 }
 
 @media (max-width: 600px) {

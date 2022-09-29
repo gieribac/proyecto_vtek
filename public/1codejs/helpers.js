@@ -14,8 +14,152 @@ export function menos(id) {
     document.getElementById(id).value = NewCont;
 }
 
-   
-   
+export const inputAutocompleteCyties = (selectori) => {
+    const search = key => {
+        const jeison = fetch(`https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json`).then(d => d.json())
+        .then(j => {
+    
+            //destructurar y extraer ciudades
+    
+            let cyties = j.map(e => {return e.ciudades}).flat().sort();
+            
+            //Eiminar repetidos
+            let arr = cyties.filter((item,index)=>{
+                return cyties.indexOf(item) === index;
+              })
+    
+            let c;
+            let indiceMax = key.length;
+    
+            //filtrar coincidencias con key
+            arr = arr.filter(e => {return key === e.substr(0, indiceMax)})
+    
+            build_list(arr);
+        })
+    }
+
+    const input = document.querySelector(selectori);
+    const autocomplete_results = input.nextSibling;
+    
+    let b1, b2 = false;
+    const mouseOut = () => {
+        document.querySelectorAll(`${selectori} + ul`).forEach( e => e.style.display = 'none');
+    }
+    const mouseOver = () => {
+        document.querySelectorAll(`${selectori} + ul`).forEach( e => e.style.display = 'block');
+    }
+    const act = (b1,b2) => b1 || b2 ? mouseOver() : mouseOut();
+    input.addEventListener("focus", () => {b1 = true; act(b1,b2)});
+    input.addEventListener("blur", () => {b1 = false; act(b1,b2)});
+    autocomplete_results.addEventListener("mouseover", () => {b2 = true; act(b1,b2)});
+    autocomplete_results.addEventListener("mouseout", () => {b2 = false; act(b1,b2)});
+
+    input.addEventListener('keyup',  (event) =>  {
+    
+        //garantizar primera letra en mayuscula 
+        const capitalCase = str => {
+        const str2 = str.charAt(0).toUpperCase() + str.slice(1);
+        return str2;
+        }
+    
+        const key = capitalCase(event.target.value);
+        
+        console.log(key)
+        
+        if(key.length > 0) {
+            search(key);
+        }
+        else {
+            build_list();
+        }
+    })
+    
+    const build_list = (items) => {
+      
+      if(items === undefined) {
+        items = [];
+      }
+      
+      autocomplete_results.innerHTML = '';
+      
+      items.slice(0,10).map(item =>  {
+        autocomplete_results.innerHTML += `<li>${item}</li>`;
+                          })
+    }
+    
+    autocomplete_results
+      .addEventListener("click", e => {
+        if (e.target && e.target.nodeName == "LI") {
+     
+          input.value = e.target.innerHTML;
+          build_list()
+        }
+      });
+}
+
+export const inputAutocompleteCountry = (selectori) => {
+    const search = key => {
+        fetch(`https://restcountries.com/v2/name/${key}`)
+        .then(res => res.json())
+        .then(data => {
+          if(Array.isArray(data)) {
+            build_list(data.map(item => {
+              return item.name
+            }))
+          }
+        })
+      }
+
+    
+    const input = document.querySelector(selectori);
+    const autocomplete_results = input.nextSibling;
+    let b1, b2 = false;
+    const mouseOut = () => {
+        document.querySelectorAll(`${selectori} + ul`).forEach( e => e.style.display = 'none');
+    }
+    const mouseOver = () => {
+        document.querySelectorAll(`${selectori} + ul`).forEach( e => e.style.display = 'block');
+    }
+    const act = (b1,b2) => b1 || b2 ? mouseOver() : mouseOut();
+    input.addEventListener("focus", () => {b1 = true; act(b1,b2)});
+    input.addEventListener("blur", () => {b1 = false; act(b1,b2)});
+    autocomplete_results.addEventListener("mouseover", () => {b2 = true; act(b1,b2)});
+    autocomplete_results.addEventListener("mouseout", () => {b2 = false; act(b1,b2)});
+    
+    input.addEventListener('keyup',  (event) =>  {
+    
+        const key = event.target.value;
+        if(key.length > 0) {
+            search(key);
+        }
+        else {
+            build_list();
+        }
+    })
+    
+    const build_list = (items) => {
+      
+      if(items === undefined) {
+        items = [];
+      }
+      
+      autocomplete_results.innerHTML = '';
+      
+      items.slice(0,10).map(item =>  {
+        autocomplete_results.innerHTML += `<li>${item}</li>`;
+                          })
+    }
+    
+    autocomplete_results
+      .addEventListener("click", e => {
+        if (e.target && e.target.nodeName == "LI") {
+     
+          input.value = e.target.innerHTML;
+          build_list()
+        }
+      });
+}
+
    
    
    //codigo para invocar ids cuando ha cambiado el dom

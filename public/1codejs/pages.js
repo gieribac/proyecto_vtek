@@ -751,10 +751,14 @@ const
               </label>
         </div>
         <div class="col icheked">
-            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad">
+            <input required=""  type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadC" placeholder="Ciudad"><ul class="autocomplete-results estiloautocomp"></ul>
             <p class="ciudadC formulario__input-error letra_formulario" >
                 Letras, tildes y espacios
             </p>
+
+            
+
+
             <label class="cliente_active" style="position:relative;">
                         <span class="tooltip-box"> de click para desactivar el espacio</span>
                 <input  checked class="checkb" type="checkbox" >
@@ -894,7 +898,7 @@ const
 
 
             <div class= "icheked col" > 
-            <input required="" type="text" class="form-control inputsr sombra imputs_tamano " style= "width: 45%;" placeholder="Puntaje" aria-label="usuario" id="calificacionC">
+            <input required="" type="number" class="form-control inputsr sombra imputs_tamano " style= "width: 45%;" placeholder="Puntaje" aria-label="usuario" id="calificacionC">
 
             <p class="calC letra_formulario2 formulario__input-error"></p>  
             <label class="cliente_active" style="position:relative;">
@@ -953,7 +957,7 @@ const
               </label>
         </div>
         <div class="col">
-      <input type="text" class="form-control inputsr sombra imputs_tamano" id="paisCF"  placeholder="Pais" aria-label="usuario" name="paisCF">
+      <input type="text" class="form-control inputsr sombra imputs_tamano" id="paisCF"  placeholder="Pais" aria-label="usuario" name="paisCF"><ul class="autocomplete-results estiloautocomp"></ul>
       <div class="ncC formulario__input-error letra_formulario" >
           Letras, tildes y espacios
       </div>
@@ -1010,7 +1014,7 @@ const
 </div>
 <div class="row">
   <div class="col">
-      <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadCF"  placeholder="Ciudad" aria-label="usuario" name="ciudadCF">
+      <input type="text" class="form-control inputsr sombra imputs_tamano" id="ciudadCF"  placeholder="Ciudad" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results estiloautocomp"></ul>
       <div class="ncC formulario__input-error letra_formulario" >
           Letras, tildes y espacios
       </div>
@@ -1747,39 +1751,39 @@ const
             <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Responsable</h6></div>
         </div>
         <div class="col-lg-10 " style="margin-top: 20px;" >
-          <div class=" div_recuadros_asignacion" style="margin-left: 17%;" >
+          <div class=" div_recuadros_asignacion" style="margin-left: 15%;" >
             <div class=" margenr1 margenofertas sombra recuadro_asignacion " id="cliente">
-              <div class="p-3" ><h6 >oferta # 3</h6></div>
+              <div class="p-2" ><h6 >oferta # 3</h6></div>
           </div>
           <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
             </div>
       </div>
       <div class=" div_recuadros_asignacion">
           
           
             <div class=" margenr sombra recuadro_asignacion" id="legal">
-              <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
             </div>
             <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
             </div>
       </div >
       <div class=" div_recuadros_asignacion">
             <div class=" margenr sombra recuadro_asignacion" id="nit">
-              <div class="p-3" ><h6 >8305556512</h6></div>
+              <div class="p-2" ><h6 >8305556512</h6></div>
             </div>
             <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
             </div>
       </div>
       
       <div class=" div_recuadros_asignacion">
             <div class=" margenr sombra recuadro_asignacion" id="ncontacto">
-              <div class="p-3" ><h6 >8305556512</h6></div>
+              <div class="p-2" ><h6 >8305556512</h6></div>
             </div>
             <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-3" ><h6 > cliente0 # 3</h6></div>
+              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
             </div>
       </div>
         </div>
