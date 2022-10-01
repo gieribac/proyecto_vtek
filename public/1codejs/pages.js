@@ -1692,49 +1692,86 @@ const
   
             </div>
             </div>`,
-  tcoordinador_createasignacion = `     <div class="d-flex align-items-stretch flex-column">
-    <div id="menu"></div>
-      <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
-          <div class="infopagina">
-          <div class="revisado_color"></div>
+  tcoordinador_createasignacion = ` 
 
-          <h4 class="letrainfo" style="    font-size: 20px !important;"> Crear asignación</h4>
-          </div>
-      </div>
-      <div class="col-lg-4 " style="margin-left: 20%">
-      <div class="div_recuadros_asignacion"> 
-        <div class="columnas-asignacion alinear_ofertas"><h6 class="letra-columna2">Experto asignado</h6></div>
-        <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Pre evaluador</h6></div>
-        <div class="columnas-asignacion alinear_ofertas2"><h6 class="letra-columna2">Oferta</h6></div>  
+
+
         
+
+
+
+
+
+
+
+
+
+
+
+        <div class="d-flex align-items-stretch flex-column">
+      <div id="menu"></div>
+        <div class="col-lg-9">
+            <div class="infopagina" style="float:left;">
+            <div class="revisado_color"></div>
+  
+            <h4 class="letrainfo" style="    font-size: 20px !important; float: left;">Plan de asignación</h4>
+            </div>
+            <select class="form-select recuadro_asignacion sombra  " style="margin-top: 43px;" aria-label="Default select example" id="oferta_">
+            <option selected>oferta</option>
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+          </select>
+        </div>
+        <div class="col-lg-9 ">
+          <div> </div>
+          <div class="columnas-clasi4 alinear_ofertas" style="margin-left: 20%;"><h6 class="letra-columna">Fecha</h6></div>
+          <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">hora</h6></div>
+          <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Actividad</h6></div>
+          
+            <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">experto</h6></div>
+        </div>
+        <div class="col-lg-9 " style="margin-top: 20px;" >
+        <div class="row" style="margin-left: 20%;">
+  <div class="col"   style="max-width: 186px;">
+      <input type="datetime-local1" class="form-control inputsr sombra "style="background-color: white;" id="ciudadCF" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results estiloautocomp">
+  </div>
+  <div class="col"  style="max-width: 186px;">
+      <input type="datetime-local2"  class="form-control inputsr sombra "style= "background-color: white;" aria-label="usuario" name="correoCF">
+  </div>
+  <div class="col"  style="max-width: 186px;">
+  <input type="text" class="form-control inputsr sombra " id="ciudadCF" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results estiloautocomp">
+</div>
+<div class="col"  style="max-width: 186px;">
+<div class=" div_recuadros_asignacion">
+<select class="form-select sombra recuadro_asignacion margenr  " aria-label="Default select example" id="experto_asignado_">
+<option selected>puntaje</option>
+<option value="1"></option>
+<option value="2"></option>
+<option value="3"></option>
+</select>
+</div>
+</div>
+          
+</div>
       </div>
-      <div class="div_recuadros_asignacion ">
-        <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="experto_asignado_">
-          <option selected>puntaje</option>
-          <option value="1"></option>
-          <option value="2"></option>
-          <option value="3"></option>
-        </select>
-        <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="preevaluador_">
-          <option selected>puntaje</option>
-          <option value="1"></option>
-          <option value="2"></option>
-          <option value="3"></option>
-        </select>
-        <select class="form-select dropdown_asignacion sombra  " aria-label="Default select example" id="oferta_">
-          <option selected>oferta</option>
-          <option value="1"></option>
-          <option value="2"></option>
-          <option value="3"></option>
-        </select>
+      
+
+        </div>
+        </div>
+        
        
 
       </div>
-      <button id="asignar" type="button" class="btn btn_asignar"> <h6 class="letra_btn_asignar">asignar evaluador </h6></button>
+
+    <button id="anadir" type="button" class="btn anadiendofil"><h6 class="letrabtn">asignar</h6></button>
+    <button id="asignar" type="button" class="btn btn_guardar_ofertas">
+      <h6 class="letrabtn">asignar</h6>
+    </button>
       </div>
       
       </div>`,
-  tcoordinador_asignacion = `<div class="d-flex align-items-stretch flex-column">
+  tcoordinador_asignacion =`<div class="d-flex align-items-stretch flex-column">
       <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
             <div class="infopagina">
@@ -1745,47 +1782,34 @@ const
         </div>
         <div class="col-lg-9 ">
           <div> </div>
-          <div class="columnas-clasi4 alinear_ofertas" style="margin-left: 15%;"><h6 class="letra-columna">Fecha</h6></div>
+          <div class="columnas-clasi4 alinear_ofertas" style="margin-left: 8%;"><h6 class="letra-columna">Fecha</h6></div>
           <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">hora</h6></div>
-          <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Actividad</h6></div>         
-            <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">Responsable</h6></div>
+          <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Actividad</h6></div>       
+            <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">experto</h6></div>
         </div>
         <div class="col-lg-10 " style="margin-top: 20px;" >
-          <div class=" div_recuadros_asignacion" style="margin-left: 15%;" >
-            <div class=" margenr1 margenofertas sombra recuadro_asignacion " id="cliente">
-              <div class="p-2" ><h6 >oferta # 3</h6></div>
-          </div>
-          <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
-            </div>
-      </div>
-      <div class=" div_recuadros_asignacion">
+        <div class="row" style="margin-left: 8%;">
+  <div class="col"   style="max-width: 186px;">
+      <input type="text" class="form-control inputsr sombra " id="ciudadCF"  placeholder="Ciudad" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results estiloautocomp">
+  </div>
+  <div class="col"  style="max-width: 186px;">
+      <input type="text"  class="form-control inputsr sombra " id="correoCF" placeholder="Correo" aria-label="usuario" name="correoCF">
+  </div>
+  <div class="col"  style="max-width: 186px;">
+  <input type="text" class="form-control inputsr sombra " id="ciudadCF"  placeholder="Ciudad" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results estiloautocomp">
+</div>
+<div class="col"  style="max-width: 186px;">
+<div class=" div_recuadros_asignacion">
+<select class="form-select sombra recuadro_asignacion margenr  " aria-label="Default select example" id="experto_asignado_">
+<option selected>puntaje</option>
+<option value="1"></option>
+<option value="2"></option>
+<option value="3"></option>
+</select>
+</div>
+</div>
           
-          
-            <div class=" margenr sombra recuadro_asignacion" id="legal">
-              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
-            </div>
-            <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
-            </div>
-      </div >
-      <div class=" div_recuadros_asignacion">
-            <div class=" margenr sombra recuadro_asignacion" id="nit">
-              <div class="p-2" ><h6 >8305556512</h6></div>
-            </div>
-            <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
-            </div>
-      </div>
-      
-      <div class=" div_recuadros_asignacion">
-            <div class=" margenr sombra recuadro_asignacion" id="ncontacto">
-              <div class="p-2" ><h6 >8305556512</h6></div>
-            </div>
-            <div class=" margenr sombra recuadro_asignacion" style="margin-top: 30px;" id="legal">
-              <div class="p-2" ><h6 > cliente0 # 3</h6></div>
-            </div>
-      </div>
+</div>
         </div>
         </div>
 `, ress = {
