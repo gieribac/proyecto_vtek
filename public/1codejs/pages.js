@@ -1764,10 +1764,13 @@ const
 
       </div>
 
-    <button id="anadir" type="button" class="btn anadiendofil"><h6 class="letrabtn">asignar</h6></button>
+      <div style ="position: absolute; bottom: 40px; right: 300px;">
+      <button id="anadir" type="button" class="btn anadiendofil"><h6 class="letrabtn">añadir</h6></button>
     <button id="asignar" type="button" class="btn btn_guardar_ofertas">
       <h6 class="letrabtn">asignar</h6>
-    </button>
+    </button></div>
+
+    
       </div>
       
       </div>`,
