@@ -1,5 +1,6 @@
 import {querySnapTcAsignExpert, setAsingExpert} from './models/post.js';
 const observerdatos = new MutationObserver(()=>{ 
+    
    
     
     const charge = () => {
@@ -60,6 +61,22 @@ const observerdatos = new MutationObserver(()=>{
 
             }
         }
+
+
+
+        flatpickr("input[Type=datetime-local1]",{
+
+            minDate: "today",
+
+
+        });
+        flatpickr("input[Type=datetime-local2]",{
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",
+
+
+        });
 
 
     }

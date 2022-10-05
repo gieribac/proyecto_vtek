@@ -521,8 +521,8 @@ main {
 
 .recuadro_asignacion {
     background-color: white;
-    border-radius: 25px;
-    width: 136px;
+    border-radius: 20px;
+    width: 163px;
 }
 
 .div_recuadros_asignacion {
@@ -825,6 +825,31 @@ table td{
 }
 table{
     border-collapse: collapse;
+}
+.estiloautocomp{
+    background: white;
+    position: absolute;
+    border-radius: 10px;
+    width: 261px;
+}
+.abajo_asignar{
+    position: absolute;
+    bottom: 40px;
+    right: 20%;
+}
+.anadiendofil{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    float: left;
+    margin-right: -30px;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+    margin-left: 144px;
+    position: relative;
+    cursor: pointer;
 }
 
 @media (max-width: 600px) {
