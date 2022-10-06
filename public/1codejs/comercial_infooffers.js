@@ -94,24 +94,9 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${st}</h6>
                     `;
                     if (d.data().Formalizar) {
-                        // formalizar.innerHTML += `
-                        // <div class="listo_formalizar"> </div><h6  class="formarlizar_letraL">Formalizado</h6></div>     
-
-                        // `;
                         formalizar.innerHTML += `<span><button type="button" class="checkb btn btnazul" style="margin-bottom: 9px; margin-top: 5px;" disabled="true"></button>Formalizado</span>`;
-                        
-
-                        // <label class="cliente_active " style="position:relative;"><input class="checkb" type="checkbox" name="${n_oferta}" id="${id}"checked>Formalizado</label>
                     } else {
-                        // formalizar.innerHTML += `
-                        // <div class="pendiente_formalizar"> </div><h6 class="formarlizar_letra" >No formalizado</h6>  </div>
-                        // `;
-                        // 
-                        formalizar.innerHTML += ` <span><button  name="${n_oferta}" id="${id}" type="button" class="checkb btn btn_degrade" style="margin-bottom: 9px; margin-top: 5px;"></button>Pendiente</span>
-                        
-                        `;
-                        
-
+                        formalizar.innerHTML += ` <span><button  name="${n_oferta}" id="${id}" type="button" class="checkb btn btn_degrade" style="margin-bottom: 9px; margin-top: 5px;"></button>Pendiente</span>`;
                     }
 
                 });

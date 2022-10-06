@@ -120,14 +120,7 @@ body {
     background-repeat: no-repeat;
     margin-left: 71px;
     background-size: contain;
-<<<<<<< HEAD
-
-
-
-
-=======
     position: relative;
->>>>>>> 995a39c18873a1f007391698e1a74550663a94f4
 }
 
 .letrainfo {
@@ -224,13 +217,9 @@ body {
     color: white!important;
     text-align: center;
     font-weight: bold;
-<<<<<<< HEAD
-
-=======
     position: absolute;
     margin-top: 22px;
     margin-left: 71px;
->>>>>>> 995a39c18873a1f007391698e1a74550663a94f4
 }
 
 .letra-columna2 {
@@ -257,28 +246,13 @@ body {
 .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
     border-top-right-radius: 50px !important;
     border-bottom-right-radius: 50px !important;
-<<<<<<< HEAD
 
-
-
-
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 995a39c18873a1f007391698e1a74550663a94f4
 }
 
 .container {
     background-color: aqua;
     width: 50px;
     height: 60PX;
-<<<<<<< HEAD
->>>>>>> 9faa7ad9ac32dd64382df72b2ec705612876349a
-
-
-=======
->>>>>>> 995a39c18873a1f007391698e1a74550663a94f4
 }
 
 .margenr {
@@ -850,6 +824,10 @@ table{
     margin-left: 144px;
     position: relative;
     cursor: pointer;
+}
+
+.rowTemp {
+    margin-left: 20%;
 }
 
 @media (max-width: 600px) {
