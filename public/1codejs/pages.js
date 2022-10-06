@@ -115,7 +115,7 @@ const
   <div id="menu"></div>
   <div class="col-lg-10 ">
   <div style="margin-left:12%">
-  <a href="#/experto/createeval">
+  <a href="#/experto/createoffer">
       <div class="btnblancodash"> 
 
   
@@ -1316,7 +1316,47 @@ const
           </div>
           </div>`,
   dtecnico_infoprocesos = `<div>dtecnico_infoprocesos</div>`,
-  experto_createoffer = `<div>experto_createoffer</div>`,
+  experto_createoffer = `<div class="d-flex align-items-stretch flex-column">
+  <div id="menu"></div>
+    <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
+        <div class="infopagina">
+        <div class="check-color-p"></div>
+        <h4 class="letrainfo">ofertas</h4>
+        </div>
+    </div>
+    <div class="col-lg-9 ">
+      <div> </div>
+      <div class="columnas-clasi4 alinear_ofertas" style="    margin-left: 74px !important;"><h6 class="letra-columna">Oferta</h6></div>
+      <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Fecha</h6></div>
+      <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Hora</h6></div>
+      <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Actividad</h6></div>         
+        <div class="columnas-clasi3 alinear_ofertas2"><h6 id="titlecol5" class="letra-columna">Evaluar</h6></div>
+    </div>
+    <div class="col-lg-10 " style="margin-top: 20px;">
+        <div> 
+        <button type="button" class="btn btn_degrade btn_pasar " style="margin-top: 94px;" id="botonAnterior"><i class="icono-izquierda fas fa-chevron-left"></i></button>
+        <button type="button" class="btn btn_degrade btn_pasar" style="margin-top: 150px;" id="botonSiguiente"><i class="icono-derecha fas fa-chevron-right"></i></button>
+        </div>
+        <div class="p-3 recuadro margenr1 margenofertas sombra  temano_recuadro" style="margin-left: 104px;" id="oferta">
+          <div class="p-3" ></div>
+        </div>
+        <div class=" p-3 recuadro margenr sombra temano_recuadro" id="FechaEX">
+          <div class="p-3"></div>
+        </div>
+        <div class=" p-3 recuadro margenr sombra temano_recuadro" id="HoraEX">
+          <div class="p-3" ></div>
+        </div>
+        <div class=" p-3 recuadro margenr sombra temano_recuadro" id="ActividadEX">
+          <div class="p-3""></div>
+        </div>
+        <div class=" p-3 recuadro margenr sombra temano_recuadro"  >
+            <div class="p-3 recuadro_formalizar">
+            <div class ="btnformalizar" id="formalizar"></div>
+          </div>
+    </div>
+    </div>`,
+
+    // el boton de esta pagina para evaluar se dirige a este formulario #/ boton de experto/createeval
   experto_createeval = `<div class="d-flex align-items-stretch flex-column">
     <div id="menu"></div>
       <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
@@ -1693,88 +1733,171 @@ const
             </div>
             </div>`,
   tcoordinador_createasignacion = ` 
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
         <div class="d-flex align-items-stretch flex-column">
-      <div id="menu"></div>
-        <div class="col-lg-9">
+          <div id="menu"></div>
+          <div class="col-lg-9">
             <div class="infopagina" style="float:left;">
-            <div class="revisado_color"></div>
-  
-            <h4 class="letrainfo" style="    font-size: 20px !important; float: left;">Plan de asignación</h4>
+              <div class="revisado_color"></div>
+        
+              <h4 class="letrainfo" style="    font-size: 20px !important; float: left;">Plan de asignación</h4>
             </div>
-            <select class="form-select recuadro_asignacion sombra  " style="margin-top: 43px;" aria-label="Default select example" id="oferta_">
-            <option selected>oferta</option>
-            <option value="1"></option>
-            <option value="2"></option>
-            <option value="3"></option>
-          </select>
-        </div>
-        <div class="col-lg-9 ">
-          <div> </div>
-          <div class="columnas-clasi4 alinear_ofertas" style="margin-left: 20%;"><h6 class="letra-columna">Fecha</h6></div>
-          <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">hora</h6></div>
-          <div class="columnas-clasi4 alinear_ofertas2"><h6 class="letra-columna">Actividad</h6></div>
-          
-            <div class="columnas-clasi3 alinear_ofertas2"><h6 class="letra-columna">experto</h6></div>
-        </div>
-        <div class="col-lg-9 " style="margin-top: 20px;" >
-        <div class="row" style="margin-left: 20%;">
-  <div class="col"   style="max-width: 186px;">
-      <input type="datetime-local1" class="form-control inputsr sombra "style="background-color: white;" id="ciudadCF" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results estiloautocomp">
-  </div>
-  <div class="col"  style="max-width: 186px;">
-      <input type="datetime-local2"  class="form-control inputsr sombra "style= "background-color: white;" aria-label="usuario" name="correoCF">
-  </div>
-  <div class="col"  style="max-width: 186px;">
-  <input type="text" class="form-control inputsr sombra " id="ciudadCF" aria-label="usuario" name="ciudadCF"><ul class="autocomplete-results estiloautocomp">
-</div>
-<div class="col"  style="max-width: 186px;">
-<div class=" div_recuadros_asignacion">
-<select class="form-select sombra recuadro_asignacion margenr  " aria-label="Default select example" id="experto_asignado_">
-<option selected>puntaje</option>
-<option value="1"></option>
-<option value="2"></option>
-<option value="3"></option>
-</select>
-</div>
-</div>
-          
-</div>
-      </div>
-      
-
+            <select class="form-select recuadro_asignacion sombra  " style="margin-top: 43px;"
+              aria-label="Default select example" id="oferta_">
+              <option selected>oferta</option>
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+            </select>
+          </div>
+          <div class="col-lg-9 ">
+            <div> </div>
+            <div class="columnas-clasi4 alinear_ofertas" style="margin-left: 20%;">
+              <h6 class="letra-columna">Fecha</h6>
+            </div>
+            <div class="columnas-clasi4 alinear_ofertas2">
+              <h6 class="letra-columna">hora</h6>
+            </div>
+            <div class="columnas-clasi4 alinear_ofertas2">
+              <h6 class="letra-columna">Actividad</h6>
+            </div>
+            <div class="columnas-clasi3 alinear_ofertas2">
+              <h6 class="letra-columna">experto</h6>
+            </div>
+          </div>
+          <div id="container_rows" class="col-lg-9" style="margin-top: 20px;">
+            <div class="row " style="margin-left: 20%;">
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local1" class="form-control inputsr sombra date_" style="background-color: white;"
+                   aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local2" class="form-control inputsr sombra hora_" style="background-color: white;"
+                  aria-label="usuario" name="correoCF">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="text" class="form-control inputsr sombra actividad_" aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <div class=" div_recuadros_asignacion">
+                  <select class="form-select sombra recuadro_asignacion margenr  experto_asignado_" aria-label="Default select example">
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row rowTemp anadiendoasig" style="display:none;">
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local1" class="form-control inputsr sombra date_" style="background-color: white;"
+                   aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local2" class="form-control inputsr sombra hora_" style="background-color: white;"
+                  aria-label="usuario" name="correoCF">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="text" class="form-control inputsr sombra actividad_" aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <div class=" div_recuadros_asignacion">
+                  <select class="form-select sombra recuadro_asignacion margenr  experto_asignado_" aria-label="Default select example">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row rowTemp anadiendoasig" style="display:none">
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local1" class="form-control inputsr sombra date_" style="background-color: white;"
+                   aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local2" class="form-control inputsr sombra hora_" style="background-color: white;"
+                  aria-label="usuario" name="correoCF">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="text" class="form-control inputsr sombra actividad_" aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <div class=" div_recuadros_asignacion">
+                  <select class="form-select sombra recuadro_asignacion margenr  experto_asignado_" aria-label="Default select example">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row rowTemp anadiendoasig" style="display:none">
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local1" class="form-control inputsr sombra date_" style="background-color: white;"
+                   aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local2" class="form-control inputsr sombra hora_" style="background-color: white;"
+                  aria-label="usuario" name="correoCF">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="text" class="form-control inputsr sombra actividad_" aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <div class=" div_recuadros_asignacion">
+                  <select class="form-select sombra recuadro_asignacion margenr  experto_asignado_" aria-label="Default select example">
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row rowTemp anadiendoasig" style="display:none">
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local1" class="form-control inputsr sombra date_" style="background-color: white;"
+                   aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="datetime-local2" class="form-control inputsr sombra hora_" style="background-color: white;"
+                  aria-label="usuario" name="correoCF">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <input type="text" class="form-control inputsr sombra actividad_" aria-label="usuario" >
+                <ul class="autocomplete-results estiloautocomp">
+              </div>
+              <div class="col" style="max-width: 186px;">
+                <div class=" div_recuadros_asignacion">
+                  <select class="form-select sombra recuadro_asignacion margenr  experto_asignado_" aria-label="Default select example">
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+        
         </div>
         </div>
         
-       
-
-      </div>
-
-      <div style ="position: absolute; bottom: 40px; right: 300px;">
-      <button id="anadir" type="button" class="btn anadiendofil"><h6 class="letrabtn">añadir</h6></button>
-    <button id="asignar" type="button" class="btn btn_guardar_ofertas">
-      <h6 class="letrabtn">asignar</h6>
-    </button></div>
-
-    
-      </div>
-      
-      </div>`,
-  tcoordinador_asignacion =`<div class="d-flex align-items-stretch flex-column">
+        
+        
+        </div>
+        
+        <div style="position: absolute; bottom: 40px; 
+        margin-left: ; right: 300px;">
+          <button id="quitar" type="button" class="btn anadiendofil2">
+            <h6 class="letrabtn">Quitar</h6>
+          </button>
+          <button id="anadir" type="button" class="btn anadiendofil">
+            <h6 class="letrabtn">Añadir</h6>
+          </button>
+          <button id="asignar" type="button" class="btn btn_guardar_ofertas">
+            <h6 class="letrabtn">Asignar</h6>
+          </button></div>
+        
+        
+        </div>
+        
+        </div>`,
+  tcoordinador_asignacion = `<div class="d-flex align-items-stretch flex-column">
       <div id="menu"></div>
         <div class="row-cols-lg-4 col-md-4 col-sm-6 col-xs-12">
             <div class="infopagina">

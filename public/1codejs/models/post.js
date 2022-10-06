@@ -493,14 +493,26 @@ export const queryNextntTcAsignExpert = async(lastVisible) => {
     return docs_;            
 }
 
-export const setAsingExpert = async(id, data) => {
+export const setAsingExpert = async (idOf,data) => {
+    try {
+        data.Estado = 'Experto asignado';
+        await updateDoc(doc(db, "ofertas", idOf), data);
+        return "oferta actualizada formalizada correctamente";
+    } catch (e){
+        throw e;
+    }
+}
+
+
+export const setCoExperts = async(data) => {
     try{
-        await setDoc(doc(db, "oferta-experto",id), data).then().catch(e=>{throw e});
+        await addDoc(collection(db, "oferta-experto"), data);
         return 'enviado'
     } catch (e){
         throw e;
     }
 } 
+
 
 //</tcoorditcoordinador_createasignacion>//
 

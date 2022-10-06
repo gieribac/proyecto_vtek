@@ -62,6 +62,7 @@ const observerdatos = new MutationObserver(()=>{
             formalizar.innerHTML = ``;
 
             let list_id = [];
+            let l_id = [];
             let esquemas = [];
 
                 ds.forEach(d => {
@@ -70,7 +71,7 @@ const observerdatos = new MutationObserver(()=>{
                     const esquema = d.data().esquemaOF;
                     const st = d.data().Estado === undefined ? " - " : d.data().Estado;
                     esquemas.push(esquema);
-                    console.log(d.id);
+                    l_id.push(d.id);
                     oferta.innerHTML += `
                     <h6 class = "letra_recuadro_info2">${d.data().No_oferta}</h6>
                     `;
@@ -84,28 +85,28 @@ const observerdatos = new MutationObserver(()=>{
                     <h6 >${st}</h6>
                     `;
 
-                   
-                    formalizar.innerHTML += `
-                    <span> <button id="${d.id}" name="${d.data().No_oferta}" type="button" class="btn btn_degrade" style="margin-bottom: 9px; margin-top: 5px;"></button>‎ ‎ ‎ ‎ asignar‎ </span>`;
-                            
-                        
-                        
-
+                    if (d.data().experto) {
+                        formalizar.innerHTML += `<span><button type="button" class="btn btnazul" style="margin-bottom: 9px; margin-top: 5px;" disabled></button>‎ ‎ ‎ ‎ asignado </span>`;
+                    } else {
+                        formalizar.innerHTML += `<span><button id="${d.id}" name="${d.data().No_oferta}" type="button" class="btn btn_degrade" style="margin-bottom: 9px; margin-top: 5px;"></button>‎ ‎ ‎ ‎ asignar‎ </span>`;
+                    }
                     
 
                 });
             localStorage.setItem("nidsClient",JSON.stringify(esquemas));
-            localStorage.setItem("offersID",JSON.stringify(list_id));
+            localStorage.setItem("offersNo",JSON.stringify(list_id));
+            localStorage.setItem("offersID",JSON.stringify(l_id));
             listeners();
             return {primer,ultimo}
             }
         }
         const listeners = () => {
-            const vinculos = d.querySelectorAll('#formalizar > span');
+            const vinculos = d.querySelectorAll('.btn_degrade');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
+                console.log(element)
                 localStorage.setItem("clientSelect",element.name);
-                localStorage.setItem("clientSelectID",element.id);
+                localStorage.setItem("clientSelectid",element.id);
                 location.hash='#/tcoordinador/createasignacion';
             })
         })
