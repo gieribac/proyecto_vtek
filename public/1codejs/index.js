@@ -17,6 +17,8 @@ import './tcoordinador_createasignacion.js';
 import './plantillapdf.js';
 import '../../node_modules/flatpickr/dist/flatpickr.js';
 import './experto_createoffer.js';
+import './experto_createeval.js';
+
 // import './models/pruebacloudfunctions.js';
 
 //documento de resoluciones: ofertas id VvJziqtMHCUHg2k2bnZo. para consultar resolucion hace falta utilizar el producto (cambiando espacios, puntos y "-" por "_")

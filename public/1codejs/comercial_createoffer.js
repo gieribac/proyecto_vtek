@@ -204,7 +204,7 @@ const observerdatos = new MutationObserver(()=>{
                     const result = await uploadFile(inputFile.files[0]);
                     const url = await getFileURL(result.ref);
                     data.file = url;
-                }
+            }
             
             const sigue = async () => {
                 

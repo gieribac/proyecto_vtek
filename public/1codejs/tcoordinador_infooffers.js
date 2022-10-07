@@ -86,9 +86,9 @@ const observerdatos = new MutationObserver(()=>{
                     `;
 
                     if (d.data().experto0) {
-                        formalizar.innerHTML += `<span><button type="button" class="btn btnazul" style="margin-bottom: 9px; margin-top: 5px;" disabled></button>‎ ‎ ‎ ‎ asignado </span>`;
+                        formalizar.innerHTML += `<span><button type="button" class="btn btnazul" style="margin-bottom: 9px; margin-top: 5px; margin-right: 10px;" disabled></button>asignado </span>`;
                     } else {
-                        formalizar.innerHTML += `<span><button id="${d.id}" name="${d.data().No_oferta}" type="button" class="btn btn_degrade" style="margin-bottom: 9px; margin-top: 5px;"></button>‎ ‎ ‎ ‎ asignar‎ </span>`;
+                        formalizar.innerHTML += `<span><button id="${d.id}" name="${d.data().No_oferta}" type="button" class="btn btn_degrade btnaasigna" style="margin-bottom: 9px; margin-top: 5px; margin-right: 10px;"></button> asignar</span>`;
                     }
                     
 
@@ -101,7 +101,7 @@ const observerdatos = new MutationObserver(()=>{
             }
         }
         const listeners = () => {
-            const vinculos = d.querySelectorAll('.btn_degrade');
+            const vinculos = d.querySelectorAll('.btnaasigna');
             vinculos.forEach(element => {
             element.addEventListener('click',()=>{
                 console.log(element)
