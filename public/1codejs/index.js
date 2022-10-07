@@ -16,14 +16,17 @@ import './tcoordinador_infooffers.js';
 import './tcoordinador_createasignacion.js';
 import './plantillapdf.js';
 import '../../node_modules/flatpickr/dist/flatpickr.js';
+import './experto_createoffer.js';
 // import './models/pruebacloudfunctions.js';
 
 //documento de resoluciones: ofertas id VvJziqtMHCUHg2k2bnZo. para consultar resolucion hace falta utilizar el producto (cambiando espacios, puntos y "-" por "_")
-const setLC = (co, cl, u, rol) => {
+const setLC = (co, cl, u, rol, n) => {
     localStorage.setItem("em", co);
     localStorage.setItem("k", cl);
     localStorage.setItem("u", u);
     localStorage.setItem("rol", rol);
+    localStorage.setItem("noDoc", n);
+
 }
 
 export const loguearse = () => {
@@ -36,8 +39,9 @@ export const loguearse = () => {
                     const user = userCredential.user;
                     readUser().then(data => {
                         const rol = data.Cargo;
+                        const n = data.NoIdentificacion;
                         window.location.hash = `/${rol}`;
-                        setLC(correo, clave, user.uid, rol);
+                        setLC(correo, clave, user.uid, rol, n);
                     })
                 })
                 .catch((error) => {
