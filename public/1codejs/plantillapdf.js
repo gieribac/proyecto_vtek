@@ -1207,8 +1207,8 @@ const observerdatos = new MutationObserver(()=>{
                             try {
                             filas31.forEach((e,i) => {
                                 const hasAtrSDN = e.hasAttribute("style","display:none");
-                                if (hasAtrSDN){
-                                    filas31[i-1].setAttribute("style","display:none");
+                                if (!hasAtrSDN){
+                                    filas31[i].setAttribute("style","display:none");
                                     throw BreakError;
                                 };
                             });
@@ -1304,8 +1304,8 @@ const observerdatos = new MutationObserver(()=>{
                             try {
                             filas33.forEach((e,i) => {
                                 const hasAtrSDN = e.hasAttribute("style","display:none");
-                                if (hasAtrSDN){
-                                    filas33[i-1].setAttribute("style","display:none");
+                                if (!hasAtrSDN){
+                                    filas33[i].setAttribute("style","display:none");
                                     throw BreakError;
                                 }
                             });

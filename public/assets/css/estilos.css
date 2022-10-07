@@ -824,12 +824,27 @@ table{
     margin-left: 144px;
     position: relative;
     cursor: pointer;
+}.anadiendofil2{
+    background-image: url(../img/Recurso\ 26VTEK\ RECURSOS.png) !important;
+    background-size: contain;
+    width: 204px;
+    height: 77px;
+    border: none;
+    float: left;
+    margin-right:-173px;
+    background-repeat: no-repeat;
+    margin-top: 10px;
+
+    position: relative;
+    cursor: pointer;
 }
 
-.rowTemp {
+.anadiendoasig{
+    margin-top: 20px;
     margin-left: 20%;
-}
 
+
+}
 @media (max-width: 600px) {
     body,
     #message {

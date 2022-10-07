@@ -46,7 +46,7 @@ const observerdatos = new MutationObserver(()=>{
                 })
                 
             })
-        }).then ((e) => console.log(e))
+        }).catch (e => console.log(e))
         
         const cargarDocs = ds => {
             

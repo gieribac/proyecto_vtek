@@ -73,6 +73,7 @@ export const setFabrica = async(datos) => {
 export const setOffer = async(datos) => {
     try{
         datos.Formalizar = false;
+        datos.Estado = false;
         await addDoc(collection(db, "ofertas"), datos).then().catch(e=>{throw e});
         return 'oferta enviada correctamente'
     } catch (e){
@@ -574,3 +575,17 @@ export const readCli = async () => {
     console.log("No such document!");
     }
 }
+
+//// <experto_createoffer>////
+export const querySnapExpertOfsForm = async() => {
+    try {
+        const first = query(collection(db,"ofertas"), where("Estado","==","Experto asignado"));
+        const documentSnapshots = await getDocs(first);   
+        return documentSnapshots    
+    
+        } catch (e){
+            throw e.message    
+        }
+    }
+    
+//// </experto_createoffer>////
