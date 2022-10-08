@@ -1,4 +1,5 @@
 import {uploadFile, getFileURL} from "./storage.js";
+import {setOfEvalExpert, updateEval1OF} from "./models/post.js"
 const observerdatos = new MutationObserver(() => {
 
     const charge = () => {
@@ -7,22 +8,27 @@ const observerdatos = new MutationObserver(() => {
             inputsText = d.querySelectorAll('textarea'),
             adjuntadores = d.querySelectorAll('.adjuntando2'),
             btnEnviar = d.getElementById('login'),
-            camposT = ["solicitud","oferta_comercial","fichas_tecnicas","fotos","iso_9001","resultados_ensayos","etiquetado","carta_trazabilidad","actividades_complementarias","acta_muestreo","resultado_evaluacion","borrador_certificado"],
-            camposF = ["solicitudF","oferta_comercialF","fichas_tecnicasF","fotosF","iso_9001F","resultados_ensayosF","etiquetadoF","carta_trazabilidadF","actividades_complementariasF","acta_muestreoF","resultado_evaluacionF","borrador_certificadoF"];
-        let files;
+            camposT = ["solicitud","oferta_comercial","fichas_tecnicas","fotos","iso_9001","resultados_ensayos","etiquetado","carta_trazabilidad","actividades_complementarias","acta_muestreo","resultado_evaluacion","borrador_certificado"];
 
         const getData = () => {
             let dataT = {};
-            inputsText.forEach((e,i)=> {
-                dataT[camposT[i]] = e.value;
-            })
-            return dataT;
+            const BreakError = {};
+            try {
+                inputsText.forEach((e,i)=> {
+                    if (!Boolean(e.value)) {throw BreakError};
+                    dataT[camposT[i]] = e.value;
+                })
+                return dataT;
+            } catch (er){
+                if (er == BreakError) {
+                    Swal.fire(
+                        'Error!',
+                        `Debe llenar todos los campos`,
+                        'error'
+                    )
+                } else throw er;
+            }
         }
-
-        btnEnviar.addEventListener('click', e => {
-            const dataT = getData();
-            console.log(dataT);
-        })
 
         const setFile = async (inputFile) => {
             if (inputFile.files[0]){
@@ -31,15 +37,43 @@ const observerdatos = new MutationObserver(() => {
                 return url;
             }  
         }
-        const getFiles = () => {
-            let dataF = {};
-            adjuntadores.forEach((e,i)=> {
-                const url = setFile(e);
-                dataF[camposF[i]] = url;
+        const getFiles = (dataF) => {
+            adjuntadores.forEach(async (e,i)=> {
+                const url = await setFile(e);
+                Boolean(url) && (() => dataF[camposT[i]+'F'] = url)();                
             })
             return dataF;
-        }       
-
+        }  
+        
+        btnEnviar.addEventListener('click', async e => {
+            let dataT = getData();
+            if (Boolean(dataT)){               
+                let dataF = getFiles(dataT);
+                dataF.no_oferta = localStorage.getItem("clientSelect");
+                dataF.expert_doc = localStorage.getItem("noDoc");
+                const id = localStorage.getItem("clientSelectid");
+                setOfEvalExpert(id,dataF).then(
+                    await updateEval1OF(id)
+                ).then(
+                    Swal.fire(
+                        '¡Buen trabajo!',
+                        'Se ha enviado la Evaluación',
+                        'success'
+                    )
+                ).then(
+                    location.hash = '#/experto/createoffer'
+                ).catch( e => {
+                    console.log(e);
+               
+                    Swal.fire(
+                        '¡Error!!',
+                        `¡No se enviado, ha ocurrido un error`,
+                        'error'
+                    )
+                }
+                )                   
+            }            
+        })
     }
     location.hash == '#/experto/createeval' && charge();
 })

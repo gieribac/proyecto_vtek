@@ -160,6 +160,34 @@ export const inputAutocompleteCountry = (selectori) => {
       });
 }
 
+export const objectFilter = (grades) => {
+//   var grades = {
+//     linearAlgebra : 90,
+//     chemistry : 95,
+//     biology :90,
+//     languages : 96
+//  };
+let k = 0;
+Object.filter = function(mainObject, filterFunction){
+    return Object.assign(...Object.keys(mainObject)
+          .filter( function(ObjectKey){
+              return filterFunction(mainObject[ObjectKey])
+          } )
+          .map( function (ObjectKey){
+              k+=1;
+              return {[ObjectKey]: mainObject[ObjectKey]};
+          }) );
+}
+
+console.log("The grades are ",grades);
+
+var targetSubjects = Object.filter(grades, (grade)=> grade !== undefined && grade.length > 0);
+
+console.log("Target Subjects are ",targetSubjects);
+console.log(k)
+  return {targetSubjects, k};
+}
+
    
    
    //codigo para invocar ids cuando ha cambiado el dom

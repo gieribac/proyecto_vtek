@@ -367,7 +367,14 @@ export const updateFormalizarOF = async (idOf, check) => {
         throw e;
     }
 }
-
+export const updateEval1OF = async (idOf) => {
+    try {
+        await updateDoc(doc(db, "ofertas", idOf), {evaluado: true, Estado: "evaluado"});
+        return "evaluacion de oferta guardada";
+    } catch (e){
+        throw e;
+    }
+}
 export async function sendNotificateEmail(email, subject, body) {
     const collectionRef = collection(db, 'mail');
     const emailContent = {
@@ -505,11 +512,13 @@ export const setAsingExpert = async (idOf,data) => {
 }
 
 
-export const setCoExperts = async(data) => {
+export const setOfEvalExpert = async(id,data) => {
     try{
-        await addDoc(collection(db, "oferta-experto"), data);
+        console.log(data);
+        await setDoc(doc(db, "oferta-experto", id), data);
         return 'enviado'
     } catch (e){
+        console.log(e);
         throw e;
     }
 } 

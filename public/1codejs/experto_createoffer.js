@@ -5,7 +5,7 @@ const observerdatos = new MutationObserver(() => {
         console.log('experto_creteofers');
         let ultimoDoc = null;
         let primerDoc = null;
-        const ndoc = "1045789007";
+        const ndoc = localStorage.getItem("noDoc");
         
         const d=document,
             oferta = d.getElementById('oferta'),
@@ -99,10 +99,6 @@ const observerdatos = new MutationObserver(() => {
                 return { primer, ultimo }
             }
         }
-
-       // localStorage.setItem("nidsClient",JSON.stringify(esquemas));
-        // localStorage.setItem("offersNo",JSON.stringify(list_id));
-        // localStorage.setItem("offersID",JSON.stringify(l_id));
 
         const listeners = () => {
             const vinculos = d.querySelectorAll('.btnEval');
