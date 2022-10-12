@@ -1,5 +1,5 @@
 import {uploadFile, getFileURL} from "./storage.js";
-import {setOfEvalExpert, updateEval1OF} from "./models/post.js"
+import {setOfEvalExpert} from "./models/post.js"
 const observerdatos = new MutationObserver(() => {
 
     const charge = () => {
@@ -37,7 +37,8 @@ const observerdatos = new MutationObserver(() => {
                 return url;
             }  
         }
-        const getFiles = (dataF) => {
+        const getFiles = () => {
+            let dataF = {};
             adjuntadores.forEach(async (e,i)=> {
                 const url = await setFile(e);
                 Boolean(url) && (() => dataF[camposT[i]+'F'] = url)();                
@@ -48,13 +49,13 @@ const observerdatos = new MutationObserver(() => {
         btnEnviar.addEventListener('click', async e => {
             let dataT = getData();
             if (Boolean(dataT)){               
-                let dataF = getFiles(dataT);
+                let dataF = getFiles();
+                
                 dataF.no_oferta = localStorage.getItem("clientSelect");
                 dataF.expert_doc = localStorage.getItem("noDoc");
                 const id = localStorage.getItem("clientSelectid");
+                
                 setOfEvalExpert(id,dataF).then(
-                    await updateEval1OF(id)
-                ).then(
                     Swal.fire(
                         '¡Buen trabajo!',
                         'Se ha enviado la Evaluación',

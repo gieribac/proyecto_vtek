@@ -367,14 +367,7 @@ export const updateFormalizarOF = async (idOf, check) => {
         throw e;
     }
 }
-export const updateEval1OF = async (idOf) => {
-    try {
-        await updateDoc(doc(db, "ofertas", idOf), {evaluado: true, Estado: "evaluado"});
-        return "evaluacion de oferta guardada";
-    } catch (e){
-        throw e;
-    }
-}
+
 export async function sendNotificateEmail(email, subject, body) {
     const collectionRef = collection(db, 'mail');
     const emailContent = {
@@ -514,15 +507,25 @@ export const setAsingExpert = async (idOf,data) => {
 
 export const setOfEvalExpert = async(id,data) => {
     try{
-        console.log(data);
-        await setDoc(doc(db, "oferta-experto", id), data);
+        console.log(data);console.log(id);
+        await updateDoc(doc(db, "ofertas", id), data);
+        // console.log("Document written with ID: ", docRef.id);
         return 'enviado'
     } catch (e){
         console.log(e);
         throw e;
     }
-} 
 
+    
+}
+// export const updateEval1OF = async (idOf) => {
+//     try {
+//         await updateDoc(doc(db, "ofertas", idOf), {evaluado: true, Estado: "evaluado"});
+//         return "evaluacion de oferta guardada";
+//     } catch (e){
+//         throw e;
+//     }
+// }
 
 //</tcoorditcoordinador_createasignacion>//
 
