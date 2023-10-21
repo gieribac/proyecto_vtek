@@ -41,17 +41,18 @@ const observerdatos = new MutationObserver(() => {
             let dataF = {};
             adjuntadores.forEach(async (e,i)=> {
                 const url = await setFile(e);
-                Boolean(url) && (() => dataF[camposT[i]+'F'] = url)();                
+                dataF[camposT[i]+'F'] = url;
+                // Boolean(url) && (() => dataF[camposT[i]+'F'] = url)();                
             })
             return dataF;
         }  
         
         btnEnviar.addEventListener('click', async e => {
             let dataT = getData();
-            if (Boolean(dataT)){               
+            if (true){               
                 let dataF = getFiles();
-                
-                dataF.no_oferta = localStorage.getItem("clientSelect");
+
+                dataF.No_oferta = localStorage.getItem("clientSelect");
                 dataF.expert_doc = localStorage.getItem("noDoc");
                 const id = localStorage.getItem("clientSelectid");
                 

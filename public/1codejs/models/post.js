@@ -509,14 +509,11 @@ export const setOfEvalExpert = async(id,data) => {
     try{
         console.log(data);console.log(id);
         await updateDoc(doc(db, "ofertas", id), data);
-        // console.log("Document written with ID: ", docRef.id);
         return 'enviado'
     } catch (e){
         console.log(e);
         throw e;
-    }
-
-    
+    }    
 }
 // export const updateEval1OF = async (idOf) => {
 //     try {

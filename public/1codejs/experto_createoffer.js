@@ -24,8 +24,7 @@ const observerdatos = new MutationObserver(() => {
                 const arr = [e.data().experto0, e.data().experto1, e.data().experto2, e.data().experto3, e.data().experto4];
                 const bool = arr.includes(ndoc);
                 return bool;
-            }
-            );
+            });
             
             const docsPage1 = docsExperto.slice(0, limite);
             let registers = chargeDocs(docsPage1);
@@ -38,7 +37,6 @@ const observerdatos = new MutationObserver(() => {
                 ultimoDoc = registers.ultimo;
                 primerDoc = registers.primer;
             })
-
             btnAnterior.addEventListener('click', () => {
                 const indiceP = docsExperto.indexOf(primerDoc);
                 const docs = docsExperto.slice(indiceP - limite, indiceP);
@@ -95,8 +93,7 @@ const observerdatos = new MutationObserver(() => {
                 });
 
                 listeners();
-
-                return { primer, ultimo }
+                return {primer, ultimo}
             }
         }
 
